@@ -1,0 +1,118 @@
+AX51 MACRO ASSEMBLER  MAIN                                                                  01/27/23 13:14:30 PAGE     1
+
+
+MACRO ASSEMBLER AX51 V3.15.3.0
+OBJECT MODULE PLACED IN .\src\main.OBJ
+ASSEMBLER INVOKED BY: Z:\Applications\Simplicity Studio.app\Contents\Eclipse\developer\toolchains\keil_8051\9.60\BIN\AX5
+                      1.exe /Users/kiran/SimplicityStudio/v5_workspace/myProject_3/src/main.asm ERRORPRINT SET(SMALL,SIL
+                      ABS_STARTUP=1) DEBUG MACRO NOMOD51 INCDIR(/Applications/Simplicity Studio.app/Contents/Eclipse/dev
+                      eloper/sdks/8051/v4.2.5//Device/shared/si8051Base;/Applications/Simplicity Studio.app/Contents/Ecl
+                      ipse/developer/sdks/8051/v4.2.5//Device/EFM8BB1/inc) PRINT(.\src\main.lst) COND SYMBOLS PAGEWIDTH(
+                      120) PAGELENGTH(65) OBJECT(.\src\main.OBJ) 
+
+LOC    OBJ             LINE     SOURCE
+
+                          1     ; ESD Lab 1
+                          2     ; Part 1 Submittion
+                          3     ; Student Name : Kiran Jojare
+                          4     
+                          5     ; Strting address
+000000                    6     ORG 0000h
+                          7     
+                          8     ; initialize IRAM locations
+000000 7520FF             9     MOV 0x20, #0xFF ; store X in IRAM location 0x20
+000003 752203            10     MOV 0x22, #0x03 ; store Y in IRAM location 0x22
+                         11     
+                         12     
+                         13     
+                         14     ; check for divisor being 0
+000006 AC22              15     MOV R4, 0x22
+000008 BC0005            16     CJNE R4, #0x00, CALCULATIONS ; Comparing B with #0x00 and jump to CALCULATIONS if not eq
+                               ual
+                         17     ; both below were showing errors
+                         18     
+                         19     ; If the divisor is 0, the program must immediately jump to "ENDLOOP" without performing
+                                any
+                         20     ; calculations, writing an error code of "0x01" into internal memory.
+00000B 753001            21     MOV 0x30, #0x01 ; Write 0x01 to error code memory location
+00000E 802D              22     SJMP ENDLOOP ; Jump to ENDLOOP
+                         23     
+                         24     
+000010                   25     CALCULATIONS:
+000010 E520              26     MOV A, 0x20 ; move X from IRAM to accumulator
+000012 8522F0            27     MOV B, 0x22 ; move Y from IRAM to accumulator
+                         28     
+                         29     ; multiply X by 8 by rotating to left thrice
+000015 33                30     RLC A ; rotate left the value in accumulator
+000016 33                31     RLC A ; rotate left the value in accumulator
+000017 33                32     RLC A ; rotate left the value in accumulator
+000018 401C              33     JC PROBLEM
+                         34     
+                         35     
+                         36     ; IRAM location 0x21 contains the value of (X*8)
+00001A F521              37     MOV 0x21, A ; store X*8 in IRAM location 0x21
+                         38     
+                         39     ; if here, then no error has occured
+                         40     
+00001C C3                41     CLR C ; clear carry flag
+                         42     
+                         43     ; initialization before division
+00001D 752300            44     MOV 0x23, #0x00 ; initialize quotient to 0
+000020 752400            45     MOV 0x24, #0x00 ; initialize remainder to 0
+000023 7800              46     MOV R0, #0x00   ; initialize count(quotient) variable
+                         47     
+                         48     ; divide X*8 by Y
+AX51 MACRO ASSEMBLER  MAIN                                                                  01/27/23 13:14:30 PAGE     2
+
+                         49     ; loop to perform division using subttract with borrow
+000025                   50     div_loop:
+000025 FA                51         MOV R2, A
+000026 95F0              52         SUBB A, B             ; Subtract divisor from dividend
+000028 4003              53         JC div_end          ; Jump if carry is set
+00002A 08                54         INC R0               ; Increment quotient
+00002B 80F8              55         JMP div_loop         ; Repeat division loop
+00002D                   56     div_end:
+00002D 8823              57         mov 0x23, R0         ; Store quotient in IRAM location 0x23
+00002F 8A24              58         mov 0x24, R2          ; Store remainder in IRAM location 0x24
+                         59     
+                         60         ; NO ERROR, so storing 0x00 in 0x30 location
+                         61         ; write 0x00 to error code memory location
+000031 753000            62         mov 0x30, #0x00
+000034 8007              63         jmp ENDLOOP
+                         64     
+                         65     
+000036                   66     PROBLEM:
+                         67     ; The program shall leave the least significant 8 bits of the result in Z
+                         68     ; and shall write a "0x02" into the error code in internal memory if the
+                         69     ; calculation exceeds an 8-bit value when multiplying.
+000036 753002            70     MOV 0x30, #0x02
+000039 F523              71     MOV 0x23, A
+00003B 4000              72     JC ENDLOOP
+                         73     
+                         74     
+00003D                   75     ENDLOOP:
+00003D 80FE              76     SJMP ENDLOOP ; infinite loop
+                         77     
+                         78     
+                         79     ; program ends here
+                         80     END
+AX51 MACRO ASSEMBLER  MAIN                                                                  01/27/23 13:14:30 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                     T Y P E  V A L U E     ATTRIBUTES
+
+B. . . . . . . . . . . . .  D  ADDR  00F0H     A   
+CALCULATIONS . . . . . . .  C  ADDR  0010H     R   SEG=?CO?MAIN?0
+DIV_END. . . . . . . . . .  C  ADDR  002DH     R   SEG=?CO?MAIN?0
+DIV_LOOP . . . . . . . . .  C  ADDR  0025H     R   SEG=?CO?MAIN?0
+ENDLOOP. . . . . . . . . .  C  ADDR  003DH     R   SEG=?CO?MAIN?0
+PROBLEM. . . . . . . . . .  C  ADDR  0036H     R   SEG=?CO?MAIN?0
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S).

@@ -1,0 +1,26 @@
+Name     ESD;
+PartNo   00;
+Date     1/27/2023;
+Revision 01;
+Designer Engineer;
+Company  University of Colorado Boulder;
+Assembly None;
+Location ;
+Device   g16v8a;
+
+
+ORDER: A12, A13, A14, A15, CSPERIPH, PSEN, RD, READ; 
+
+
+VECTORS:
+1000*00*
+1111*00*
+0100*10*
+1001*11*
+0111*01*
+0011*10*
+1011*00*
+1100*01*
+0110*10*
+1000*11*
+0010*00*

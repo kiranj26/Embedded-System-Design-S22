@@ -1,0 +1,29 @@
+Name     ESD_Assignment_1 ;
+PartNo   00 ;
+Date     27-01-2023 ;
+Revision 01 ;
+Designer Engineer ;
+Company  university of colorado ;
+Assembly None ;
+Location  ;
+Device   g16v8a ;
+
+/* *************** INPUT PINS *********************/
+PIN   2  =  A15                       ; /*                                 */ 
+PIN   3  =  A14                       ; /*                                 */ 
+PIN   4  =  A13                       ; /*                                 */ 
+PIN   5  =  A12                       ; /*                                 */ 
+PIN   6  =  RD                       ; /*                                 */ 
+PIN   7  =  PSEN                       ; /*                                 */ 
+
+/* *************** OUTPUT PINS *********************/
+PIN   18  =  CSPERIPH                       ; /*                           */ 
+PIN   19  =  READ                        ; /*                                 */ 
+
+
+READ = RD & PSEN;
+CSPERIPH = !(A15 & A14 & A13 & A12);
+
+
+
+

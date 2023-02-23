@@ -21,11 +21,14 @@
 ; THE SOFTWARE.
 ;
 ;
-; @ brief  : assembly program which initializes the 8051 serial port 
-;            and then continuously (in an infinite loop) transmits 
-;            the character 'U'.
-; @ author : Kiran Jojare
-; @ date   : 23 Feb 2022
+; @ brief     : assembly program which initializes the 8051 serial port 
+;               and then continuously (in an infinite loop) transmits 
+;               the character 'U'.
+; @ author    : Kiran Jojare
+; @ date      : 23 Feb 2022
+; @ referenses : 
+;   Sample data transfer code available at edsims official webiste
+;   http://www.edsim51.com/examples.html#prog8
 
 CLR SM0    	; Clear the Stack Pointer for this program.
 

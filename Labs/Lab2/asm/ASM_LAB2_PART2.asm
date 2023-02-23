@@ -26,51 +26,38 @@
 ;            the character 'U'.
 ; @ author : Kiran Jojare
 ; @ date   : 23 Feb 2022
-; Clear the Stack Pointer for this program.
-CLR SM0
-; Enable all Interrupts.
-SETB SM1
-; Move contents of PCON register to accumulator A.
-MOV A, PCON
-; Set the 7th bit of the accumulator to 1.
-SETB ACC.7
-; Move the contents of accumulator A back to PCON register.
-MOV PCON, A
+
+CLR SM0    	; Clear the Stack Pointer for this program.
+
+SETB SM1	; Enable all Interrupts.
+
+MOV A, PCON	; Move contents of PCON register to accumulator A.
+
+SETB ACC.7	; Set the 7th bit of the accumulator to 1.
+MOV PCON, A	; Move the contents of accumulator A back to PCON register.
 ; This code sets the SMOD bit of PCON, which is used to set the baud rate of the serial port.
 
-; Initialize the Timer 1 in Mode 2 (auto-reload) for 9600 baud rate
-MOV TMOD, #20H
+MOV TMOD, #20H	; Initialize the Timer 1 in Mode 2 (auto-reload) for 9600 baud rate
 MOV TH1, #-13
-; Set the Serial Control Register (SCON) to 8-bit data, 1 stop bit, and enable Reception (REN)
-MOV SCON, #50H
-; Start Timer 1
-SETB TR1
+MOV SCON, #50H	; Set the Serial Control Register (SCON) to 8-bit data, 1 stop bit, and enable Reception (REN)
+
+SETB TR1	; Start Timer 1	
+
 
 ; Loop to transmit the character 'U' continuously
 again:
-; Move the ASCII code of 'U' to memory address 30h.
-MOV 30h, #'U'
-; Move the value 0 to memory address 31h.
-MOV 31h, #0
-
-; Move the memory address of 'U' to register R0.
-MOV R0, #30h
-; Move the contents of memory location pointed to by register R0 to accumulator A.
-MOV A, @R0
-; Jump to label 'finish' if accumulator A is 0 (i.e. end of string is reached)
-JZ finish
-; Move the contents of accumulator A to Serial Buffer Register (SBUF) to transmit data
-MOV SBUF, A
-; Increment the value in register R0 to point to the next memory location.
-INC R0
-; Jump to current address if the TI flag is not set. (TI flag is set when the SBUF is transmitted)
-JNB TI, $
-; Clear the TI flag to indicate that the data in SBUF has been transmitted.
-CLR TI
-; Jump to label 'again' to continue sending the next character in the string.
-JMP again
+MOV 30h, #'U'	; Move the ASCII code of 'U' to memory address 30h.
+MOV 31h, #0	; Move the value 0 to memory address 31h.
+MOV R0, #30h	; Move the memory address of 'U' to register R0.
+MOV A, @R0	; Move the contents of memory location pointed to by register R0 to accumulator A.
+JZ finish	; Jump to label 'finish' if accumulator A is 0 (i.e. end of string is reached)
+MOV SBUF, A	; Move the contents of accumulator A to Serial Buffer Register (SBUF) to transmit data
+INC R0		; Increment the value in register R0 to point to the next memory location.
+JNB TI, $	; Jump to current address if the TI flag is not set. (TI flag is set when the SBUF is transmitted)
+CLR TI		; Clear the TI flag to indicate that the data in SBUF has been transmitted.
+JMP again	; Jump to label 'again' to continue sending the next character in the string.
 
 finish:
-; Jump to the current address to halt the program.
-JMP $
+JMP $		; Jump to the current address to halt the program.
+
 

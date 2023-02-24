@@ -9,22 +9,24 @@ Location Boulder ;
 Device   g16v8a ;
 
 /* *************** INPUT PINS *********************/
-Pin 2 = RD;
-Pin 3 = PSEN;
-Pin 5 = A15;
-Pin 6 = A14;
-Pin 7 = A13;
-Pin 8 = A12;
-Pin 9 = WR;
+PIN 2 = A15 ; 	/* INPUT PIN 2: connected to A15 */
+PIN 3 = A14 ; 	/* INPUT PIN 3: connected to A14 */
+PIN 4 = A13 ; 	/* INPUT PIN 4: connected to A13 */
+PIN 5 = A12 ; 	/* INPUT PIN 5: connected to A12 */
+PIN 6 = RD ; 	/* INPUT PIN 6: connected to RD */
+PIN 7 = PSEN ; 	/* INPUT PIN 7: connected to PSEN */
+PIN 8 = WR ; 	/* INPUT PIN 8: connected to WR */
 
-/* Output definitions */
+/* ************* OUTPUT PINS ********************/
 
-Pin 19 = READ;
-Pin 18 = CSPERIPH;
-Pin 17 = WRITE;
+PIN 17 = TO_74LS374 ; 	/* OUTPUT PIN 17: connected to WE of TO_74LS374 */
+PIN 18 = READ ; 	/* OUTPUT PIN 18: connected to READ */
+PIN 19 = CSPERIPH ; 	/* OUTPUT PIN 19: connected to CSPERIPH */
+PIN 15 = CE ; 		/* OUTPUT PIN 15: connected to CE */
 
-/* Logic */
+/* ******* Logic Operations *********************/
 
-READ = RD & PSEN;
-CSPERIPH = A15;
-WRITE = !(WR);
+TO_74LS374 = (!A15 & !WR); 		/* WRITE_ENABLE is high when A15 and WR are low */
+READ = RD & PSEN; 			/* READ is high when RD and PSEN are both high */
+CSPERIPH = !(A15 & A14 & A13 & A12); 	/* CSPERIPH is high when A15, A14, A13, and A12 are all low */
+CE = A15; 				/* CE is high when A15 is high */

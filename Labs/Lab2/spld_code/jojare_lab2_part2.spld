@@ -19,10 +19,10 @@ PIN 8 = WR ; 	/* INPUT PIN 8: connected to WR */
 
 /* ************* OUTPUT PINS ********************/
 
+PIN 16 = CE ; 		/* OUTPUT PIN 16: connected to CE */
 PIN 17 = TO_74LS374 ; 	/* OUTPUT PIN 17: connected to WE of TO_74LS374 */
 PIN 18 = READ ; 	/* OUTPUT PIN 18: connected to READ */
 PIN 19 = CSPERIPH ; 	/* OUTPUT PIN 19: connected to CSPERIPH */
-PIN 15 = CE ; 		/* OUTPUT PIN 15: connected to CE */
 
 /* ******* Logic Operations *********************/
 

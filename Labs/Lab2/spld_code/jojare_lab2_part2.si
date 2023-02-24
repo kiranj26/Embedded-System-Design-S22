@@ -1,0 +1,24 @@
+Name     jojare_esd_lab2;
+PartNo   00;
+Date     2/24/2022;
+Revision 01;
+Designer Kiran Jojare ;
+Company  University of Colorado;
+Assembly None;
+Location Boulder;
+Device   g16v8a;
+
+
+ORDER: RD, %2, PSEN, %4, A15, %3, A14, %5, A13, %8, A12, %7, WR, %8, READ, %8, CSPERIPH ,%8 ,WRITE ; 
+
+
+VECTORS:
+0000000***
+0110000***
+1011111***
+111011X***
+1X1010X***
+X10XXX1***
+0X1XXXX***
+X0111XX***
+XXXXXXX***

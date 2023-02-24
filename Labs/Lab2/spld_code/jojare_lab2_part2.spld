@@ -1,0 +1,30 @@
+Name     jojare_esd_lab2 ;
+PartNo   00 ;
+Date     2/24/2022 ;
+Revision 01 ;
+Designer Kiran Jojare ;
+Company  University of Colorado ;
+Assembly None ;
+Location Boulder ;
+Device   g16v8a ;
+
+/* *************** INPUT PINS *********************/
+Pin 2 = RD;
+Pin 3 = PSEN;
+Pin 5 = A15;
+Pin 6 = A14;
+Pin 7 = A13;
+Pin 8 = A12;
+Pin 9 = WR;
+
+/* Output definitions */
+
+Pin 19 = READ;
+Pin 18 = CSPERIPH;
+Pin 17 = WRITE;
+
+/* Logic */
+
+READ = RD & PSEN;
+CSPERIPH = A15;
+WRITE = !(WR);

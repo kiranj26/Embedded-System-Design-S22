@@ -1,0 +1,306 @@
+AX51 MACRO ASSEMBLER  LAB2_PART2_LATCH                                                      02/25/23 17:47:44 PAGE     1
+
+
+MACRO ASSEMBLER AX51 V3.15.3.0
+OBJECT MODULE PLACED IN .\src\Lab2_Part2_Latch.OBJ
+ASSEMBLER INVOKED BY: Z:\Applications\Simplicity Studio.app\Contents\Eclipse\developer\toolchains\keil_8051\9.60\BIN\AX5
+                      1.exe /Users/kiran/SimplicityStudio/v5_workspace/ESD_LAB2_Part2_Latch/src/Lab2_Part2_Latch.asm ERR
+                      ORPRINT SET(SMALL,SILABS_STARTUP=1) DEBUG MACRO NOMOD51 INCDIR(/Applications/Simplicity Studio.app
+                      /Contents/Eclipse/developer/sdks/8051/v4.2.5//Device/shared/si8051Base;/Applications/Simplicity St
+                      udio.app/Contents/Eclipse/developer/sdks/8051/v4.2.5//Device/EFM8BB1/inc) PRINT(.\src\Lab2_Part2_L
+                      atch.lst) COND SYMBOLS PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\Lab2_Part2_Latch.OBJ) 
+
+LOC    OBJ             LINE     SOURCE
+
+                          1     ; MIT License
+                          2     ;
+                          3     ; Copyright (c) [2022] [Kiran Jojare]
+                          4     ;
+                          5     ; Permission is hereby granted, free of charge, to any person obtaining a copy
+                          6     ; of this software and associated documentation files (the "Software"), to deal
+                          7     ; in the Software without restriction, including without limitation the rights
+                          8     ; to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                          9     ; copies of the Software, and to permit persons to whom the Software is
+                         10     ; furnished to do so, subject to the following conditions:
+                         11     ;
+                         12     ; The above copyright notice and this permission notice shall be included in
+                         13     ; all copies or substantial portions of the Software.
+                         14     ;
+                         15     ; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                         16     ; IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                         17     ; FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                         18     ; AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                         19     ; LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                         20     ; OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                         21     ; THE SOFTWARE.
+                         22     ;
+                         23     ;
+                         24     ; @ brief  : Assembly code to test latch working.
+                         25     ;
+                         26     ; @ author : Kiran Jojare
+                         27     ; @ date   : 24 Feb 2022
+                         28     
+                         29     ;#include <reg51.h>
+                    +1   30     
+                    +1   31     
+                    +1   32     
+                    +1   33     
+                    +1   34     
+                    +1   35     
+                    +1   36     
+                    +1   37     
+                    +1   38     
+                    +1   39     
+                    +1   40     
+                    +1   41     
+  0080              +1   42     sfr P0   = 0x80;
+  0090              +1   43     sfr P1   = 0x90;
+  00A0              +1   44     sfr P2   = 0xA0;
+  00B0              +1   45     sfr P3   = 0xB0;
+  00D0              +1   46     sfr PSW  = 0xD0;
+  00E0              +1   47     sfr ACC  = 0xE0;
+  00F0              +1   48     sfr B    = 0xF0;
+  0081              +1   49     sfr SP   = 0x81;
+  0082              +1   50     sfr DPL  = 0x82;
+AX51 MACRO ASSEMBLER  LAB2_PART2_LATCH                                                      02/25/23 17:47:44 PAGE     2
+
+  0083              +1   51     sfr DPH  = 0x83;
+  0087              +1   52     sfr PCON = 0x87;
+  0088              +1   53     sfr TCON = 0x88;
+  0089              +1   54     sfr TMOD = 0x89;
+  008A              +1   55     sfr TL0  = 0x8A;
+  008B              +1   56     sfr TL1  = 0x8B;
+  008C              +1   57     sfr TH0  = 0x8C;
+  008D              +1   58     sfr TH1  = 0x8D;
+  00A8              +1   59     sfr IE   = 0xA8;
+  00B8              +1   60     sfr IP   = 0xB8;
+  0098              +1   61     sfr SCON = 0x98;
+  0099              +1   62     sfr SBUF = 0x99;
+                    +1   63     
+                    +1   64     
+                    +1   65     
+                    +1   66     
+00D0.7              +1   67     sbit CY   = 0xD7;
+00D0.6              +1   68     sbit AC   = 0xD6;
+00D0.5              +1   69     sbit F0   = 0xD5;
+00D0.4              +1   70     sbit RS1  = 0xD4;
+00D0.3              +1   71     sbit RS0  = 0xD3;
+00D0.2              +1   72     sbit OV   = 0xD2;
+00D0.0              +1   73     sbit P    = 0xD0;
+                    +1   74     
+                    +1   75     
+0088.7              +1   76     sbit TF1  = 0x8F;
+0088.6              +1   77     sbit TR1  = 0x8E;
+0088.5              +1   78     sbit TF0  = 0x8D;
+0088.4              +1   79     sbit TR0  = 0x8C;
+0088.3              +1   80     sbit IE1  = 0x8B;
+0088.2              +1   81     sbit IT1  = 0x8A;
+0088.1              +1   82     sbit IE0  = 0x89;
+0088.0              +1   83     sbit IT0  = 0x88;
+                    +1   84     
+                    +1   85     
+00A8.7              +1   86     sbit EA   = 0xAF;
+00A8.4              +1   87     sbit ES   = 0xAC;
+00A8.3              +1   88     sbit ET1  = 0xAB;
+00A8.2              +1   89     sbit EX1  = 0xAA;
+00A8.1              +1   90     sbit ET0  = 0xA9;
+00A8.0              +1   91     sbit EX0  = 0xA8;
+                    +1   92     
+                    +1   93      
+00B8.4              +1   94     sbit PS   = 0xBC;
+00B8.3              +1   95     sbit PT1  = 0xBB;
+00B8.2              +1   96     sbit PX1  = 0xBA;
+00B8.1              +1   97     sbit PT0  = 0xB9;
+00B8.0              +1   98     sbit PX0  = 0xB8;
+                    +1   99     
+                    +1  100     
+00B0.7              +1  101     sbit RD   = 0xB7;
+00B0.6              +1  102     sbit WR   = 0xB6;
+00B0.5              +1  103     sbit T1   = 0xB5;
+00B0.4              +1  104     sbit T0   = 0xB4;
+00B0.3              +1  105     sbit INT1 = 0xB3;
+00B0.2              +1  106     sbit INT0 = 0xB2;
+00B0.1              +1  107     sbit TXD  = 0xB1;
+00B0.0              +1  108     sbit RXD  = 0xB0;
+                    +1  109     
+                    +1  110     
+0098.7              +1  111     sbit SM0  = 0x9F;
+0098.6              +1  112     sbit SM1  = 0x9E;
+0098.5              +1  113     sbit SM2  = 0x9D;
+AX51 MACRO ASSEMBLER  LAB2_PART2_LATCH                                                      02/25/23 17:47:44 PAGE     3
+
+0098.4              +1  114     sbit REN  = 0x9C;
+0098.3              +1  115     sbit TB8  = 0x9B;
+0098.2              +1  116     sbit RB8  = 0x9A;
+0098.1              +1  117     sbit TI   = 0x99;
+0098.0              +1  118     sbit RI   = 0x98;
+                    +1  119     
+                    +1  120     
+                        121     
+                        122     
+000000                  123     ORG 0000H
+000000 020000     F     124     LJMP MAIN       ; Jump to MAIN function
+                        125     
+00000B                  126     ORG 000BH       ; Interrupt Service Routine (ISR) for Timer 0
+00000B 020000     F     127     LJMP ISR_TMR    ; Jump to ISR_TMR for Interrupt Service Routine
+                        128     
+000040                  129     ORG 0040H
+                        130     
+000040                  131     MAIN:
+                        132     
+                        133               ;MOV P1, #11111111 ; Initialize P1 with all pins set to logic high (LED off)
+                        134           ;MOV P1, #11110111 ; PIN 3 High
+000040 7C80             135           MOV R4, #80H;
+000042 7D00             136               MOV R5, #00H;
+000044 904000           137               MOV DPTR, #4000H;
+                        138     
+000047 E590             139           MOV A, P1
+000049 758901           140           MOV TMOD,#0X01    ; Timer 0, mode 1 (16-bit timer)
+00004C 75A882           141               MOV IE,#0X82  ; Enable Timer 0 interrupt and global interrupt
+                        142     
+00004F 309317           143           JNB P1.3, SET_NEW_TIME ; Check if P1.3 (input pin) is logic high, and set timer to
+                                new frequency if so
+000052 758C17           144               MOV TH0,#0X17 ; Higher byte of Timer 0
+000055 758A46           145               MOV TL0,#0X46 ; Lower byte of Timer 0
+000058 75F006           146               MOV B,#6         ; Set register B to 6 for loop
+00005B 8000             147           JMP START_TIMER
+                        148     
+00005D                  149     START_TIMER:
+00005D D28C             150           SETB TR0     ; Start Timer 0
+00005F                  151     HERE:
+                        152               ; Inside END loop of main Load DPTR logic
+00005F ED               153               MOV A, R5;
+000060 F0               154               MOVX @DPTR, A;
+000061 0D               155               INC R5;
+000062 BD7FFA           156               CJNE R5, #7FH, HERE;
+000065 7E00             157               MOV R6, #00H;
+000067 0100       F     158               AJMP HERE     ; Loop indefinitely until interrupt occurs
+                        159     
+000069                  160     SET_NEW_TIME:
+000069 758C93           161           MOV TH0,#0X93     ; Higher byte of Timer 0
+00006C 758A5B           162               MOV TL0,#0X5B ; Lower byte of Timer 0
+00006F 7812             163           MOV R0, #18    ; Set R0 to 18 for loop
+000071 80EA             164               JMP START_TIMER ; Restart timer with new frequency
+                        165     
+000073                  166     ISR_TMR:
+000073 EC               167                 MOV A, R4;
+000074 F0               168                 MOVX @DPTR, A;
+000075 0C               169             INC R4;
+000076 BC7F00           170                     CJNE R4, #07FH, NEXT
+000079 B292             171     NEXT:   CPL P1.2            ; Toggle an unused pin to indicate interrupt
+00007B 309314           172                     JNB P1.3 ,LOWER_FRQ ; If P1.3 is high, go to the lower frequency branch
+00007E 209300           173                 JB P1.3, NORMAL
+000081                  174     NORMAL:
+000081 D5F01D           175                DJNZ B,LOOP  ; Decrement B and wait until B is zero
+AX51 MACRO ASSEMBLER  LAB2_PART2_LATCH                                                      02/25/23 17:47:44 PAGE     4
+
+000084 758C17           176                MOV TH0,#0X17        ; Higher byte of Timer 0
+000087 758A46           177                MOV TL0,#0X46        ; Lower byte of Timer 0
+00008A 75F006           178                MOV B,#6         ; Set register B to 6 for loop
+00008D B291             179                CPL P1.1         ; Toggle the LED at P1.0
+00008F B292             180                CPL P1.2         ; Toggle the unused pin to indicate interrupt
+000091 32               181                RETI                 ; Return from Interrupt
+                        182     
+000092                  183     LOWER_FRQ:
+000092 D80D             184                DJNZ R0,LOOP     ; Decrement R0 and wait until R0 is zero
+000094 758C94           185                MOV TH0,#0X94        ; Higher byte of Timer 0 for lower frequency
+000097 758A5B           186                MOV TL0,#0X5B        ; Lower byte of Timer 0 for lower frequency
+00009A 7812             187                MOV R0,#18       ; Set R0 to 18 for loop
+00009C B291             188                CPL P1.1         ; Toggle the LED at P1.0
+00009E B292             189                CPL P1.2         ; Toggle the unused pin to indicate interrupt
+0000A0 32               190                RETI                 ; Return from Interrupt
+                        191     
+0000A1                  192     LOOP:
+0000A1 B292             193                CPL P1.2         ; Toggle the unused pin to indicate interrupt
+0000A3 32               194                RETI                 ; Return from Interrupt, clearing the Timer 0 flag (TF0)
+                        195     
+*** WARNING #A41 IN 195 (\Users\kiran\SimplicityStudio\v5_workspace\ESD_LAB2_Part2_Latch\src\Lab2_Part2_Latch.asm, LINE 
+                               103): MISSING 'END' STATEMENT
+AX51 MACRO ASSEMBLER  LAB2_PART2_LATCH                                                      02/25/23 17:47:44 PAGE     5
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                                 T Y P E  V A L U E     ATTRIBUTES
+
+AC . . . . . . . . . . . . . . . . . .  B  ADDR  00D0H.6   A   
+ACC. . . . . . . . . . . . . . . . . .  D  ADDR  00E0H     A   
+B. . . . . . . . . . . . . . . . . . .  D  ADDR  00F0H     A   
+CY . . . . . . . . . . . . . . . . . .  B  ADDR  00D0H.7   A   
+DPH. . . . . . . . . . . . . . . . . .  D  ADDR  0083H     A   
+DPL. . . . . . . . . . . . . . . . . .  D  ADDR  0082H     A   
+EA . . . . . . . . . . . . . . . . . .  B  ADDR  00A8H.7   A   
+ES . . . . . . . . . . . . . . . . . .  B  ADDR  00A8H.4   A   
+ET0. . . . . . . . . . . . . . . . . .  B  ADDR  00A8H.1   A   
+ET1. . . . . . . . . . . . . . . . . .  B  ADDR  00A8H.3   A   
+EX0. . . . . . . . . . . . . . . . . .  B  ADDR  00A8H.0   A   
+EX1. . . . . . . . . . . . . . . . . .  B  ADDR  00A8H.2   A   
+F0 . . . . . . . . . . . . . . . . . .  B  ADDR  00D0H.5   A   
+HERE . . . . . . . . . . . . . . . . .  C  ADDR  005FH     R   SEG=?CO?LAB2_PART2_LATCH?0
+IE . . . . . . . . . . . . . . . . . .  D  ADDR  00A8H     A   
+IE0. . . . . . . . . . . . . . . . . .  B  ADDR  0088H.1   A   
+IE1. . . . . . . . . . . . . . . . . .  B  ADDR  0088H.3   A   
+INT0 . . . . . . . . . . . . . . . . .  B  ADDR  00B0H.2   A   
+INT1 . . . . . . . . . . . . . . . . .  B  ADDR  00B0H.3   A   
+IP . . . . . . . . . . . . . . . . . .  D  ADDR  00B8H     A   
+ISR_TMR. . . . . . . . . . . . . . . .  C  ADDR  0073H     R   SEG=?CO?LAB2_PART2_LATCH?0
+IT0. . . . . . . . . . . . . . . . . .  B  ADDR  0088H.0   A   
+IT1. . . . . . . . . . . . . . . . . .  B  ADDR  0088H.2   A   
+LOOP . . . . . . . . . . . . . . . . .  C  ADDR  00A1H     R   SEG=?CO?LAB2_PART2_LATCH?0
+LOWER_FRQ. . . . . . . . . . . . . . .  C  ADDR  0092H     R   SEG=?CO?LAB2_PART2_LATCH?0
+MAIN . . . . . . . . . . . . . . . . .  C  ADDR  0040H     R   SEG=?CO?LAB2_PART2_LATCH?0
+NEXT . . . . . . . . . . . . . . . . .  C  ADDR  0079H     R   SEG=?CO?LAB2_PART2_LATCH?0
+NORMAL . . . . . . . . . . . . . . . .  C  ADDR  0081H     R   SEG=?CO?LAB2_PART2_LATCH?0
+OV . . . . . . . . . . . . . . . . . .  B  ADDR  00D0H.2   A   
+P. . . . . . . . . . . . . . . . . . .  B  ADDR  00D0H.0   A   
+P0 . . . . . . . . . . . . . . . . . .  D  ADDR  0080H     A   
+P1 . . . . . . . . . . . . . . . . . .  D  ADDR  0090H     A   
+P2 . . . . . . . . . . . . . . . . . .  D  ADDR  00A0H     A   
+P3 . . . . . . . . . . . . . . . . . .  D  ADDR  00B0H     A   
+PCON . . . . . . . . . . . . . . . . .  D  ADDR  0087H     A   
+PS . . . . . . . . . . . . . . . . . .  B  ADDR  00B8H.4   A   
+PSW. . . . . . . . . . . . . . . . . .  D  ADDR  00D0H     A   
+PT0. . . . . . . . . . . . . . . . . .  B  ADDR  00B8H.1   A   
+PT1. . . . . . . . . . . . . . . . . .  B  ADDR  00B8H.3   A   
+PX0. . . . . . . . . . . . . . . . . .  B  ADDR  00B8H.0   A   
+PX1. . . . . . . . . . . . . . . . . .  B  ADDR  00B8H.2   A   
+RB8. . . . . . . . . . . . . . . . . .  B  ADDR  0098H.2   A   
+RD . . . . . . . . . . . . . . . . . .  B  ADDR  00B0H.7   A   
+REN. . . . . . . . . . . . . . . . . .  B  ADDR  0098H.4   A   
+RI . . . . . . . . . . . . . . . . . .  B  ADDR  0098H.0   A   
+RS0. . . . . . . . . . . . . . . . . .  B  ADDR  00D0H.3   A   
+RS1. . . . . . . . . . . . . . . . . .  B  ADDR  00D0H.4   A   
+RXD. . . . . . . . . . . . . . . . . .  B  ADDR  00B0H.0   A   
+SBUF . . . . . . . . . . . . . . . . .  D  ADDR  0099H     A   
+SCON . . . . . . . . . . . . . . . . .  D  ADDR  0098H     A   
+SET_NEW_TIME . . . . . . . . . . . . .  C  ADDR  0069H     R   SEG=?CO?LAB2_PART2_LATCH?0
+SM0. . . . . . . . . . . . . . . . . .  B  ADDR  0098H.7   A   
+SM1. . . . . . . . . . . . . . . . . .  B  ADDR  0098H.6   A   
+SM2. . . . . . . . . . . . . . . . . .  B  ADDR  0098H.5   A   
+SP . . . . . . . . . . . . . . . . . .  D  ADDR  0081H     A   
+START_TIMER. . . . . . . . . . . . . .  C  ADDR  005DH     R   SEG=?CO?LAB2_PART2_LATCH?0
+T0 . . . . . . . . . . . . . . . . . .  B  ADDR  00B0H.4   A   
+AX51 MACRO ASSEMBLER  LAB2_PART2_LATCH                                                      02/25/23 17:47:44 PAGE     6
+
+T1 . . . . . . . . . . . . . . . . . .  B  ADDR  00B0H.5   A   
+TB8. . . . . . . . . . . . . . . . . .  B  ADDR  0098H.3   A   
+TCON . . . . . . . . . . . . . . . . .  D  ADDR  0088H     A   
+TF0. . . . . . . . . . . . . . . . . .  B  ADDR  0088H.5   A   
+TF1. . . . . . . . . . . . . . . . . .  B  ADDR  0088H.7   A   
+TH0. . . . . . . . . . . . . . . . . .  D  ADDR  008CH     A   
+TH1. . . . . . . . . . . . . . . . . .  D  ADDR  008DH     A   
+TI . . . . . . . . . . . . . . . . . .  B  ADDR  0098H.1   A   
+TL0. . . . . . . . . . . . . . . . . .  D  ADDR  008AH     A   
+TL1. . . . . . . . . . . . . . . . . .  D  ADDR  008BH     A   
+TMOD . . . . . . . . . . . . . . . . .  D  ADDR  0089H     A   
+TR0. . . . . . . . . . . . . . . . . .  B  ADDR  0088H.4   A   
+TR1. . . . . . . . . . . . . . . . . .  B  ADDR  0088H.6   A   
+TXD. . . . . . . . . . . . . . . . . .  B  ADDR  00B0H.1   A   
+WR . . . . . . . . . . . . . . . . . .  B  ADDR  00B0H.6   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S).

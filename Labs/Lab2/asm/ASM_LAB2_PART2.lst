@@ -1,0 +1,266 @@
+AX51 MACRO ASSEMBLER  ASSEMBLE                                                              02/24/23 12:43:23 PAGE     1
+
+
+MACRO ASSEMBLER AX51 V3.15.3.0
+OBJECT MODULE PLACED IN .\src\assemble.OBJ
+ASSEMBLER INVOKED BY: Z:\Applications\Simplicity Studio.app\Contents\Eclipse\developer\toolchains\keil_8051\9.60\BIN\AX5
+                      1.exe /Users/kiran/SimplicityStudio/v5_workspace/ESD_LAB2_Part2/src/assemble.asm ERRORPRINT SET(SM
+                      ALL,SILABS_STARTUP=1) DEBUG MACRO NOMOD51 INCDIR(/Applications/Simplicity Studio.app/Contents/Ecli
+                      pse/developer/sdks/8051/v4.2.5//Device/shared/si8051Base;/Applications/Simplicity Studio.app/Conte
+                      nts/Eclipse/developer/sdks/8051/v4.2.5//Device/EFM8BB1/inc) PRINT(.\src\assemble.lst) COND SYMBOLS
+                       PAGEWIDTH(120) PAGELENGTH(65) OBJECT(.\src\assemble.OBJ) 
+
+LOC    OBJ             LINE     SOURCE
+
+                          1     ; MIT License
+                          2     ;
+                          3     ; Copyright (c) [2022] [Kiran Jojare]
+                          4     ;
+                          5     ; Permission is hereby granted, free of charge, to any person obtaining a copy
+                          6     ; of this software and associated documentation files (the "Software"), to deal
+                          7     ; in the Software without restriction, including without limitation the rights
+                          8     ; to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                          9     ; copies of the Software, and to permit persons to whom the Software is
+                         10     ; furnished to do so, subject to the following conditions:
+                         11     ;
+                         12     ; The above copyright notice and this permission notice shall be included in
+                         13     ; all copies or substantial portions of the Software.
+                         14     ;
+                         15     ; THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                         16     ; IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                         17     ; FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                         18     ; AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                         19     ; LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                         20     ; OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                         21     ; THE SOFTWARE.
+                         22     ;
+                         23     ;
+                         24     ; @ brief  : assembly program which initializes the 8051 serial port
+                         25     ;            and then continuously (in an infinite loop) transmits
+                         26     ;            the character 'U'.
+                         27     ; @ author : Kiran Jojare
+                         28     ; @ date   : 23 Feb 2022
+                         29     
+                         30     ;#include <reg51.h>
+                    +1   31     
+                    +1   32     
+                    +1   33     
+                    +1   34     
+                    +1   35     
+                    +1   36     
+                    +1   37     
+                    +1   38     
+                    +1   39     
+                    +1   40     
+                    +1   41     
+                    +1   42     
+  0080              +1   43     sfr P0   = 0x80;
+  0090              +1   44     sfr P1   = 0x90;
+  00A0              +1   45     sfr P2   = 0xA0;
+  00B0              +1   46     sfr P3   = 0xB0;
+  00D0              +1   47     sfr PSW  = 0xD0;
+  00E0              +1   48     sfr ACC  = 0xE0;
+  00F0              +1   49     sfr B    = 0xF0;
+  0081              +1   50     sfr SP   = 0x81;
+AX51 MACRO ASSEMBLER  ASSEMBLE                                                              02/24/23 12:43:23 PAGE     2
+
+  0082              +1   51     sfr DPL  = 0x82;
+  0083              +1   52     sfr DPH  = 0x83;
+  0087              +1   53     sfr PCON = 0x87;
+  0088              +1   54     sfr TCON = 0x88;
+  0089              +1   55     sfr TMOD = 0x89;
+  008A              +1   56     sfr TL0  = 0x8A;
+  008B              +1   57     sfr TL1  = 0x8B;
+  008C              +1   58     sfr TH0  = 0x8C;
+  008D              +1   59     sfr TH1  = 0x8D;
+  00A8              +1   60     sfr IE   = 0xA8;
+  00B8              +1   61     sfr IP   = 0xB8;
+  0098              +1   62     sfr SCON = 0x98;
+  0099              +1   63     sfr SBUF = 0x99;
+                    +1   64     
+                    +1   65     
+                    +1   66     
+                    +1   67     
+00D0.7              +1   68     sbit CY   = 0xD7;
+00D0.6              +1   69     sbit AC   = 0xD6;
+00D0.5              +1   70     sbit F0   = 0xD5;
+00D0.4              +1   71     sbit RS1  = 0xD4;
+00D0.3              +1   72     sbit RS0  = 0xD3;
+00D0.2              +1   73     sbit OV   = 0xD2;
+00D0.0              +1   74     sbit P    = 0xD0;
+                    +1   75     
+                    +1   76     
+0088.7              +1   77     sbit TF1  = 0x8F;
+0088.6              +1   78     sbit TR1  = 0x8E;
+0088.5              +1   79     sbit TF0  = 0x8D;
+0088.4              +1   80     sbit TR0  = 0x8C;
+0088.3              +1   81     sbit IE1  = 0x8B;
+0088.2              +1   82     sbit IT1  = 0x8A;
+0088.1              +1   83     sbit IE0  = 0x89;
+0088.0              +1   84     sbit IT0  = 0x88;
+                    +1   85     
+                    +1   86     
+00A8.7              +1   87     sbit EA   = 0xAF;
+00A8.4              +1   88     sbit ES   = 0xAC;
+00A8.3              +1   89     sbit ET1  = 0xAB;
+00A8.2              +1   90     sbit EX1  = 0xAA;
+00A8.1              +1   91     sbit ET0  = 0xA9;
+00A8.0              +1   92     sbit EX0  = 0xA8;
+                    +1   93     
+                    +1   94      
+00B8.4              +1   95     sbit PS   = 0xBC;
+00B8.3              +1   96     sbit PT1  = 0xBB;
+00B8.2              +1   97     sbit PX1  = 0xBA;
+00B8.1              +1   98     sbit PT0  = 0xB9;
+00B8.0              +1   99     sbit PX0  = 0xB8;
+                    +1  100     
+                    +1  101     
+00B0.7              +1  102     sbit RD   = 0xB7;
+00B0.6              +1  103     sbit WR   = 0xB6;
+00B0.5              +1  104     sbit T1   = 0xB5;
+00B0.4              +1  105     sbit T0   = 0xB4;
+00B0.3              +1  106     sbit INT1 = 0xB3;
+00B0.2              +1  107     sbit INT0 = 0xB2;
+00B0.1              +1  108     sbit TXD  = 0xB1;
+00B0.0              +1  109     sbit RXD  = 0xB0;
+                    +1  110     
+                    +1  111     
+0098.7              +1  112     sbit SM0  = 0x9F;
+0098.6              +1  113     sbit SM1  = 0x9E;
+AX51 MACRO ASSEMBLER  ASSEMBLE                                                              02/24/23 12:43:23 PAGE     3
+
+0098.5              +1  114     sbit SM2  = 0x9D;
+0098.4              +1  115     sbit REN  = 0x9C;
+0098.3              +1  116     sbit TB8  = 0x9B;
+0098.2              +1  117     sbit RB8  = 0x9A;
+0098.1              +1  118     sbit TI   = 0x99;
+0098.0              +1  119     sbit RI   = 0x98;
+                    +1  120     
+                    +1  121     
+                        122     
+                        123     
+000000 C29F             124     CLR SM0         ; Clear the Stack Pointer for this program.
+                        125     
+000002 D29E             126     SETB SM1        ; Enable all Interrupts.
+                        127     
+000004 E587             128     MOV A, PCON     ; Move contents of PCON register to accumulator A.
+                        129     
+000006 D2E7             130     SETB ACC.7      ; Set the 7th bit of the accumulator to 1.
+000008 F587             131     MOV PCON, A     ; Move the contents of accumulator A back to PCON register.
+                        132     ; This code sets the SMOD bit of PCON, which is used to set the baud rate of the serial 
+                               port.
+                        133     
+00000A 758920           134     MOV TMOD, #20H  ; Initialize the Timer 1 in Mode 2 (auto-reload) for 9600 baud rate
+00000D 758DF3           135     MOV TH1, #-13
+000010 759850           136     MOV SCON, #50H  ; Set the Serial Control Register (SCON) to 8-bit data, 1 stop bit, and 
+                               enable Reception (REN)
+                        137     
+000013 D28E             138     SETB TR1        ; Start Timer 1
+                        139     
+                        140     
+                        141     ; Loop to transmit the character 'U' continuously
+000015                  142     again:
+000015 753055           143     MOV 30h, #'U'   ; Move the ASCII code of 'U' to memory address 30h.
+000018 753100           144     MOV 31h, #0     ; Move the value 0 to memory address 31h.
+00001B 7830             145     MOV R0, #30h    ; Move the memory address of 'U' to register R0.
+00001D E6               146     MOV A, @R0      ; Move the contents of memory location pointed to by register R0 to accu
+                               mulator A.
+00001E 600A             147     JZ finish       ; Jump to label 'finish' if accumulator A is 0 (i.e. end of string is re
+                               ached)
+000020 F599             148     MOV SBUF, A     ; Move the contents of accumulator A to Serial Buffer Register (SBUF) to
+                                transmit data
+000022 08               149     INC R0          ; Increment the value in register R0 to point to the next memory locatio
+                               n.
+000023 3099FD           150     JNB TI, $       ; Jump to current address if the TI flag is not set. (TI flag is set whe
+                               n the SBUF is transmitted)
+000026 C299             151     CLR TI          ; Clear the TI flag to indicate that the data in SBUF has been transmitt
+                               ed.
+000028 80EB             152     JMP again       ; Jump to label 'again' to continue sending the next character in the st
+                               ring.
+                        153     
+00002A                  154     finish:
+00002A 80FE             155     JMP $           ; Jump to the current address to halt the program.
+                        156     
+*** WARNING #A41 IN 156 (\Users\kiran\SimplicityStudio\v5_workspace\ESD_LAB2_Part2\src\assemble.asm, LINE 64): MISSING '
+                               END' STATEMENT
+AX51 MACRO ASSEMBLER  ASSEMBLE                                                              02/24/23 12:43:23 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                         T Y P E  V A L U E     ATTRIBUTES
+
+AC . . . . . . . . . . . . . .  B  ADDR  00D0H.6   A   
+ACC. . . . . . . . . . . . . .  D  ADDR  00E0H     A   
+AGAIN. . . . . . . . . . . . .  C  ADDR  0015H     R   SEG=?CO?ASSEMBLE?0
+B. . . . . . . . . . . . . . .  D  ADDR  00F0H     A   
+CY . . . . . . . . . . . . . .  B  ADDR  00D0H.7   A   
+DPH. . . . . . . . . . . . . .  D  ADDR  0083H     A   
+DPL. . . . . . . . . . . . . .  D  ADDR  0082H     A   
+EA . . . . . . . . . . . . . .  B  ADDR  00A8H.7   A   
+ES . . . . . . . . . . . . . .  B  ADDR  00A8H.4   A   
+ET0. . . . . . . . . . . . . .  B  ADDR  00A8H.1   A   
+ET1. . . . . . . . . . . . . .  B  ADDR  00A8H.3   A   
+EX0. . . . . . . . . . . . . .  B  ADDR  00A8H.0   A   
+EX1. . . . . . . . . . . . . .  B  ADDR  00A8H.2   A   
+F0 . . . . . . . . . . . . . .  B  ADDR  00D0H.5   A   
+FINISH . . . . . . . . . . . .  C  ADDR  002AH     R   SEG=?CO?ASSEMBLE?0
+IE . . . . . . . . . . . . . .  D  ADDR  00A8H     A   
+IE0. . . . . . . . . . . . . .  B  ADDR  0088H.1   A   
+IE1. . . . . . . . . . . . . .  B  ADDR  0088H.3   A   
+INT0 . . . . . . . . . . . . .  B  ADDR  00B0H.2   A   
+INT1 . . . . . . . . . . . . .  B  ADDR  00B0H.3   A   
+IP . . . . . . . . . . . . . .  D  ADDR  00B8H     A   
+IT0. . . . . . . . . . . . . .  B  ADDR  0088H.0   A   
+IT1. . . . . . . . . . . . . .  B  ADDR  0088H.2   A   
+OV . . . . . . . . . . . . . .  B  ADDR  00D0H.2   A   
+P. . . . . . . . . . . . . . .  B  ADDR  00D0H.0   A   
+P0 . . . . . . . . . . . . . .  D  ADDR  0080H     A   
+P1 . . . . . . . . . . . . . .  D  ADDR  0090H     A   
+P2 . . . . . . . . . . . . . .  D  ADDR  00A0H     A   
+P3 . . . . . . . . . . . . . .  D  ADDR  00B0H     A   
+PCON . . . . . . . . . . . . .  D  ADDR  0087H     A   
+PS . . . . . . . . . . . . . .  B  ADDR  00B8H.4   A   
+PSW. . . . . . . . . . . . . .  D  ADDR  00D0H     A   
+PT0. . . . . . . . . . . . . .  B  ADDR  00B8H.1   A   
+PT1. . . . . . . . . . . . . .  B  ADDR  00B8H.3   A   
+PX0. . . . . . . . . . . . . .  B  ADDR  00B8H.0   A   
+PX1. . . . . . . . . . . . . .  B  ADDR  00B8H.2   A   
+RB8. . . . . . . . . . . . . .  B  ADDR  0098H.2   A   
+RD . . . . . . . . . . . . . .  B  ADDR  00B0H.7   A   
+REN. . . . . . . . . . . . . .  B  ADDR  0098H.4   A   
+RI . . . . . . . . . . . . . .  B  ADDR  0098H.0   A   
+RS0. . . . . . . . . . . . . .  B  ADDR  00D0H.3   A   
+RS1. . . . . . . . . . . . . .  B  ADDR  00D0H.4   A   
+RXD. . . . . . . . . . . . . .  B  ADDR  00B0H.0   A   
+SBUF . . . . . . . . . . . . .  D  ADDR  0099H     A   
+SCON . . . . . . . . . . . . .  D  ADDR  0098H     A   
+SM0. . . . . . . . . . . . . .  B  ADDR  0098H.7   A   
+SM1. . . . . . . . . . . . . .  B  ADDR  0098H.6   A   
+SM2. . . . . . . . . . . . . .  B  ADDR  0098H.5   A   
+SP . . . . . . . . . . . . . .  D  ADDR  0081H     A   
+T0 . . . . . . . . . . . . . .  B  ADDR  00B0H.4   A   
+T1 . . . . . . . . . . . . . .  B  ADDR  00B0H.5   A   
+TB8. . . . . . . . . . . . . .  B  ADDR  0098H.3   A   
+TCON . . . . . . . . . . . . .  D  ADDR  0088H     A   
+TF0. . . . . . . . . . . . . .  B  ADDR  0088H.5   A   
+TF1. . . . . . . . . . . . . .  B  ADDR  0088H.7   A   
+TH0. . . . . . . . . . . . . .  D  ADDR  008CH     A   
+TH1. . . . . . . . . . . . . .  D  ADDR  008DH     A   
+AX51 MACRO ASSEMBLER  ASSEMBLE                                                              02/24/23 12:43:23 PAGE     5
+
+TI . . . . . . . . . . . . . .  B  ADDR  0098H.1   A   
+TL0. . . . . . . . . . . . . .  D  ADDR  008AH     A   
+TL1. . . . . . . . . . . . . .  D  ADDR  008BH     A   
+TMOD . . . . . . . . . . . . .  D  ADDR  0089H     A   
+TR0. . . . . . . . . . . . . .  B  ADDR  0088H.4   A   
+TR1. . . . . . . . . . . . . .  B  ADDR  0088H.6   A   
+TXD. . . . . . . . . . . . . .  B  ADDR  00B0H.1   A   
+WR . . . . . . . . . . . . . .  B  ADDR  00B0H.6   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S).

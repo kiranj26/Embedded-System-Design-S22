@@ -60,8 +60,8 @@ all: main-build
 main-build: Push_Led.elf secondary-outputs
 
 # Tool invocations
-Push_Led.elf Push_Led.map: $(OBJS) $(USER_OBJS) /Volumes/Partition\ 1\ -\ Kiran/Course\ Work/ESD/abc/Push_Led/STM32F411VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Push_Led.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Volumes/Partition 1 - Kiran/Course Work/ESD/abc/Push_Led/STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Push_Led.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Push_Led.elf Push_Led.map: $(OBJS) $(USER_OBJS) /Users/kiran/Desktop/Labs/Lab2/arm/Push_Led/STM32F411VETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Push_Led.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/kiran/Desktop/Labs/Lab2/arm/Push_Led/STM32F411VETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Push_Led.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

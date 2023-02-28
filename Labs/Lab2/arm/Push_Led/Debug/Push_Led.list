@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000091e0  00000000  00000000  0002003c  2**0
+ 12 .debug_info   000091e5  00000000  00000000  0002003c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00001586  00000000  00000000  0002921c  2**0
+ 13 .debug_abbrev 000015aa  00000000  00000000  00029221  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00000960  00000000  00000000  0002a7a8  2**3
+ 14 .debug_aranges 00000960  00000000  00000000  0002a7d0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_ranges 000008b8  00000000  00000000  0002b108  2**3
+ 15 .debug_ranges 000008b8  00000000  00000000  0002b130  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  000151d7  00000000  00000000  0002b9c0  2**0
+ 16 .debug_macro  000151d7  00000000  00000000  0002b9e8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009b7f  00000000  00000000  00040b97  2**0
+ 17 .debug_line   00009b81  00000000  00000000  00040bbf  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00087d52  00000000  00000000  0004a716  2**0
+ 18 .debug_str    00087d7e  00000000  00000000  0004a740  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000d2468  2**0
+ 19 .comment      00000050  00000000  00000000  000d24be  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000026f8  00000000  00000000  000d24b8  2**2
+ 20 .debug_frame  000026f8  00000000  00000000  000d2510  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -351,11 +351,11 @@ Disassembly of section .text:
  80004da:	bf00      	nop
 
 080004dc <HAL_TIM_PeriodElapsedCallback>:
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
+ * STM32F4 board. The first call will toggle pins GPIOD_12 and GPIOD_15.
+ *
+ * @param TIM_HandleTypeDef *htim: a pointer to the TIM handle structure
+ * @return void
+*/
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  80004dc:	b580      	push	{r7, lr}
  80004de:	b082      	sub	sp, #8
@@ -377,21 +377,25 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  8000500:	40020c00 	.word	0x40020c00
 
 08000504 <HAL_GPIO_EXTI_Callback>:
-
+ *
+ * @param uint16_t GPIO_Pin: the GPIO pin that triggered the interrupt
+ *
+ * @return void
+*/
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
  8000504:	b580      	push	{r7, lr}
  8000506:	b082      	sub	sp, #8
  8000508:	af00      	add	r7, sp, #0
  800050a:	4603      	mov	r3, r0
  800050c:	80fb      	strh	r3, [r7, #6]
-	count++;
+	cnt++;
  800050e:	4b0c      	ldr	r3, [pc, #48]	; (8000540 <HAL_GPIO_EXTI_Callback+0x3c>)
  8000510:	781b      	ldrb	r3, [r3, #0]
  8000512:	3301      	adds	r3, #1
  8000514:	b2da      	uxtb	r2, r3
  8000516:	4b0a      	ldr	r3, [pc, #40]	; (8000540 <HAL_GPIO_EXTI_Callback+0x3c>)
  8000518:	701a      	strb	r2, [r3, #0]
-	if(count%2==0){
+	if(cnt%2==0){
  800051a:	4b09      	ldr	r3, [pc, #36]	; (8000540 <HAL_GPIO_EXTI_Callback+0x3c>)
  800051c:	781b      	ldrb	r3, [r3, #0]
  800051e:	f003 0301 	and.w	r3, r3, #1
@@ -429,7 +433,7 @@ int main(void)
 {
  8000548:	b580      	push	{r7, lr}
  800054a:	af00      	add	r7, sp, #0
-  /* USER CODE END 1 */
+  /* USER CODE BEGIN 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -443,33 +447,36 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
  8000550:	f000 f818 	bl	8000584 <SystemClock_Config>
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  /*  Initializes the GPIO module. */
   MX_GPIO_Init();
  8000554:	f000 f8ce 	bl	80006f4 <MX_GPIO_Init>
+
+  /* Initializes the Timer2 module. */
   MX_TIM2_Init();
  8000558:	f000 f87e 	bl	8000658 <MX_TIM2_Init>
-  /* USER CODE BEGIN 2 */
+
+  /* Sets GPIO Pin 12 to HIGH state. */
   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12, GPIO_PIN_SET);
  800055c:	2201      	movs	r2, #1
  800055e:	f44f 5180 	mov.w	r1, #4096	; 0x1000
  8000562:	4806      	ldr	r0, [pc, #24]	; (800057c <main+0x34>)
  8000564:	f000 fe00 	bl	8001168 <HAL_GPIO_WritePin>
+
+  /* Sets GPIO Pin 15 to LOW state. */
   HAL_GPIO_WritePin(GPIOD, GPIO_PIN_15, GPIO_PIN_RESET);
  8000568:	2200      	movs	r2, #0
  800056a:	f44f 4100 	mov.w	r1, #32768	; 0x8000
  800056e:	4803      	ldr	r0, [pc, #12]	; (800057c <main+0x34>)
  8000570:	f000 fdfa 	bl	8001168 <HAL_GPIO_WritePin>
+
+  /* Starts Timer2 and enables interrupt generation */
   HAL_TIM_Base_Start_IT(&htim2);
  8000574:	4802      	ldr	r0, [pc, #8]	; (8000580 <main+0x38>)
  8000576:	f001 fb1d 	bl	8001bb4 <HAL_TIM_Base_Start_IT>
-  /* USER CODE END 2 */
 
   /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
   while (1)
  800057a:	e7fe      	b.n	800057a <main+0x32>
  800057c:	40020c00 	.word	0x40020c00

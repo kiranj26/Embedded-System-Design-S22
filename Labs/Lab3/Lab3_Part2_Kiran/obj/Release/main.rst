@@ -10,1339 +10,1315 @@
                                      10 ;--------------------------------------------------------
                                      11 	.globl _main
                                      12 	.globl __sdcc_external_startup
-                                     13 	.globl _command_processing
-                                     14 	.globl _putchar
-                                     15 	.globl _getchar
-                                     16 	.globl _Buffer_Size_Error_Correction
-                                     17 	.globl _printf_tiny
-                                     18 	.globl _printf
-                                     19 	.globl _free
-                                     20 	.globl _malloc
-                                     21 	.globl _CY
-                                     22 	.globl _AC
-                                     23 	.globl _F0
-                                     24 	.globl _RS1
-                                     25 	.globl _RS0
-                                     26 	.globl _OV
-                                     27 	.globl _F1
-                                     28 	.globl _P
-                                     29 	.globl _PS
-                                     30 	.globl _PT1
-                                     31 	.globl _PX1
-                                     32 	.globl _PT0
-                                     33 	.globl _PX0
-                                     34 	.globl _RD
-                                     35 	.globl _WR
-                                     36 	.globl _T1
-                                     37 	.globl _T0
-                                     38 	.globl _INT1
-                                     39 	.globl _INT0
-                                     40 	.globl _TXD
-                                     41 	.globl _RXD
-                                     42 	.globl _P3_7
-                                     43 	.globl _P3_6
-                                     44 	.globl _P3_5
-                                     45 	.globl _P3_4
-                                     46 	.globl _P3_3
-                                     47 	.globl _P3_2
-                                     48 	.globl _P3_1
-                                     49 	.globl _P3_0
-                                     50 	.globl _EA
-                                     51 	.globl _ES
-                                     52 	.globl _ET1
-                                     53 	.globl _EX1
-                                     54 	.globl _ET0
-                                     55 	.globl _EX0
-                                     56 	.globl _P2_7
-                                     57 	.globl _P2_6
-                                     58 	.globl _P2_5
-                                     59 	.globl _P2_4
-                                     60 	.globl _P2_3
-                                     61 	.globl _P2_2
-                                     62 	.globl _P2_1
-                                     63 	.globl _P2_0
-                                     64 	.globl _SM0
-                                     65 	.globl _SM1
-                                     66 	.globl _SM2
-                                     67 	.globl _REN
-                                     68 	.globl _TB8
-                                     69 	.globl _RB8
-                                     70 	.globl _TI
-                                     71 	.globl _RI
-                                     72 	.globl _P1_7
-                                     73 	.globl _P1_6
-                                     74 	.globl _P1_5
-                                     75 	.globl _P1_4
-                                     76 	.globl _P1_3
-                                     77 	.globl _P1_2
-                                     78 	.globl _P1_1
-                                     79 	.globl _P1_0
-                                     80 	.globl _TF1
-                                     81 	.globl _TR1
-                                     82 	.globl _TF0
-                                     83 	.globl _TR0
-                                     84 	.globl _IE1
-                                     85 	.globl _IT1
-                                     86 	.globl _IE0
-                                     87 	.globl _IT0
-                                     88 	.globl _P0_7
-                                     89 	.globl _P0_6
-                                     90 	.globl _P0_5
-                                     91 	.globl _P0_4
-                                     92 	.globl _P0_3
-                                     93 	.globl _P0_2
-                                     94 	.globl _P0_1
-                                     95 	.globl _P0_0
-                                     96 	.globl _TXD0
-                                     97 	.globl _RXD0
-                                     98 	.globl _BREG_F7
-                                     99 	.globl _BREG_F6
-                                    100 	.globl _BREG_F5
-                                    101 	.globl _BREG_F4
-                                    102 	.globl _BREG_F3
-                                    103 	.globl _BREG_F2
-                                    104 	.globl _BREG_F1
-                                    105 	.globl _BREG_F0
-                                    106 	.globl _P5_7
-                                    107 	.globl _P5_6
-                                    108 	.globl _P5_5
-                                    109 	.globl _P5_4
-                                    110 	.globl _P5_3
-                                    111 	.globl _P5_2
-                                    112 	.globl _P5_1
-                                    113 	.globl _P5_0
-                                    114 	.globl _P4_7
-                                    115 	.globl _P4_6
-                                    116 	.globl _P4_5
-                                    117 	.globl _P4_4
-                                    118 	.globl _P4_3
-                                    119 	.globl _P4_2
-                                    120 	.globl _P4_1
-                                    121 	.globl _P4_0
-                                    122 	.globl _PX0L
-                                    123 	.globl _PT0L
-                                    124 	.globl _PX1L
-                                    125 	.globl _PT1L
-                                    126 	.globl _PSL
-                                    127 	.globl _PT2L
-                                    128 	.globl _PPCL
-                                    129 	.globl _EC
-                                    130 	.globl _CCF0
-                                    131 	.globl _CCF1
-                                    132 	.globl _CCF2
-                                    133 	.globl _CCF3
-                                    134 	.globl _CCF4
-                                    135 	.globl _CR
-                                    136 	.globl _CF
-                                    137 	.globl _TF2
-                                    138 	.globl _EXF2
-                                    139 	.globl _RCLK
-                                    140 	.globl _TCLK
-                                    141 	.globl _EXEN2
-                                    142 	.globl _TR2
-                                    143 	.globl _C_T2
-                                    144 	.globl _CP_RL2
-                                    145 	.globl _T2CON_7
-                                    146 	.globl _T2CON_6
-                                    147 	.globl _T2CON_5
-                                    148 	.globl _T2CON_4
-                                    149 	.globl _T2CON_3
-                                    150 	.globl _T2CON_2
-                                    151 	.globl _T2CON_1
-                                    152 	.globl _T2CON_0
-                                    153 	.globl _PT2
-                                    154 	.globl _ET2
-                                    155 	.globl _B
-                                    156 	.globl _ACC
-                                    157 	.globl _PSW
-                                    158 	.globl _IP
-                                    159 	.globl _P3
-                                    160 	.globl _IE
-                                    161 	.globl _P2
-                                    162 	.globl _SBUF
-                                    163 	.globl _SCON
-                                    164 	.globl _P1
-                                    165 	.globl _TH1
-                                    166 	.globl _TH0
-                                    167 	.globl _TL1
-                                    168 	.globl _TL0
-                                    169 	.globl _TMOD
-                                    170 	.globl _TCON
-                                    171 	.globl _PCON
-                                    172 	.globl _DPH
-                                    173 	.globl _DPL
-                                    174 	.globl _SP
-                                    175 	.globl _P0
-                                    176 	.globl _SBUF0
-                                    177 	.globl _DP0L
-                                    178 	.globl _DP0H
-                                    179 	.globl _EECON
-                                    180 	.globl _KBF
-                                    181 	.globl _KBE
-                                    182 	.globl _KBLS
-                                    183 	.globl _BRL
-                                    184 	.globl _BDRCON
-                                    185 	.globl _T2MOD
-                                    186 	.globl _SPDAT
-                                    187 	.globl _SPSTA
-                                    188 	.globl _SPCON
-                                    189 	.globl _SADEN
-                                    190 	.globl _SADDR
-                                    191 	.globl _WDTPRG
-                                    192 	.globl _WDTRST
-                                    193 	.globl _P5
-                                    194 	.globl _P4
-                                    195 	.globl _IPH1
-                                    196 	.globl _IPL1
-                                    197 	.globl _IPH0
-                                    198 	.globl _IPL0
-                                    199 	.globl _IEN1
-                                    200 	.globl _IEN0
-                                    201 	.globl _CMOD
-                                    202 	.globl _CL
-                                    203 	.globl _CH
-                                    204 	.globl _CCON
-                                    205 	.globl _CCAPM4
-                                    206 	.globl _CCAPM3
-                                    207 	.globl _CCAPM2
-                                    208 	.globl _CCAPM1
-                                    209 	.globl _CCAPM0
-                                    210 	.globl _CCAP4L
-                                    211 	.globl _CCAP3L
-                                    212 	.globl _CCAP2L
-                                    213 	.globl _CCAP1L
-                                    214 	.globl _CCAP0L
-                                    215 	.globl _CCAP4H
-                                    216 	.globl _CCAP3H
-                                    217 	.globl _CCAP2H
-                                    218 	.globl _CCAP1H
-                                    219 	.globl _CCAP0H
-                                    220 	.globl _CKCON1
-                                    221 	.globl _CKCON0
-                                    222 	.globl _CKRL
-                                    223 	.globl _AUXR1
-                                    224 	.globl _AUXR
-                                    225 	.globl _TH2
-                                    226 	.globl _TL2
-                                    227 	.globl _RCAP2H
-                                    228 	.globl _RCAP2L
-                                    229 	.globl _T2CON
-                                    230 	.globl _buffer_size_arr
-                                    231 	.globl _command_characters_detected
-                                    232 	.globl _total_characters_detected
-                                    233 	.globl _storage_character_detected
-                                    234 	.globl _ptr_buffer1
-                                    235 	.globl _buffer1
-                                    236 	.globl _ptr_buffer0
-                                    237 	.globl _buffer0
-                                    238 	.globl _buffer_size
-                                    239 	.globl _new_buffer_arr
-                                    240 ;--------------------------------------------------------
-                                    241 ; special function registers
-                                    242 ;--------------------------------------------------------
-                                    243 	.area RSEG    (ABS,DATA)
-      000000                        244 	.org 0x0000
-                           0000C8   245 _T2CON	=	0x00c8
-                           0000CA   246 _RCAP2L	=	0x00ca
-                           0000CB   247 _RCAP2H	=	0x00cb
-                           0000CC   248 _TL2	=	0x00cc
-                           0000CD   249 _TH2	=	0x00cd
-                           00008E   250 _AUXR	=	0x008e
-                           0000A2   251 _AUXR1	=	0x00a2
-                           000097   252 _CKRL	=	0x0097
-                           00008F   253 _CKCON0	=	0x008f
-                           0000AF   254 _CKCON1	=	0x00af
-                           0000FA   255 _CCAP0H	=	0x00fa
-                           0000FB   256 _CCAP1H	=	0x00fb
-                           0000FC   257 _CCAP2H	=	0x00fc
-                           0000FD   258 _CCAP3H	=	0x00fd
-                           0000FE   259 _CCAP4H	=	0x00fe
-                           0000EA   260 _CCAP0L	=	0x00ea
-                           0000EB   261 _CCAP1L	=	0x00eb
-                           0000EC   262 _CCAP2L	=	0x00ec
-                           0000ED   263 _CCAP3L	=	0x00ed
-                           0000EE   264 _CCAP4L	=	0x00ee
-                           0000DA   265 _CCAPM0	=	0x00da
-                           0000DB   266 _CCAPM1	=	0x00db
-                           0000DC   267 _CCAPM2	=	0x00dc
-                           0000DD   268 _CCAPM3	=	0x00dd
-                           0000DE   269 _CCAPM4	=	0x00de
-                           0000D8   270 _CCON	=	0x00d8
-                           0000F9   271 _CH	=	0x00f9
-                           0000E9   272 _CL	=	0x00e9
-                           0000D9   273 _CMOD	=	0x00d9
-                           0000A8   274 _IEN0	=	0x00a8
-                           0000B1   275 _IEN1	=	0x00b1
-                           0000B8   276 _IPL0	=	0x00b8
-                           0000B7   277 _IPH0	=	0x00b7
-                           0000B2   278 _IPL1	=	0x00b2
-                           0000B3   279 _IPH1	=	0x00b3
-                           0000C0   280 _P4	=	0x00c0
-                           0000E8   281 _P5	=	0x00e8
-                           0000A6   282 _WDTRST	=	0x00a6
-                           0000A7   283 _WDTPRG	=	0x00a7
-                           0000A9   284 _SADDR	=	0x00a9
-                           0000B9   285 _SADEN	=	0x00b9
-                           0000C3   286 _SPCON	=	0x00c3
-                           0000C4   287 _SPSTA	=	0x00c4
-                           0000C5   288 _SPDAT	=	0x00c5
-                           0000C9   289 _T2MOD	=	0x00c9
-                           00009B   290 _BDRCON	=	0x009b
-                           00009A   291 _BRL	=	0x009a
-                           00009C   292 _KBLS	=	0x009c
-                           00009D   293 _KBE	=	0x009d
-                           00009E   294 _KBF	=	0x009e
-                           0000D2   295 _EECON	=	0x00d2
-                           000083   296 _DP0H	=	0x0083
-                           000082   297 _DP0L	=	0x0082
-                           000099   298 _SBUF0	=	0x0099
-                           000080   299 _P0	=	0x0080
-                           000081   300 _SP	=	0x0081
-                           000082   301 _DPL	=	0x0082
-                           000083   302 _DPH	=	0x0083
-                           000087   303 _PCON	=	0x0087
-                           000088   304 _TCON	=	0x0088
-                           000089   305 _TMOD	=	0x0089
-                           00008A   306 _TL0	=	0x008a
-                           00008B   307 _TL1	=	0x008b
-                           00008C   308 _TH0	=	0x008c
-                           00008D   309 _TH1	=	0x008d
-                           000090   310 _P1	=	0x0090
-                           000098   311 _SCON	=	0x0098
-                           000099   312 _SBUF	=	0x0099
-                           0000A0   313 _P2	=	0x00a0
-                           0000A8   314 _IE	=	0x00a8
-                           0000B0   315 _P3	=	0x00b0
-                           0000B8   316 _IP	=	0x00b8
-                           0000D0   317 _PSW	=	0x00d0
-                           0000E0   318 _ACC	=	0x00e0
-                           0000F0   319 _B	=	0x00f0
-                                    320 ;--------------------------------------------------------
-                                    321 ; special function bits
-                                    322 ;--------------------------------------------------------
-                                    323 	.area RSEG    (ABS,DATA)
-      000000                        324 	.org 0x0000
-                           0000AD   325 _ET2	=	0x00ad
-                           0000BD   326 _PT2	=	0x00bd
-                           0000C8   327 _T2CON_0	=	0x00c8
-                           0000C9   328 _T2CON_1	=	0x00c9
-                           0000CA   329 _T2CON_2	=	0x00ca
-                           0000CB   330 _T2CON_3	=	0x00cb
-                           0000CC   331 _T2CON_4	=	0x00cc
-                           0000CD   332 _T2CON_5	=	0x00cd
-                           0000CE   333 _T2CON_6	=	0x00ce
-                           0000CF   334 _T2CON_7	=	0x00cf
-                           0000C8   335 _CP_RL2	=	0x00c8
-                           0000C9   336 _C_T2	=	0x00c9
-                           0000CA   337 _TR2	=	0x00ca
-                           0000CB   338 _EXEN2	=	0x00cb
-                           0000CC   339 _TCLK	=	0x00cc
-                           0000CD   340 _RCLK	=	0x00cd
-                           0000CE   341 _EXF2	=	0x00ce
-                           0000CF   342 _TF2	=	0x00cf
-                           0000DF   343 _CF	=	0x00df
-                           0000DE   344 _CR	=	0x00de
-                           0000DC   345 _CCF4	=	0x00dc
-                           0000DB   346 _CCF3	=	0x00db
-                           0000DA   347 _CCF2	=	0x00da
-                           0000D9   348 _CCF1	=	0x00d9
-                           0000D8   349 _CCF0	=	0x00d8
-                           0000AE   350 _EC	=	0x00ae
-                           0000BE   351 _PPCL	=	0x00be
-                           0000BD   352 _PT2L	=	0x00bd
-                           0000BC   353 _PSL	=	0x00bc
-                           0000BB   354 _PT1L	=	0x00bb
-                           0000BA   355 _PX1L	=	0x00ba
-                           0000B9   356 _PT0L	=	0x00b9
-                           0000B8   357 _PX0L	=	0x00b8
-                           0000C0   358 _P4_0	=	0x00c0
-                           0000C1   359 _P4_1	=	0x00c1
-                           0000C2   360 _P4_2	=	0x00c2
-                           0000C3   361 _P4_3	=	0x00c3
-                           0000C4   362 _P4_4	=	0x00c4
-                           0000C5   363 _P4_5	=	0x00c5
-                           0000C6   364 _P4_6	=	0x00c6
-                           0000C7   365 _P4_7	=	0x00c7
-                           0000E8   366 _P5_0	=	0x00e8
-                           0000E9   367 _P5_1	=	0x00e9
-                           0000EA   368 _P5_2	=	0x00ea
-                           0000EB   369 _P5_3	=	0x00eb
-                           0000EC   370 _P5_4	=	0x00ec
-                           0000ED   371 _P5_5	=	0x00ed
-                           0000EE   372 _P5_6	=	0x00ee
-                           0000EF   373 _P5_7	=	0x00ef
-                           0000F0   374 _BREG_F0	=	0x00f0
-                           0000F1   375 _BREG_F1	=	0x00f1
-                           0000F2   376 _BREG_F2	=	0x00f2
-                           0000F3   377 _BREG_F3	=	0x00f3
-                           0000F4   378 _BREG_F4	=	0x00f4
-                           0000F5   379 _BREG_F5	=	0x00f5
-                           0000F6   380 _BREG_F6	=	0x00f6
-                           0000F7   381 _BREG_F7	=	0x00f7
-                           0000B0   382 _RXD0	=	0x00b0
-                           0000B1   383 _TXD0	=	0x00b1
-                           000080   384 _P0_0	=	0x0080
-                           000081   385 _P0_1	=	0x0081
-                           000082   386 _P0_2	=	0x0082
-                           000083   387 _P0_3	=	0x0083
-                           000084   388 _P0_4	=	0x0084
-                           000085   389 _P0_5	=	0x0085
-                           000086   390 _P0_6	=	0x0086
-                           000087   391 _P0_7	=	0x0087
-                           000088   392 _IT0	=	0x0088
-                           000089   393 _IE0	=	0x0089
-                           00008A   394 _IT1	=	0x008a
-                           00008B   395 _IE1	=	0x008b
-                           00008C   396 _TR0	=	0x008c
-                           00008D   397 _TF0	=	0x008d
-                           00008E   398 _TR1	=	0x008e
-                           00008F   399 _TF1	=	0x008f
-                           000090   400 _P1_0	=	0x0090
-                           000091   401 _P1_1	=	0x0091
-                           000092   402 _P1_2	=	0x0092
-                           000093   403 _P1_3	=	0x0093
-                           000094   404 _P1_4	=	0x0094
-                           000095   405 _P1_5	=	0x0095
-                           000096   406 _P1_6	=	0x0096
-                           000097   407 _P1_7	=	0x0097
-                           000098   408 _RI	=	0x0098
-                           000099   409 _TI	=	0x0099
-                           00009A   410 _RB8	=	0x009a
-                           00009B   411 _TB8	=	0x009b
-                           00009C   412 _REN	=	0x009c
-                           00009D   413 _SM2	=	0x009d
-                           00009E   414 _SM1	=	0x009e
-                           00009F   415 _SM0	=	0x009f
-                           0000A0   416 _P2_0	=	0x00a0
-                           0000A1   417 _P2_1	=	0x00a1
-                           0000A2   418 _P2_2	=	0x00a2
-                           0000A3   419 _P2_3	=	0x00a3
-                           0000A4   420 _P2_4	=	0x00a4
-                           0000A5   421 _P2_5	=	0x00a5
-                           0000A6   422 _P2_6	=	0x00a6
-                           0000A7   423 _P2_7	=	0x00a7
-                           0000A8   424 _EX0	=	0x00a8
-                           0000A9   425 _ET0	=	0x00a9
-                           0000AA   426 _EX1	=	0x00aa
-                           0000AB   427 _ET1	=	0x00ab
-                           0000AC   428 _ES	=	0x00ac
-                           0000AF   429 _EA	=	0x00af
-                           0000B0   430 _P3_0	=	0x00b0
-                           0000B1   431 _P3_1	=	0x00b1
-                           0000B2   432 _P3_2	=	0x00b2
-                           0000B3   433 _P3_3	=	0x00b3
-                           0000B4   434 _P3_4	=	0x00b4
-                           0000B5   435 _P3_5	=	0x00b5
-                           0000B6   436 _P3_6	=	0x00b6
-                           0000B7   437 _P3_7	=	0x00b7
-                           0000B0   438 _RXD	=	0x00b0
-                           0000B1   439 _TXD	=	0x00b1
-                           0000B2   440 _INT0	=	0x00b2
-                           0000B3   441 _INT1	=	0x00b3
-                           0000B4   442 _T0	=	0x00b4
-                           0000B5   443 _T1	=	0x00b5
-                           0000B6   444 _WR	=	0x00b6
-                           0000B7   445 _RD	=	0x00b7
-                           0000B8   446 _PX0	=	0x00b8
-                           0000B9   447 _PT0	=	0x00b9
-                           0000BA   448 _PX1	=	0x00ba
-                           0000BB   449 _PT1	=	0x00bb
-                           0000BC   450 _PS	=	0x00bc
-                           0000D0   451 _P	=	0x00d0
-                           0000D1   452 _F1	=	0x00d1
-                           0000D2   453 _OV	=	0x00d2
-                           0000D3   454 _RS0	=	0x00d3
-                           0000D4   455 _RS1	=	0x00d4
-                           0000D5   456 _F0	=	0x00d5
-                           0000D6   457 _AC	=	0x00d6
-                           0000D7   458 _CY	=	0x00d7
-                                    459 ;--------------------------------------------------------
-                                    460 ; overlayable register banks
-                                    461 ;--------------------------------------------------------
-                                    462 	.area REG_BANK_0	(REL,OVR,DATA)
-      000000                        463 	.ds 8
-                                    464 ;--------------------------------------------------------
-                                    465 ; internal ram data
-                                    466 ;--------------------------------------------------------
-                                    467 	.area DSEG    (DATA)
-      000013                        468 _main_sloc0_1_0:
-      000013                        469 	.ds 2
+                                     13 	.globl _putchar
+                                     14 	.globl _getchar
+                                     15 	.globl _command_processing
+                                     16 	.globl _printf_tiny
+                                     17 	.globl _printf
+                                     18 	.globl _free
+                                     19 	.globl _malloc
+                                     20 	.globl _CY
+                                     21 	.globl _AC
+                                     22 	.globl _F0
+                                     23 	.globl _RS1
+                                     24 	.globl _RS0
+                                     25 	.globl _OV
+                                     26 	.globl _F1
+                                     27 	.globl _P
+                                     28 	.globl _PS
+                                     29 	.globl _PT1
+                                     30 	.globl _PX1
+                                     31 	.globl _PT0
+                                     32 	.globl _PX0
+                                     33 	.globl _RD
+                                     34 	.globl _WR
+                                     35 	.globl _T1
+                                     36 	.globl _T0
+                                     37 	.globl _INT1
+                                     38 	.globl _INT0
+                                     39 	.globl _TXD
+                                     40 	.globl _RXD
+                                     41 	.globl _P3_7
+                                     42 	.globl _P3_6
+                                     43 	.globl _P3_5
+                                     44 	.globl _P3_4
+                                     45 	.globl _P3_3
+                                     46 	.globl _P3_2
+                                     47 	.globl _P3_1
+                                     48 	.globl _P3_0
+                                     49 	.globl _EA
+                                     50 	.globl _ES
+                                     51 	.globl _ET1
+                                     52 	.globl _EX1
+                                     53 	.globl _ET0
+                                     54 	.globl _EX0
+                                     55 	.globl _P2_7
+                                     56 	.globl _P2_6
+                                     57 	.globl _P2_5
+                                     58 	.globl _P2_4
+                                     59 	.globl _P2_3
+                                     60 	.globl _P2_2
+                                     61 	.globl _P2_1
+                                     62 	.globl _P2_0
+                                     63 	.globl _SM0
+                                     64 	.globl _SM1
+                                     65 	.globl _SM2
+                                     66 	.globl _REN
+                                     67 	.globl _TB8
+                                     68 	.globl _RB8
+                                     69 	.globl _TI
+                                     70 	.globl _RI
+                                     71 	.globl _P1_7
+                                     72 	.globl _P1_6
+                                     73 	.globl _P1_5
+                                     74 	.globl _P1_4
+                                     75 	.globl _P1_3
+                                     76 	.globl _P1_2
+                                     77 	.globl _P1_1
+                                     78 	.globl _P1_0
+                                     79 	.globl _TF1
+                                     80 	.globl _TR1
+                                     81 	.globl _TF0
+                                     82 	.globl _TR0
+                                     83 	.globl _IE1
+                                     84 	.globl _IT1
+                                     85 	.globl _IE0
+                                     86 	.globl _IT0
+                                     87 	.globl _P0_7
+                                     88 	.globl _P0_6
+                                     89 	.globl _P0_5
+                                     90 	.globl _P0_4
+                                     91 	.globl _P0_3
+                                     92 	.globl _P0_2
+                                     93 	.globl _P0_1
+                                     94 	.globl _P0_0
+                                     95 	.globl _TXD0
+                                     96 	.globl _RXD0
+                                     97 	.globl _BREG_F7
+                                     98 	.globl _BREG_F6
+                                     99 	.globl _BREG_F5
+                                    100 	.globl _BREG_F4
+                                    101 	.globl _BREG_F3
+                                    102 	.globl _BREG_F2
+                                    103 	.globl _BREG_F1
+                                    104 	.globl _BREG_F0
+                                    105 	.globl _P5_7
+                                    106 	.globl _P5_6
+                                    107 	.globl _P5_5
+                                    108 	.globl _P5_4
+                                    109 	.globl _P5_3
+                                    110 	.globl _P5_2
+                                    111 	.globl _P5_1
+                                    112 	.globl _P5_0
+                                    113 	.globl _P4_7
+                                    114 	.globl _P4_6
+                                    115 	.globl _P4_5
+                                    116 	.globl _P4_4
+                                    117 	.globl _P4_3
+                                    118 	.globl _P4_2
+                                    119 	.globl _P4_1
+                                    120 	.globl _P4_0
+                                    121 	.globl _PX0L
+                                    122 	.globl _PT0L
+                                    123 	.globl _PX1L
+                                    124 	.globl _PT1L
+                                    125 	.globl _PSL
+                                    126 	.globl _PT2L
+                                    127 	.globl _PPCL
+                                    128 	.globl _EC
+                                    129 	.globl _CCF0
+                                    130 	.globl _CCF1
+                                    131 	.globl _CCF2
+                                    132 	.globl _CCF3
+                                    133 	.globl _CCF4
+                                    134 	.globl _CR
+                                    135 	.globl _CF
+                                    136 	.globl _TF2
+                                    137 	.globl _EXF2
+                                    138 	.globl _RCLK
+                                    139 	.globl _TCLK
+                                    140 	.globl _EXEN2
+                                    141 	.globl _TR2
+                                    142 	.globl _C_T2
+                                    143 	.globl _CP_RL2
+                                    144 	.globl _T2CON_7
+                                    145 	.globl _T2CON_6
+                                    146 	.globl _T2CON_5
+                                    147 	.globl _T2CON_4
+                                    148 	.globl _T2CON_3
+                                    149 	.globl _T2CON_2
+                                    150 	.globl _T2CON_1
+                                    151 	.globl _T2CON_0
+                                    152 	.globl _PT2
+                                    153 	.globl _ET2
+                                    154 	.globl _B
+                                    155 	.globl _ACC
+                                    156 	.globl _PSW
+                                    157 	.globl _IP
+                                    158 	.globl _P3
+                                    159 	.globl _IE
+                                    160 	.globl _P2
+                                    161 	.globl _SBUF
+                                    162 	.globl _SCON
+                                    163 	.globl _P1
+                                    164 	.globl _TH1
+                                    165 	.globl _TH0
+                                    166 	.globl _TL1
+                                    167 	.globl _TL0
+                                    168 	.globl _TMOD
+                                    169 	.globl _TCON
+                                    170 	.globl _PCON
+                                    171 	.globl _DPH
+                                    172 	.globl _DPL
+                                    173 	.globl _SP
+                                    174 	.globl _P0
+                                    175 	.globl _SBUF0
+                                    176 	.globl _DP0L
+                                    177 	.globl _DP0H
+                                    178 	.globl _EECON
+                                    179 	.globl _KBF
+                                    180 	.globl _KBE
+                                    181 	.globl _KBLS
+                                    182 	.globl _BRL
+                                    183 	.globl _BDRCON
+                                    184 	.globl _T2MOD
+                                    185 	.globl _SPDAT
+                                    186 	.globl _SPSTA
+                                    187 	.globl _SPCON
+                                    188 	.globl _SADEN
+                                    189 	.globl _SADDR
+                                    190 	.globl _WDTPRG
+                                    191 	.globl _WDTRST
+                                    192 	.globl _P5
+                                    193 	.globl _P4
+                                    194 	.globl _IPH1
+                                    195 	.globl _IPL1
+                                    196 	.globl _IPH0
+                                    197 	.globl _IPL0
+                                    198 	.globl _IEN1
+                                    199 	.globl _IEN0
+                                    200 	.globl _CMOD
+                                    201 	.globl _CL
+                                    202 	.globl _CH
+                                    203 	.globl _CCON
+                                    204 	.globl _CCAPM4
+                                    205 	.globl _CCAPM3
+                                    206 	.globl _CCAPM2
+                                    207 	.globl _CCAPM1
+                                    208 	.globl _CCAPM0
+                                    209 	.globl _CCAP4L
+                                    210 	.globl _CCAP3L
+                                    211 	.globl _CCAP2L
+                                    212 	.globl _CCAP1L
+                                    213 	.globl _CCAP0L
+                                    214 	.globl _CCAP4H
+                                    215 	.globl _CCAP3H
+                                    216 	.globl _CCAP2H
+                                    217 	.globl _CCAP1H
+                                    218 	.globl _CCAP0H
+                                    219 	.globl _CKCON1
+                                    220 	.globl _CKCON0
+                                    221 	.globl _CKRL
+                                    222 	.globl _AUXR1
+                                    223 	.globl _AUXR
+                                    224 	.globl _TH2
+                                    225 	.globl _TL2
+                                    226 	.globl _RCAP2H
+                                    227 	.globl _RCAP2L
+                                    228 	.globl _T2CON
+                                    229 	.globl _buffer_size_arr
+                                    230 	.globl _command_characters_detected
+                                    231 	.globl _total_characters_detected
+                                    232 	.globl _storage_character_detected
+                                    233 	.globl _ptr_buffer1
+                                    234 	.globl _buffer1
+                                    235 	.globl _ptr_buffer0
+                                    236 	.globl _buffer0
+                                    237 	.globl _buffer_size
+                                    238 	.globl _new_buffer_arr
+                                    239 ;--------------------------------------------------------
+                                    240 ; special function registers
+                                    241 ;--------------------------------------------------------
+                                    242 	.area RSEG    (ABS,DATA)
+      000000                        243 	.org 0x0000
+                           0000C8   244 _T2CON	=	0x00c8
+                           0000CA   245 _RCAP2L	=	0x00ca
+                           0000CB   246 _RCAP2H	=	0x00cb
+                           0000CC   247 _TL2	=	0x00cc
+                           0000CD   248 _TH2	=	0x00cd
+                           00008E   249 _AUXR	=	0x008e
+                           0000A2   250 _AUXR1	=	0x00a2
+                           000097   251 _CKRL	=	0x0097
+                           00008F   252 _CKCON0	=	0x008f
+                           0000AF   253 _CKCON1	=	0x00af
+                           0000FA   254 _CCAP0H	=	0x00fa
+                           0000FB   255 _CCAP1H	=	0x00fb
+                           0000FC   256 _CCAP2H	=	0x00fc
+                           0000FD   257 _CCAP3H	=	0x00fd
+                           0000FE   258 _CCAP4H	=	0x00fe
+                           0000EA   259 _CCAP0L	=	0x00ea
+                           0000EB   260 _CCAP1L	=	0x00eb
+                           0000EC   261 _CCAP2L	=	0x00ec
+                           0000ED   262 _CCAP3L	=	0x00ed
+                           0000EE   263 _CCAP4L	=	0x00ee
+                           0000DA   264 _CCAPM0	=	0x00da
+                           0000DB   265 _CCAPM1	=	0x00db
+                           0000DC   266 _CCAPM2	=	0x00dc
+                           0000DD   267 _CCAPM3	=	0x00dd
+                           0000DE   268 _CCAPM4	=	0x00de
+                           0000D8   269 _CCON	=	0x00d8
+                           0000F9   270 _CH	=	0x00f9
+                           0000E9   271 _CL	=	0x00e9
+                           0000D9   272 _CMOD	=	0x00d9
+                           0000A8   273 _IEN0	=	0x00a8
+                           0000B1   274 _IEN1	=	0x00b1
+                           0000B8   275 _IPL0	=	0x00b8
+                           0000B7   276 _IPH0	=	0x00b7
+                           0000B2   277 _IPL1	=	0x00b2
+                           0000B3   278 _IPH1	=	0x00b3
+                           0000C0   279 _P4	=	0x00c0
+                           0000E8   280 _P5	=	0x00e8
+                           0000A6   281 _WDTRST	=	0x00a6
+                           0000A7   282 _WDTPRG	=	0x00a7
+                           0000A9   283 _SADDR	=	0x00a9
+                           0000B9   284 _SADEN	=	0x00b9
+                           0000C3   285 _SPCON	=	0x00c3
+                           0000C4   286 _SPSTA	=	0x00c4
+                           0000C5   287 _SPDAT	=	0x00c5
+                           0000C9   288 _T2MOD	=	0x00c9
+                           00009B   289 _BDRCON	=	0x009b
+                           00009A   290 _BRL	=	0x009a
+                           00009C   291 _KBLS	=	0x009c
+                           00009D   292 _KBE	=	0x009d
+                           00009E   293 _KBF	=	0x009e
+                           0000D2   294 _EECON	=	0x00d2
+                           000083   295 _DP0H	=	0x0083
+                           000082   296 _DP0L	=	0x0082
+                           000099   297 _SBUF0	=	0x0099
+                           000080   298 _P0	=	0x0080
+                           000081   299 _SP	=	0x0081
+                           000082   300 _DPL	=	0x0082
+                           000083   301 _DPH	=	0x0083
+                           000087   302 _PCON	=	0x0087
+                           000088   303 _TCON	=	0x0088
+                           000089   304 _TMOD	=	0x0089
+                           00008A   305 _TL0	=	0x008a
+                           00008B   306 _TL1	=	0x008b
+                           00008C   307 _TH0	=	0x008c
+                           00008D   308 _TH1	=	0x008d
+                           000090   309 _P1	=	0x0090
+                           000098   310 _SCON	=	0x0098
+                           000099   311 _SBUF	=	0x0099
+                           0000A0   312 _P2	=	0x00a0
+                           0000A8   313 _IE	=	0x00a8
+                           0000B0   314 _P3	=	0x00b0
+                           0000B8   315 _IP	=	0x00b8
+                           0000D0   316 _PSW	=	0x00d0
+                           0000E0   317 _ACC	=	0x00e0
+                           0000F0   318 _B	=	0x00f0
+                                    319 ;--------------------------------------------------------
+                                    320 ; special function bits
+                                    321 ;--------------------------------------------------------
+                                    322 	.area RSEG    (ABS,DATA)
+      000000                        323 	.org 0x0000
+                           0000AD   324 _ET2	=	0x00ad
+                           0000BD   325 _PT2	=	0x00bd
+                           0000C8   326 _T2CON_0	=	0x00c8
+                           0000C9   327 _T2CON_1	=	0x00c9
+                           0000CA   328 _T2CON_2	=	0x00ca
+                           0000CB   329 _T2CON_3	=	0x00cb
+                           0000CC   330 _T2CON_4	=	0x00cc
+                           0000CD   331 _T2CON_5	=	0x00cd
+                           0000CE   332 _T2CON_6	=	0x00ce
+                           0000CF   333 _T2CON_7	=	0x00cf
+                           0000C8   334 _CP_RL2	=	0x00c8
+                           0000C9   335 _C_T2	=	0x00c9
+                           0000CA   336 _TR2	=	0x00ca
+                           0000CB   337 _EXEN2	=	0x00cb
+                           0000CC   338 _TCLK	=	0x00cc
+                           0000CD   339 _RCLK	=	0x00cd
+                           0000CE   340 _EXF2	=	0x00ce
+                           0000CF   341 _TF2	=	0x00cf
+                           0000DF   342 _CF	=	0x00df
+                           0000DE   343 _CR	=	0x00de
+                           0000DC   344 _CCF4	=	0x00dc
+                           0000DB   345 _CCF3	=	0x00db
+                           0000DA   346 _CCF2	=	0x00da
+                           0000D9   347 _CCF1	=	0x00d9
+                           0000D8   348 _CCF0	=	0x00d8
+                           0000AE   349 _EC	=	0x00ae
+                           0000BE   350 _PPCL	=	0x00be
+                           0000BD   351 _PT2L	=	0x00bd
+                           0000BC   352 _PSL	=	0x00bc
+                           0000BB   353 _PT1L	=	0x00bb
+                           0000BA   354 _PX1L	=	0x00ba
+                           0000B9   355 _PT0L	=	0x00b9
+                           0000B8   356 _PX0L	=	0x00b8
+                           0000C0   357 _P4_0	=	0x00c0
+                           0000C1   358 _P4_1	=	0x00c1
+                           0000C2   359 _P4_2	=	0x00c2
+                           0000C3   360 _P4_3	=	0x00c3
+                           0000C4   361 _P4_4	=	0x00c4
+                           0000C5   362 _P4_5	=	0x00c5
+                           0000C6   363 _P4_6	=	0x00c6
+                           0000C7   364 _P4_7	=	0x00c7
+                           0000E8   365 _P5_0	=	0x00e8
+                           0000E9   366 _P5_1	=	0x00e9
+                           0000EA   367 _P5_2	=	0x00ea
+                           0000EB   368 _P5_3	=	0x00eb
+                           0000EC   369 _P5_4	=	0x00ec
+                           0000ED   370 _P5_5	=	0x00ed
+                           0000EE   371 _P5_6	=	0x00ee
+                           0000EF   372 _P5_7	=	0x00ef
+                           0000F0   373 _BREG_F0	=	0x00f0
+                           0000F1   374 _BREG_F1	=	0x00f1
+                           0000F2   375 _BREG_F2	=	0x00f2
+                           0000F3   376 _BREG_F3	=	0x00f3
+                           0000F4   377 _BREG_F4	=	0x00f4
+                           0000F5   378 _BREG_F5	=	0x00f5
+                           0000F6   379 _BREG_F6	=	0x00f6
+                           0000F7   380 _BREG_F7	=	0x00f7
+                           0000B0   381 _RXD0	=	0x00b0
+                           0000B1   382 _TXD0	=	0x00b1
+                           000080   383 _P0_0	=	0x0080
+                           000081   384 _P0_1	=	0x0081
+                           000082   385 _P0_2	=	0x0082
+                           000083   386 _P0_3	=	0x0083
+                           000084   387 _P0_4	=	0x0084
+                           000085   388 _P0_5	=	0x0085
+                           000086   389 _P0_6	=	0x0086
+                           000087   390 _P0_7	=	0x0087
+                           000088   391 _IT0	=	0x0088
+                           000089   392 _IE0	=	0x0089
+                           00008A   393 _IT1	=	0x008a
+                           00008B   394 _IE1	=	0x008b
+                           00008C   395 _TR0	=	0x008c
+                           00008D   396 _TF0	=	0x008d
+                           00008E   397 _TR1	=	0x008e
+                           00008F   398 _TF1	=	0x008f
+                           000090   399 _P1_0	=	0x0090
+                           000091   400 _P1_1	=	0x0091
+                           000092   401 _P1_2	=	0x0092
+                           000093   402 _P1_3	=	0x0093
+                           000094   403 _P1_4	=	0x0094
+                           000095   404 _P1_5	=	0x0095
+                           000096   405 _P1_6	=	0x0096
+                           000097   406 _P1_7	=	0x0097
+                           000098   407 _RI	=	0x0098
+                           000099   408 _TI	=	0x0099
+                           00009A   409 _RB8	=	0x009a
+                           00009B   410 _TB8	=	0x009b
+                           00009C   411 _REN	=	0x009c
+                           00009D   412 _SM2	=	0x009d
+                           00009E   413 _SM1	=	0x009e
+                           00009F   414 _SM0	=	0x009f
+                           0000A0   415 _P2_0	=	0x00a0
+                           0000A1   416 _P2_1	=	0x00a1
+                           0000A2   417 _P2_2	=	0x00a2
+                           0000A3   418 _P2_3	=	0x00a3
+                           0000A4   419 _P2_4	=	0x00a4
+                           0000A5   420 _P2_5	=	0x00a5
+                           0000A6   421 _P2_6	=	0x00a6
+                           0000A7   422 _P2_7	=	0x00a7
+                           0000A8   423 _EX0	=	0x00a8
+                           0000A9   424 _ET0	=	0x00a9
+                           0000AA   425 _EX1	=	0x00aa
+                           0000AB   426 _ET1	=	0x00ab
+                           0000AC   427 _ES	=	0x00ac
+                           0000AF   428 _EA	=	0x00af
+                           0000B0   429 _P3_0	=	0x00b0
+                           0000B1   430 _P3_1	=	0x00b1
+                           0000B2   431 _P3_2	=	0x00b2
+                           0000B3   432 _P3_3	=	0x00b3
+                           0000B4   433 _P3_4	=	0x00b4
+                           0000B5   434 _P3_5	=	0x00b5
+                           0000B6   435 _P3_6	=	0x00b6
+                           0000B7   436 _P3_7	=	0x00b7
+                           0000B0   437 _RXD	=	0x00b0
+                           0000B1   438 _TXD	=	0x00b1
+                           0000B2   439 _INT0	=	0x00b2
+                           0000B3   440 _INT1	=	0x00b3
+                           0000B4   441 _T0	=	0x00b4
+                           0000B5   442 _T1	=	0x00b5
+                           0000B6   443 _WR	=	0x00b6
+                           0000B7   444 _RD	=	0x00b7
+                           0000B8   445 _PX0	=	0x00b8
+                           0000B9   446 _PT0	=	0x00b9
+                           0000BA   447 _PX1	=	0x00ba
+                           0000BB   448 _PT1	=	0x00bb
+                           0000BC   449 _PS	=	0x00bc
+                           0000D0   450 _P	=	0x00d0
+                           0000D1   451 _F1	=	0x00d1
+                           0000D2   452 _OV	=	0x00d2
+                           0000D3   453 _RS0	=	0x00d3
+                           0000D4   454 _RS1	=	0x00d4
+                           0000D5   455 _F0	=	0x00d5
+                           0000D6   456 _AC	=	0x00d6
+                           0000D7   457 _CY	=	0x00d7
+                                    458 ;--------------------------------------------------------
+                                    459 ; overlayable register banks
+                                    460 ;--------------------------------------------------------
+                                    461 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        462 	.ds 8
+                                    463 ;--------------------------------------------------------
+                                    464 ; internal ram data
+                                    465 ;--------------------------------------------------------
+                                    466 	.area DSEG    (DATA)
+                                    467 ;--------------------------------------------------------
+                                    468 ; overlayable items in internal ram
+                                    469 ;--------------------------------------------------------
                                     470 ;--------------------------------------------------------
-                                    471 ; overlayable items in internal ram
+                                    471 ; Stack segment in internal ram
                                     472 ;--------------------------------------------------------
-                                    473 ;--------------------------------------------------------
-                                    474 ; Stack segment in internal ram
-                                    475 ;--------------------------------------------------------
-                                    476 	.area	SSEG
-      00002B                        477 __start__stack:
-      00002B                        478 	.ds	1
-                                    479 
-                                    480 ;--------------------------------------------------------
-                                    481 ; indirectly addressable internal ram data
-                                    482 ;--------------------------------------------------------
-                                    483 	.area ISEG    (DATA)
-                                    484 ;--------------------------------------------------------
-                                    485 ; absolute internal ram data
+                                    473 	.area	SSEG
+      00002B                        474 __start__stack:
+      00002B                        475 	.ds	1
+                                    476 
+                                    477 ;--------------------------------------------------------
+                                    478 ; indirectly addressable internal ram data
+                                    479 ;--------------------------------------------------------
+                                    480 	.area ISEG    (DATA)
+                                    481 ;--------------------------------------------------------
+                                    482 ; absolute internal ram data
+                                    483 ;--------------------------------------------------------
+                                    484 	.area IABS    (ABS,DATA)
+                                    485 	.area IABS    (ABS,DATA)
                                     486 ;--------------------------------------------------------
-                                    487 	.area IABS    (ABS,DATA)
-                                    488 	.area IABS    (ABS,DATA)
-                                    489 ;--------------------------------------------------------
-                                    490 ; bit data
-                                    491 ;--------------------------------------------------------
-                                    492 	.area BSEG    (BIT)
-                                    493 ;--------------------------------------------------------
-                                    494 ; paged external ram data
-                                    495 ;--------------------------------------------------------
-                                    496 	.area PSEG    (PAG,XDATA)
-                                    497 ;--------------------------------------------------------
-                                    498 ; external ram data
-                                    499 ;--------------------------------------------------------
-                                    500 	.area XSEG    (XDATA)
-      001B8E                        501 _new_buffer_arr::
-      001B8E                        502 	.ds 200
-      001C56                        503 _main_new_buffer_index_65537_58:
-      001C56                        504 	.ds 2
-      001C58                        505 _main_free_buffer_count_65537_58:
-      001C58                        506 	.ds 2
-      001C5A                        507 _main_filled_buffer_count_65537_58:
-      001C5A                        508 	.ds 2
-      001C5C                        509 _main_storage_character_count_65538_59:
-      001C5C                        510 	.ds 2
-      001C5E                        511 _main_total_characters_count_65538_59:
-      001C5E                        512 	.ds 2
-      001C60                        513 _main_buffer0_allocated_65538_59:
-      001C60                        514 	.ds 2
-                                    515 ;--------------------------------------------------------
-                                    516 ; absolute external ram data
-                                    517 ;--------------------------------------------------------
-                                    518 	.area XABS    (ABS,XDATA)
-                                    519 ;--------------------------------------------------------
-                                    520 ; external initialized ram data
-                                    521 ;--------------------------------------------------------
-                                    522 	.area XISEG   (XDATA)
-      001D92                        523 _buffer_size::
-      001D92                        524 	.ds 2
-      001D94                        525 _buffer0::
-      001D94                        526 	.ds 2
-      001D96                        527 _ptr_buffer0::
-      001D96                        528 	.ds 2
-      001D98                        529 _buffer1::
-      001D98                        530 	.ds 2
-      001D9A                        531 _ptr_buffer1::
-      001D9A                        532 	.ds 2
-      001D9C                        533 _storage_character_detected::
-      001D9C                        534 	.ds 2
-      001D9E                        535 _total_characters_detected::
-      001D9E                        536 	.ds 2
-      001DA0                        537 _command_characters_detected::
-      001DA0                        538 	.ds 2
-      001DA2                        539 _buffer_size_arr::
-      001DA2                        540 	.ds 600
-                                    541 	.area HOME    (CODE)
-                                    542 	.area GSINIT0 (CODE)
-                                    543 	.area GSINIT1 (CODE)
-                                    544 	.area GSINIT2 (CODE)
-                                    545 	.area GSINIT3 (CODE)
-                                    546 	.area GSINIT4 (CODE)
-                                    547 	.area GSINIT5 (CODE)
-                                    548 	.area GSINIT  (CODE)
-                                    549 	.area GSFINAL (CODE)
-                                    550 	.area CSEG    (CODE)
-                                    551 ;--------------------------------------------------------
-                                    552 ; interrupt vector
-                                    553 ;--------------------------------------------------------
-                                    554 	.area HOME    (CODE)
-      002000                        555 __interrupt_vect:
-      002000 02 20 06         [24]  556 	ljmp	__sdcc_gsinit_startup
-                                    557 ;--------------------------------------------------------
-                                    558 ; global & static initialisations
-                                    559 ;--------------------------------------------------------
-                                    560 	.area HOME    (CODE)
-                                    561 	.area GSINIT  (CODE)
-                                    562 	.area GSFINAL (CODE)
-                                    563 	.area GSINIT  (CODE)
-                                    564 	.globl __sdcc_gsinit_startup
-                                    565 	.globl __sdcc_program_startup
-                                    566 	.globl __start__stack
-                                    567 	.globl __mcs51_genXINIT
-                                    568 	.globl __mcs51_genXRAMCLEAR
-                                    569 	.globl __mcs51_genRAMCLEAR
-                                    570 	.area GSFINAL (CODE)
-      00205F 02 20 03         [24]  571 	ljmp	__sdcc_program_startup
-                                    572 ;--------------------------------------------------------
-                                    573 ; Home
-                                    574 ;--------------------------------------------------------
+                                    487 ; bit data
+                                    488 ;--------------------------------------------------------
+                                    489 	.area BSEG    (BIT)
+                                    490 ;--------------------------------------------------------
+                                    491 ; paged external ram data
+                                    492 ;--------------------------------------------------------
+                                    493 	.area PSEG    (PAG,XDATA)
+                                    494 ;--------------------------------------------------------
+                                    495 ; external ram data
+                                    496 ;--------------------------------------------------------
+                                    497 	.area XSEG    (XDATA)
+      001B8E                        498 _new_buffer_arr::
+      001B8E                        499 	.ds 200
+      001C56                        500 _main_i_65537_53:
+      001C56                        501 	.ds 2
+      001C58                        502 _main_new_buffer_index_65537_53:
+      001C58                        503 	.ds 2
+      001C5A                        504 _main_free_buffer_count_65537_53:
+      001C5A                        505 	.ds 2
+      001C5C                        506 _main_filled_buffer_count_65537_53:
+      001C5C                        507 	.ds 2
+      001C5E                        508 _main_storage_character_count_65538_54:
+      001C5E                        509 	.ds 2
+      001C60                        510 _main_total_characters_count_65538_54:
+      001C60                        511 	.ds 2
+      001C62                        512 _main_buffer0_allocated_65538_54:
+      001C62                        513 	.ds 2
+                                    514 ;--------------------------------------------------------
+                                    515 ; absolute external ram data
+                                    516 ;--------------------------------------------------------
+                                    517 	.area XABS    (ABS,XDATA)
+                                    518 ;--------------------------------------------------------
+                                    519 ; external initialized ram data
+                                    520 ;--------------------------------------------------------
+                                    521 	.area XISEG   (XDATA)
+      001D94                        522 _buffer_size::
+      001D94                        523 	.ds 2
+      001D96                        524 _buffer0::
+      001D96                        525 	.ds 2
+      001D98                        526 _ptr_buffer0::
+      001D98                        527 	.ds 2
+      001D9A                        528 _buffer1::
+      001D9A                        529 	.ds 2
+      001D9C                        530 _ptr_buffer1::
+      001D9C                        531 	.ds 2
+      001D9E                        532 _storage_character_detected::
+      001D9E                        533 	.ds 2
+      001DA0                        534 _total_characters_detected::
+      001DA0                        535 	.ds 2
+      001DA2                        536 _command_characters_detected::
+      001DA2                        537 	.ds 2
+      001DA4                        538 _buffer_size_arr::
+      001DA4                        539 	.ds 600
+                                    540 	.area HOME    (CODE)
+                                    541 	.area GSINIT0 (CODE)
+                                    542 	.area GSINIT1 (CODE)
+                                    543 	.area GSINIT2 (CODE)
+                                    544 	.area GSINIT3 (CODE)
+                                    545 	.area GSINIT4 (CODE)
+                                    546 	.area GSINIT5 (CODE)
+                                    547 	.area GSINIT  (CODE)
+                                    548 	.area GSFINAL (CODE)
+                                    549 	.area CSEG    (CODE)
+                                    550 ;--------------------------------------------------------
+                                    551 ; interrupt vector
+                                    552 ;--------------------------------------------------------
+                                    553 	.area HOME    (CODE)
+      002000                        554 __interrupt_vect:
+      002000 02 20 06         [24]  555 	ljmp	__sdcc_gsinit_startup
+                                    556 ;--------------------------------------------------------
+                                    557 ; global & static initialisations
+                                    558 ;--------------------------------------------------------
+                                    559 	.area HOME    (CODE)
+                                    560 	.area GSINIT  (CODE)
+                                    561 	.area GSFINAL (CODE)
+                                    562 	.area GSINIT  (CODE)
+                                    563 	.globl __sdcc_gsinit_startup
+                                    564 	.globl __sdcc_program_startup
+                                    565 	.globl __start__stack
+                                    566 	.globl __mcs51_genXINIT
+                                    567 	.globl __mcs51_genXRAMCLEAR
+                                    568 	.globl __mcs51_genRAMCLEAR
+                                    569 	.area GSFINAL (CODE)
+      00205F 02 20 03         [24]  570 	ljmp	__sdcc_program_startup
+                                    571 ;--------------------------------------------------------
+                                    572 ; Home
+                                    573 ;--------------------------------------------------------
+                                    574 	.area HOME    (CODE)
                                     575 	.area HOME    (CODE)
-                                    576 	.area HOME    (CODE)
-      002003                        577 __sdcc_program_startup:
-      002003 02 2D 67         [24]  578 	ljmp	_main
-                                    579 ;	return from main will return to caller
-                                    580 ;--------------------------------------------------------
-                                    581 ; code
-                                    582 ;--------------------------------------------------------
-                                    583 	.area CSEG    (CODE)
-                                    584 ;------------------------------------------------------------
-                                    585 ;Allocation info for local variables in function '_sdcc_external_startup'
-                                    586 ;------------------------------------------------------------
-                                    587 ;	main.c:60: _sdcc_external_startup()
-                                    588 ;	-----------------------------------------
-                                    589 ;	 function _sdcc_external_startup
-                                    590 ;	-----------------------------------------
-      002D60                        591 __sdcc_external_startup:
-                           000007   592 	ar7 = 0x07
-                           000006   593 	ar6 = 0x06
-                           000005   594 	ar5 = 0x05
-                           000004   595 	ar4 = 0x04
-                           000003   596 	ar3 = 0x03
-                           000002   597 	ar2 = 0x02
-                           000001   598 	ar1 = 0x01
-                           000000   599 	ar0 = 0x00
-                                    600 ;	main.c:63: AUXR |= (XRS1 | XRS0);
-      002D60 43 8E 0C         [24]  601 	orl	_AUXR,#0x0c
-                                    602 ;	main.c:66: return 0;
-      002D63 90 00 00         [24]  603 	mov	dptr,#0x0000
-                                    604 ;	main.c:67: }
-      002D66 22               [24]  605 	ret
-                                    606 ;------------------------------------------------------------
-                                    607 ;Allocation info for local variables in function 'main'
-                                    608 ;------------------------------------------------------------
-                                    609 ;sloc0                     Allocated with name '_main_sloc0_1_0'
-                                    610 ;i                         Allocated with name '_main_i_65537_58'
-                                    611 ;buffer_array_index        Allocated with name '_main_buffer_array_index_65537_58'
-                                    612 ;all_buff_cleared          Allocated with name '_main_all_buff_cleared_65537_58'
-                                    613 ;new_buffer_index          Allocated with name '_main_new_buffer_index_65537_58'
-                                    614 ;free_buffer_count         Allocated with name '_main_free_buffer_count_65537_58'
-                                    615 ;filled_buffer_count       Allocated with name '_main_filled_buffer_count_65537_58'
-                                    616 ;storage_character_count   Allocated with name '_main_storage_character_count_65538_59'
-                                    617 ;total_characters_count    Allocated with name '_main_total_characters_count_65538_59'
-                                    618 ;buffer0_allocated         Allocated with name '_main_buffer0_allocated_65538_59'
-                                    619 ;buffer0_ptr               Allocated with name '_main_buffer0_ptr_65539_65'
-                                    620 ;i                         Allocated with name '_main_i_131075_66'
-                                    621 ;ch                        Allocated with name '_main_ch_131076_69'
-                                    622 ;------------------------------------------------------------
-                                    623 ;	main.c:74: void main(void)
+      002003                        576 __sdcc_program_startup:
+      002003 02 2E 94         [24]  577 	ljmp	_main
+                                    578 ;	return from main will return to caller
+                                    579 ;--------------------------------------------------------
+                                    580 ; code
+                                    581 ;--------------------------------------------------------
+                                    582 	.area CSEG    (CODE)
+                                    583 ;------------------------------------------------------------
+                                    584 ;Allocation info for local variables in function '_sdcc_external_startup'
+                                    585 ;------------------------------------------------------------
+                                    586 ;	main.c:70: _sdcc_external_startup()
+                                    587 ;	-----------------------------------------
+                                    588 ;	 function _sdcc_external_startup
+                                    589 ;	-----------------------------------------
+      002E8D                        590 __sdcc_external_startup:
+                           000007   591 	ar7 = 0x07
+                           000006   592 	ar6 = 0x06
+                           000005   593 	ar5 = 0x05
+                           000004   594 	ar4 = 0x04
+                           000003   595 	ar3 = 0x03
+                           000002   596 	ar2 = 0x02
+                           000001   597 	ar1 = 0x01
+                           000000   598 	ar0 = 0x00
+                                    599 ;	main.c:73: AUXR |= (XRS1 | XRS0);
+      002E8D 43 8E 0C         [24]  600 	orl	_AUXR,#0x0c
+                                    601 ;	main.c:76: return 0;
+      002E90 90 00 00         [24]  602 	mov	dptr,#0x0000
+                                    603 ;	main.c:77: }
+      002E93 22               [24]  604 	ret
+                                    605 ;------------------------------------------------------------
+                                    606 ;Allocation info for local variables in function 'main'
+                                    607 ;------------------------------------------------------------
+                                    608 ;i                         Allocated with name '_main_i_65537_53'
+                                    609 ;buffer_array_index        Allocated with name '_main_buffer_array_index_65537_53'
+                                    610 ;all_buff_cleared          Allocated with name '_main_all_buff_cleared_65537_53'
+                                    611 ;new_buffer_index          Allocated with name '_main_new_buffer_index_65537_53'
+                                    612 ;free_buffer_count         Allocated with name '_main_free_buffer_count_65537_53'
+                                    613 ;filled_buffer_count       Allocated with name '_main_filled_buffer_count_65537_53'
+                                    614 ;storage_character_count   Allocated with name '_main_storage_character_count_65538_54'
+                                    615 ;total_characters_count    Allocated with name '_main_total_characters_count_65538_54'
+                                    616 ;buffer0_allocated         Allocated with name '_main_buffer0_allocated_65538_54'
+                                    617 ;buffer0_ptr               Allocated with name '_main_buffer0_ptr_65539_60'
+                                    618 ;i                         Allocated with name '_main_i_131075_61'
+                                    619 ;ch                        Allocated with name '_main_ch_131076_64'
+                                    620 ;------------------------------------------------------------
+                                    621 ;	main.c:83: void main(void)
+                                    622 ;	-----------------------------------------
+                                    623 ;	 function main
                                     624 ;	-----------------------------------------
-                                    625 ;	 function main
-                                    626 ;	-----------------------------------------
-      002D67                        627 _main:
-                                    628 ;	main.c:77: printf_tiny("\033[1;35m|***********************************************|\n\r");
-      002D67 74 B9            [12]  629 	mov	a,#___str_0
-      002D69 C0 E0            [24]  630 	push	acc
-      002D6B 74 4B            [12]  631 	mov	a,#(___str_0 >> 8)
-      002D6D C0 E0            [24]  632 	push	acc
-      002D6F 12 35 27         [24]  633 	lcall	_printf_tiny
-      002D72 15 81            [12]  634 	dec	sp
-      002D74 15 81            [12]  635 	dec	sp
-                                    636 ;	main.c:78: printf_tiny("|************ \033[1;36mUSER INTERFACE \033[1;35m*******************|\n\r");
-      002D76 74 F4            [12]  637 	mov	a,#___str_1
-      002D78 C0 E0            [24]  638 	push	acc
-      002D7A 74 4B            [12]  639 	mov	a,#(___str_1 >> 8)
-      002D7C C0 E0            [24]  640 	push	acc
-      002D7E 12 35 27         [24]  641 	lcall	_printf_tiny
-      002D81 15 81            [12]  642 	dec	sp
-      002D83 15 81            [12]  643 	dec	sp
-                                    644 ;	main.c:79: printf_tiny("|  Choose a character from the below options    |\n\r");
-      002D85 74 36            [12]  645 	mov	a,#___str_2
-      002D87 C0 E0            [24]  646 	push	acc
-      002D89 74 4C            [12]  647 	mov	a,#(___str_2 >> 8)
-      002D8B C0 E0            [24]  648 	push	acc
-      002D8D 12 35 27         [24]  649 	lcall	_printf_tiny
-      002D90 15 81            [12]  650 	dec	sp
-      002D92 15 81            [12]  651 	dec	sp
-                                    652 ;	main.c:80: printf_tiny("|  \033[1;35ma-z\033[1;35m  | Character to store in the buffer      |\n\r");
-      002D94 74 6A            [12]  653 	mov	a,#___str_3
-      002D96 C0 E0            [24]  654 	push	acc
-      002D98 74 4C            [12]  655 	mov	a,#(___str_3 >> 8)
-      002D9A C0 E0            [24]  656 	push	acc
-      002D9C 12 35 27         [24]  657 	lcall	_printf_tiny
-      002D9F 15 81            [12]  658 	dec	sp
-      002DA1 15 81            [12]  659 	dec	sp
-                                    660 ;	main.c:81: printf_tiny("|  \033[1;35m+\033[1;35m    | Allocate a new buffer                 |\n\r");
-      002DA3 74 AC            [12]  661 	mov	a,#___str_4
-      002DA5 C0 E0            [24]  662 	push	acc
-      002DA7 74 4C            [12]  663 	mov	a,#(___str_4 >> 8)
-      002DA9 C0 E0            [24]  664 	push	acc
-      002DAB 12 35 27         [24]  665 	lcall	_printf_tiny
-      002DAE 15 81            [12]  666 	dec	sp
-      002DB0 15 81            [12]  667 	dec	sp
-                                    668 ;	main.c:82: printf_tiny("|  \033[1;35m-\033[1;35m    | Delete a buffer                       |\n\r");
-      002DB2 74 EE            [12]  669 	mov	a,#___str_5
-      002DB4 C0 E0            [24]  670 	push	acc
-      002DB6 74 4C            [12]  671 	mov	a,#(___str_5 >> 8)
-      002DB8 C0 E0            [24]  672 	push	acc
-      002DBA 12 35 27         [24]  673 	lcall	_printf_tiny
-      002DBD 15 81            [12]  674 	dec	sp
-      002DBF 15 81            [12]  675 	dec	sp
-                                    676 ;	main.c:83: printf_tiny("|  \033[1;35m?\033[1;35m    | Display the heap report               |\n\r");
-      002DC1 74 30            [12]  677 	mov	a,#___str_6
-      002DC3 C0 E0            [24]  678 	push	acc
-      002DC5 74 4D            [12]  679 	mov	a,#(___str_6 >> 8)
-      002DC7 C0 E0            [24]  680 	push	acc
-      002DC9 12 35 27         [24]  681 	lcall	_printf_tiny
-      002DCC 15 81            [12]  682 	dec	sp
-      002DCE 15 81            [12]  683 	dec	sp
-                                    684 ;	main.c:84: printf_tiny("|  \033[1;35m=\033[1;35m    | Display contents of Buffer_0          |\n\r");
-      002DD0 74 72            [12]  685 	mov	a,#___str_7
-      002DD2 C0 E0            [24]  686 	push	acc
-      002DD4 74 4D            [12]  687 	mov	a,#(___str_7 >> 8)
-      002DD6 C0 E0            [24]  688 	push	acc
-      002DD8 12 35 27         [24]  689 	lcall	_printf_tiny
-      002DDB 15 81            [12]  690 	dec	sp
-      002DDD 15 81            [12]  691 	dec	sp
-                                    692 ;	main.c:85: printf_tiny("|  \033[1;35m@\033[1;35m    | Free all the buffers                  |\n\r");
-      002DDF 74 B4            [12]  693 	mov	a,#___str_8
-      002DE1 C0 E0            [24]  694 	push	acc
-      002DE3 74 4D            [12]  695 	mov	a,#(___str_8 >> 8)
-      002DE5 C0 E0            [24]  696 	push	acc
-      002DE7 12 35 27         [24]  697 	lcall	_printf_tiny
-      002DEA 15 81            [12]  698 	dec	sp
-      002DEC 15 81            [12]  699 	dec	sp
-                                    700 ;	main.c:86: printf_tiny("\033[1;35m|***********************************************|\n\r");
-      002DEE 74 B9            [12]  701 	mov	a,#___str_0
-      002DF0 C0 E0            [24]  702 	push	acc
-      002DF2 74 4B            [12]  703 	mov	a,#(___str_0 >> 8)
-      002DF4 C0 E0            [24]  704 	push	acc
-      002DF6 12 35 27         [24]  705 	lcall	_printf_tiny
-      002DF9 15 81            [12]  706 	dec	sp
-      002DFB 15 81            [12]  707 	dec	sp
-                                    708 ;	main.c:87: printf_tiny("|***********************************************|\n\r\n\r");
-      002DFD 74 F6            [12]  709 	mov	a,#___str_9
-      002DFF C0 E0            [24]  710 	push	acc
-      002E01 74 4D            [12]  711 	mov	a,#(___str_9 >> 8)
-      002E03 C0 E0            [24]  712 	push	acc
-      002E05 12 35 27         [24]  713 	lcall	_printf_tiny
-      002E08 15 81            [12]  714 	dec	sp
-      002E0A 15 81            [12]  715 	dec	sp
-                                    716 ;	main.c:89: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      002E0C 74 2C            [12]  717 	mov	a,#___str_10
-      002E0E C0 E0            [24]  718 	push	acc
-      002E10 74 4E            [12]  719 	mov	a,#(___str_10 >> 8)
-      002E12 C0 E0            [24]  720 	push	acc
-      002E14 12 35 27         [24]  721 	lcall	_printf_tiny
-      002E17 15 81            [12]  722 	dec	sp
-      002E19 15 81            [12]  723 	dec	sp
-                                    724 ;	main.c:90: printf_tiny("|  Choose a size for buffer 0 and buffer 1      |\n\r");
-      002E1B 74 67            [12]  725 	mov	a,#___str_11
-      002E1D C0 E0            [24]  726 	push	acc
-      002E1F 74 4E            [12]  727 	mov	a,#(___str_11 >> 8)
-      002E21 C0 E0            [24]  728 	push	acc
-      002E23 12 35 27         [24]  729 	lcall	_printf_tiny
-      002E26 15 81            [12]  730 	dec	sp
-      002E28 15 81            [12]  731 	dec	sp
-                                    732 ;	main.c:91: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      002E2A 74 2C            [12]  733 	mov	a,#___str_10
-      002E2C C0 E0            [24]  734 	push	acc
-      002E2E 74 4E            [12]  735 	mov	a,#(___str_10 >> 8)
-      002E30 C0 E0            [24]  736 	push	acc
-      002E32 12 35 27         [24]  737 	lcall	_printf_tiny
-      002E35 15 81            [12]  738 	dec	sp
-      002E37 15 81            [12]  739 	dec	sp
-                                    740 ;	main.c:97: __xdata int new_buffer_index = 2;
-      002E39 90 1C 56         [24]  741 	mov	dptr,#_main_new_buffer_index_65537_58
-      002E3C 74 02            [12]  742 	mov	a,#0x02
-      002E3E F0               [24]  743 	movx	@dptr,a
-      002E3F E4               [12]  744 	clr	a
-      002E40 A3               [24]  745 	inc	dptr
-      002E41 F0               [24]  746 	movx	@dptr,a
-                                    747 ;	main.c:101: HERE:
-      002E42                        748 00101$:
-                                    749 ;	main.c:106: __xdata int storage_character_count = 0;
-      002E42 90 1C 5C         [24]  750 	mov	dptr,#_main_storage_character_count_65538_59
-      002E45 E4               [12]  751 	clr	a
-      002E46 F0               [24]  752 	movx	@dptr,a
-      002E47 A3               [24]  753 	inc	dptr
-      002E48 F0               [24]  754 	movx	@dptr,a
-                                    755 ;	main.c:107: __xdata int total_characters_count = 0;
-      002E49 90 1C 5E         [24]  756 	mov	dptr,#_main_total_characters_count_65538_59
-      002E4C F0               [24]  757 	movx	@dptr,a
-      002E4D A3               [24]  758 	inc	dptr
-      002E4E F0               [24]  759 	movx	@dptr,a
-                                    760 ;	main.c:110: __xdata int buffer0_allocated = 0;
-      002E4F 90 1C 60         [24]  761 	mov	dptr,#_main_buffer0_allocated_65538_59
-      002E52 F0               [24]  762 	movx	@dptr,a
-      002E53 A3               [24]  763 	inc	dptr
-      002E54 F0               [24]  764 	movx	@dptr,a
-                                    765 ;	main.c:111: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      002E55 74 2C            [12]  766 	mov	a,#___str_10
-      002E57 C0 E0            [24]  767 	push	acc
-      002E59 74 4E            [12]  768 	mov	a,#(___str_10 >> 8)
-      002E5B C0 E0            [24]  769 	push	acc
-      002E5D 12 35 27         [24]  770 	lcall	_printf_tiny
-      002E60 15 81            [12]  771 	dec	sp
-      002E62 15 81            [12]  772 	dec	sp
-                                    773 ;	main.c:112: printf_tiny("|  Buffer 0 and Buffer 1 Allocation Processing  |\n\r");
-      002E64 74 9B            [12]  774 	mov	a,#___str_12
-      002E66 C0 E0            [24]  775 	push	acc
-      002E68 74 4E            [12]  776 	mov	a,#(___str_12 >> 8)
-      002E6A C0 E0            [24]  777 	push	acc
-      002E6C 12 35 27         [24]  778 	lcall	_printf_tiny
-      002E6F 15 81            [12]  779 	dec	sp
-      002E71 15 81            [12]  780 	dec	sp
-                                    781 ;	main.c:113: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      002E73 74 2C            [12]  782 	mov	a,#___str_10
-      002E75 C0 E0            [24]  783 	push	acc
-      002E77 74 4E            [12]  784 	mov	a,#(___str_10 >> 8)
-      002E79 C0 E0            [24]  785 	push	acc
-      002E7B 12 35 27         [24]  786 	lcall	_printf_tiny
-      002E7E 15 81            [12]  787 	dec	sp
-      002E80 15 81            [12]  788 	dec	sp
-                                    789 ;	main.c:114: do {
-      002E82                        790 00109$:
-                                    791 ;	main.c:115: buffer_size = Buffer_Size_Error_Correction();
-      002E82 12 20 62         [24]  792 	lcall	_Buffer_Size_Error_Correction
-      002E85 AE 82            [24]  793 	mov	r6,dpl
-      002E87 AF 83            [24]  794 	mov	r7,dph
-      002E89 90 1D 92         [24]  795 	mov	dptr,#_buffer_size
-      002E8C EE               [12]  796 	mov	a,r6
-      002E8D F0               [24]  797 	movx	@dptr,a
-      002E8E EF               [12]  798 	mov	a,r7
-      002E8F A3               [24]  799 	inc	dptr
-      002E90 F0               [24]  800 	movx	@dptr,a
-                                    801 ;	main.c:116: if ((buffer0 = (__xdata char *)malloc(buffer_size)) == 0)
-      002E91 8E 82            [24]  802 	mov	dpl,r6
-      002E93 8F 83            [24]  803 	mov	dph,r7
-      002E95 12 36 6C         [24]  804 	lcall	_malloc
-      002E98 AE 82            [24]  805 	mov	r6,dpl
-      002E9A AF 83            [24]  806 	mov	r7,dph
-      002E9C 90 1D 94         [24]  807 	mov	dptr,#_buffer0
-      002E9F EE               [12]  808 	mov	a,r6
-      002EA0 F0               [24]  809 	movx	@dptr,a
-      002EA1 EF               [12]  810 	mov	a,r7
-      002EA2 A3               [24]  811 	inc	dptr
-      002EA3 F0               [24]  812 	movx	@dptr,a
-      002EA4 EE               [12]  813 	mov	a,r6
-      002EA5 4F               [12]  814 	orl	a,r7
-      002EA6 70 24            [24]  815 	jnz	00106$
-                                    816 ;	main.c:118: printf_tiny("\033[1;33mInvalid Malloc: Malloc on buffer0 failed!!\n\r");
-      002EA8 74 CF            [12]  817 	mov	a,#___str_13
-      002EAA C0 E0            [24]  818 	push	acc
-      002EAC 74 4E            [12]  819 	mov	a,#(___str_13 >> 8)
-      002EAE C0 E0            [24]  820 	push	acc
-      002EB0 12 35 27         [24]  821 	lcall	_printf_tiny
-      002EB3 15 81            [12]  822 	dec	sp
-      002EB5 15 81            [12]  823 	dec	sp
-                                    824 ;	main.c:119: free(buffer0);
-      002EB7 90 1D 94         [24]  825 	mov	dptr,#_buffer0
-      002EBA E0               [24]  826 	movx	a,@dptr
-      002EBB FE               [12]  827 	mov	r6,a
-      002EBC A3               [24]  828 	inc	dptr
-      002EBD E0               [24]  829 	movx	a,@dptr
-      002EBE FF               [12]  830 	mov	r7,a
-      002EBF 7D 00            [12]  831 	mov	r5,#0x00
-      002EC1 8E 82            [24]  832 	mov	dpl,r6
-      002EC3 8F 83            [24]  833 	mov	dph,r7
-      002EC5 8D F0            [24]  834 	mov	b,r5
-      002EC7 12 32 91         [24]  835 	lcall	_free
-      002ECA 80 71            [24]  836 	sjmp	00110$
-      002ECC                        837 00106$:
-                                    838 ;	main.c:123: printf_tiny("\033[1;0mMalloc Successful : Buffer0 allocated\n\r");
-      002ECC 74 03            [12]  839 	mov	a,#___str_14
-      002ECE C0 E0            [24]  840 	push	acc
-      002ED0 74 4F            [12]  841 	mov	a,#(___str_14 >> 8)
-      002ED2 C0 E0            [24]  842 	push	acc
-      002ED4 12 35 27         [24]  843 	lcall	_printf_tiny
-      002ED7 15 81            [12]  844 	dec	sp
-      002ED9 15 81            [12]  845 	dec	sp
-                                    846 ;	main.c:124: buffer0_allocated = 1;
-      002EDB 90 1C 60         [24]  847 	mov	dptr,#_main_buffer0_allocated_65538_59
-      002EDE 74 01            [12]  848 	mov	a,#0x01
-      002EE0 F0               [24]  849 	movx	@dptr,a
-      002EE1 E4               [12]  850 	clr	a
-      002EE2 A3               [24]  851 	inc	dptr
-      002EE3 F0               [24]  852 	movx	@dptr,a
-                                    853 ;	main.c:126: if ((buffer1 = (__xdata char *)malloc(buffer_size)) == 0)
-      002EE4 90 1D 92         [24]  854 	mov	dptr,#_buffer_size
-      002EE7 E0               [24]  855 	movx	a,@dptr
-      002EE8 FE               [12]  856 	mov	r6,a
-      002EE9 A3               [24]  857 	inc	dptr
-      002EEA E0               [24]  858 	movx	a,@dptr
-      002EEB FF               [12]  859 	mov	r7,a
-      002EEC 8E 82            [24]  860 	mov	dpl,r6
-      002EEE 8F 83            [24]  861 	mov	dph,r7
-      002EF0 12 36 6C         [24]  862 	lcall	_malloc
-      002EF3 AE 82            [24]  863 	mov	r6,dpl
-      002EF5 AF 83            [24]  864 	mov	r7,dph
-      002EF7 90 1D 98         [24]  865 	mov	dptr,#_buffer1
-      002EFA EE               [12]  866 	mov	a,r6
-      002EFB F0               [24]  867 	movx	@dptr,a
-      002EFC EF               [12]  868 	mov	a,r7
-      002EFD A3               [24]  869 	inc	dptr
-      002EFE F0               [24]  870 	movx	@dptr,a
-      002EFF EE               [12]  871 	mov	a,r6
-      002F00 4F               [12]  872 	orl	a,r7
-      002F01 70 2B            [24]  873 	jnz	00103$
-                                    874 ;	main.c:128: printf_tiny("\033[1;31mInvalid Malloc: Malloc on buffer1 failed!!\n\r");
-      002F03 74 31            [12]  875 	mov	a,#___str_15
-      002F05 C0 E0            [24]  876 	push	acc
-      002F07 74 4F            [12]  877 	mov	a,#(___str_15 >> 8)
-      002F09 C0 E0            [24]  878 	push	acc
-      002F0B 12 35 27         [24]  879 	lcall	_printf_tiny
-      002F0E 15 81            [12]  880 	dec	sp
-      002F10 15 81            [12]  881 	dec	sp
-                                    882 ;	main.c:129: free(buffer0);
-      002F12 90 1D 94         [24]  883 	mov	dptr,#_buffer0
-      002F15 E0               [24]  884 	movx	a,@dptr
-      002F16 FE               [12]  885 	mov	r6,a
-      002F17 A3               [24]  886 	inc	dptr
-      002F18 E0               [24]  887 	movx	a,@dptr
-      002F19 FF               [12]  888 	mov	r7,a
-      002F1A 7D 00            [12]  889 	mov	r5,#0x00
-      002F1C 8E 82            [24]  890 	mov	dpl,r6
-      002F1E 8F 83            [24]  891 	mov	dph,r7
-      002F20 8D F0            [24]  892 	mov	b,r5
-      002F22 12 32 91         [24]  893 	lcall	_free
-                                    894 ;	main.c:130: buffer0_allocated = 0;
-      002F25 90 1C 60         [24]  895 	mov	dptr,#_main_buffer0_allocated_65538_59
-      002F28 E4               [12]  896 	clr	a
-      002F29 F0               [24]  897 	movx	@dptr,a
-      002F2A A3               [24]  898 	inc	dptr
-      002F2B F0               [24]  899 	movx	@dptr,a
-      002F2C 80 0F            [24]  900 	sjmp	00110$
-      002F2E                        901 00103$:
-                                    902 ;	main.c:134: printf_tiny("\033[1;0mMalloc Successful : Buffer1 allocated\n\r");
-      002F2E 74 65            [12]  903 	mov	a,#___str_16
-      002F30 C0 E0            [24]  904 	push	acc
-      002F32 74 4F            [12]  905 	mov	a,#(___str_16 >> 8)
-      002F34 C0 E0            [24]  906 	push	acc
-      002F36 12 35 27         [24]  907 	lcall	_printf_tiny
-      002F39 15 81            [12]  908 	dec	sp
-      002F3B 15 81            [12]  909 	dec	sp
-      002F3D                        910 00110$:
-                                    911 ;	main.c:137: } while (!buffer0_allocated || (buffer1 == 0));
-      002F3D 90 1C 60         [24]  912 	mov	dptr,#_main_buffer0_allocated_65538_59
-      002F40 E0               [24]  913 	movx	a,@dptr
-      002F41 F5 F0            [12]  914 	mov	b,a
-      002F43 A3               [24]  915 	inc	dptr
-      002F44 E0               [24]  916 	movx	a,@dptr
-      002F45 45 F0            [12]  917 	orl	a,b
-      002F47 70 03            [24]  918 	jnz	00209$
-      002F49 02 2E 82         [24]  919 	ljmp	00109$
-      002F4C                        920 00209$:
-      002F4C 90 1D 98         [24]  921 	mov	dptr,#_buffer1
-      002F4F E0               [24]  922 	movx	a,@dptr
-      002F50 F5 F0            [12]  923 	mov	b,a
-      002F52 A3               [24]  924 	inc	dptr
-      002F53 E0               [24]  925 	movx	a,@dptr
-      002F54 45 F0            [12]  926 	orl	a,b
-      002F56 70 03            [24]  927 	jnz	00210$
-      002F58 02 2E 82         [24]  928 	ljmp	00109$
-      002F5B                        929 00210$:
-                                    930 ;	main.c:139: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      002F5B 74 2C            [12]  931 	mov	a,#___str_10
-      002F5D C0 E0            [24]  932 	push	acc
-      002F5F 74 4E            [12]  933 	mov	a,#(___str_10 >> 8)
-      002F61 C0 E0            [24]  934 	push	acc
-      002F63 12 35 27         [24]  935 	lcall	_printf_tiny
-      002F66 15 81            [12]  936 	dec	sp
-      002F68 15 81            [12]  937 	dec	sp
-                                    938 ;	main.c:140: printf_tiny("|  Buffer0 and Buffer 1 Allocation Sucsessful   |\n\r");
-      002F6A 74 93            [12]  939 	mov	a,#___str_17
-      002F6C C0 E0            [24]  940 	push	acc
-      002F6E 74 4F            [12]  941 	mov	a,#(___str_17 >> 8)
-      002F70 C0 E0            [24]  942 	push	acc
-      002F72 12 35 27         [24]  943 	lcall	_printf_tiny
-      002F75 15 81            [12]  944 	dec	sp
-      002F77 15 81            [12]  945 	dec	sp
-                                    946 ;	main.c:141: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      002F79 74 2C            [12]  947 	mov	a,#___str_10
-      002F7B C0 E0            [24]  948 	push	acc
-      002F7D 74 4E            [12]  949 	mov	a,#(___str_10 >> 8)
-      002F7F C0 E0            [24]  950 	push	acc
-      002F81 12 35 27         [24]  951 	lcall	_printf_tiny
-      002F84 15 81            [12]  952 	dec	sp
-      002F86 15 81            [12]  953 	dec	sp
-                                    954 ;	main.c:144: char * buffer0_ptr = buffer0;
-      002F88 90 1D 94         [24]  955 	mov	dptr,#_buffer0
-      002F8B E0               [24]  956 	movx	a,@dptr
-      002F8C FE               [12]  957 	mov	r6,a
-      002F8D A3               [24]  958 	inc	dptr
-      002F8E E0               [24]  959 	movx	a,@dptr
-      002F8F FD               [12]  960 	mov	r5,a
-      002F90 7F 00            [12]  961 	mov	r7,#0x00
-                                    962 ;	main.c:145: for(int i=0;i< buffer_size;i++)
-      002F92 7B 00            [12]  963 	mov	r3,#0x00
-      002F94 7C 00            [12]  964 	mov	r4,#0x00
-      002F96                        965 00133$:
-      002F96 90 1D 92         [24]  966 	mov	dptr,#_buffer_size
-      002F99 E0               [24]  967 	movx	a,@dptr
-      002F9A F9               [12]  968 	mov	r1,a
-      002F9B A3               [24]  969 	inc	dptr
-      002F9C E0               [24]  970 	movx	a,@dptr
-      002F9D FA               [12]  971 	mov	r2,a
-      002F9E C3               [12]  972 	clr	c
-      002F9F EB               [12]  973 	mov	a,r3
-      002FA0 99               [12]  974 	subb	a,r1
-      002FA1 EC               [12]  975 	mov	a,r4
-      002FA2 64 80            [12]  976 	xrl	a,#0x80
-      002FA4 8A F0            [24]  977 	mov	b,r2
-      002FA6 63 F0 80         [24]  978 	xrl	b,#0x80
-      002FA9 95 F0            [12]  979 	subb	a,b
-      002FAB 50 1A            [24]  980 	jnc	00112$
-                                    981 ;	main.c:147: buffer0_ptr[i] = 'ÿ';
-      002FAD EB               [12]  982 	mov	a,r3
-      002FAE 2E               [12]  983 	add	a,r6
-      002FAF F8               [12]  984 	mov	r0,a
-      002FB0 EC               [12]  985 	mov	a,r4
-      002FB1 3D               [12]  986 	addc	a,r5
-      002FB2 F9               [12]  987 	mov	r1,a
-      002FB3 8F 02            [24]  988 	mov	ar2,r7
-      002FB5 88 82            [24]  989 	mov	dpl,r0
-      002FB7 89 83            [24]  990 	mov	dph,r1
-      002FB9 8A F0            [24]  991 	mov	b,r2
-      002FBB 74 FF            [12]  992 	mov	a,#0xff
-      002FBD 12 35 0C         [24]  993 	lcall	__gptrput
-                                    994 ;	main.c:145: for(int i=0;i< buffer_size;i++)
-      002FC0 0B               [12]  995 	inc	r3
-      002FC1 BB 00 D2         [24]  996 	cjne	r3,#0x00,00133$
-      002FC4 0C               [12]  997 	inc	r4
-      002FC5 80 CF            [24]  998 	sjmp	00133$
-      002FC7                        999 00112$:
-                                   1000 ;	main.c:150: new_buffer_arr[0] = buffer0;
-      002FC7 90 1D 94         [24] 1001 	mov	dptr,#_buffer0
-      002FCA E0               [24] 1002 	movx	a,@dptr
-      002FCB FE               [12] 1003 	mov	r6,a
-      002FCC A3               [24] 1004 	inc	dptr
-      002FCD E0               [24] 1005 	movx	a,@dptr
-      002FCE FF               [12] 1006 	mov	r7,a
-      002FCF 90 1B 8E         [24] 1007 	mov	dptr,#_new_buffer_arr
-      002FD2 EE               [12] 1008 	mov	a,r6
-      002FD3 F0               [24] 1009 	movx	@dptr,a
-      002FD4 EF               [12] 1010 	mov	a,r7
-      002FD5 A3               [24] 1011 	inc	dptr
-      002FD6 F0               [24] 1012 	movx	@dptr,a
-                                   1013 ;	main.c:151: new_buffer_arr[1] = buffer1;
-      002FD7 90 1D 98         [24] 1014 	mov	dptr,#_buffer1
-      002FDA E0               [24] 1015 	movx	a,@dptr
-      002FDB FE               [12] 1016 	mov	r6,a
-      002FDC A3               [24] 1017 	inc	dptr
-      002FDD E0               [24] 1018 	movx	a,@dptr
-      002FDE FF               [12] 1019 	mov	r7,a
-      002FDF 90 1B 90         [24] 1020 	mov	dptr,#(_new_buffer_arr + 0x0002)
-      002FE2 EE               [12] 1021 	mov	a,r6
-      002FE3 F0               [24] 1022 	movx	@dptr,a
-      002FE4 EF               [12] 1023 	mov	a,r7
-      002FE5 A3               [24] 1024 	inc	dptr
-      002FE6 F0               [24] 1025 	movx	@dptr,a
-                                   1026 ;	main.c:152: buffer_size_arr[0] = buffer_size ;
-      002FE7 90 1D 92         [24] 1027 	mov	dptr,#_buffer_size
-      002FEA E0               [24] 1028 	movx	a,@dptr
-      002FEB FE               [12] 1029 	mov	r6,a
-      002FEC A3               [24] 1030 	inc	dptr
-      002FED E0               [24] 1031 	movx	a,@dptr
-      002FEE FF               [12] 1032 	mov	r7,a
-      002FEF 90 1D A2         [24] 1033 	mov	dptr,#_buffer_size_arr
-      002FF2 EE               [12] 1034 	mov	a,r6
-      002FF3 F0               [24] 1035 	movx	@dptr,a
-      002FF4 EF               [12] 1036 	mov	a,r7
-      002FF5 A3               [24] 1037 	inc	dptr
-      002FF6 F0               [24] 1038 	movx	@dptr,a
-                                   1039 ;	main.c:153: buffer_size_arr[1] = buffer_size ;
-      002FF7 90 1D 92         [24] 1040 	mov	dptr,#_buffer_size
-      002FFA E0               [24] 1041 	movx	a,@dptr
-      002FFB FE               [12] 1042 	mov	r6,a
-      002FFC A3               [24] 1043 	inc	dptr
-      002FFD E0               [24] 1044 	movx	a,@dptr
-      002FFE FF               [12] 1045 	mov	r7,a
-      002FFF 90 1D A4         [24] 1046 	mov	dptr,#(_buffer_size_arr + 0x0002)
-      003002 EE               [12] 1047 	mov	a,r6
-      003003 F0               [24] 1048 	movx	@dptr,a
-      003004 EF               [12] 1049 	mov	a,r7
-      003005 A3               [24] 1050 	inc	dptr
-      003006 F0               [24] 1051 	movx	@dptr,a
-                                   1052 ;	main.c:155: free_buffer_count = 0;
-      003007 90 1C 58         [24] 1053 	mov	dptr,#_main_free_buffer_count_65537_58
-      00300A E4               [12] 1054 	clr	a
-      00300B F0               [24] 1055 	movx	@dptr,a
-      00300C A3               [24] 1056 	inc	dptr
-      00300D F0               [24] 1057 	movx	@dptr,a
-                                   1058 ;	main.c:156: filled_buffer_count = 2;
-      00300E 90 1C 5A         [24] 1059 	mov	dptr,#_main_filled_buffer_count_65537_58
-      003011 74 02            [12] 1060 	mov	a,#0x02
-      003013 F0               [24] 1061 	movx	@dptr,a
-      003014 E4               [12] 1062 	clr	a
-      003015 A3               [24] 1063 	inc	dptr
-      003016 F0               [24] 1064 	movx	@dptr,a
-                                   1065 ;	main.c:159: while(1)
-      003017 7E 00            [12] 1066 	mov	r6,#0x00
-      003019 7F 00            [12] 1067 	mov	r7,#0x00
-      00301B                       1068 00130$:
-                                   1069 ;	main.c:161: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      00301B C0 07            [24] 1070 	push	ar7
-      00301D C0 06            [24] 1071 	push	ar6
-      00301F 74 2C            [12] 1072 	mov	a,#___str_10
-      003021 C0 E0            [24] 1073 	push	acc
-      003023 74 4E            [12] 1074 	mov	a,#(___str_10 >> 8)
-      003025 C0 E0            [24] 1075 	push	acc
-      003027 12 35 27         [24] 1076 	lcall	_printf_tiny
-      00302A 15 81            [12] 1077 	dec	sp
-      00302C 15 81            [12] 1078 	dec	sp
-                                   1079 ;	main.c:162: printf_tiny("|             Fetching Character                |\n\r");
-      00302E 74 C7            [12] 1080 	mov	a,#___str_18
-      003030 C0 E0            [24] 1081 	push	acc
-      003032 74 4F            [12] 1082 	mov	a,#(___str_18 >> 8)
-      003034 C0 E0            [24] 1083 	push	acc
-      003036 12 35 27         [24] 1084 	lcall	_printf_tiny
-      003039 15 81            [12] 1085 	dec	sp
-      00303B 15 81            [12] 1086 	dec	sp
-                                   1087 ;	main.c:163: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      00303D 74 2C            [12] 1088 	mov	a,#___str_10
-      00303F C0 E0            [24] 1089 	push	acc
-      003041 74 4E            [12] 1090 	mov	a,#(___str_10 >> 8)
-      003043 C0 E0            [24] 1091 	push	acc
-      003045 12 35 27         [24] 1092 	lcall	_printf_tiny
-      003048 15 81            [12] 1093 	dec	sp
-      00304A 15 81            [12] 1094 	dec	sp
-                                   1095 ;	main.c:165: char ch = getchar();
-      00304C 12 31 B9         [24] 1096 	lcall	_getchar
-      00304F AC 82            [24] 1097 	mov	r4,dpl
-                                   1098 ;	main.c:166: putchar(ch);
-      003051 8C 03            [24] 1099 	mov	ar3,r4
-      003053 7D 00            [12] 1100 	mov	r5,#0x00
-      003055 8B 82            [24] 1101 	mov	dpl,r3
-      003057 8D 83            [24] 1102 	mov	dph,r5
-      003059 C0 05            [24] 1103 	push	ar5
-      00305B C0 04            [24] 1104 	push	ar4
-      00305D C0 03            [24] 1105 	push	ar3
-      00305F 12 31 C7         [24] 1106 	lcall	_putchar
-                                   1107 ;	main.c:167: putchar(' ');
-      003062 90 00 20         [24] 1108 	mov	dptr,#0x0020
-      003065 12 31 C7         [24] 1109 	lcall	_putchar
-                                   1110 ;	main.c:168: printf("\033[1;0m\r\n");
-      003068 74 FB            [12] 1111 	mov	a,#___str_19
-      00306A C0 E0            [24] 1112 	push	acc
-      00306C 74 4F            [12] 1113 	mov	a,#(___str_19 >> 8)
-      00306E C0 E0            [24] 1114 	push	acc
-      003070 74 80            [12] 1115 	mov	a,#0x80
-      003072 C0 E0            [24] 1116 	push	acc
-      003074 12 39 57         [24] 1117 	lcall	_printf
-      003077 15 81            [12] 1118 	dec	sp
-      003079 15 81            [12] 1119 	dec	sp
-      00307B 15 81            [12] 1120 	dec	sp
-      00307D D0 03            [24] 1121 	pop	ar3
-      00307F D0 04            [24] 1122 	pop	ar4
-      003081 D0 05            [24] 1123 	pop	ar5
-      003083 D0 06            [24] 1124 	pop	ar6
-      003085 D0 07            [24] 1125 	pop	ar7
-                                   1126 ;	main.c:171: if (ch >= 'a' && ch <= 'z') {
-      003087 BC 61 00         [24] 1127 	cjne	r4,#0x61,00213$
-      00308A                       1128 00213$:
-      00308A 40 68            [24] 1129 	jc	00124$
-      00308C EC               [12] 1130 	mov	a,r4
-      00308D 24 85            [12] 1131 	add	a,#0xff - 0x7a
-      00308F 40 63            [24] 1132 	jc	00124$
-                                   1133 ;	main.c:172: if (i < buffer_size) {
-      003091 90 1D 92         [24] 1134 	mov	dptr,#_buffer_size
-      003094 E0               [24] 1135 	movx	a,@dptr
-      003095 F9               [12] 1136 	mov	r1,a
-      003096 A3               [24] 1137 	inc	dptr
-      003097 E0               [24] 1138 	movx	a,@dptr
-      003098 FA               [12] 1139 	mov	r2,a
-      003099 C3               [12] 1140 	clr	c
-      00309A EE               [12] 1141 	mov	a,r6
-      00309B 99               [12] 1142 	subb	a,r1
-      00309C EF               [12] 1143 	mov	a,r7
-      00309D 64 80            [12] 1144 	xrl	a,#0x80
-      00309F 8A F0            [24] 1145 	mov	b,r2
-      0030A1 63 F0 80         [24] 1146 	xrl	b,#0x80
-      0030A4 95 F0            [12] 1147 	subb	a,b
-      0030A6 50 1F            [24] 1148 	jnc	00114$
-                                   1149 ;	main.c:173: buffer0[i++] = ch;
-      0030A8 8E 13            [24] 1150 	mov	_main_sloc0_1_0,r6
-      0030AA 8F 14            [24] 1151 	mov	(_main_sloc0_1_0 + 1),r7
-      0030AC 0E               [12] 1152 	inc	r6
-      0030AD BE 00 01         [24] 1153 	cjne	r6,#0x00,00217$
-      0030B0 0F               [12] 1154 	inc	r7
-      0030B1                       1155 00217$:
-      0030B1 90 1D 94         [24] 1156 	mov	dptr,#_buffer0
-      0030B4 E0               [24] 1157 	movx	a,@dptr
-      0030B5 F8               [12] 1158 	mov	r0,a
-      0030B6 A3               [24] 1159 	inc	dptr
-      0030B7 E0               [24] 1160 	movx	a,@dptr
-      0030B8 FA               [12] 1161 	mov	r2,a
-      0030B9 E5 13            [12] 1162 	mov	a,_main_sloc0_1_0
-      0030BB 28               [12] 1163 	add	a,r0
-      0030BC F5 82            [12] 1164 	mov	dpl,a
-      0030BE E5 14            [12] 1165 	mov	a,(_main_sloc0_1_0 + 1)
-      0030C0 3A               [12] 1166 	addc	a,r2
-      0030C1 F5 83            [12] 1167 	mov	dph,a
-      0030C3 EC               [12] 1168 	mov	a,r4
-      0030C4 F0               [24] 1169 	movx	@dptr,a
-      0030C5 80 13            [24] 1170 	sjmp	00115$
-      0030C7                       1171 00114$:
-                                   1172 ;	main.c:176: putchar(ch);
-      0030C7 8B 82            [24] 1173 	mov	dpl,r3
-      0030C9 8D 83            [24] 1174 	mov	dph,r5
-      0030CB C0 07            [24] 1175 	push	ar7
-      0030CD C0 06            [24] 1176 	push	ar6
-      0030CF C0 04            [24] 1177 	push	ar4
-      0030D1 12 31 C7         [24] 1178 	lcall	_putchar
-      0030D4 D0 04            [24] 1179 	pop	ar4
-      0030D6 D0 06            [24] 1180 	pop	ar6
-      0030D8 D0 07            [24] 1181 	pop	ar7
-      0030DA                       1182 00115$:
-                                   1183 ;	main.c:178: storage_character_count++;
-      0030DA 90 1C 5C         [24] 1184 	mov	dptr,#_main_storage_character_count_65538_59
-      0030DD E0               [24] 1185 	movx	a,@dptr
-      0030DE 24 01            [12] 1186 	add	a,#0x01
-      0030E0 F0               [24] 1187 	movx	@dptr,a
-      0030E1 A3               [24] 1188 	inc	dptr
-      0030E2 E0               [24] 1189 	movx	a,@dptr
-      0030E3 34 00            [12] 1190 	addc	a,#0x00
-      0030E5 F0               [24] 1191 	movx	@dptr,a
-                                   1192 ;	main.c:179: total_characters_count++;
-      0030E6 90 1C 5E         [24] 1193 	mov	dptr,#_main_total_characters_count_65538_59
-      0030E9 E0               [24] 1194 	movx	a,@dptr
-      0030EA 24 01            [12] 1195 	add	a,#0x01
-      0030EC F0               [24] 1196 	movx	@dptr,a
-      0030ED A3               [24] 1197 	inc	dptr
-      0030EE E0               [24] 1198 	movx	a,@dptr
-      0030EF 34 00            [12] 1199 	addc	a,#0x00
-      0030F1 F0               [24] 1200 	movx	@dptr,a
-      0030F2 80 31            [24] 1201 	sjmp	00125$
-      0030F4                       1202 00124$:
-                                   1203 ;	main.c:180: } else if (ch == '+' || ch == '-' || ch == '?' ||
-      0030F4 BC 2B 02         [24] 1204 	cjne	r4,#0x2b,00218$
-      0030F7 80 17            [24] 1205 	sjmp	00116$
-      0030F9                       1206 00218$:
-      0030F9 BC 2D 02         [24] 1207 	cjne	r4,#0x2d,00219$
-      0030FC 80 12            [24] 1208 	sjmp	00116$
-      0030FE                       1209 00219$:
-      0030FE BC 3F 02         [24] 1210 	cjne	r4,#0x3f,00220$
-      003101 80 0D            [24] 1211 	sjmp	00116$
-      003103                       1212 00220$:
-                                   1213 ;	main.c:181: ch == '=' || ch == '@') {
-      003103 BC 3D 02         [24] 1214 	cjne	r4,#0x3d,00221$
-      003106 80 08            [24] 1215 	sjmp	00116$
-      003108                       1216 00221$:
-      003108 BC 40 02         [24] 1217 	cjne	r4,#0x40,00222$
-      00310B 80 03            [24] 1218 	sjmp	00223$
-      00310D                       1219 00222$:
-      00310D 02 30 1B         [24] 1220 	ljmp	00130$
-      003110                       1221 00223$:
-      003110                       1222 00116$:
-                                   1223 ;	main.c:182: total_characters_count++;
-      003110 90 1C 5E         [24] 1224 	mov	dptr,#_main_total_characters_count_65538_59
-      003113 E0               [24] 1225 	movx	a,@dptr
-      003114 24 01            [12] 1226 	add	a,#0x01
-      003116 F0               [24] 1227 	movx	@dptr,a
-      003117 A3               [24] 1228 	inc	dptr
-      003118 E0               [24] 1229 	movx	a,@dptr
-      003119 34 00            [12] 1230 	addc	a,#0x00
-      00311B F0               [24] 1231 	movx	@dptr,a
-                                   1232 ;	main.c:183: command_characters_detected = 1;
-      00311C 90 1D A0         [24] 1233 	mov	dptr,#_command_characters_detected
-      00311F 74 01            [12] 1234 	mov	a,#0x01
-      003121 F0               [24] 1235 	movx	@dptr,a
-      003122 E4               [12] 1236 	clr	a
-      003123 A3               [24] 1237 	inc	dptr
-      003124 F0               [24] 1238 	movx	@dptr,a
-                                   1239 ;	main.c:186: continue;
-      003125                       1240 00125$:
-                                   1241 ;	main.c:190: all_buff_cleared = command_processing(command_characters_detected, ch,
-      003125 90 1D A0         [24] 1242 	mov	dptr,#_command_characters_detected
-      003128 E0               [24] 1243 	movx	a,@dptr
-      003129 FB               [12] 1244 	mov	r3,a
-      00312A A3               [24] 1245 	inc	dptr
-      00312B E0               [24] 1246 	movx	a,@dptr
-      00312C FD               [12] 1247 	mov	r5,a
-                                   1248 ;	main.c:191: &new_buffer_index, &free_buffer_count, &filled_buffer_count,
-                                   1249 ;	main.c:192: &storage_character_count, &total_characters_count, buffer_size);
-      00312D 90 1D 92         [24] 1250 	mov	dptr,#_buffer_size
-      003130 E0               [24] 1251 	movx	a,@dptr
-      003131 F9               [12] 1252 	mov	r1,a
-      003132 A3               [24] 1253 	inc	dptr
-      003133 E0               [24] 1254 	movx	a,@dptr
-      003134 FA               [12] 1255 	mov	r2,a
-      003135 90 1B 7A         [24] 1256 	mov	dptr,#_command_processing_PARM_2
-      003138 EC               [12] 1257 	mov	a,r4
-      003139 F0               [24] 1258 	movx	@dptr,a
-      00313A 90 1B 7B         [24] 1259 	mov	dptr,#_command_processing_PARM_3
-      00313D 74 56            [12] 1260 	mov	a,#_main_new_buffer_index_65537_58
-      00313F F0               [24] 1261 	movx	@dptr,a
-      003140 74 1C            [12] 1262 	mov	a,#(_main_new_buffer_index_65537_58 >> 8)
-      003142 A3               [24] 1263 	inc	dptr
-      003143 F0               [24] 1264 	movx	@dptr,a
-      003144 E4               [12] 1265 	clr	a
-      003145 A3               [24] 1266 	inc	dptr
-      003146 F0               [24] 1267 	movx	@dptr,a
-      003147 90 1B 7E         [24] 1268 	mov	dptr,#_command_processing_PARM_4
-      00314A 74 58            [12] 1269 	mov	a,#_main_free_buffer_count_65537_58
-      00314C F0               [24] 1270 	movx	@dptr,a
-      00314D 74 1C            [12] 1271 	mov	a,#(_main_free_buffer_count_65537_58 >> 8)
-      00314F A3               [24] 1272 	inc	dptr
-      003150 F0               [24] 1273 	movx	@dptr,a
-      003151 E4               [12] 1274 	clr	a
-      003152 A3               [24] 1275 	inc	dptr
-      003153 F0               [24] 1276 	movx	@dptr,a
-      003154 90 1B 81         [24] 1277 	mov	dptr,#_command_processing_PARM_5
-      003157 74 5A            [12] 1278 	mov	a,#_main_filled_buffer_count_65537_58
-      003159 F0               [24] 1279 	movx	@dptr,a
-      00315A 74 1C            [12] 1280 	mov	a,#(_main_filled_buffer_count_65537_58 >> 8)
-      00315C A3               [24] 1281 	inc	dptr
-      00315D F0               [24] 1282 	movx	@dptr,a
-      00315E E4               [12] 1283 	clr	a
-      00315F A3               [24] 1284 	inc	dptr
-      003160 F0               [24] 1285 	movx	@dptr,a
-      003161 90 1B 84         [24] 1286 	mov	dptr,#_command_processing_PARM_6
-      003164 74 5C            [12] 1287 	mov	a,#_main_storage_character_count_65538_59
-      003166 F0               [24] 1288 	movx	@dptr,a
-      003167 74 1C            [12] 1289 	mov	a,#(_main_storage_character_count_65538_59 >> 8)
-      003169 A3               [24] 1290 	inc	dptr
-      00316A F0               [24] 1291 	movx	@dptr,a
-      00316B E4               [12] 1292 	clr	a
-      00316C A3               [24] 1293 	inc	dptr
-      00316D F0               [24] 1294 	movx	@dptr,a
-      00316E 90 1B 87         [24] 1295 	mov	dptr,#_command_processing_PARM_7
-      003171 74 5E            [12] 1296 	mov	a,#_main_total_characters_count_65538_59
-      003173 F0               [24] 1297 	movx	@dptr,a
-      003174 74 1C            [12] 1298 	mov	a,#(_main_total_characters_count_65538_59 >> 8)
-      003176 A3               [24] 1299 	inc	dptr
-      003177 F0               [24] 1300 	movx	@dptr,a
-      003178 E4               [12] 1301 	clr	a
-      003179 A3               [24] 1302 	inc	dptr
-      00317A F0               [24] 1303 	movx	@dptr,a
-      00317B 90 1B 8A         [24] 1304 	mov	dptr,#_command_processing_PARM_8
-      00317E E9               [12] 1305 	mov	a,r1
-      00317F F0               [24] 1306 	movx	@dptr,a
-      003180 EA               [12] 1307 	mov	a,r2
-      003181 A3               [24] 1308 	inc	dptr
-      003182 F0               [24] 1309 	movx	@dptr,a
-      003183 8B 82            [24] 1310 	mov	dpl,r3
-      003185 8D 83            [24] 1311 	mov	dph,r5
-      003187 C0 07            [24] 1312 	push	ar7
-      003189 C0 06            [24] 1313 	push	ar6
-      00318B 12 23 82         [24] 1314 	lcall	_command_processing
-      00318E AC 82            [24] 1315 	mov	r4,dpl
-      003190 AD 83            [24] 1316 	mov	r5,dph
-      003192 D0 06            [24] 1317 	pop	ar6
-      003194 D0 07            [24] 1318 	pop	ar7
-                                   1319 ;	main.c:193: if (all_buff_cleared == 1)
-      003196 BC 01 05         [24] 1320 	cjne	r4,#0x01,00224$
-      003199 BD 00 02         [24] 1321 	cjne	r5,#0x00,00224$
-      00319C 80 03            [24] 1322 	sjmp	00225$
-      00319E                       1323 00224$:
-      00319E 02 30 1B         [24] 1324 	ljmp	00130$
-      0031A1                       1325 00225$:
-                                   1326 ;	main.c:195: printf("\033[1;0mAll buffer cleared\r\nFed in the size for buffer 0 from start!!\r\n");
-      0031A1 74 04            [12] 1327 	mov	a,#___str_20
-      0031A3 C0 E0            [24] 1328 	push	acc
-      0031A5 74 50            [12] 1329 	mov	a,#(___str_20 >> 8)
-      0031A7 C0 E0            [24] 1330 	push	acc
-      0031A9 74 80            [12] 1331 	mov	a,#0x80
-      0031AB C0 E0            [24] 1332 	push	acc
-      0031AD 12 39 57         [24] 1333 	lcall	_printf
-      0031B0 15 81            [12] 1334 	dec	sp
-      0031B2 15 81            [12] 1335 	dec	sp
-      0031B4 15 81            [12] 1336 	dec	sp
-                                   1337 ;	main.c:196: goto HERE;
-                                   1338 ;	main.c:200: }
-      0031B6 02 2E 42         [24] 1339 	ljmp	00101$
-                                   1340 	.area CSEG    (CODE)
-                                   1341 	.area CONST   (CODE)
-                                   1342 	.area CONST   (CODE)
-      004BB9                       1343 ___str_0:
-      004BB9 1B                    1344 	.db 0x1b
-      004BBA 5B 31 3B 33 35 6D 7C  1345 	.ascii "[1;35m|***********************************************|"
+      002E94                        625 _main:
+                                    626 ;	main.c:87: printf_tiny("\033[1;35m|***********************************************|\n\r");
+      002E94 74 A9            [12]  627 	mov	a,#___str_0
+      002E96 C0 E0            [24]  628 	push	acc
+      002E98 74 4E            [12]  629 	mov	a,#(___str_0 >> 8)
+      002E9A C0 E0            [24]  630 	push	acc
+      002E9C 12 36 1B         [24]  631 	lcall	_printf_tiny
+      002E9F 15 81            [12]  632 	dec	sp
+      002EA1 15 81            [12]  633 	dec	sp
+                                    634 ;	main.c:88: printf_tiny("|************ \033[1;36mUSER INTERFACE \033[1;35m*******************|\n\r");
+      002EA3 74 E4            [12]  635 	mov	a,#___str_1
+      002EA5 C0 E0            [24]  636 	push	acc
+      002EA7 74 4E            [12]  637 	mov	a,#(___str_1 >> 8)
+      002EA9 C0 E0            [24]  638 	push	acc
+      002EAB 12 36 1B         [24]  639 	lcall	_printf_tiny
+      002EAE 15 81            [12]  640 	dec	sp
+      002EB0 15 81            [12]  641 	dec	sp
+                                    642 ;	main.c:89: printf_tiny("|  Choose a character from the below options    |\n\r");
+      002EB2 74 26            [12]  643 	mov	a,#___str_2
+      002EB4 C0 E0            [24]  644 	push	acc
+      002EB6 74 4F            [12]  645 	mov	a,#(___str_2 >> 8)
+      002EB8 C0 E0            [24]  646 	push	acc
+      002EBA 12 36 1B         [24]  647 	lcall	_printf_tiny
+      002EBD 15 81            [12]  648 	dec	sp
+      002EBF 15 81            [12]  649 	dec	sp
+                                    650 ;	main.c:90: printf_tiny("|  \033[1;35ma-z\033[1;35m  | Character to store in the buffer      |\n\r");
+      002EC1 74 5A            [12]  651 	mov	a,#___str_3
+      002EC3 C0 E0            [24]  652 	push	acc
+      002EC5 74 4F            [12]  653 	mov	a,#(___str_3 >> 8)
+      002EC7 C0 E0            [24]  654 	push	acc
+      002EC9 12 36 1B         [24]  655 	lcall	_printf_tiny
+      002ECC 15 81            [12]  656 	dec	sp
+      002ECE 15 81            [12]  657 	dec	sp
+                                    658 ;	main.c:91: printf_tiny("|  \033[1;35m+\033[1;35m    | Allocate a new buffer                 |\n\r");
+      002ED0 74 9C            [12]  659 	mov	a,#___str_4
+      002ED2 C0 E0            [24]  660 	push	acc
+      002ED4 74 4F            [12]  661 	mov	a,#(___str_4 >> 8)
+      002ED6 C0 E0            [24]  662 	push	acc
+      002ED8 12 36 1B         [24]  663 	lcall	_printf_tiny
+      002EDB 15 81            [12]  664 	dec	sp
+      002EDD 15 81            [12]  665 	dec	sp
+                                    666 ;	main.c:92: printf_tiny("|  \033[1;35m-\033[1;35m    | Delete a buffer                       |\n\r");
+      002EDF 74 DE            [12]  667 	mov	a,#___str_5
+      002EE1 C0 E0            [24]  668 	push	acc
+      002EE3 74 4F            [12]  669 	mov	a,#(___str_5 >> 8)
+      002EE5 C0 E0            [24]  670 	push	acc
+      002EE7 12 36 1B         [24]  671 	lcall	_printf_tiny
+      002EEA 15 81            [12]  672 	dec	sp
+      002EEC 15 81            [12]  673 	dec	sp
+                                    674 ;	main.c:93: printf_tiny("|  \033[1;35m?\033[1;35m    | Display the heap report               |\n\r");
+      002EEE 74 20            [12]  675 	mov	a,#___str_6
+      002EF0 C0 E0            [24]  676 	push	acc
+      002EF2 74 50            [12]  677 	mov	a,#(___str_6 >> 8)
+      002EF4 C0 E0            [24]  678 	push	acc
+      002EF6 12 36 1B         [24]  679 	lcall	_printf_tiny
+      002EF9 15 81            [12]  680 	dec	sp
+      002EFB 15 81            [12]  681 	dec	sp
+                                    682 ;	main.c:94: printf_tiny("|  \033[1;35m=\033[1;35m    | Display contents of Buffer_0          |\n\r");
+      002EFD 74 62            [12]  683 	mov	a,#___str_7
+      002EFF C0 E0            [24]  684 	push	acc
+      002F01 74 50            [12]  685 	mov	a,#(___str_7 >> 8)
+      002F03 C0 E0            [24]  686 	push	acc
+      002F05 12 36 1B         [24]  687 	lcall	_printf_tiny
+      002F08 15 81            [12]  688 	dec	sp
+      002F0A 15 81            [12]  689 	dec	sp
+                                    690 ;	main.c:95: printf_tiny("|  \033[1;35m@\033[1;35m    | Free all the buffers                  |\n\r");
+      002F0C 74 A4            [12]  691 	mov	a,#___str_8
+      002F0E C0 E0            [24]  692 	push	acc
+      002F10 74 50            [12]  693 	mov	a,#(___str_8 >> 8)
+      002F12 C0 E0            [24]  694 	push	acc
+      002F14 12 36 1B         [24]  695 	lcall	_printf_tiny
+      002F17 15 81            [12]  696 	dec	sp
+      002F19 15 81            [12]  697 	dec	sp
+                                    698 ;	main.c:96: printf_tiny("\033[1;35m|***********************************************|\n\r");
+      002F1B 74 A9            [12]  699 	mov	a,#___str_0
+      002F1D C0 E0            [24]  700 	push	acc
+      002F1F 74 4E            [12]  701 	mov	a,#(___str_0 >> 8)
+      002F21 C0 E0            [24]  702 	push	acc
+      002F23 12 36 1B         [24]  703 	lcall	_printf_tiny
+      002F26 15 81            [12]  704 	dec	sp
+      002F28 15 81            [12]  705 	dec	sp
+                                    706 ;	main.c:97: printf_tiny("|***********************************************|\n\r\n\r");
+      002F2A 74 E6            [12]  707 	mov	a,#___str_9
+      002F2C C0 E0            [24]  708 	push	acc
+      002F2E 74 50            [12]  709 	mov	a,#(___str_9 >> 8)
+      002F30 C0 E0            [24]  710 	push	acc
+      002F32 12 36 1B         [24]  711 	lcall	_printf_tiny
+      002F35 15 81            [12]  712 	dec	sp
+      002F37 15 81            [12]  713 	dec	sp
+                                    714 ;	main.c:103: __xdata int new_buffer_index = 2;
+      002F39 90 1C 58         [24]  715 	mov	dptr,#_main_new_buffer_index_65537_53
+      002F3C 74 02            [12]  716 	mov	a,#0x02
+      002F3E F0               [24]  717 	movx	@dptr,a
+      002F3F E4               [12]  718 	clr	a
+      002F40 A3               [24]  719 	inc	dptr
+      002F41 F0               [24]  720 	movx	@dptr,a
+                                    721 ;	main.c:108: HERE:
+      002F42                        722 00101$:
+                                    723 ;	main.c:110: i = 0;
+      002F42 90 1C 56         [24]  724 	mov	dptr,#_main_i_65537_53
+      002F45 E4               [12]  725 	clr	a
+      002F46 F0               [24]  726 	movx	@dptr,a
+      002F47 A3               [24]  727 	inc	dptr
+      002F48 F0               [24]  728 	movx	@dptr,a
+                                    729 ;	main.c:113: __xdata int storage_character_count = 0;
+      002F49 90 1C 5E         [24]  730 	mov	dptr,#_main_storage_character_count_65538_54
+      002F4C F0               [24]  731 	movx	@dptr,a
+      002F4D A3               [24]  732 	inc	dptr
+      002F4E F0               [24]  733 	movx	@dptr,a
+                                    734 ;	main.c:114: __xdata int total_characters_count = 0;
+      002F4F 90 1C 60         [24]  735 	mov	dptr,#_main_total_characters_count_65538_54
+      002F52 F0               [24]  736 	movx	@dptr,a
+      002F53 A3               [24]  737 	inc	dptr
+      002F54 F0               [24]  738 	movx	@dptr,a
+                                    739 ;	main.c:117: __xdata int buffer0_allocated = 0;
+      002F55 90 1C 62         [24]  740 	mov	dptr,#_main_buffer0_allocated_65538_54
+      002F58 F0               [24]  741 	movx	@dptr,a
+      002F59 A3               [24]  742 	inc	dptr
+      002F5A F0               [24]  743 	movx	@dptr,a
+                                    744 ;	main.c:119: do {
+      002F5B                        745 00109$:
+                                    746 ;	main.c:121: buffer_size = Buffer_Size_Error_Correction();
+      002F5B 12 20 62         [24]  747 	lcall	_Buffer_Size_Error_Correction
+      002F5E AE 82            [24]  748 	mov	r6,dpl
+      002F60 AF 83            [24]  749 	mov	r7,dph
+      002F62 90 1D 94         [24]  750 	mov	dptr,#_buffer_size
+      002F65 EE               [12]  751 	mov	a,r6
+      002F66 F0               [24]  752 	movx	@dptr,a
+      002F67 EF               [12]  753 	mov	a,r7
+      002F68 A3               [24]  754 	inc	dptr
+      002F69 F0               [24]  755 	movx	@dptr,a
+                                    756 ;	main.c:124: if ((buffer0 = (__xdata char *)malloc(buffer_size)) == 0)
+      002F6A 8E 82            [24]  757 	mov	dpl,r6
+      002F6C 8F 83            [24]  758 	mov	dph,r7
+      002F6E 12 37 60         [24]  759 	lcall	_malloc
+      002F71 AE 82            [24]  760 	mov	r6,dpl
+      002F73 AF 83            [24]  761 	mov	r7,dph
+      002F75 90 1D 96         [24]  762 	mov	dptr,#_buffer0
+      002F78 EE               [12]  763 	mov	a,r6
+      002F79 F0               [24]  764 	movx	@dptr,a
+      002F7A EF               [12]  765 	mov	a,r7
+      002F7B A3               [24]  766 	inc	dptr
+      002F7C F0               [24]  767 	movx	@dptr,a
+      002F7D EE               [12]  768 	mov	a,r6
+      002F7E 4F               [12]  769 	orl	a,r7
+      002F7F 70 34            [24]  770 	jnz	00106$
+                                    771 ;	main.c:127: printf_tiny("\033[1;33mInvalid Malloc\t\t: Malloc on buffer0 failed!!\n\r");
+      002F81 74 1C            [12]  772 	mov	a,#___str_10
+      002F83 C0 E0            [24]  773 	push	acc
+      002F85 74 51            [12]  774 	mov	a,#(___str_10 >> 8)
+      002F87 C0 E0            [24]  775 	push	acc
+      002F89 12 36 1B         [24]  776 	lcall	_printf_tiny
+      002F8C 15 81            [12]  777 	dec	sp
+      002F8E 15 81            [12]  778 	dec	sp
+                                    779 ;	main.c:128: printf_tiny("\033[1;31mSuggested Action\t: Provide smaller buffer size!!\n\r");
+      002F90 74 52            [12]  780 	mov	a,#___str_11
+      002F92 C0 E0            [24]  781 	push	acc
+      002F94 74 51            [12]  782 	mov	a,#(___str_11 >> 8)
+      002F96 C0 E0            [24]  783 	push	acc
+      002F98 12 36 1B         [24]  784 	lcall	_printf_tiny
+      002F9B 15 81            [12]  785 	dec	sp
+      002F9D 15 81            [12]  786 	dec	sp
+                                    787 ;	main.c:130: free(buffer0);
+      002F9F 90 1D 96         [24]  788 	mov	dptr,#_buffer0
+      002FA2 E0               [24]  789 	movx	a,@dptr
+      002FA3 FE               [12]  790 	mov	r6,a
+      002FA4 A3               [24]  791 	inc	dptr
+      002FA5 E0               [24]  792 	movx	a,@dptr
+      002FA6 FF               [12]  793 	mov	r7,a
+      002FA7 7D 00            [12]  794 	mov	r5,#0x00
+      002FA9 8E 82            [24]  795 	mov	dpl,r6
+      002FAB 8F 83            [24]  796 	mov	dph,r7
+      002FAD 8D F0            [24]  797 	mov	b,r5
+      002FAF 12 33 85         [24]  798 	lcall	_free
+      002FB2 02 30 35         [24]  799 	ljmp	00110$
+      002FB5                        800 00106$:
+                                    801 ;	main.c:135: printf_tiny("\033[1;0mMalloc Successful : Buffer0 allocated\n\r");
+      002FB5 74 8C            [12]  802 	mov	a,#___str_12
+      002FB7 C0 E0            [24]  803 	push	acc
+      002FB9 74 51            [12]  804 	mov	a,#(___str_12 >> 8)
+      002FBB C0 E0            [24]  805 	push	acc
+      002FBD 12 36 1B         [24]  806 	lcall	_printf_tiny
+      002FC0 15 81            [12]  807 	dec	sp
+      002FC2 15 81            [12]  808 	dec	sp
+                                    809 ;	main.c:136: buffer0_allocated = 1;
+      002FC4 90 1C 62         [24]  810 	mov	dptr,#_main_buffer0_allocated_65538_54
+      002FC7 74 01            [12]  811 	mov	a,#0x01
+      002FC9 F0               [24]  812 	movx	@dptr,a
+      002FCA E4               [12]  813 	clr	a
+      002FCB A3               [24]  814 	inc	dptr
+      002FCC F0               [24]  815 	movx	@dptr,a
+                                    816 ;	main.c:139: if ((buffer1 = (__xdata char *)malloc(buffer_size)) == 0)
+      002FCD 90 1D 94         [24]  817 	mov	dptr,#_buffer_size
+      002FD0 E0               [24]  818 	movx	a,@dptr
+      002FD1 FE               [12]  819 	mov	r6,a
+      002FD2 A3               [24]  820 	inc	dptr
+      002FD3 E0               [24]  821 	movx	a,@dptr
+      002FD4 FF               [12]  822 	mov	r7,a
+      002FD5 8E 82            [24]  823 	mov	dpl,r6
+      002FD7 8F 83            [24]  824 	mov	dph,r7
+      002FD9 12 37 60         [24]  825 	lcall	_malloc
+      002FDC AE 82            [24]  826 	mov	r6,dpl
+      002FDE AF 83            [24]  827 	mov	r7,dph
+      002FE0 90 1D 9A         [24]  828 	mov	dptr,#_buffer1
+      002FE3 EE               [12]  829 	mov	a,r6
+      002FE4 F0               [24]  830 	movx	@dptr,a
+      002FE5 EF               [12]  831 	mov	a,r7
+      002FE6 A3               [24]  832 	inc	dptr
+      002FE7 F0               [24]  833 	movx	@dptr,a
+      002FE8 EE               [12]  834 	mov	a,r6
+      002FE9 4F               [12]  835 	orl	a,r7
+      002FEA 70 3A            [24]  836 	jnz	00103$
+                                    837 ;	main.c:142: printf_tiny("\033[1;31mInvalid Malloc: Malloc on buffer1 failed!!\n\r");
+      002FEC 74 BA            [12]  838 	mov	a,#___str_13
+      002FEE C0 E0            [24]  839 	push	acc
+      002FF0 74 51            [12]  840 	mov	a,#(___str_13 >> 8)
+      002FF2 C0 E0            [24]  841 	push	acc
+      002FF4 12 36 1B         [24]  842 	lcall	_printf_tiny
+      002FF7 15 81            [12]  843 	dec	sp
+      002FF9 15 81            [12]  844 	dec	sp
+                                    845 ;	main.c:143: printf_tiny("\033[1;31mSuggested Action\t: Provide smaller buffer size!!\n\r");
+      002FFB 74 52            [12]  846 	mov	a,#___str_11
+      002FFD C0 E0            [24]  847 	push	acc
+      002FFF 74 51            [12]  848 	mov	a,#(___str_11 >> 8)
+      003001 C0 E0            [24]  849 	push	acc
+      003003 12 36 1B         [24]  850 	lcall	_printf_tiny
+      003006 15 81            [12]  851 	dec	sp
+      003008 15 81            [12]  852 	dec	sp
+                                    853 ;	main.c:145: free(buffer0);
+      00300A 90 1D 96         [24]  854 	mov	dptr,#_buffer0
+      00300D E0               [24]  855 	movx	a,@dptr
+      00300E FE               [12]  856 	mov	r6,a
+      00300F A3               [24]  857 	inc	dptr
+      003010 E0               [24]  858 	movx	a,@dptr
+      003011 FF               [12]  859 	mov	r7,a
+      003012 7D 00            [12]  860 	mov	r5,#0x00
+      003014 8E 82            [24]  861 	mov	dpl,r6
+      003016 8F 83            [24]  862 	mov	dph,r7
+      003018 8D F0            [24]  863 	mov	b,r5
+      00301A 12 33 85         [24]  864 	lcall	_free
+                                    865 ;	main.c:146: buffer0_allocated = 0;
+      00301D 90 1C 62         [24]  866 	mov	dptr,#_main_buffer0_allocated_65538_54
+      003020 E4               [12]  867 	clr	a
+      003021 F0               [24]  868 	movx	@dptr,a
+      003022 A3               [24]  869 	inc	dptr
+      003023 F0               [24]  870 	movx	@dptr,a
+      003024 80 0F            [24]  871 	sjmp	00110$
+      003026                        872 00103$:
+                                    873 ;	main.c:151: printf_tiny("\033[1;0mMalloc Successful : Buffer1 allocated\n\r");
+      003026 74 EE            [12]  874 	mov	a,#___str_14
+      003028 C0 E0            [24]  875 	push	acc
+      00302A 74 51            [12]  876 	mov	a,#(___str_14 >> 8)
+      00302C C0 E0            [24]  877 	push	acc
+      00302E 12 36 1B         [24]  878 	lcall	_printf_tiny
+      003031 15 81            [12]  879 	dec	sp
+      003033 15 81            [12]  880 	dec	sp
+      003035                        881 00110$:
+                                    882 ;	main.c:155: } while (!buffer0_allocated || (buffer1 == 0));
+      003035 90 1C 62         [24]  883 	mov	dptr,#_main_buffer0_allocated_65538_54
+      003038 E0               [24]  884 	movx	a,@dptr
+      003039 F5 F0            [12]  885 	mov	b,a
+      00303B A3               [24]  886 	inc	dptr
+      00303C E0               [24]  887 	movx	a,@dptr
+      00303D 45 F0            [12]  888 	orl	a,b
+      00303F 70 03            [24]  889 	jnz	00214$
+      003041 02 2F 5B         [24]  890 	ljmp	00109$
+      003044                        891 00214$:
+      003044 90 1D 9A         [24]  892 	mov	dptr,#_buffer1
+      003047 E0               [24]  893 	movx	a,@dptr
+      003048 F5 F0            [12]  894 	mov	b,a
+      00304A A3               [24]  895 	inc	dptr
+      00304B E0               [24]  896 	movx	a,@dptr
+      00304C 45 F0            [12]  897 	orl	a,b
+      00304E 70 03            [24]  898 	jnz	00215$
+      003050 02 2F 5B         [24]  899 	ljmp	00109$
+      003053                        900 00215$:
+                                    901 ;	main.c:158: printf_tiny("\033[1;33m|***********************************************|\n\r");
+      003053 74 1C            [12]  902 	mov	a,#___str_15
+      003055 C0 E0            [24]  903 	push	acc
+      003057 74 52            [12]  904 	mov	a,#(___str_15 >> 8)
+      003059 C0 E0            [24]  905 	push	acc
+      00305B 12 36 1B         [24]  906 	lcall	_printf_tiny
+      00305E 15 81            [12]  907 	dec	sp
+      003060 15 81            [12]  908 	dec	sp
+                                    909 ;	main.c:159: printf_tiny("|  Buffer0 and Buffer 1 Allocation Sucsessful   |\n\r");
+      003062 74 57            [12]  910 	mov	a,#___str_16
+      003064 C0 E0            [24]  911 	push	acc
+      003066 74 52            [12]  912 	mov	a,#(___str_16 >> 8)
+      003068 C0 E0            [24]  913 	push	acc
+      00306A 12 36 1B         [24]  914 	lcall	_printf_tiny
+      00306D 15 81            [12]  915 	dec	sp
+      00306F 15 81            [12]  916 	dec	sp
+                                    917 ;	main.c:160: printf_tiny("\033[1;33m|***********************************************|\n\r");
+      003071 74 1C            [12]  918 	mov	a,#___str_15
+      003073 C0 E0            [24]  919 	push	acc
+      003075 74 52            [12]  920 	mov	a,#(___str_15 >> 8)
+      003077 C0 E0            [24]  921 	push	acc
+      003079 12 36 1B         [24]  922 	lcall	_printf_tiny
+      00307C 15 81            [12]  923 	dec	sp
+      00307E 15 81            [12]  924 	dec	sp
+                                    925 ;	main.c:163: char * buffer0_ptr = buffer0;
+      003080 90 1D 96         [24]  926 	mov	dptr,#_buffer0
+      003083 E0               [24]  927 	movx	a,@dptr
+      003084 FE               [12]  928 	mov	r6,a
+      003085 A3               [24]  929 	inc	dptr
+      003086 E0               [24]  930 	movx	a,@dptr
+      003087 FD               [12]  931 	mov	r5,a
+      003088 7F 00            [12]  932 	mov	r7,#0x00
+                                    933 ;	main.c:164: for(int i=0;i< buffer_size;i++)
+      00308A 7B 00            [12]  934 	mov	r3,#0x00
+      00308C 7C 00            [12]  935 	mov	r4,#0x00
+      00308E                        936 00135$:
+      00308E 90 1D 94         [24]  937 	mov	dptr,#_buffer_size
+      003091 E0               [24]  938 	movx	a,@dptr
+      003092 F9               [12]  939 	mov	r1,a
+      003093 A3               [24]  940 	inc	dptr
+      003094 E0               [24]  941 	movx	a,@dptr
+      003095 FA               [12]  942 	mov	r2,a
+      003096 C3               [12]  943 	clr	c
+      003097 EB               [12]  944 	mov	a,r3
+      003098 99               [12]  945 	subb	a,r1
+      003099 EC               [12]  946 	mov	a,r4
+      00309A 64 80            [12]  947 	xrl	a,#0x80
+      00309C 8A F0            [24]  948 	mov	b,r2
+      00309E 63 F0 80         [24]  949 	xrl	b,#0x80
+      0030A1 95 F0            [12]  950 	subb	a,b
+      0030A3 50 1A            [24]  951 	jnc	00112$
+                                    952 ;	main.c:166: buffer0_ptr[i] = 'ÿ';
+      0030A5 EB               [12]  953 	mov	a,r3
+      0030A6 2E               [12]  954 	add	a,r6
+      0030A7 F8               [12]  955 	mov	r0,a
+      0030A8 EC               [12]  956 	mov	a,r4
+      0030A9 3D               [12]  957 	addc	a,r5
+      0030AA F9               [12]  958 	mov	r1,a
+      0030AB 8F 02            [24]  959 	mov	ar2,r7
+      0030AD 88 82            [24]  960 	mov	dpl,r0
+      0030AF 89 83            [24]  961 	mov	dph,r1
+      0030B1 8A F0            [24]  962 	mov	b,r2
+      0030B3 74 FF            [12]  963 	mov	a,#0xff
+      0030B5 12 36 00         [24]  964 	lcall	__gptrput
+                                    965 ;	main.c:164: for(int i=0;i< buffer_size;i++)
+      0030B8 0B               [12]  966 	inc	r3
+      0030B9 BB 00 D2         [24]  967 	cjne	r3,#0x00,00135$
+      0030BC 0C               [12]  968 	inc	r4
+      0030BD 80 CF            [24]  969 	sjmp	00135$
+      0030BF                        970 00112$:
+                                    971 ;	main.c:171: new_buffer_arr[0] = buffer0;
+      0030BF 90 1D 96         [24]  972 	mov	dptr,#_buffer0
+      0030C2 E0               [24]  973 	movx	a,@dptr
+      0030C3 FE               [12]  974 	mov	r6,a
+      0030C4 A3               [24]  975 	inc	dptr
+      0030C5 E0               [24]  976 	movx	a,@dptr
+      0030C6 FF               [12]  977 	mov	r7,a
+      0030C7 90 1B 8E         [24]  978 	mov	dptr,#_new_buffer_arr
+      0030CA EE               [12]  979 	mov	a,r6
+      0030CB F0               [24]  980 	movx	@dptr,a
+      0030CC EF               [12]  981 	mov	a,r7
+      0030CD A3               [24]  982 	inc	dptr
+      0030CE F0               [24]  983 	movx	@dptr,a
+                                    984 ;	main.c:172: new_buffer_arr[1] = buffer1;
+      0030CF 90 1D 9A         [24]  985 	mov	dptr,#_buffer1
+      0030D2 E0               [24]  986 	movx	a,@dptr
+      0030D3 FE               [12]  987 	mov	r6,a
+      0030D4 A3               [24]  988 	inc	dptr
+      0030D5 E0               [24]  989 	movx	a,@dptr
+      0030D6 FF               [12]  990 	mov	r7,a
+      0030D7 90 1B 90         [24]  991 	mov	dptr,#(_new_buffer_arr + 0x0002)
+      0030DA EE               [12]  992 	mov	a,r6
+      0030DB F0               [24]  993 	movx	@dptr,a
+      0030DC EF               [12]  994 	mov	a,r7
+      0030DD A3               [24]  995 	inc	dptr
+      0030DE F0               [24]  996 	movx	@dptr,a
+                                    997 ;	main.c:173: buffer_size_arr[0] = buffer_size ;
+      0030DF 90 1D 94         [24]  998 	mov	dptr,#_buffer_size
+      0030E2 E0               [24]  999 	movx	a,@dptr
+      0030E3 FE               [12] 1000 	mov	r6,a
+      0030E4 A3               [24] 1001 	inc	dptr
+      0030E5 E0               [24] 1002 	movx	a,@dptr
+      0030E6 FF               [12] 1003 	mov	r7,a
+      0030E7 90 1D A4         [24] 1004 	mov	dptr,#_buffer_size_arr
+      0030EA EE               [12] 1005 	mov	a,r6
+      0030EB F0               [24] 1006 	movx	@dptr,a
+      0030EC EF               [12] 1007 	mov	a,r7
+      0030ED A3               [24] 1008 	inc	dptr
+      0030EE F0               [24] 1009 	movx	@dptr,a
+                                   1010 ;	main.c:174: buffer_size_arr[1] = buffer_size ;
+      0030EF 90 1D 94         [24] 1011 	mov	dptr,#_buffer_size
+      0030F2 E0               [24] 1012 	movx	a,@dptr
+      0030F3 FE               [12] 1013 	mov	r6,a
+      0030F4 A3               [24] 1014 	inc	dptr
+      0030F5 E0               [24] 1015 	movx	a,@dptr
+      0030F6 FF               [12] 1016 	mov	r7,a
+      0030F7 90 1D A6         [24] 1017 	mov	dptr,#(_buffer_size_arr + 0x0002)
+      0030FA EE               [12] 1018 	mov	a,r6
+      0030FB F0               [24] 1019 	movx	@dptr,a
+      0030FC EF               [12] 1020 	mov	a,r7
+      0030FD A3               [24] 1021 	inc	dptr
+      0030FE F0               [24] 1022 	movx	@dptr,a
+                                   1023 ;	main.c:177: free_buffer_count = 0;
+      0030FF 90 1C 5A         [24] 1024 	mov	dptr,#_main_free_buffer_count_65537_53
+      003102 E4               [12] 1025 	clr	a
+      003103 F0               [24] 1026 	movx	@dptr,a
+      003104 A3               [24] 1027 	inc	dptr
+      003105 F0               [24] 1028 	movx	@dptr,a
+                                   1029 ;	main.c:178: filled_buffer_count = 2;
+      003106 90 1C 5C         [24] 1030 	mov	dptr,#_main_filled_buffer_count_65537_53
+      003109 74 02            [12] 1031 	mov	a,#0x02
+      00310B F0               [24] 1032 	movx	@dptr,a
+      00310C E4               [12] 1033 	clr	a
+      00310D A3               [24] 1034 	inc	dptr
+      00310E F0               [24] 1035 	movx	@dptr,a
+                                   1036 ;	main.c:181: while(1)
+      00310F                       1037 00132$:
+                                   1038 ;	main.c:184: printf_tiny("\033[1;36m|***********************************************|\n\r");
+      00310F 74 8B            [12] 1039 	mov	a,#___str_17
+      003111 C0 E0            [24] 1040 	push	acc
+      003113 74 52            [12] 1041 	mov	a,#(___str_17 >> 8)
+      003115 C0 E0            [24] 1042 	push	acc
+      003117 12 36 1B         [24] 1043 	lcall	_printf_tiny
+      00311A 15 81            [12] 1044 	dec	sp
+      00311C 15 81            [12] 1045 	dec	sp
+                                   1046 ;	main.c:185: printf_tiny("\033[1;36m|                Enter Character                |\n\r");
+      00311E 74 C6            [12] 1047 	mov	a,#___str_18
+      003120 C0 E0            [24] 1048 	push	acc
+      003122 74 52            [12] 1049 	mov	a,#(___str_18 >> 8)
+      003124 C0 E0            [24] 1050 	push	acc
+      003126 12 36 1B         [24] 1051 	lcall	_printf_tiny
+      003129 15 81            [12] 1052 	dec	sp
+      00312B 15 81            [12] 1053 	dec	sp
+                                   1054 ;	main.c:186: printf_tiny("\033[1;36m|***********************************************|\n\r\033[1;0m");
+      00312D 74 01            [12] 1055 	mov	a,#___str_19
+      00312F C0 E0            [24] 1056 	push	acc
+      003131 74 53            [12] 1057 	mov	a,#(___str_19 >> 8)
+      003133 C0 E0            [24] 1058 	push	acc
+      003135 12 36 1B         [24] 1059 	lcall	_printf_tiny
+      003138 15 81            [12] 1060 	dec	sp
+      00313A 15 81            [12] 1061 	dec	sp
+                                   1062 ;	main.c:189: char ch = getchar();                    // Read a character from input
+      00313C 12 32 AD         [24] 1063 	lcall	_getchar
+      00313F AE 82            [24] 1064 	mov	r6,dpl
+                                   1065 ;	main.c:190: putchar(ch);                            // Echo the character back to output
+      003141 8E 05            [24] 1066 	mov	ar5,r6
+      003143 7F 00            [12] 1067 	mov	r7,#0x00
+      003145 8D 82            [24] 1068 	mov	dpl,r5
+      003147 8F 83            [24] 1069 	mov	dph,r7
+      003149 C0 07            [24] 1070 	push	ar7
+      00314B C0 06            [24] 1071 	push	ar6
+      00314D C0 05            [24] 1072 	push	ar5
+      00314F 12 32 BB         [24] 1073 	lcall	_putchar
+                                   1074 ;	main.c:191: putchar(' ');                           // Add a space to separate characters for readability
+      003152 90 00 20         [24] 1075 	mov	dptr,#0x0020
+      003155 12 32 BB         [24] 1076 	lcall	_putchar
+                                   1077 ;	main.c:192: printf("\033[1;0m\r\n");                // Reset color to default and print a newline
+      003158 74 42            [12] 1078 	mov	a,#___str_20
+      00315A C0 E0            [24] 1079 	push	acc
+      00315C 74 53            [12] 1080 	mov	a,#(___str_20 >> 8)
+      00315E C0 E0            [24] 1081 	push	acc
+      003160 74 80            [12] 1082 	mov	a,#0x80
+      003162 C0 E0            [24] 1083 	push	acc
+      003164 12 3A 4B         [24] 1084 	lcall	_printf
+      003167 15 81            [12] 1085 	dec	sp
+      003169 15 81            [12] 1086 	dec	sp
+      00316B 15 81            [12] 1087 	dec	sp
+      00316D D0 05            [24] 1088 	pop	ar5
+      00316F D0 06            [24] 1089 	pop	ar6
+      003171 D0 07            [24] 1090 	pop	ar7
+                                   1091 ;	main.c:195: if (ch >= 'a' && ch <= 'z') {
+      003173 BE 61 00         [24] 1092 	cjne	r6,#0x61,00218$
+      003176                       1093 00218$:
+      003176 40 68            [24] 1094 	jc	00124$
+      003178 EE               [12] 1095 	mov	a,r6
+      003179 24 85            [12] 1096 	add	a,#0xff - 0x7a
+      00317B 40 63            [24] 1097 	jc	00124$
+                                   1098 ;	main.c:196: if (i < buffer_size) {              // If there is still space in buffer0
+      00317D 90 1C 56         [24] 1099 	mov	dptr,#_main_i_65537_53
+      003180 E0               [24] 1100 	movx	a,@dptr
+      003181 FB               [12] 1101 	mov	r3,a
+      003182 A3               [24] 1102 	inc	dptr
+      003183 E0               [24] 1103 	movx	a,@dptr
+      003184 FC               [12] 1104 	mov	r4,a
+      003185 90 1D 94         [24] 1105 	mov	dptr,#_buffer_size
+      003188 E0               [24] 1106 	movx	a,@dptr
+      003189 F9               [12] 1107 	mov	r1,a
+      00318A A3               [24] 1108 	inc	dptr
+      00318B E0               [24] 1109 	movx	a,@dptr
+      00318C FA               [12] 1110 	mov	r2,a
+      00318D C3               [12] 1111 	clr	c
+      00318E EB               [12] 1112 	mov	a,r3
+      00318F 99               [12] 1113 	subb	a,r1
+      003190 EC               [12] 1114 	mov	a,r4
+      003191 64 80            [12] 1115 	xrl	a,#0x80
+      003193 8A F0            [24] 1116 	mov	b,r2
+      003195 63 F0 80         [24] 1117 	xrl	b,#0x80
+      003198 95 F0            [12] 1118 	subb	a,b
+      00319A 50 1F            [24] 1119 	jnc	00114$
+                                   1120 ;	main.c:197: buffer0[i++] = ch;              // Store the character in buffer0
+      00319C 90 1C 56         [24] 1121 	mov	dptr,#_main_i_65537_53
+      00319F 74 01            [12] 1122 	mov	a,#0x01
+      0031A1 2B               [12] 1123 	add	a,r3
+      0031A2 F0               [24] 1124 	movx	@dptr,a
+      0031A3 E4               [12] 1125 	clr	a
+      0031A4 3C               [12] 1126 	addc	a,r4
+      0031A5 A3               [24] 1127 	inc	dptr
+      0031A6 F0               [24] 1128 	movx	@dptr,a
+      0031A7 90 1D 96         [24] 1129 	mov	dptr,#_buffer0
+      0031AA E0               [24] 1130 	movx	a,@dptr
+      0031AB F9               [12] 1131 	mov	r1,a
+      0031AC A3               [24] 1132 	inc	dptr
+      0031AD E0               [24] 1133 	movx	a,@dptr
+      0031AE FA               [12] 1134 	mov	r2,a
+      0031AF EB               [12] 1135 	mov	a,r3
+      0031B0 29               [12] 1136 	add	a,r1
+      0031B1 F5 82            [12] 1137 	mov	dpl,a
+      0031B3 EC               [12] 1138 	mov	a,r4
+      0031B4 3A               [12] 1139 	addc	a,r2
+      0031B5 F5 83            [12] 1140 	mov	dph,a
+      0031B7 EE               [12] 1141 	mov	a,r6
+      0031B8 F0               [24] 1142 	movx	@dptr,a
+      0031B9 80 0B            [24] 1143 	sjmp	00115$
+      0031BB                       1144 00114$:
+                                   1145 ;	main.c:200: putchar(ch);
+      0031BB 8D 82            [24] 1146 	mov	dpl,r5
+      0031BD 8F 83            [24] 1147 	mov	dph,r7
+      0031BF C0 06            [24] 1148 	push	ar6
+      0031C1 12 32 BB         [24] 1149 	lcall	_putchar
+      0031C4 D0 06            [24] 1150 	pop	ar6
+      0031C6                       1151 00115$:
+                                   1152 ;	main.c:202: storage_character_count++;          // Increment the count of storage characters
+      0031C6 90 1C 5E         [24] 1153 	mov	dptr,#_main_storage_character_count_65538_54
+      0031C9 E0               [24] 1154 	movx	a,@dptr
+      0031CA 24 01            [12] 1155 	add	a,#0x01
+      0031CC F0               [24] 1156 	movx	@dptr,a
+      0031CD A3               [24] 1157 	inc	dptr
+      0031CE E0               [24] 1158 	movx	a,@dptr
+      0031CF 34 00            [12] 1159 	addc	a,#0x00
+      0031D1 F0               [24] 1160 	movx	@dptr,a
+                                   1161 ;	main.c:203: total_characters_count++;           // Increment the count of total characters
+      0031D2 90 1C 60         [24] 1162 	mov	dptr,#_main_total_characters_count_65538_54
+      0031D5 E0               [24] 1163 	movx	a,@dptr
+      0031D6 24 01            [12] 1164 	add	a,#0x01
+      0031D8 F0               [24] 1165 	movx	@dptr,a
+      0031D9 A3               [24] 1166 	inc	dptr
+      0031DA E0               [24] 1167 	movx	a,@dptr
+      0031DB 34 00            [12] 1168 	addc	a,#0x00
+      0031DD F0               [24] 1169 	movx	@dptr,a
+      0031DE 80 31            [24] 1170 	sjmp	00125$
+      0031E0                       1171 00124$:
+                                   1172 ;	main.c:204: } else if (ch == '+' || ch == '-' || ch == '?' ||
+      0031E0 BE 2B 02         [24] 1173 	cjne	r6,#0x2b,00222$
+      0031E3 80 17            [24] 1174 	sjmp	00116$
+      0031E5                       1175 00222$:
+      0031E5 BE 2D 02         [24] 1176 	cjne	r6,#0x2d,00223$
+      0031E8 80 12            [24] 1177 	sjmp	00116$
+      0031EA                       1178 00223$:
+      0031EA BE 3F 02         [24] 1179 	cjne	r6,#0x3f,00224$
+      0031ED 80 0D            [24] 1180 	sjmp	00116$
+      0031EF                       1181 00224$:
+                                   1182 ;	main.c:205: ch == '=' || ch == '@') {
+      0031EF BE 3D 02         [24] 1183 	cjne	r6,#0x3d,00225$
+      0031F2 80 08            [24] 1184 	sjmp	00116$
+      0031F4                       1185 00225$:
+      0031F4 BE 40 02         [24] 1186 	cjne	r6,#0x40,00226$
+      0031F7 80 03            [24] 1187 	sjmp	00227$
+      0031F9                       1188 00226$:
+      0031F9 02 31 0F         [24] 1189 	ljmp	00132$
+      0031FC                       1190 00227$:
+      0031FC                       1191 00116$:
+                                   1192 ;	main.c:207: total_characters_count++;           // Increment the count of total characters
+      0031FC 90 1C 60         [24] 1193 	mov	dptr,#_main_total_characters_count_65538_54
+      0031FF E0               [24] 1194 	movx	a,@dptr
+      003200 24 01            [12] 1195 	add	a,#0x01
+      003202 F0               [24] 1196 	movx	@dptr,a
+      003203 A3               [24] 1197 	inc	dptr
+      003204 E0               [24] 1198 	movx	a,@dptr
+      003205 34 00            [12] 1199 	addc	a,#0x00
+      003207 F0               [24] 1200 	movx	@dptr,a
+                                   1201 ;	main.c:208: command_characters_detected = 1;    // Set flag to indicate command character detected
+      003208 90 1D A2         [24] 1202 	mov	dptr,#_command_characters_detected
+      00320B 74 01            [12] 1203 	mov	a,#0x01
+      00320D F0               [24] 1204 	movx	@dptr,a
+      00320E E4               [12] 1205 	clr	a
+      00320F A3               [24] 1206 	inc	dptr
+      003210 F0               [24] 1207 	movx	@dptr,a
+                                   1208 ;	main.c:211: continue;
+      003211                       1209 00125$:
+                                   1210 ;	main.c:215: all_buff_cleared = command_processing(command_characters_detected, ch,
+      003211 90 1D A2         [24] 1211 	mov	dptr,#_command_characters_detected
+      003214 E0               [24] 1212 	movx	a,@dptr
+      003215 FD               [12] 1213 	mov	r5,a
+      003216 A3               [24] 1214 	inc	dptr
+      003217 E0               [24] 1215 	movx	a,@dptr
+      003218 FF               [12] 1216 	mov	r7,a
+                                   1217 ;	main.c:216: &new_buffer_index, &free_buffer_count, &filled_buffer_count,
+                                   1218 ;	main.c:217: &storage_character_count, &total_characters_count, buffer_size);
+      003219 90 1D 94         [24] 1219 	mov	dptr,#_buffer_size
+      00321C E0               [24] 1220 	movx	a,@dptr
+      00321D FB               [12] 1221 	mov	r3,a
+      00321E A3               [24] 1222 	inc	dptr
+      00321F E0               [24] 1223 	movx	a,@dptr
+      003220 FC               [12] 1224 	mov	r4,a
+      003221 90 1B 7A         [24] 1225 	mov	dptr,#_command_processing_PARM_2
+      003224 EE               [12] 1226 	mov	a,r6
+      003225 F0               [24] 1227 	movx	@dptr,a
+      003226 90 1B 7B         [24] 1228 	mov	dptr,#_command_processing_PARM_3
+      003229 74 58            [12] 1229 	mov	a,#_main_new_buffer_index_65537_53
+      00322B F0               [24] 1230 	movx	@dptr,a
+      00322C 74 1C            [12] 1231 	mov	a,#(_main_new_buffer_index_65537_53 >> 8)
+      00322E A3               [24] 1232 	inc	dptr
+      00322F F0               [24] 1233 	movx	@dptr,a
+      003230 E4               [12] 1234 	clr	a
+      003231 A3               [24] 1235 	inc	dptr
+      003232 F0               [24] 1236 	movx	@dptr,a
+      003233 90 1B 7E         [24] 1237 	mov	dptr,#_command_processing_PARM_4
+      003236 74 5A            [12] 1238 	mov	a,#_main_free_buffer_count_65537_53
+      003238 F0               [24] 1239 	movx	@dptr,a
+      003239 74 1C            [12] 1240 	mov	a,#(_main_free_buffer_count_65537_53 >> 8)
+      00323B A3               [24] 1241 	inc	dptr
+      00323C F0               [24] 1242 	movx	@dptr,a
+      00323D E4               [12] 1243 	clr	a
+      00323E A3               [24] 1244 	inc	dptr
+      00323F F0               [24] 1245 	movx	@dptr,a
+      003240 90 1B 81         [24] 1246 	mov	dptr,#_command_processing_PARM_5
+      003243 74 5C            [12] 1247 	mov	a,#_main_filled_buffer_count_65537_53
+      003245 F0               [24] 1248 	movx	@dptr,a
+      003246 74 1C            [12] 1249 	mov	a,#(_main_filled_buffer_count_65537_53 >> 8)
+      003248 A3               [24] 1250 	inc	dptr
+      003249 F0               [24] 1251 	movx	@dptr,a
+      00324A E4               [12] 1252 	clr	a
+      00324B A3               [24] 1253 	inc	dptr
+      00324C F0               [24] 1254 	movx	@dptr,a
+      00324D 90 1B 84         [24] 1255 	mov	dptr,#_command_processing_PARM_6
+      003250 74 5E            [12] 1256 	mov	a,#_main_storage_character_count_65538_54
+      003252 F0               [24] 1257 	movx	@dptr,a
+      003253 74 1C            [12] 1258 	mov	a,#(_main_storage_character_count_65538_54 >> 8)
+      003255 A3               [24] 1259 	inc	dptr
+      003256 F0               [24] 1260 	movx	@dptr,a
+      003257 E4               [12] 1261 	clr	a
+      003258 A3               [24] 1262 	inc	dptr
+      003259 F0               [24] 1263 	movx	@dptr,a
+      00325A 90 1B 87         [24] 1264 	mov	dptr,#_command_processing_PARM_7
+      00325D 74 60            [12] 1265 	mov	a,#_main_total_characters_count_65538_54
+      00325F F0               [24] 1266 	movx	@dptr,a
+      003260 74 1C            [12] 1267 	mov	a,#(_main_total_characters_count_65538_54 >> 8)
+      003262 A3               [24] 1268 	inc	dptr
+      003263 F0               [24] 1269 	movx	@dptr,a
+      003264 E4               [12] 1270 	clr	a
+      003265 A3               [24] 1271 	inc	dptr
+      003266 F0               [24] 1272 	movx	@dptr,a
+      003267 90 1B 8A         [24] 1273 	mov	dptr,#_command_processing_PARM_8
+      00326A EB               [12] 1274 	mov	a,r3
+      00326B F0               [24] 1275 	movx	@dptr,a
+      00326C EC               [12] 1276 	mov	a,r4
+      00326D A3               [24] 1277 	inc	dptr
+      00326E F0               [24] 1278 	movx	@dptr,a
+      00326F 8D 82            [24] 1279 	mov	dpl,r5
+      003271 8F 83            [24] 1280 	mov	dph,r7
+      003273 12 24 36         [24] 1281 	lcall	_command_processing
+      003276 AE 82            [24] 1282 	mov	r6,dpl
+      003278 AF 83            [24] 1283 	mov	r7,dph
+                                   1284 ;	main.c:218: if (all_buff_cleared == ALL_BUFFER_CLEARED)
+      00327A BE 01 1B         [24] 1285 	cjne	r6,#0x01,00128$
+      00327D BF 00 18         [24] 1286 	cjne	r7,#0x00,00128$
+                                   1287 ;	main.c:221: printf("\033[1;0mAll buffer cleared\r\nFed in the size for buffer 0 from start!!\r\n");
+      003280 74 4B            [12] 1288 	mov	a,#___str_21
+      003282 C0 E0            [24] 1289 	push	acc
+      003284 74 53            [12] 1290 	mov	a,#(___str_21 >> 8)
+      003286 C0 E0            [24] 1291 	push	acc
+      003288 74 80            [12] 1292 	mov	a,#0x80
+      00328A C0 E0            [24] 1293 	push	acc
+      00328C 12 3A 4B         [24] 1294 	lcall	_printf
+      00328F 15 81            [12] 1295 	dec	sp
+      003291 15 81            [12] 1296 	dec	sp
+      003293 15 81            [12] 1297 	dec	sp
+                                   1298 ;	main.c:222: goto HERE;
+      003295 02 2F 42         [24] 1299 	ljmp	00101$
+      003298                       1300 00128$:
+                                   1301 ;	main.c:224: if (all_buff_cleared == ONLY_BUFFER0_CLEARED)
+      003298 BE 02 05         [24] 1302 	cjne	r6,#0x02,00230$
+      00329B BF 00 02         [24] 1303 	cjne	r7,#0x00,00230$
+      00329E 80 03            [24] 1304 	sjmp	00231$
+      0032A0                       1305 00230$:
+      0032A0 02 31 0F         [24] 1306 	ljmp	00132$
+      0032A3                       1307 00231$:
+                                   1308 ;	main.c:227: i=0;
+      0032A3 90 1C 56         [24] 1309 	mov	dptr,#_main_i_65537_53
+      0032A6 E4               [12] 1310 	clr	a
+      0032A7 F0               [24] 1311 	movx	@dptr,a
+      0032A8 A3               [24] 1312 	inc	dptr
+      0032A9 F0               [24] 1313 	movx	@dptr,a
+                                   1314 ;	main.c:232: }
+      0032AA 02 31 0F         [24] 1315 	ljmp	00132$
+                                   1316 	.area CSEG    (CODE)
+                                   1317 	.area CONST   (CODE)
+                                   1318 	.area CONST   (CODE)
+      004EA9                       1319 ___str_0:
+      004EA9 1B                    1320 	.db 0x1b
+      004EAA 5B 31 3B 33 35 6D 7C  1321 	.ascii "[1;35m|***********************************************|"
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
@@ -1350,65 +1326,65 @@
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 7C
-      004BF1 0A                    1346 	.db 0x0a
-      004BF2 0D                    1347 	.db 0x0d
-      004BF3 00                    1348 	.db 0x00
-                                   1349 	.area CSEG    (CODE)
-                                   1350 	.area CONST   (CODE)
-      004BF4                       1351 ___str_1:
-      004BF4 7C 2A 2A 2A 2A 2A 2A  1352 	.ascii "|************ "
+      004EE1 0A                    1322 	.db 0x0a
+      004EE2 0D                    1323 	.db 0x0d
+      004EE3 00                    1324 	.db 0x00
+                                   1325 	.area CSEG    (CODE)
+                                   1326 	.area CONST   (CODE)
+      004EE4                       1327 ___str_1:
+      004EE4 7C 2A 2A 2A 2A 2A 2A  1328 	.ascii "|************ "
              2A 2A 2A 2A 2A 2A 20
-      004C02 1B                    1353 	.db 0x1b
-      004C03 5B 31 3B 33 36 6D 55  1354 	.ascii "[1;36mUSER INTERFACE "
+      004EF2 1B                    1329 	.db 0x1b
+      004EF3 5B 31 3B 33 36 6D 55  1330 	.ascii "[1;36mUSER INTERFACE "
              53 45 52 20 49 4E 54
              45 52 46 41 43 45 20
-      004C18 1B                    1355 	.db 0x1b
-      004C19 5B 31 3B 33 35 6D 2A  1356 	.ascii "[1;35m*******************|"
+      004F08 1B                    1331 	.db 0x1b
+      004F09 5B 31 3B 33 35 6D 2A  1332 	.ascii "[1;35m*******************|"
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 7C
-      004C33 0A                    1357 	.db 0x0a
-      004C34 0D                    1358 	.db 0x0d
-      004C35 00                    1359 	.db 0x00
-                                   1360 	.area CSEG    (CODE)
-                                   1361 	.area CONST   (CODE)
-      004C36                       1362 ___str_2:
-      004C36 7C 20 20 43 68 6F 6F  1363 	.ascii "|  Choose a character from the below options    |"
+      004F23 0A                    1333 	.db 0x0a
+      004F24 0D                    1334 	.db 0x0d
+      004F25 00                    1335 	.db 0x00
+                                   1336 	.area CSEG    (CODE)
+                                   1337 	.area CONST   (CODE)
+      004F26                       1338 ___str_2:
+      004F26 7C 20 20 43 68 6F 6F  1339 	.ascii "|  Choose a character from the below options    |"
              73 65 20 61 20 63 68
              61 72 61 63 74 65 72
              20 66 72 6F 6D 20 74
              68 65 20 62 65 6C 6F
              77 20 6F 70 74 69 6F
              6E 73 20 20 20 20 7C
-      004C67 0A                    1364 	.db 0x0a
-      004C68 0D                    1365 	.db 0x0d
-      004C69 00                    1366 	.db 0x00
-                                   1367 	.area CSEG    (CODE)
-                                   1368 	.area CONST   (CODE)
-      004C6A                       1369 ___str_3:
-      004C6A 7C 20 20              1370 	.ascii "|  "
-      004C6D 1B                    1371 	.db 0x1b
-      004C6E 5B 31 3B 33 35 6D 61  1372 	.ascii "[1;35ma-z"
+      004F57 0A                    1340 	.db 0x0a
+      004F58 0D                    1341 	.db 0x0d
+      004F59 00                    1342 	.db 0x00
+                                   1343 	.area CSEG    (CODE)
+                                   1344 	.area CONST   (CODE)
+      004F5A                       1345 ___str_3:
+      004F5A 7C 20 20              1346 	.ascii "|  "
+      004F5D 1B                    1347 	.db 0x1b
+      004F5E 5B 31 3B 33 35 6D 61  1348 	.ascii "[1;35ma-z"
              2D 7A
-      004C77 1B                    1373 	.db 0x1b
-      004C78 5B 31 3B 33 35 6D 20  1374 	.ascii "[1;35m  | Character to store in the buffer      |"
+      004F67 1B                    1349 	.db 0x1b
+      004F68 5B 31 3B 33 35 6D 20  1350 	.ascii "[1;35m  | Character to store in the buffer      |"
              20 7C 20 43 68 61 72
              61 63 74 65 72 20 74
              6F 20 73 74 6F 72 65
              20 69 6E 20 74 68 65
              20 62 75 66 66 65 72
              20 20 20 20 20 20 7C
-      004CA9 0A                    1375 	.db 0x0a
-      004CAA 0D                    1376 	.db 0x0d
-      004CAB 00                    1377 	.db 0x00
-                                   1378 	.area CSEG    (CODE)
-                                   1379 	.area CONST   (CODE)
-      004CAC                       1380 ___str_4:
-      004CAC 7C 20 20              1381 	.ascii "|  "
-      004CAF 1B                    1382 	.db 0x1b
-      004CB0 5B 31 3B 33 35 6D 2B  1383 	.ascii "[1;35m+"
-      004CB7 1B                    1384 	.db 0x1b
-      004CB8 5B 31 3B 33 35 6D 20  1385 	.ascii "[1;35m    | Allocate a new buffer                 |"
+      004F99 0A                    1351 	.db 0x0a
+      004F9A 0D                    1352 	.db 0x0d
+      004F9B 00                    1353 	.db 0x00
+                                   1354 	.area CSEG    (CODE)
+                                   1355 	.area CONST   (CODE)
+      004F9C                       1356 ___str_4:
+      004F9C 7C 20 20              1357 	.ascii "|  "
+      004F9F 1B                    1358 	.db 0x1b
+      004FA0 5B 31 3B 33 35 6D 2B  1359 	.ascii "[1;35m+"
+      004FA7 1B                    1360 	.db 0x1b
+      004FA8 5B 31 3B 33 35 6D 20  1361 	.ascii "[1;35m    | Allocate a new buffer                 |"
              20 20 20 7C 20 41 6C
              6C 6F 63 61 74 65 20
              61 20 6E 65 77 20 62
@@ -1416,17 +1392,17 @@
              20 20 20 20 20 20 20
              20 20 20 20 20 20 20
              20 7C
-      004CEB 0A                    1386 	.db 0x0a
-      004CEC 0D                    1387 	.db 0x0d
-      004CED 00                    1388 	.db 0x00
-                                   1389 	.area CSEG    (CODE)
-                                   1390 	.area CONST   (CODE)
-      004CEE                       1391 ___str_5:
-      004CEE 7C 20 20              1392 	.ascii "|  "
-      004CF1 1B                    1393 	.db 0x1b
-      004CF2 5B 31 3B 33 35 6D 2D  1394 	.ascii "[1;35m-"
-      004CF9 1B                    1395 	.db 0x1b
-      004CFA 5B 31 3B 33 35 6D 20  1396 	.ascii "[1;35m    | Delete a buffer                       |"
+      004FDB 0A                    1362 	.db 0x0a
+      004FDC 0D                    1363 	.db 0x0d
+      004FDD 00                    1364 	.db 0x00
+                                   1365 	.area CSEG    (CODE)
+                                   1366 	.area CONST   (CODE)
+      004FDE                       1367 ___str_5:
+      004FDE 7C 20 20              1368 	.ascii "|  "
+      004FE1 1B                    1369 	.db 0x1b
+      004FE2 5B 31 3B 33 35 6D 2D  1370 	.ascii "[1;35m-"
+      004FE9 1B                    1371 	.db 0x1b
+      004FEA 5B 31 3B 33 35 6D 20  1372 	.ascii "[1;35m    | Delete a buffer                       |"
              20 20 20 7C 20 44 65
              6C 65 74 65 20 61 20
              62 75 66 66 65 72 20
@@ -1434,17 +1410,17 @@
              20 20 20 20 20 20 20
              20 20 20 20 20 20 20
              20 7C
-      004D2D 0A                    1397 	.db 0x0a
-      004D2E 0D                    1398 	.db 0x0d
-      004D2F 00                    1399 	.db 0x00
-                                   1400 	.area CSEG    (CODE)
-                                   1401 	.area CONST   (CODE)
-      004D30                       1402 ___str_6:
-      004D30 7C 20 20              1403 	.ascii "|  "
-      004D33 1B                    1404 	.db 0x1b
-      004D34 5B 31 3B 33 35 6D 3F  1405 	.ascii "[1;35m?"
-      004D3B 1B                    1406 	.db 0x1b
-      004D3C 5B 31 3B 33 35 6D 20  1407 	.ascii "[1;35m    | Display the heap report               |"
+      00501D 0A                    1373 	.db 0x0a
+      00501E 0D                    1374 	.db 0x0d
+      00501F 00                    1375 	.db 0x00
+                                   1376 	.area CSEG    (CODE)
+                                   1377 	.area CONST   (CODE)
+      005020                       1378 ___str_6:
+      005020 7C 20 20              1379 	.ascii "|  "
+      005023 1B                    1380 	.db 0x1b
+      005024 5B 31 3B 33 35 6D 3F  1381 	.ascii "[1;35m?"
+      00502B 1B                    1382 	.db 0x1b
+      00502C 5B 31 3B 33 35 6D 20  1383 	.ascii "[1;35m    | Display the heap report               |"
              20 20 20 7C 20 44 69
              73 70 6C 61 79 20 74
              68 65 20 68 65 61 70
@@ -1452,17 +1428,17 @@
              20 20 20 20 20 20 20
              20 20 20 20 20 20 20
              20 7C
-      004D6F 0A                    1408 	.db 0x0a
-      004D70 0D                    1409 	.db 0x0d
-      004D71 00                    1410 	.db 0x00
-                                   1411 	.area CSEG    (CODE)
-                                   1412 	.area CONST   (CODE)
-      004D72                       1413 ___str_7:
-      004D72 7C 20 20              1414 	.ascii "|  "
-      004D75 1B                    1415 	.db 0x1b
-      004D76 5B 31 3B 33 35 6D 3D  1416 	.ascii "[1;35m="
-      004D7D 1B                    1417 	.db 0x1b
-      004D7E 5B 31 3B 33 35 6D 20  1418 	.ascii "[1;35m    | Display contents of Buffer_0          |"
+      00505F 0A                    1384 	.db 0x0a
+      005060 0D                    1385 	.db 0x0d
+      005061 00                    1386 	.db 0x00
+                                   1387 	.area CSEG    (CODE)
+                                   1388 	.area CONST   (CODE)
+      005062                       1389 ___str_7:
+      005062 7C 20 20              1390 	.ascii "|  "
+      005065 1B                    1391 	.db 0x1b
+      005066 5B 31 3B 33 35 6D 3D  1392 	.ascii "[1;35m="
+      00506D 1B                    1393 	.db 0x1b
+      00506E 5B 31 3B 33 35 6D 20  1394 	.ascii "[1;35m    | Display contents of Buffer_0          |"
              20 20 20 7C 20 44 69
              73 70 6C 61 79 20 63
              6F 6E 74 65 6E 74 73
@@ -1470,17 +1446,17 @@
              66 65 72 5F 30 20 20
              20 20 20 20 20 20 20
              20 7C
-      004DB1 0A                    1419 	.db 0x0a
-      004DB2 0D                    1420 	.db 0x0d
-      004DB3 00                    1421 	.db 0x00
-                                   1422 	.area CSEG    (CODE)
-                                   1423 	.area CONST   (CODE)
-      004DB4                       1424 ___str_8:
-      004DB4 7C 20 20              1425 	.ascii "|  "
-      004DB7 1B                    1426 	.db 0x1b
-      004DB8 5B 31 3B 33 35 6D 40  1427 	.ascii "[1;35m@"
-      004DBF 1B                    1428 	.db 0x1b
-      004DC0 5B 31 3B 33 35 6D 20  1429 	.ascii "[1;35m    | Free all the buffers                  |"
+      0050A1 0A                    1395 	.db 0x0a
+      0050A2 0D                    1396 	.db 0x0d
+      0050A3 00                    1397 	.db 0x00
+                                   1398 	.area CSEG    (CODE)
+                                   1399 	.area CONST   (CODE)
+      0050A4                       1400 ___str_8:
+      0050A4 7C 20 20              1401 	.ascii "|  "
+      0050A7 1B                    1402 	.db 0x1b
+      0050A8 5B 31 3B 33 35 6D 40  1403 	.ascii "[1;35m@"
+      0050AF 1B                    1404 	.db 0x1b
+      0050B0 5B 31 3B 33 35 6D 20  1405 	.ascii "[1;35m    | Free all the buffers                  |"
              20 20 20 7C 20 46 72
              65 65 20 61 6C 6C 20
              74 68 65 20 62 75 66
@@ -1488,29 +1464,102 @@
              20 20 20 20 20 20 20
              20 20 20 20 20 20 20
              20 7C
-      004DF3 0A                    1430 	.db 0x0a
-      004DF4 0D                    1431 	.db 0x0d
-      004DF5 00                    1432 	.db 0x00
-                                   1433 	.area CSEG    (CODE)
-                                   1434 	.area CONST   (CODE)
-      004DF6                       1435 ___str_9:
-      004DF6 7C 2A 2A 2A 2A 2A 2A  1436 	.ascii "|***********************************************|"
+      0050E3 0A                    1406 	.db 0x0a
+      0050E4 0D                    1407 	.db 0x0d
+      0050E5 00                    1408 	.db 0x00
+                                   1409 	.area CSEG    (CODE)
+                                   1410 	.area CONST   (CODE)
+      0050E6                       1411 ___str_9:
+      0050E6 7C 2A 2A 2A 2A 2A 2A  1412 	.ascii "|***********************************************|"
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 7C
-      004E27 0A                    1437 	.db 0x0a
-      004E28 0D                    1438 	.db 0x0d
-      004E29 0A                    1439 	.db 0x0a
-      004E2A 0D                    1440 	.db 0x0d
-      004E2B 00                    1441 	.db 0x00
-                                   1442 	.area CSEG    (CODE)
-                                   1443 	.area CONST   (CODE)
-      004E2C                       1444 ___str_10:
-      004E2C 1B                    1445 	.db 0x1b
-      004E2D 5B 31 3B 33 33 6D 7C  1446 	.ascii "[1;33m|***********************************************|"
+      005117 0A                    1413 	.db 0x0a
+      005118 0D                    1414 	.db 0x0d
+      005119 0A                    1415 	.db 0x0a
+      00511A 0D                    1416 	.db 0x0d
+      00511B 00                    1417 	.db 0x00
+                                   1418 	.area CSEG    (CODE)
+                                   1419 	.area CONST   (CODE)
+      00511C                       1420 ___str_10:
+      00511C 1B                    1421 	.db 0x1b
+      00511D 5B 31 3B 33 33 6D 49  1422 	.ascii "[1;33mInvalid Malloc"
+             6E 76 61 6C 69 64 20
+             4D 61 6C 6C 6F 63
+      005131 09                    1423 	.db 0x09
+      005132 09                    1424 	.db 0x09
+      005133 3A 20 4D 61 6C 6C 6F  1425 	.ascii ": Malloc on buffer0 failed!!"
+             63 20 6F 6E 20 62 75
+             66 66 65 72 30 20 66
+             61 69 6C 65 64 21 21
+      00514F 0A                    1426 	.db 0x0a
+      005150 0D                    1427 	.db 0x0d
+      005151 00                    1428 	.db 0x00
+                                   1429 	.area CSEG    (CODE)
+                                   1430 	.area CONST   (CODE)
+      005152                       1431 ___str_11:
+      005152 1B                    1432 	.db 0x1b
+      005153 5B 31 3B 33 31 6D 53  1433 	.ascii "[1;31mSuggested Action"
+             75 67 67 65 73 74 65
+             64 20 41 63 74 69 6F
+             6E
+      005169 09                    1434 	.db 0x09
+      00516A 3A 20 50 72 6F 76 69  1435 	.ascii ": Provide smaller buffer size!!"
+             64 65 20 73 6D 61 6C
+             6C 65 72 20 62 75 66
+             66 65 72 20 73 69 7A
+             65 21 21
+      005189 0A                    1436 	.db 0x0a
+      00518A 0D                    1437 	.db 0x0d
+      00518B 00                    1438 	.db 0x00
+                                   1439 	.area CSEG    (CODE)
+                                   1440 	.area CONST   (CODE)
+      00518C                       1441 ___str_12:
+      00518C 1B                    1442 	.db 0x1b
+      00518D 5B 31 3B 30 6D 4D 61  1443 	.ascii "[1;0mMalloc Successful : Buffer0 allocated"
+             6C 6C 6F 63 20 53 75
+             63 63 65 73 73 66 75
+             6C 20 3A 20 42 75 66
+             66 65 72 30 20 61 6C
+             6C 6F 63 61 74 65 64
+      0051B7 0A                    1444 	.db 0x0a
+      0051B8 0D                    1445 	.db 0x0d
+      0051B9 00                    1446 	.db 0x00
+                                   1447 	.area CSEG    (CODE)
+                                   1448 	.area CONST   (CODE)
+      0051BA                       1449 ___str_13:
+      0051BA 1B                    1450 	.db 0x1b
+      0051BB 5B 31 3B 33 31 6D 49  1451 	.ascii "[1;31mInvalid Malloc: Malloc on buffer1 failed!!"
+             6E 76 61 6C 69 64 20
+             4D 61 6C 6C 6F 63 3A
+             20 4D 61 6C 6C 6F 63
+             20 6F 6E 20 62 75 66
+             66 65 72 31 20 66 61
+             69 6C 65 64 21 21
+      0051EB 0A                    1452 	.db 0x0a
+      0051EC 0D                    1453 	.db 0x0d
+      0051ED 00                    1454 	.db 0x00
+                                   1455 	.area CSEG    (CODE)
+                                   1456 	.area CONST   (CODE)
+      0051EE                       1457 ___str_14:
+      0051EE 1B                    1458 	.db 0x1b
+      0051EF 5B 31 3B 30 6D 4D 61  1459 	.ascii "[1;0mMalloc Successful : Buffer1 allocated"
+             6C 6C 6F 63 20 53 75
+             63 63 65 73 73 66 75
+             6C 20 3A 20 42 75 66
+             66 65 72 31 20 61 6C
+             6C 6F 63 61 74 65 64
+      005219 0A                    1460 	.db 0x0a
+      00521A 0D                    1461 	.db 0x0d
+      00521B 00                    1462 	.db 0x00
+                                   1463 	.area CSEG    (CODE)
+                                   1464 	.area CONST   (CODE)
+      00521C                       1465 ___str_15:
+      00521C 1B                    1466 	.db 0x1b
+      00521D 5B 31 3B 33 33 6D 7C  1467 	.ascii "[1;33m|***********************************************|"
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
@@ -1518,758 +1567,712 @@
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 7C
-      004E64 0A                    1447 	.db 0x0a
-      004E65 0D                    1448 	.db 0x0d
-      004E66 00                    1449 	.db 0x00
-                                   1450 	.area CSEG    (CODE)
-                                   1451 	.area CONST   (CODE)
-      004E67                       1452 ___str_11:
-      004E67 7C 20 20 43 68 6F 6F  1453 	.ascii "|  Choose a size for buffer 0 and buffer 1      |"
-             73 65 20 61 20 73 69
-             7A 65 20 66 6F 72 20
-             62 75 66 66 65 72 20
-             30 20 61 6E 64 20 62
-             75 66 66 65 72 20 31
-             20 20 20 20 20 20 7C
-      004E98 0A                    1454 	.db 0x0a
-      004E99 0D                    1455 	.db 0x0d
-      004E9A 00                    1456 	.db 0x00
-                                   1457 	.area CSEG    (CODE)
-                                   1458 	.area CONST   (CODE)
-      004E9B                       1459 ___str_12:
-      004E9B 7C 20 20 42 75 66 66  1460 	.ascii "|  Buffer 0 and Buffer 1 Allocation Processing  |"
-             65 72 20 30 20 61 6E
-             64 20 42 75 66 66 65
-             72 20 31 20 41 6C 6C
-             6F 63 61 74 69 6F 6E
-             20 50 72 6F 63 65 73
-             73 69 6E 67 20 20 7C
-      004ECC 0A                    1461 	.db 0x0a
-      004ECD 0D                    1462 	.db 0x0d
-      004ECE 00                    1463 	.db 0x00
-                                   1464 	.area CSEG    (CODE)
-                                   1465 	.area CONST   (CODE)
-      004ECF                       1466 ___str_13:
-      004ECF 1B                    1467 	.db 0x1b
-      004ED0 5B 31 3B 33 33 6D 49  1468 	.ascii "[1;33mInvalid Malloc: Malloc on buffer0 failed!!"
-             6E 76 61 6C 69 64 20
-             4D 61 6C 6C 6F 63 3A
-             20 4D 61 6C 6C 6F 63
-             20 6F 6E 20 62 75 66
-             66 65 72 30 20 66 61
-             69 6C 65 64 21 21
-      004F00 0A                    1469 	.db 0x0a
-      004F01 0D                    1470 	.db 0x0d
-      004F02 00                    1471 	.db 0x00
-                                   1472 	.area CSEG    (CODE)
-                                   1473 	.area CONST   (CODE)
-      004F03                       1474 ___str_14:
-      004F03 1B                    1475 	.db 0x1b
-      004F04 5B 31 3B 30 6D 4D 61  1476 	.ascii "[1;0mMalloc Successful : Buffer0 allocated"
-             6C 6C 6F 63 20 53 75
-             63 63 65 73 73 66 75
-             6C 20 3A 20 42 75 66
-             66 65 72 30 20 61 6C
-             6C 6F 63 61 74 65 64
-      004F2E 0A                    1477 	.db 0x0a
-      004F2F 0D                    1478 	.db 0x0d
-      004F30 00                    1479 	.db 0x00
-                                   1480 	.area CSEG    (CODE)
-                                   1481 	.area CONST   (CODE)
-      004F31                       1482 ___str_15:
-      004F31 1B                    1483 	.db 0x1b
-      004F32 5B 31 3B 33 31 6D 49  1484 	.ascii "[1;31mInvalid Malloc: Malloc on buffer1 failed!!"
-             6E 76 61 6C 69 64 20
-             4D 61 6C 6C 6F 63 3A
-             20 4D 61 6C 6C 6F 63
-             20 6F 6E 20 62 75 66
-             66 65 72 31 20 66 61
-             69 6C 65 64 21 21
-      004F62 0A                    1485 	.db 0x0a
-      004F63 0D                    1486 	.db 0x0d
-      004F64 00                    1487 	.db 0x00
-                                   1488 	.area CSEG    (CODE)
-                                   1489 	.area CONST   (CODE)
-      004F65                       1490 ___str_16:
-      004F65 1B                    1491 	.db 0x1b
-      004F66 5B 31 3B 30 6D 4D 61  1492 	.ascii "[1;0mMalloc Successful : Buffer1 allocated"
-             6C 6C 6F 63 20 53 75
-             63 63 65 73 73 66 75
-             6C 20 3A 20 42 75 66
-             66 65 72 31 20 61 6C
-             6C 6F 63 61 74 65 64
-      004F90 0A                    1493 	.db 0x0a
-      004F91 0D                    1494 	.db 0x0d
-      004F92 00                    1495 	.db 0x00
-                                   1496 	.area CSEG    (CODE)
-                                   1497 	.area CONST   (CODE)
-      004F93                       1498 ___str_17:
-      004F93 7C 20 20 42 75 66 66  1499 	.ascii "|  Buffer0 and Buffer 1 Allocation Sucsessful   |"
+      005254 0A                    1468 	.db 0x0a
+      005255 0D                    1469 	.db 0x0d
+      005256 00                    1470 	.db 0x00
+                                   1471 	.area CSEG    (CODE)
+                                   1472 	.area CONST   (CODE)
+      005257                       1473 ___str_16:
+      005257 7C 20 20 42 75 66 66  1474 	.ascii "|  Buffer0 and Buffer 1 Allocation Sucsessful   |"
              65 72 30 20 61 6E 64
              20 42 75 66 66 65 72
              20 31 20 41 6C 6C 6F
              63 61 74 69 6F 6E 20
              53 75 63 73 65 73 73
              66 75 6C 20 20 20 7C
-      004FC4 0A                    1500 	.db 0x0a
-      004FC5 0D                    1501 	.db 0x0d
-      004FC6 00                    1502 	.db 0x00
-                                   1503 	.area CSEG    (CODE)
-                                   1504 	.area CONST   (CODE)
-      004FC7                       1505 ___str_18:
-      004FC7 7C 20 20 20 20 20 20  1506 	.ascii "|             Fetching Character                |"
+      005288 0A                    1475 	.db 0x0a
+      005289 0D                    1476 	.db 0x0d
+      00528A 00                    1477 	.db 0x00
+                                   1478 	.area CSEG    (CODE)
+                                   1479 	.area CONST   (CODE)
+      00528B                       1480 ___str_17:
+      00528B 1B                    1481 	.db 0x1b
+      00528C 5B 31 3B 33 36 6D 7C  1482 	.ascii "[1;36m|***********************************************|"
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 7C
+      0052C3 0A                    1483 	.db 0x0a
+      0052C4 0D                    1484 	.db 0x0d
+      0052C5 00                    1485 	.db 0x00
+                                   1486 	.area CSEG    (CODE)
+                                   1487 	.area CONST   (CODE)
+      0052C6                       1488 ___str_18:
+      0052C6 1B                    1489 	.db 0x1b
+      0052C7 5B 31 3B 33 36 6D 7C  1490 	.ascii "[1;36m|                Enter Character                |"
              20 20 20 20 20 20 20
-             46 65 74 63 68 69 6E
-             67 20 43 68 61 72 61
-             63 74 65 72 20 20 20
              20 20 20 20 20 20 20
-             20 20 20 20 20 20 7C
-      004FF8 0A                    1507 	.db 0x0a
-      004FF9 0D                    1508 	.db 0x0d
-      004FFA 00                    1509 	.db 0x00
-                                   1510 	.area CSEG    (CODE)
-                                   1511 	.area CONST   (CODE)
-      004FFB                       1512 ___str_19:
-      004FFB 1B                    1513 	.db 0x1b
-      004FFC 5B 31 3B 30 6D        1514 	.ascii "[1;0m"
-      005001 0D                    1515 	.db 0x0d
-      005002 0A                    1516 	.db 0x0a
-      005003 00                    1517 	.db 0x00
-                                   1518 	.area CSEG    (CODE)
-                                   1519 	.area CONST   (CODE)
-      005004                       1520 ___str_20:
-      005004 1B                    1521 	.db 0x1b
-      005005 5B 31 3B 30 6D 41 6C  1522 	.ascii "[1;0mAll buffer cleared"
+             20 20 45 6E 74 65 72
+             20 43 68 61 72 61 63
+             74 65 72 20 20 20 20
+             20 20 20 20 20 20 20
+             20 20 20 20 20 7C
+      0052FE 0A                    1491 	.db 0x0a
+      0052FF 0D                    1492 	.db 0x0d
+      005300 00                    1493 	.db 0x00
+                                   1494 	.area CSEG    (CODE)
+                                   1495 	.area CONST   (CODE)
+      005301                       1496 ___str_19:
+      005301 1B                    1497 	.db 0x1b
+      005302 5B 31 3B 33 36 6D 7C  1498 	.ascii "[1;36m|***********************************************|"
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 7C
+      005339 0A                    1499 	.db 0x0a
+      00533A 0D                    1500 	.db 0x0d
+      00533B 1B                    1501 	.db 0x1b
+      00533C 5B 31 3B 30 6D        1502 	.ascii "[1;0m"
+      005341 00                    1503 	.db 0x00
+                                   1504 	.area CSEG    (CODE)
+                                   1505 	.area CONST   (CODE)
+      005342                       1506 ___str_20:
+      005342 1B                    1507 	.db 0x1b
+      005343 5B 31 3B 30 6D        1508 	.ascii "[1;0m"
+      005348 0D                    1509 	.db 0x0d
+      005349 0A                    1510 	.db 0x0a
+      00534A 00                    1511 	.db 0x00
+                                   1512 	.area CSEG    (CODE)
+                                   1513 	.area CONST   (CODE)
+      00534B                       1514 ___str_21:
+      00534B 1B                    1515 	.db 0x1b
+      00534C 5B 31 3B 30 6D 41 6C  1516 	.ascii "[1;0mAll buffer cleared"
              6C 20 62 75 66 66 65
              72 20 63 6C 65 61 72
              65 64
-      00501C 0D                    1523 	.db 0x0d
-      00501D 0A                    1524 	.db 0x0a
-      00501E 46 65 64 20 69 6E 20  1525 	.ascii "Fed in the size for buffer 0 from start!!"
+      005363 0D                    1517 	.db 0x0d
+      005364 0A                    1518 	.db 0x0a
+      005365 46 65 64 20 69 6E 20  1519 	.ascii "Fed in the size for buffer 0 from start!!"
              74 68 65 20 73 69 7A
              65 20 66 6F 72 20 62
              75 66 66 65 72 20 30
              20 66 72 6F 6D 20 73
              74 61 72 74 21 21
-      005047 0D                    1526 	.db 0x0d
-      005048 0A                    1527 	.db 0x0a
-      005049 00                    1528 	.db 0x00
-                                   1529 	.area CSEG    (CODE)
-                                   1530 	.area XINIT   (CODE)
-      005125                       1531 __xinit__buffer_size:
-      005125 00 00                 1532 	.byte #0x00, #0x00	;  0
-      005127                       1533 __xinit__buffer0:
-      005127 00 00                 1534 	.byte #0x00,#0x00
-      005129                       1535 __xinit__ptr_buffer0:
-      005129 00 00                 1536 	.byte #0x00,#0x00
-      00512B                       1537 __xinit__buffer1:
-      00512B 00 00                 1538 	.byte #0x00,#0x00
-      00512D                       1539 __xinit__ptr_buffer1:
-      00512D 00 00                 1540 	.byte #0x00,#0x00
-      00512F                       1541 __xinit__storage_character_detected:
-      00512F 00 00                 1542 	.byte #0x00, #0x00	;  0
-      005131                       1543 __xinit__total_characters_detected:
-      005131 00 00                 1544 	.byte #0x00, #0x00	;  0
-      005133                       1545 __xinit__command_characters_detected:
-      005133 00 00                 1546 	.byte #0x00, #0x00	;  0
-      005135                       1547 __xinit__buffer_size_arr:
-      005135 00 00                 1548 	.byte #0x00, #0x00	;  0
-      005137 00                    1549 	.db 0x00
-      005138 00                    1550 	.db 0x00
-      005139 00                    1551 	.db 0x00
-      00513A 00                    1552 	.db 0x00
-      00513B 00                    1553 	.db 0x00
-      00513C 00                    1554 	.db 0x00
-      00513D 00                    1555 	.db 0x00
-      00513E 00                    1556 	.db 0x00
-      00513F 00                    1557 	.db 0x00
-      005140 00                    1558 	.db 0x00
-      005141 00                    1559 	.db 0x00
-      005142 00                    1560 	.db 0x00
-      005143 00                    1561 	.db 0x00
-      005144 00                    1562 	.db 0x00
-      005145 00                    1563 	.db 0x00
-      005146 00                    1564 	.db 0x00
-      005147 00                    1565 	.db 0x00
-      005148 00                    1566 	.db 0x00
-      005149 00                    1567 	.db 0x00
-      00514A 00                    1568 	.db 0x00
-      00514B 00                    1569 	.db 0x00
-      00514C 00                    1570 	.db 0x00
-      00514D 00                    1571 	.db 0x00
-      00514E 00                    1572 	.db 0x00
-      00514F 00                    1573 	.db 0x00
-      005150 00                    1574 	.db 0x00
-      005151 00                    1575 	.db 0x00
-      005152 00                    1576 	.db 0x00
-      005153 00                    1577 	.db 0x00
-      005154 00                    1578 	.db 0x00
-      005155 00                    1579 	.db 0x00
-      005156 00                    1580 	.db 0x00
-      005157 00                    1581 	.db 0x00
-      005158 00                    1582 	.db 0x00
-      005159 00                    1583 	.db 0x00
-      00515A 00                    1584 	.db 0x00
-      00515B 00                    1585 	.db 0x00
-      00515C 00                    1586 	.db 0x00
-      00515D 00                    1587 	.db 0x00
-      00515E 00                    1588 	.db 0x00
-      00515F 00                    1589 	.db 0x00
-      005160 00                    1590 	.db 0x00
-      005161 00                    1591 	.db 0x00
-      005162 00                    1592 	.db 0x00
-      005163 00                    1593 	.db 0x00
-      005164 00                    1594 	.db 0x00
-      005165 00                    1595 	.db 0x00
-      005166 00                    1596 	.db 0x00
-      005167 00                    1597 	.db 0x00
-      005168 00                    1598 	.db 0x00
-      005169 00                    1599 	.db 0x00
-      00516A 00                    1600 	.db 0x00
-      00516B 00                    1601 	.db 0x00
-      00516C 00                    1602 	.db 0x00
-      00516D 00                    1603 	.db 0x00
-      00516E 00                    1604 	.db 0x00
-      00516F 00                    1605 	.db 0x00
-      005170 00                    1606 	.db 0x00
-      005171 00                    1607 	.db 0x00
-      005172 00                    1608 	.db 0x00
-      005173 00                    1609 	.db 0x00
-      005174 00                    1610 	.db 0x00
-      005175 00                    1611 	.db 0x00
-      005176 00                    1612 	.db 0x00
-      005177 00                    1613 	.db 0x00
-      005178 00                    1614 	.db 0x00
-      005179 00                    1615 	.db 0x00
-      00517A 00                    1616 	.db 0x00
-      00517B 00                    1617 	.db 0x00
-      00517C 00                    1618 	.db 0x00
-      00517D 00                    1619 	.db 0x00
-      00517E 00                    1620 	.db 0x00
-      00517F 00                    1621 	.db 0x00
-      005180 00                    1622 	.db 0x00
-      005181 00                    1623 	.db 0x00
-      005182 00                    1624 	.db 0x00
-      005183 00                    1625 	.db 0x00
-      005184 00                    1626 	.db 0x00
-      005185 00                    1627 	.db 0x00
-      005186 00                    1628 	.db 0x00
-      005187 00                    1629 	.db 0x00
-      005188 00                    1630 	.db 0x00
-      005189 00                    1631 	.db 0x00
-      00518A 00                    1632 	.db 0x00
-      00518B 00                    1633 	.db 0x00
-      00518C 00                    1634 	.db 0x00
-      00518D 00                    1635 	.db 0x00
-      00518E 00                    1636 	.db 0x00
-      00518F 00                    1637 	.db 0x00
-      005190 00                    1638 	.db 0x00
-      005191 00                    1639 	.db 0x00
-      005192 00                    1640 	.db 0x00
-      005193 00                    1641 	.db 0x00
-      005194 00                    1642 	.db 0x00
-      005195 00                    1643 	.db 0x00
-      005196 00                    1644 	.db 0x00
-      005197 00                    1645 	.db 0x00
-      005198 00                    1646 	.db 0x00
-      005199 00                    1647 	.db 0x00
-      00519A 00                    1648 	.db 0x00
-      00519B 00                    1649 	.db 0x00
-      00519C 00                    1650 	.db 0x00
-      00519D 00                    1651 	.db 0x00
-      00519E 00                    1652 	.db 0x00
-      00519F 00                    1653 	.db 0x00
-      0051A0 00                    1654 	.db 0x00
-      0051A1 00                    1655 	.db 0x00
-      0051A2 00                    1656 	.db 0x00
-      0051A3 00                    1657 	.db 0x00
-      0051A4 00                    1658 	.db 0x00
-      0051A5 00                    1659 	.db 0x00
-      0051A6 00                    1660 	.db 0x00
-      0051A7 00                    1661 	.db 0x00
-      0051A8 00                    1662 	.db 0x00
-      0051A9 00                    1663 	.db 0x00
-      0051AA 00                    1664 	.db 0x00
-      0051AB 00                    1665 	.db 0x00
-      0051AC 00                    1666 	.db 0x00
-      0051AD 00                    1667 	.db 0x00
-      0051AE 00                    1668 	.db 0x00
-      0051AF 00                    1669 	.db 0x00
-      0051B0 00                    1670 	.db 0x00
-      0051B1 00                    1671 	.db 0x00
-      0051B2 00                    1672 	.db 0x00
-      0051B3 00                    1673 	.db 0x00
-      0051B4 00                    1674 	.db 0x00
-      0051B5 00                    1675 	.db 0x00
-      0051B6 00                    1676 	.db 0x00
-      0051B7 00                    1677 	.db 0x00
-      0051B8 00                    1678 	.db 0x00
-      0051B9 00                    1679 	.db 0x00
-      0051BA 00                    1680 	.db 0x00
-      0051BB 00                    1681 	.db 0x00
-      0051BC 00                    1682 	.db 0x00
-      0051BD 00                    1683 	.db 0x00
-      0051BE 00                    1684 	.db 0x00
-      0051BF 00                    1685 	.db 0x00
-      0051C0 00                    1686 	.db 0x00
-      0051C1 00                    1687 	.db 0x00
-      0051C2 00                    1688 	.db 0x00
-      0051C3 00                    1689 	.db 0x00
-      0051C4 00                    1690 	.db 0x00
-      0051C5 00                    1691 	.db 0x00
-      0051C6 00                    1692 	.db 0x00
-      0051C7 00                    1693 	.db 0x00
-      0051C8 00                    1694 	.db 0x00
-      0051C9 00                    1695 	.db 0x00
-      0051CA 00                    1696 	.db 0x00
-      0051CB 00                    1697 	.db 0x00
-      0051CC 00                    1698 	.db 0x00
-      0051CD 00                    1699 	.db 0x00
-      0051CE 00                    1700 	.db 0x00
-      0051CF 00                    1701 	.db 0x00
-      0051D0 00                    1702 	.db 0x00
-      0051D1 00                    1703 	.db 0x00
-      0051D2 00                    1704 	.db 0x00
-      0051D3 00                    1705 	.db 0x00
-      0051D4 00                    1706 	.db 0x00
-      0051D5 00                    1707 	.db 0x00
-      0051D6 00                    1708 	.db 0x00
-      0051D7 00                    1709 	.db 0x00
-      0051D8 00                    1710 	.db 0x00
-      0051D9 00                    1711 	.db 0x00
-      0051DA 00                    1712 	.db 0x00
-      0051DB 00                    1713 	.db 0x00
-      0051DC 00                    1714 	.db 0x00
-      0051DD 00                    1715 	.db 0x00
-      0051DE 00                    1716 	.db 0x00
-      0051DF 00                    1717 	.db 0x00
-      0051E0 00                    1718 	.db 0x00
-      0051E1 00                    1719 	.db 0x00
-      0051E2 00                    1720 	.db 0x00
-      0051E3 00                    1721 	.db 0x00
-      0051E4 00                    1722 	.db 0x00
-      0051E5 00                    1723 	.db 0x00
-      0051E6 00                    1724 	.db 0x00
-      0051E7 00                    1725 	.db 0x00
-      0051E8 00                    1726 	.db 0x00
-      0051E9 00                    1727 	.db 0x00
-      0051EA 00                    1728 	.db 0x00
-      0051EB 00                    1729 	.db 0x00
-      0051EC 00                    1730 	.db 0x00
-      0051ED 00                    1731 	.db 0x00
-      0051EE 00                    1732 	.db 0x00
-      0051EF 00                    1733 	.db 0x00
-      0051F0 00                    1734 	.db 0x00
-      0051F1 00                    1735 	.db 0x00
-      0051F2 00                    1736 	.db 0x00
-      0051F3 00                    1737 	.db 0x00
-      0051F4 00                    1738 	.db 0x00
-      0051F5 00                    1739 	.db 0x00
-      0051F6 00                    1740 	.db 0x00
-      0051F7 00                    1741 	.db 0x00
-      0051F8 00                    1742 	.db 0x00
-      0051F9 00                    1743 	.db 0x00
-      0051FA 00                    1744 	.db 0x00
-      0051FB 00                    1745 	.db 0x00
-      0051FC 00                    1746 	.db 0x00
-      0051FD 00                    1747 	.db 0x00
-      0051FE 00                    1748 	.db 0x00
-      0051FF 00                    1749 	.db 0x00
-      005200 00                    1750 	.db 0x00
-      005201 00                    1751 	.db 0x00
-      005202 00                    1752 	.db 0x00
-      005203 00                    1753 	.db 0x00
-      005204 00                    1754 	.db 0x00
-      005205 00                    1755 	.db 0x00
-      005206 00                    1756 	.db 0x00
-      005207 00                    1757 	.db 0x00
-      005208 00                    1758 	.db 0x00
-      005209 00                    1759 	.db 0x00
-      00520A 00                    1760 	.db 0x00
-      00520B 00                    1761 	.db 0x00
-      00520C 00                    1762 	.db 0x00
-      00520D 00                    1763 	.db 0x00
-      00520E 00                    1764 	.db 0x00
-      00520F 00                    1765 	.db 0x00
-      005210 00                    1766 	.db 0x00
-      005211 00                    1767 	.db 0x00
-      005212 00                    1768 	.db 0x00
-      005213 00                    1769 	.db 0x00
-      005214 00                    1770 	.db 0x00
-      005215 00                    1771 	.db 0x00
-      005216 00                    1772 	.db 0x00
-      005217 00                    1773 	.db 0x00
-      005218 00                    1774 	.db 0x00
-      005219 00                    1775 	.db 0x00
-      00521A 00                    1776 	.db 0x00
-      00521B 00                    1777 	.db 0x00
-      00521C 00                    1778 	.db 0x00
-      00521D 00                    1779 	.db 0x00
-      00521E 00                    1780 	.db 0x00
-      00521F 00                    1781 	.db 0x00
-      005220 00                    1782 	.db 0x00
-      005221 00                    1783 	.db 0x00
-      005222 00                    1784 	.db 0x00
-      005223 00                    1785 	.db 0x00
-      005224 00                    1786 	.db 0x00
-      005225 00                    1787 	.db 0x00
-      005226 00                    1788 	.db 0x00
-      005227 00                    1789 	.db 0x00
-      005228 00                    1790 	.db 0x00
-      005229 00                    1791 	.db 0x00
-      00522A 00                    1792 	.db 0x00
-      00522B 00                    1793 	.db 0x00
-      00522C 00                    1794 	.db 0x00
-      00522D 00                    1795 	.db 0x00
-      00522E 00                    1796 	.db 0x00
-      00522F 00                    1797 	.db 0x00
-      005230 00                    1798 	.db 0x00
-      005231 00                    1799 	.db 0x00
-      005232 00                    1800 	.db 0x00
-      005233 00                    1801 	.db 0x00
-      005234 00                    1802 	.db 0x00
-      005235 00                    1803 	.db 0x00
-      005236 00                    1804 	.db 0x00
-      005237 00                    1805 	.db 0x00
-      005238 00                    1806 	.db 0x00
-      005239 00                    1807 	.db 0x00
-      00523A 00                    1808 	.db 0x00
-      00523B 00                    1809 	.db 0x00
-      00523C 00                    1810 	.db 0x00
-      00523D 00                    1811 	.db 0x00
-      00523E 00                    1812 	.db 0x00
-      00523F 00                    1813 	.db 0x00
-      005240 00                    1814 	.db 0x00
-      005241 00                    1815 	.db 0x00
-      005242 00                    1816 	.db 0x00
-      005243 00                    1817 	.db 0x00
-      005244 00                    1818 	.db 0x00
-      005245 00                    1819 	.db 0x00
-      005246 00                    1820 	.db 0x00
-      005247 00                    1821 	.db 0x00
-      005248 00                    1822 	.db 0x00
-      005249 00                    1823 	.db 0x00
-      00524A 00                    1824 	.db 0x00
-      00524B 00                    1825 	.db 0x00
-      00524C 00                    1826 	.db 0x00
-      00524D 00                    1827 	.db 0x00
-      00524E 00                    1828 	.db 0x00
-      00524F 00                    1829 	.db 0x00
-      005250 00                    1830 	.db 0x00
-      005251 00                    1831 	.db 0x00
-      005252 00                    1832 	.db 0x00
-      005253 00                    1833 	.db 0x00
-      005254 00                    1834 	.db 0x00
-      005255 00                    1835 	.db 0x00
-      005256 00                    1836 	.db 0x00
-      005257 00                    1837 	.db 0x00
-      005258 00                    1838 	.db 0x00
-      005259 00                    1839 	.db 0x00
-      00525A 00                    1840 	.db 0x00
-      00525B 00                    1841 	.db 0x00
-      00525C 00                    1842 	.db 0x00
-      00525D 00                    1843 	.db 0x00
-      00525E 00                    1844 	.db 0x00
-      00525F 00                    1845 	.db 0x00
-      005260 00                    1846 	.db 0x00
-      005261 00                    1847 	.db 0x00
-      005262 00                    1848 	.db 0x00
-      005263 00                    1849 	.db 0x00
-      005264 00                    1850 	.db 0x00
-      005265 00                    1851 	.db 0x00
-      005266 00                    1852 	.db 0x00
-      005267 00                    1853 	.db 0x00
-      005268 00                    1854 	.db 0x00
-      005269 00                    1855 	.db 0x00
-      00526A 00                    1856 	.db 0x00
-      00526B 00                    1857 	.db 0x00
-      00526C 00                    1858 	.db 0x00
-      00526D 00                    1859 	.db 0x00
-      00526E 00                    1860 	.db 0x00
-      00526F 00                    1861 	.db 0x00
-      005270 00                    1862 	.db 0x00
-      005271 00                    1863 	.db 0x00
-      005272 00                    1864 	.db 0x00
-      005273 00                    1865 	.db 0x00
-      005274 00                    1866 	.db 0x00
-      005275 00                    1867 	.db 0x00
-      005276 00                    1868 	.db 0x00
-      005277 00                    1869 	.db 0x00
-      005278 00                    1870 	.db 0x00
-      005279 00                    1871 	.db 0x00
-      00527A 00                    1872 	.db 0x00
-      00527B 00                    1873 	.db 0x00
-      00527C 00                    1874 	.db 0x00
-      00527D 00                    1875 	.db 0x00
-      00527E 00                    1876 	.db 0x00
-      00527F 00                    1877 	.db 0x00
-      005280 00                    1878 	.db 0x00
-      005281 00                    1879 	.db 0x00
-      005282 00                    1880 	.db 0x00
-      005283 00                    1881 	.db 0x00
-      005284 00                    1882 	.db 0x00
-      005285 00                    1883 	.db 0x00
-      005286 00                    1884 	.db 0x00
-      005287 00                    1885 	.db 0x00
-      005288 00                    1886 	.db 0x00
-      005289 00                    1887 	.db 0x00
-      00528A 00                    1888 	.db 0x00
-      00528B 00                    1889 	.db 0x00
-      00528C 00                    1890 	.db 0x00
-      00528D 00                    1891 	.db 0x00
-      00528E 00                    1892 	.db 0x00
-      00528F 00                    1893 	.db 0x00
-      005290 00                    1894 	.db 0x00
-      005291 00                    1895 	.db 0x00
-      005292 00                    1896 	.db 0x00
-      005293 00                    1897 	.db 0x00
-      005294 00                    1898 	.db 0x00
-      005295 00                    1899 	.db 0x00
-      005296 00                    1900 	.db 0x00
-      005297 00                    1901 	.db 0x00
-      005298 00                    1902 	.db 0x00
-      005299 00                    1903 	.db 0x00
-      00529A 00                    1904 	.db 0x00
-      00529B 00                    1905 	.db 0x00
-      00529C 00                    1906 	.db 0x00
-      00529D 00                    1907 	.db 0x00
-      00529E 00                    1908 	.db 0x00
-      00529F 00                    1909 	.db 0x00
-      0052A0 00                    1910 	.db 0x00
-      0052A1 00                    1911 	.db 0x00
-      0052A2 00                    1912 	.db 0x00
-      0052A3 00                    1913 	.db 0x00
-      0052A4 00                    1914 	.db 0x00
-      0052A5 00                    1915 	.db 0x00
-      0052A6 00                    1916 	.db 0x00
-      0052A7 00                    1917 	.db 0x00
-      0052A8 00                    1918 	.db 0x00
-      0052A9 00                    1919 	.db 0x00
-      0052AA 00                    1920 	.db 0x00
-      0052AB 00                    1921 	.db 0x00
-      0052AC 00                    1922 	.db 0x00
-      0052AD 00                    1923 	.db 0x00
-      0052AE 00                    1924 	.db 0x00
-      0052AF 00                    1925 	.db 0x00
-      0052B0 00                    1926 	.db 0x00
-      0052B1 00                    1927 	.db 0x00
-      0052B2 00                    1928 	.db 0x00
-      0052B3 00                    1929 	.db 0x00
-      0052B4 00                    1930 	.db 0x00
-      0052B5 00                    1931 	.db 0x00
-      0052B6 00                    1932 	.db 0x00
-      0052B7 00                    1933 	.db 0x00
-      0052B8 00                    1934 	.db 0x00
-      0052B9 00                    1935 	.db 0x00
-      0052BA 00                    1936 	.db 0x00
-      0052BB 00                    1937 	.db 0x00
-      0052BC 00                    1938 	.db 0x00
-      0052BD 00                    1939 	.db 0x00
-      0052BE 00                    1940 	.db 0x00
-      0052BF 00                    1941 	.db 0x00
-      0052C0 00                    1942 	.db 0x00
-      0052C1 00                    1943 	.db 0x00
-      0052C2 00                    1944 	.db 0x00
-      0052C3 00                    1945 	.db 0x00
-      0052C4 00                    1946 	.db 0x00
-      0052C5 00                    1947 	.db 0x00
-      0052C6 00                    1948 	.db 0x00
-      0052C7 00                    1949 	.db 0x00
-      0052C8 00                    1950 	.db 0x00
-      0052C9 00                    1951 	.db 0x00
-      0052CA 00                    1952 	.db 0x00
-      0052CB 00                    1953 	.db 0x00
-      0052CC 00                    1954 	.db 0x00
-      0052CD 00                    1955 	.db 0x00
-      0052CE 00                    1956 	.db 0x00
-      0052CF 00                    1957 	.db 0x00
-      0052D0 00                    1958 	.db 0x00
-      0052D1 00                    1959 	.db 0x00
-      0052D2 00                    1960 	.db 0x00
-      0052D3 00                    1961 	.db 0x00
-      0052D4 00                    1962 	.db 0x00
-      0052D5 00                    1963 	.db 0x00
-      0052D6 00                    1964 	.db 0x00
-      0052D7 00                    1965 	.db 0x00
-      0052D8 00                    1966 	.db 0x00
-      0052D9 00                    1967 	.db 0x00
-      0052DA 00                    1968 	.db 0x00
-      0052DB 00                    1969 	.db 0x00
-      0052DC 00                    1970 	.db 0x00
-      0052DD 00                    1971 	.db 0x00
-      0052DE 00                    1972 	.db 0x00
-      0052DF 00                    1973 	.db 0x00
-      0052E0 00                    1974 	.db 0x00
-      0052E1 00                    1975 	.db 0x00
-      0052E2 00                    1976 	.db 0x00
-      0052E3 00                    1977 	.db 0x00
-      0052E4 00                    1978 	.db 0x00
-      0052E5 00                    1979 	.db 0x00
-      0052E6 00                    1980 	.db 0x00
-      0052E7 00                    1981 	.db 0x00
-      0052E8 00                    1982 	.db 0x00
-      0052E9 00                    1983 	.db 0x00
-      0052EA 00                    1984 	.db 0x00
-      0052EB 00                    1985 	.db 0x00
-      0052EC 00                    1986 	.db 0x00
-      0052ED 00                    1987 	.db 0x00
-      0052EE 00                    1988 	.db 0x00
-      0052EF 00                    1989 	.db 0x00
-      0052F0 00                    1990 	.db 0x00
-      0052F1 00                    1991 	.db 0x00
-      0052F2 00                    1992 	.db 0x00
-      0052F3 00                    1993 	.db 0x00
-      0052F4 00                    1994 	.db 0x00
-      0052F5 00                    1995 	.db 0x00
-      0052F6 00                    1996 	.db 0x00
-      0052F7 00                    1997 	.db 0x00
-      0052F8 00                    1998 	.db 0x00
-      0052F9 00                    1999 	.db 0x00
-      0052FA 00                    2000 	.db 0x00
-      0052FB 00                    2001 	.db 0x00
-      0052FC 00                    2002 	.db 0x00
-      0052FD 00                    2003 	.db 0x00
-      0052FE 00                    2004 	.db 0x00
-      0052FF 00                    2005 	.db 0x00
-      005300 00                    2006 	.db 0x00
-      005301 00                    2007 	.db 0x00
-      005302 00                    2008 	.db 0x00
-      005303 00                    2009 	.db 0x00
-      005304 00                    2010 	.db 0x00
-      005305 00                    2011 	.db 0x00
-      005306 00                    2012 	.db 0x00
-      005307 00                    2013 	.db 0x00
-      005308 00                    2014 	.db 0x00
-      005309 00                    2015 	.db 0x00
-      00530A 00                    2016 	.db 0x00
-      00530B 00                    2017 	.db 0x00
-      00530C 00                    2018 	.db 0x00
-      00530D 00                    2019 	.db 0x00
-      00530E 00                    2020 	.db 0x00
-      00530F 00                    2021 	.db 0x00
-      005310 00                    2022 	.db 0x00
-      005311 00                    2023 	.db 0x00
-      005312 00                    2024 	.db 0x00
-      005313 00                    2025 	.db 0x00
-      005314 00                    2026 	.db 0x00
-      005315 00                    2027 	.db 0x00
-      005316 00                    2028 	.db 0x00
-      005317 00                    2029 	.db 0x00
-      005318 00                    2030 	.db 0x00
-      005319 00                    2031 	.db 0x00
-      00531A 00                    2032 	.db 0x00
-      00531B 00                    2033 	.db 0x00
-      00531C 00                    2034 	.db 0x00
-      00531D 00                    2035 	.db 0x00
-      00531E 00                    2036 	.db 0x00
-      00531F 00                    2037 	.db 0x00
-      005320 00                    2038 	.db 0x00
-      005321 00                    2039 	.db 0x00
-      005322 00                    2040 	.db 0x00
-      005323 00                    2041 	.db 0x00
-      005324 00                    2042 	.db 0x00
-      005325 00                    2043 	.db 0x00
-      005326 00                    2044 	.db 0x00
-      005327 00                    2045 	.db 0x00
-      005328 00                    2046 	.db 0x00
-      005329 00                    2047 	.db 0x00
-      00532A 00                    2048 	.db 0x00
-      00532B 00                    2049 	.db 0x00
-      00532C 00                    2050 	.db 0x00
-      00532D 00                    2051 	.db 0x00
-      00532E 00                    2052 	.db 0x00
-      00532F 00                    2053 	.db 0x00
-      005330 00                    2054 	.db 0x00
-      005331 00                    2055 	.db 0x00
-      005332 00                    2056 	.db 0x00
-      005333 00                    2057 	.db 0x00
-      005334 00                    2058 	.db 0x00
-      005335 00                    2059 	.db 0x00
-      005336 00                    2060 	.db 0x00
-      005337 00                    2061 	.db 0x00
-      005338 00                    2062 	.db 0x00
-      005339 00                    2063 	.db 0x00
-      00533A 00                    2064 	.db 0x00
-      00533B 00                    2065 	.db 0x00
-      00533C 00                    2066 	.db 0x00
-      00533D 00                    2067 	.db 0x00
-      00533E 00                    2068 	.db 0x00
-      00533F 00                    2069 	.db 0x00
-      005340 00                    2070 	.db 0x00
-      005341 00                    2071 	.db 0x00
-      005342 00                    2072 	.db 0x00
-      005343 00                    2073 	.db 0x00
-      005344 00                    2074 	.db 0x00
-      005345 00                    2075 	.db 0x00
-      005346 00                    2076 	.db 0x00
-      005347 00                    2077 	.db 0x00
-      005348 00                    2078 	.db 0x00
-      005349 00                    2079 	.db 0x00
-      00534A 00                    2080 	.db 0x00
-      00534B 00                    2081 	.db 0x00
-      00534C 00                    2082 	.db 0x00
-      00534D 00                    2083 	.db 0x00
-      00534E 00                    2084 	.db 0x00
-      00534F 00                    2085 	.db 0x00
-      005350 00                    2086 	.db 0x00
-      005351 00                    2087 	.db 0x00
-      005352 00                    2088 	.db 0x00
-      005353 00                    2089 	.db 0x00
-      005354 00                    2090 	.db 0x00
-      005355 00                    2091 	.db 0x00
-      005356 00                    2092 	.db 0x00
-      005357 00                    2093 	.db 0x00
-      005358 00                    2094 	.db 0x00
-      005359 00                    2095 	.db 0x00
-      00535A 00                    2096 	.db 0x00
-      00535B 00                    2097 	.db 0x00
-      00535C 00                    2098 	.db 0x00
-      00535D 00                    2099 	.db 0x00
-      00535E 00                    2100 	.db 0x00
-      00535F 00                    2101 	.db 0x00
-      005360 00                    2102 	.db 0x00
-      005361 00                    2103 	.db 0x00
-      005362 00                    2104 	.db 0x00
-      005363 00                    2105 	.db 0x00
-      005364 00                    2106 	.db 0x00
-      005365 00                    2107 	.db 0x00
-      005366 00                    2108 	.db 0x00
-      005367 00                    2109 	.db 0x00
-      005368 00                    2110 	.db 0x00
-      005369 00                    2111 	.db 0x00
-      00536A 00                    2112 	.db 0x00
-      00536B 00                    2113 	.db 0x00
-      00536C 00                    2114 	.db 0x00
-      00536D 00                    2115 	.db 0x00
-      00536E 00                    2116 	.db 0x00
-      00536F 00                    2117 	.db 0x00
-      005370 00                    2118 	.db 0x00
-      005371 00                    2119 	.db 0x00
-      005372 00                    2120 	.db 0x00
-      005373 00                    2121 	.db 0x00
-      005374 00                    2122 	.db 0x00
-      005375 00                    2123 	.db 0x00
-      005376 00                    2124 	.db 0x00
-      005377 00                    2125 	.db 0x00
-      005378 00                    2126 	.db 0x00
-      005379 00                    2127 	.db 0x00
-      00537A 00                    2128 	.db 0x00
-      00537B 00                    2129 	.db 0x00
-      00537C 00                    2130 	.db 0x00
-      00537D 00                    2131 	.db 0x00
-      00537E 00                    2132 	.db 0x00
-      00537F 00                    2133 	.db 0x00
-      005380 00                    2134 	.db 0x00
-      005381 00                    2135 	.db 0x00
-      005382 00                    2136 	.db 0x00
-      005383 00                    2137 	.db 0x00
-      005384 00                    2138 	.db 0x00
-      005385 00                    2139 	.db 0x00
-      005386 00                    2140 	.db 0x00
-      005387 00                    2141 	.db 0x00
-      005388 00                    2142 	.db 0x00
-      005389 00                    2143 	.db 0x00
-      00538A 00                    2144 	.db 0x00
-      00538B 00                    2145 	.db 0x00
-      00538C 00                    2146 	.db 0x00
-                                   2147 	.area CABS    (ABS,CODE)
+      00538E 0D                    1520 	.db 0x0d
+      00538F 0A                    1521 	.db 0x0a
+      005390 00                    1522 	.db 0x00
+                                   1523 	.area CSEG    (CODE)
+                                   1524 	.area XINIT   (CODE)
+      00546C                       1525 __xinit__buffer_size:
+      00546C 00 00                 1526 	.byte #0x00, #0x00	;  0
+      00546E                       1527 __xinit__buffer0:
+      00546E 00 00                 1528 	.byte #0x00,#0x00
+      005470                       1529 __xinit__ptr_buffer0:
+      005470 00 00                 1530 	.byte #0x00,#0x00
+      005472                       1531 __xinit__buffer1:
+      005472 00 00                 1532 	.byte #0x00,#0x00
+      005474                       1533 __xinit__ptr_buffer1:
+      005474 00 00                 1534 	.byte #0x00,#0x00
+      005476                       1535 __xinit__storage_character_detected:
+      005476 00 00                 1536 	.byte #0x00, #0x00	;  0
+      005478                       1537 __xinit__total_characters_detected:
+      005478 00 00                 1538 	.byte #0x00, #0x00	;  0
+      00547A                       1539 __xinit__command_characters_detected:
+      00547A 00 00                 1540 	.byte #0x00, #0x00	;  0
+      00547C                       1541 __xinit__buffer_size_arr:
+      00547C 00 00                 1542 	.byte #0x00, #0x00	;  0
+      00547E 00                    1543 	.db 0x00
+      00547F 00                    1544 	.db 0x00
+      005480 00                    1545 	.db 0x00
+      005481 00                    1546 	.db 0x00
+      005482 00                    1547 	.db 0x00
+      005483 00                    1548 	.db 0x00
+      005484 00                    1549 	.db 0x00
+      005485 00                    1550 	.db 0x00
+      005486 00                    1551 	.db 0x00
+      005487 00                    1552 	.db 0x00
+      005488 00                    1553 	.db 0x00
+      005489 00                    1554 	.db 0x00
+      00548A 00                    1555 	.db 0x00
+      00548B 00                    1556 	.db 0x00
+      00548C 00                    1557 	.db 0x00
+      00548D 00                    1558 	.db 0x00
+      00548E 00                    1559 	.db 0x00
+      00548F 00                    1560 	.db 0x00
+      005490 00                    1561 	.db 0x00
+      005491 00                    1562 	.db 0x00
+      005492 00                    1563 	.db 0x00
+      005493 00                    1564 	.db 0x00
+      005494 00                    1565 	.db 0x00
+      005495 00                    1566 	.db 0x00
+      005496 00                    1567 	.db 0x00
+      005497 00                    1568 	.db 0x00
+      005498 00                    1569 	.db 0x00
+      005499 00                    1570 	.db 0x00
+      00549A 00                    1571 	.db 0x00
+      00549B 00                    1572 	.db 0x00
+      00549C 00                    1573 	.db 0x00
+      00549D 00                    1574 	.db 0x00
+      00549E 00                    1575 	.db 0x00
+      00549F 00                    1576 	.db 0x00
+      0054A0 00                    1577 	.db 0x00
+      0054A1 00                    1578 	.db 0x00
+      0054A2 00                    1579 	.db 0x00
+      0054A3 00                    1580 	.db 0x00
+      0054A4 00                    1581 	.db 0x00
+      0054A5 00                    1582 	.db 0x00
+      0054A6 00                    1583 	.db 0x00
+      0054A7 00                    1584 	.db 0x00
+      0054A8 00                    1585 	.db 0x00
+      0054A9 00                    1586 	.db 0x00
+      0054AA 00                    1587 	.db 0x00
+      0054AB 00                    1588 	.db 0x00
+      0054AC 00                    1589 	.db 0x00
+      0054AD 00                    1590 	.db 0x00
+      0054AE 00                    1591 	.db 0x00
+      0054AF 00                    1592 	.db 0x00
+      0054B0 00                    1593 	.db 0x00
+      0054B1 00                    1594 	.db 0x00
+      0054B2 00                    1595 	.db 0x00
+      0054B3 00                    1596 	.db 0x00
+      0054B4 00                    1597 	.db 0x00
+      0054B5 00                    1598 	.db 0x00
+      0054B6 00                    1599 	.db 0x00
+      0054B7 00                    1600 	.db 0x00
+      0054B8 00                    1601 	.db 0x00
+      0054B9 00                    1602 	.db 0x00
+      0054BA 00                    1603 	.db 0x00
+      0054BB 00                    1604 	.db 0x00
+      0054BC 00                    1605 	.db 0x00
+      0054BD 00                    1606 	.db 0x00
+      0054BE 00                    1607 	.db 0x00
+      0054BF 00                    1608 	.db 0x00
+      0054C0 00                    1609 	.db 0x00
+      0054C1 00                    1610 	.db 0x00
+      0054C2 00                    1611 	.db 0x00
+      0054C3 00                    1612 	.db 0x00
+      0054C4 00                    1613 	.db 0x00
+      0054C5 00                    1614 	.db 0x00
+      0054C6 00                    1615 	.db 0x00
+      0054C7 00                    1616 	.db 0x00
+      0054C8 00                    1617 	.db 0x00
+      0054C9 00                    1618 	.db 0x00
+      0054CA 00                    1619 	.db 0x00
+      0054CB 00                    1620 	.db 0x00
+      0054CC 00                    1621 	.db 0x00
+      0054CD 00                    1622 	.db 0x00
+      0054CE 00                    1623 	.db 0x00
+      0054CF 00                    1624 	.db 0x00
+      0054D0 00                    1625 	.db 0x00
+      0054D1 00                    1626 	.db 0x00
+      0054D2 00                    1627 	.db 0x00
+      0054D3 00                    1628 	.db 0x00
+      0054D4 00                    1629 	.db 0x00
+      0054D5 00                    1630 	.db 0x00
+      0054D6 00                    1631 	.db 0x00
+      0054D7 00                    1632 	.db 0x00
+      0054D8 00                    1633 	.db 0x00
+      0054D9 00                    1634 	.db 0x00
+      0054DA 00                    1635 	.db 0x00
+      0054DB 00                    1636 	.db 0x00
+      0054DC 00                    1637 	.db 0x00
+      0054DD 00                    1638 	.db 0x00
+      0054DE 00                    1639 	.db 0x00
+      0054DF 00                    1640 	.db 0x00
+      0054E0 00                    1641 	.db 0x00
+      0054E1 00                    1642 	.db 0x00
+      0054E2 00                    1643 	.db 0x00
+      0054E3 00                    1644 	.db 0x00
+      0054E4 00                    1645 	.db 0x00
+      0054E5 00                    1646 	.db 0x00
+      0054E6 00                    1647 	.db 0x00
+      0054E7 00                    1648 	.db 0x00
+      0054E8 00                    1649 	.db 0x00
+      0054E9 00                    1650 	.db 0x00
+      0054EA 00                    1651 	.db 0x00
+      0054EB 00                    1652 	.db 0x00
+      0054EC 00                    1653 	.db 0x00
+      0054ED 00                    1654 	.db 0x00
+      0054EE 00                    1655 	.db 0x00
+      0054EF 00                    1656 	.db 0x00
+      0054F0 00                    1657 	.db 0x00
+      0054F1 00                    1658 	.db 0x00
+      0054F2 00                    1659 	.db 0x00
+      0054F3 00                    1660 	.db 0x00
+      0054F4 00                    1661 	.db 0x00
+      0054F5 00                    1662 	.db 0x00
+      0054F6 00                    1663 	.db 0x00
+      0054F7 00                    1664 	.db 0x00
+      0054F8 00                    1665 	.db 0x00
+      0054F9 00                    1666 	.db 0x00
+      0054FA 00                    1667 	.db 0x00
+      0054FB 00                    1668 	.db 0x00
+      0054FC 00                    1669 	.db 0x00
+      0054FD 00                    1670 	.db 0x00
+      0054FE 00                    1671 	.db 0x00
+      0054FF 00                    1672 	.db 0x00
+      005500 00                    1673 	.db 0x00
+      005501 00                    1674 	.db 0x00
+      005502 00                    1675 	.db 0x00
+      005503 00                    1676 	.db 0x00
+      005504 00                    1677 	.db 0x00
+      005505 00                    1678 	.db 0x00
+      005506 00                    1679 	.db 0x00
+      005507 00                    1680 	.db 0x00
+      005508 00                    1681 	.db 0x00
+      005509 00                    1682 	.db 0x00
+      00550A 00                    1683 	.db 0x00
+      00550B 00                    1684 	.db 0x00
+      00550C 00                    1685 	.db 0x00
+      00550D 00                    1686 	.db 0x00
+      00550E 00                    1687 	.db 0x00
+      00550F 00                    1688 	.db 0x00
+      005510 00                    1689 	.db 0x00
+      005511 00                    1690 	.db 0x00
+      005512 00                    1691 	.db 0x00
+      005513 00                    1692 	.db 0x00
+      005514 00                    1693 	.db 0x00
+      005515 00                    1694 	.db 0x00
+      005516 00                    1695 	.db 0x00
+      005517 00                    1696 	.db 0x00
+      005518 00                    1697 	.db 0x00
+      005519 00                    1698 	.db 0x00
+      00551A 00                    1699 	.db 0x00
+      00551B 00                    1700 	.db 0x00
+      00551C 00                    1701 	.db 0x00
+      00551D 00                    1702 	.db 0x00
+      00551E 00                    1703 	.db 0x00
+      00551F 00                    1704 	.db 0x00
+      005520 00                    1705 	.db 0x00
+      005521 00                    1706 	.db 0x00
+      005522 00                    1707 	.db 0x00
+      005523 00                    1708 	.db 0x00
+      005524 00                    1709 	.db 0x00
+      005525 00                    1710 	.db 0x00
+      005526 00                    1711 	.db 0x00
+      005527 00                    1712 	.db 0x00
+      005528 00                    1713 	.db 0x00
+      005529 00                    1714 	.db 0x00
+      00552A 00                    1715 	.db 0x00
+      00552B 00                    1716 	.db 0x00
+      00552C 00                    1717 	.db 0x00
+      00552D 00                    1718 	.db 0x00
+      00552E 00                    1719 	.db 0x00
+      00552F 00                    1720 	.db 0x00
+      005530 00                    1721 	.db 0x00
+      005531 00                    1722 	.db 0x00
+      005532 00                    1723 	.db 0x00
+      005533 00                    1724 	.db 0x00
+      005534 00                    1725 	.db 0x00
+      005535 00                    1726 	.db 0x00
+      005536 00                    1727 	.db 0x00
+      005537 00                    1728 	.db 0x00
+      005538 00                    1729 	.db 0x00
+      005539 00                    1730 	.db 0x00
+      00553A 00                    1731 	.db 0x00
+      00553B 00                    1732 	.db 0x00
+      00553C 00                    1733 	.db 0x00
+      00553D 00                    1734 	.db 0x00
+      00553E 00                    1735 	.db 0x00
+      00553F 00                    1736 	.db 0x00
+      005540 00                    1737 	.db 0x00
+      005541 00                    1738 	.db 0x00
+      005542 00                    1739 	.db 0x00
+      005543 00                    1740 	.db 0x00
+      005544 00                    1741 	.db 0x00
+      005545 00                    1742 	.db 0x00
+      005546 00                    1743 	.db 0x00
+      005547 00                    1744 	.db 0x00
+      005548 00                    1745 	.db 0x00
+      005549 00                    1746 	.db 0x00
+      00554A 00                    1747 	.db 0x00
+      00554B 00                    1748 	.db 0x00
+      00554C 00                    1749 	.db 0x00
+      00554D 00                    1750 	.db 0x00
+      00554E 00                    1751 	.db 0x00
+      00554F 00                    1752 	.db 0x00
+      005550 00                    1753 	.db 0x00
+      005551 00                    1754 	.db 0x00
+      005552 00                    1755 	.db 0x00
+      005553 00                    1756 	.db 0x00
+      005554 00                    1757 	.db 0x00
+      005555 00                    1758 	.db 0x00
+      005556 00                    1759 	.db 0x00
+      005557 00                    1760 	.db 0x00
+      005558 00                    1761 	.db 0x00
+      005559 00                    1762 	.db 0x00
+      00555A 00                    1763 	.db 0x00
+      00555B 00                    1764 	.db 0x00
+      00555C 00                    1765 	.db 0x00
+      00555D 00                    1766 	.db 0x00
+      00555E 00                    1767 	.db 0x00
+      00555F 00                    1768 	.db 0x00
+      005560 00                    1769 	.db 0x00
+      005561 00                    1770 	.db 0x00
+      005562 00                    1771 	.db 0x00
+      005563 00                    1772 	.db 0x00
+      005564 00                    1773 	.db 0x00
+      005565 00                    1774 	.db 0x00
+      005566 00                    1775 	.db 0x00
+      005567 00                    1776 	.db 0x00
+      005568 00                    1777 	.db 0x00
+      005569 00                    1778 	.db 0x00
+      00556A 00                    1779 	.db 0x00
+      00556B 00                    1780 	.db 0x00
+      00556C 00                    1781 	.db 0x00
+      00556D 00                    1782 	.db 0x00
+      00556E 00                    1783 	.db 0x00
+      00556F 00                    1784 	.db 0x00
+      005570 00                    1785 	.db 0x00
+      005571 00                    1786 	.db 0x00
+      005572 00                    1787 	.db 0x00
+      005573 00                    1788 	.db 0x00
+      005574 00                    1789 	.db 0x00
+      005575 00                    1790 	.db 0x00
+      005576 00                    1791 	.db 0x00
+      005577 00                    1792 	.db 0x00
+      005578 00                    1793 	.db 0x00
+      005579 00                    1794 	.db 0x00
+      00557A 00                    1795 	.db 0x00
+      00557B 00                    1796 	.db 0x00
+      00557C 00                    1797 	.db 0x00
+      00557D 00                    1798 	.db 0x00
+      00557E 00                    1799 	.db 0x00
+      00557F 00                    1800 	.db 0x00
+      005580 00                    1801 	.db 0x00
+      005581 00                    1802 	.db 0x00
+      005582 00                    1803 	.db 0x00
+      005583 00                    1804 	.db 0x00
+      005584 00                    1805 	.db 0x00
+      005585 00                    1806 	.db 0x00
+      005586 00                    1807 	.db 0x00
+      005587 00                    1808 	.db 0x00
+      005588 00                    1809 	.db 0x00
+      005589 00                    1810 	.db 0x00
+      00558A 00                    1811 	.db 0x00
+      00558B 00                    1812 	.db 0x00
+      00558C 00                    1813 	.db 0x00
+      00558D 00                    1814 	.db 0x00
+      00558E 00                    1815 	.db 0x00
+      00558F 00                    1816 	.db 0x00
+      005590 00                    1817 	.db 0x00
+      005591 00                    1818 	.db 0x00
+      005592 00                    1819 	.db 0x00
+      005593 00                    1820 	.db 0x00
+      005594 00                    1821 	.db 0x00
+      005595 00                    1822 	.db 0x00
+      005596 00                    1823 	.db 0x00
+      005597 00                    1824 	.db 0x00
+      005598 00                    1825 	.db 0x00
+      005599 00                    1826 	.db 0x00
+      00559A 00                    1827 	.db 0x00
+      00559B 00                    1828 	.db 0x00
+      00559C 00                    1829 	.db 0x00
+      00559D 00                    1830 	.db 0x00
+      00559E 00                    1831 	.db 0x00
+      00559F 00                    1832 	.db 0x00
+      0055A0 00                    1833 	.db 0x00
+      0055A1 00                    1834 	.db 0x00
+      0055A2 00                    1835 	.db 0x00
+      0055A3 00                    1836 	.db 0x00
+      0055A4 00                    1837 	.db 0x00
+      0055A5 00                    1838 	.db 0x00
+      0055A6 00                    1839 	.db 0x00
+      0055A7 00                    1840 	.db 0x00
+      0055A8 00                    1841 	.db 0x00
+      0055A9 00                    1842 	.db 0x00
+      0055AA 00                    1843 	.db 0x00
+      0055AB 00                    1844 	.db 0x00
+      0055AC 00                    1845 	.db 0x00
+      0055AD 00                    1846 	.db 0x00
+      0055AE 00                    1847 	.db 0x00
+      0055AF 00                    1848 	.db 0x00
+      0055B0 00                    1849 	.db 0x00
+      0055B1 00                    1850 	.db 0x00
+      0055B2 00                    1851 	.db 0x00
+      0055B3 00                    1852 	.db 0x00
+      0055B4 00                    1853 	.db 0x00
+      0055B5 00                    1854 	.db 0x00
+      0055B6 00                    1855 	.db 0x00
+      0055B7 00                    1856 	.db 0x00
+      0055B8 00                    1857 	.db 0x00
+      0055B9 00                    1858 	.db 0x00
+      0055BA 00                    1859 	.db 0x00
+      0055BB 00                    1860 	.db 0x00
+      0055BC 00                    1861 	.db 0x00
+      0055BD 00                    1862 	.db 0x00
+      0055BE 00                    1863 	.db 0x00
+      0055BF 00                    1864 	.db 0x00
+      0055C0 00                    1865 	.db 0x00
+      0055C1 00                    1866 	.db 0x00
+      0055C2 00                    1867 	.db 0x00
+      0055C3 00                    1868 	.db 0x00
+      0055C4 00                    1869 	.db 0x00
+      0055C5 00                    1870 	.db 0x00
+      0055C6 00                    1871 	.db 0x00
+      0055C7 00                    1872 	.db 0x00
+      0055C8 00                    1873 	.db 0x00
+      0055C9 00                    1874 	.db 0x00
+      0055CA 00                    1875 	.db 0x00
+      0055CB 00                    1876 	.db 0x00
+      0055CC 00                    1877 	.db 0x00
+      0055CD 00                    1878 	.db 0x00
+      0055CE 00                    1879 	.db 0x00
+      0055CF 00                    1880 	.db 0x00
+      0055D0 00                    1881 	.db 0x00
+      0055D1 00                    1882 	.db 0x00
+      0055D2 00                    1883 	.db 0x00
+      0055D3 00                    1884 	.db 0x00
+      0055D4 00                    1885 	.db 0x00
+      0055D5 00                    1886 	.db 0x00
+      0055D6 00                    1887 	.db 0x00
+      0055D7 00                    1888 	.db 0x00
+      0055D8 00                    1889 	.db 0x00
+      0055D9 00                    1890 	.db 0x00
+      0055DA 00                    1891 	.db 0x00
+      0055DB 00                    1892 	.db 0x00
+      0055DC 00                    1893 	.db 0x00
+      0055DD 00                    1894 	.db 0x00
+      0055DE 00                    1895 	.db 0x00
+      0055DF 00                    1896 	.db 0x00
+      0055E0 00                    1897 	.db 0x00
+      0055E1 00                    1898 	.db 0x00
+      0055E2 00                    1899 	.db 0x00
+      0055E3 00                    1900 	.db 0x00
+      0055E4 00                    1901 	.db 0x00
+      0055E5 00                    1902 	.db 0x00
+      0055E6 00                    1903 	.db 0x00
+      0055E7 00                    1904 	.db 0x00
+      0055E8 00                    1905 	.db 0x00
+      0055E9 00                    1906 	.db 0x00
+      0055EA 00                    1907 	.db 0x00
+      0055EB 00                    1908 	.db 0x00
+      0055EC 00                    1909 	.db 0x00
+      0055ED 00                    1910 	.db 0x00
+      0055EE 00                    1911 	.db 0x00
+      0055EF 00                    1912 	.db 0x00
+      0055F0 00                    1913 	.db 0x00
+      0055F1 00                    1914 	.db 0x00
+      0055F2 00                    1915 	.db 0x00
+      0055F3 00                    1916 	.db 0x00
+      0055F4 00                    1917 	.db 0x00
+      0055F5 00                    1918 	.db 0x00
+      0055F6 00                    1919 	.db 0x00
+      0055F7 00                    1920 	.db 0x00
+      0055F8 00                    1921 	.db 0x00
+      0055F9 00                    1922 	.db 0x00
+      0055FA 00                    1923 	.db 0x00
+      0055FB 00                    1924 	.db 0x00
+      0055FC 00                    1925 	.db 0x00
+      0055FD 00                    1926 	.db 0x00
+      0055FE 00                    1927 	.db 0x00
+      0055FF 00                    1928 	.db 0x00
+      005600 00                    1929 	.db 0x00
+      005601 00                    1930 	.db 0x00
+      005602 00                    1931 	.db 0x00
+      005603 00                    1932 	.db 0x00
+      005604 00                    1933 	.db 0x00
+      005605 00                    1934 	.db 0x00
+      005606 00                    1935 	.db 0x00
+      005607 00                    1936 	.db 0x00
+      005608 00                    1937 	.db 0x00
+      005609 00                    1938 	.db 0x00
+      00560A 00                    1939 	.db 0x00
+      00560B 00                    1940 	.db 0x00
+      00560C 00                    1941 	.db 0x00
+      00560D 00                    1942 	.db 0x00
+      00560E 00                    1943 	.db 0x00
+      00560F 00                    1944 	.db 0x00
+      005610 00                    1945 	.db 0x00
+      005611 00                    1946 	.db 0x00
+      005612 00                    1947 	.db 0x00
+      005613 00                    1948 	.db 0x00
+      005614 00                    1949 	.db 0x00
+      005615 00                    1950 	.db 0x00
+      005616 00                    1951 	.db 0x00
+      005617 00                    1952 	.db 0x00
+      005618 00                    1953 	.db 0x00
+      005619 00                    1954 	.db 0x00
+      00561A 00                    1955 	.db 0x00
+      00561B 00                    1956 	.db 0x00
+      00561C 00                    1957 	.db 0x00
+      00561D 00                    1958 	.db 0x00
+      00561E 00                    1959 	.db 0x00
+      00561F 00                    1960 	.db 0x00
+      005620 00                    1961 	.db 0x00
+      005621 00                    1962 	.db 0x00
+      005622 00                    1963 	.db 0x00
+      005623 00                    1964 	.db 0x00
+      005624 00                    1965 	.db 0x00
+      005625 00                    1966 	.db 0x00
+      005626 00                    1967 	.db 0x00
+      005627 00                    1968 	.db 0x00
+      005628 00                    1969 	.db 0x00
+      005629 00                    1970 	.db 0x00
+      00562A 00                    1971 	.db 0x00
+      00562B 00                    1972 	.db 0x00
+      00562C 00                    1973 	.db 0x00
+      00562D 00                    1974 	.db 0x00
+      00562E 00                    1975 	.db 0x00
+      00562F 00                    1976 	.db 0x00
+      005630 00                    1977 	.db 0x00
+      005631 00                    1978 	.db 0x00
+      005632 00                    1979 	.db 0x00
+      005633 00                    1980 	.db 0x00
+      005634 00                    1981 	.db 0x00
+      005635 00                    1982 	.db 0x00
+      005636 00                    1983 	.db 0x00
+      005637 00                    1984 	.db 0x00
+      005638 00                    1985 	.db 0x00
+      005639 00                    1986 	.db 0x00
+      00563A 00                    1987 	.db 0x00
+      00563B 00                    1988 	.db 0x00
+      00563C 00                    1989 	.db 0x00
+      00563D 00                    1990 	.db 0x00
+      00563E 00                    1991 	.db 0x00
+      00563F 00                    1992 	.db 0x00
+      005640 00                    1993 	.db 0x00
+      005641 00                    1994 	.db 0x00
+      005642 00                    1995 	.db 0x00
+      005643 00                    1996 	.db 0x00
+      005644 00                    1997 	.db 0x00
+      005645 00                    1998 	.db 0x00
+      005646 00                    1999 	.db 0x00
+      005647 00                    2000 	.db 0x00
+      005648 00                    2001 	.db 0x00
+      005649 00                    2002 	.db 0x00
+      00564A 00                    2003 	.db 0x00
+      00564B 00                    2004 	.db 0x00
+      00564C 00                    2005 	.db 0x00
+      00564D 00                    2006 	.db 0x00
+      00564E 00                    2007 	.db 0x00
+      00564F 00                    2008 	.db 0x00
+      005650 00                    2009 	.db 0x00
+      005651 00                    2010 	.db 0x00
+      005652 00                    2011 	.db 0x00
+      005653 00                    2012 	.db 0x00
+      005654 00                    2013 	.db 0x00
+      005655 00                    2014 	.db 0x00
+      005656 00                    2015 	.db 0x00
+      005657 00                    2016 	.db 0x00
+      005658 00                    2017 	.db 0x00
+      005659 00                    2018 	.db 0x00
+      00565A 00                    2019 	.db 0x00
+      00565B 00                    2020 	.db 0x00
+      00565C 00                    2021 	.db 0x00
+      00565D 00                    2022 	.db 0x00
+      00565E 00                    2023 	.db 0x00
+      00565F 00                    2024 	.db 0x00
+      005660 00                    2025 	.db 0x00
+      005661 00                    2026 	.db 0x00
+      005662 00                    2027 	.db 0x00
+      005663 00                    2028 	.db 0x00
+      005664 00                    2029 	.db 0x00
+      005665 00                    2030 	.db 0x00
+      005666 00                    2031 	.db 0x00
+      005667 00                    2032 	.db 0x00
+      005668 00                    2033 	.db 0x00
+      005669 00                    2034 	.db 0x00
+      00566A 00                    2035 	.db 0x00
+      00566B 00                    2036 	.db 0x00
+      00566C 00                    2037 	.db 0x00
+      00566D 00                    2038 	.db 0x00
+      00566E 00                    2039 	.db 0x00
+      00566F 00                    2040 	.db 0x00
+      005670 00                    2041 	.db 0x00
+      005671 00                    2042 	.db 0x00
+      005672 00                    2043 	.db 0x00
+      005673 00                    2044 	.db 0x00
+      005674 00                    2045 	.db 0x00
+      005675 00                    2046 	.db 0x00
+      005676 00                    2047 	.db 0x00
+      005677 00                    2048 	.db 0x00
+      005678 00                    2049 	.db 0x00
+      005679 00                    2050 	.db 0x00
+      00567A 00                    2051 	.db 0x00
+      00567B 00                    2052 	.db 0x00
+      00567C 00                    2053 	.db 0x00
+      00567D 00                    2054 	.db 0x00
+      00567E 00                    2055 	.db 0x00
+      00567F 00                    2056 	.db 0x00
+      005680 00                    2057 	.db 0x00
+      005681 00                    2058 	.db 0x00
+      005682 00                    2059 	.db 0x00
+      005683 00                    2060 	.db 0x00
+      005684 00                    2061 	.db 0x00
+      005685 00                    2062 	.db 0x00
+      005686 00                    2063 	.db 0x00
+      005687 00                    2064 	.db 0x00
+      005688 00                    2065 	.db 0x00
+      005689 00                    2066 	.db 0x00
+      00568A 00                    2067 	.db 0x00
+      00568B 00                    2068 	.db 0x00
+      00568C 00                    2069 	.db 0x00
+      00568D 00                    2070 	.db 0x00
+      00568E 00                    2071 	.db 0x00
+      00568F 00                    2072 	.db 0x00
+      005690 00                    2073 	.db 0x00
+      005691 00                    2074 	.db 0x00
+      005692 00                    2075 	.db 0x00
+      005693 00                    2076 	.db 0x00
+      005694 00                    2077 	.db 0x00
+      005695 00                    2078 	.db 0x00
+      005696 00                    2079 	.db 0x00
+      005697 00                    2080 	.db 0x00
+      005698 00                    2081 	.db 0x00
+      005699 00                    2082 	.db 0x00
+      00569A 00                    2083 	.db 0x00
+      00569B 00                    2084 	.db 0x00
+      00569C 00                    2085 	.db 0x00
+      00569D 00                    2086 	.db 0x00
+      00569E 00                    2087 	.db 0x00
+      00569F 00                    2088 	.db 0x00
+      0056A0 00                    2089 	.db 0x00
+      0056A1 00                    2090 	.db 0x00
+      0056A2 00                    2091 	.db 0x00
+      0056A3 00                    2092 	.db 0x00
+      0056A4 00                    2093 	.db 0x00
+      0056A5 00                    2094 	.db 0x00
+      0056A6 00                    2095 	.db 0x00
+      0056A7 00                    2096 	.db 0x00
+      0056A8 00                    2097 	.db 0x00
+      0056A9 00                    2098 	.db 0x00
+      0056AA 00                    2099 	.db 0x00
+      0056AB 00                    2100 	.db 0x00
+      0056AC 00                    2101 	.db 0x00
+      0056AD 00                    2102 	.db 0x00
+      0056AE 00                    2103 	.db 0x00
+      0056AF 00                    2104 	.db 0x00
+      0056B0 00                    2105 	.db 0x00
+      0056B1 00                    2106 	.db 0x00
+      0056B2 00                    2107 	.db 0x00
+      0056B3 00                    2108 	.db 0x00
+      0056B4 00                    2109 	.db 0x00
+      0056B5 00                    2110 	.db 0x00
+      0056B6 00                    2111 	.db 0x00
+      0056B7 00                    2112 	.db 0x00
+      0056B8 00                    2113 	.db 0x00
+      0056B9 00                    2114 	.db 0x00
+      0056BA 00                    2115 	.db 0x00
+      0056BB 00                    2116 	.db 0x00
+      0056BC 00                    2117 	.db 0x00
+      0056BD 00                    2118 	.db 0x00
+      0056BE 00                    2119 	.db 0x00
+      0056BF 00                    2120 	.db 0x00
+      0056C0 00                    2121 	.db 0x00
+      0056C1 00                    2122 	.db 0x00
+      0056C2 00                    2123 	.db 0x00
+      0056C3 00                    2124 	.db 0x00
+      0056C4 00                    2125 	.db 0x00
+      0056C5 00                    2126 	.db 0x00
+      0056C6 00                    2127 	.db 0x00
+      0056C7 00                    2128 	.db 0x00
+      0056C8 00                    2129 	.db 0x00
+      0056C9 00                    2130 	.db 0x00
+      0056CA 00                    2131 	.db 0x00
+      0056CB 00                    2132 	.db 0x00
+      0056CC 00                    2133 	.db 0x00
+      0056CD 00                    2134 	.db 0x00
+      0056CE 00                    2135 	.db 0x00
+      0056CF 00                    2136 	.db 0x00
+      0056D0 00                    2137 	.db 0x00
+      0056D1 00                    2138 	.db 0x00
+      0056D2 00                    2139 	.db 0x00
+      0056D3 00                    2140 	.db 0x00
+                                   2141 	.area CABS    (ABS,CODE)

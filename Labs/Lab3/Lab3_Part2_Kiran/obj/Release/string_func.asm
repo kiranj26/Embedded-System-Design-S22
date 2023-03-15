@@ -516,7 +516,7 @@ _puts__ch_65536_14:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'getchar'
 ;------------------------------------------------------------
-;	string_func.c:25: int getchar (void)
+;	string_func.c:34: int getchar (void)
 ;	-----------------------------------------
 ;	 function getchar
 ;	-----------------------------------------
@@ -529,26 +529,26 @@ _getchar:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	string_func.c:27: while (!RI); //Wait till the Character is received
+;	string_func.c:36: while (!RI); //Wait till the Character is received
 00101$:
-;	string_func.c:28: RI = 0;			// Clear the RI flag
+;	string_func.c:37: RI = 0;			// Clear the RI flag
 ;	assignBit
 	jbc	_RI,00114$
 	sjmp	00101$
 00114$:
-;	string_func.c:29: return SBUF;  	// Return the Character
+;	string_func.c:38: return SBUF;  	// Return the Character
 	mov	r6,_SBUF
 	mov	r7,#0x00
 	mov	dpl,r6
 	mov	dph,r7
-;	string_func.c:30: }
+;	string_func.c:39: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'putchar'
 ;------------------------------------------------------------
 ;c                         Allocated with name '_putchar_c_65536_7'
 ;------------------------------------------------------------
-;	string_func.c:33: int putchar (int c)
+;	string_func.c:51: int putchar (int c)
 ;	-----------------------------------------
 ;	 function putchar
 ;	-----------------------------------------
@@ -560,10 +560,10 @@ _putchar:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	string_func.c:35: while(!TI); //Wait till the Transmitter is ready
+;	string_func.c:53: while(!TI); //Wait till the Transmitter is ready
 00101$:
 	jnb	_TI,00101$
-;	string_func.c:36: SBUF = c; //write character to SBUF
+;	string_func.c:54: SBUF = c; //write character to SBUF
 	mov	dptr,#_putchar_c_65536_7
 	movx	a,@dptr
 	mov	r6,a
@@ -571,13 +571,13 @@ _putchar:
 	movx	a,@dptr
 	mov	r7,a
 	mov	_SBUF,r6
-;	string_func.c:37: TI = 0; //Clear the TI flag
+;	string_func.c:55: TI = 0; //Clear the TI flag
 ;	assignBit
 	clr	_TI
-;	string_func.c:38: return c;
+;	string_func.c:56: return c;
 	mov	dpl,r6
 	mov	dph,r7
-;	string_func.c:39: }
+;	string_func.c:57: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'gets_'
@@ -586,7 +586,7 @@ _putchar:
 ;i                         Allocated with name '_gets__i_131072_11'
 ;c                         Allocated with name '_gets__c_196608_12'
 ;------------------------------------------------------------
-;	string_func.c:41: void gets_(__xdata char *ch) {
+;	string_func.c:68: void gets_(__xdata char *ch) {
 ;	-----------------------------------------
 ;	 function gets_
 ;	-----------------------------------------
@@ -598,7 +598,7 @@ _gets_:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	string_func.c:42: for (int i = 0; ; i++) {
+;	string_func.c:69: for (int i = 0; ; i++) {
 	mov	dptr,#_gets__ch_65536_9
 	movx	a,@dptr
 	mov	r6,a
@@ -608,14 +608,14 @@ _gets_:
 	mov	r4,#0x00
 	mov	r5,#0x00
 00105$:
-;	string_func.c:43: char c = getchar();
+;	string_func.c:70: char c = getchar();
 	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	lcall	_getchar
 	mov	r2,dpl
-;	string_func.c:44: putchar(c);
+;	string_func.c:71: putchar(c);
 	mov	ar1,r2
 	mov	r3,#0x00
 	mov	dpl,r1
@@ -627,13 +627,13 @@ _gets_:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	string_func.c:45: if (c == '\r' || c == '\n') {
+;	string_func.c:72: if (c == '\r' || c == '\n') {
 	cjne	r2,#0x0d,00118$
 	sjmp	00101$
 00118$:
 	cjne	r2,#0x0a,00102$
 00101$:
-;	string_func.c:46: *(ch + i) = '\0';
+;	string_func.c:73: *(ch + i) = '\0';
 	mov	dptr,#_gets__ch_65536_9
 	movx	a,@dptr
 	mov	r1,a
@@ -648,10 +648,10 @@ _gets_:
 	mov	dph,a
 	clr	a
 	movx	@dptr,a
-;	string_func.c:47: break;
+;	string_func.c:74: break;
 	ret
 00102$:
-;	string_func.c:49: *(ch + i) = c;
+;	string_func.c:76: *(ch + i) = c;
 	mov	a,r4
 	add	a,r6
 	mov	dpl,a
@@ -660,18 +660,18 @@ _gets_:
 	mov	dph,a
 	mov	a,r2
 	movx	@dptr,a
-;	string_func.c:42: for (int i = 0; ; i++) {
+;	string_func.c:69: for (int i = 0; ; i++) {
 	inc	r4
 	cjne	r4,#0x00,00105$
 	inc	r5
-;	string_func.c:51: }
+;	string_func.c:78: }
 	sjmp	00105$
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'puts_'
 ;------------------------------------------------------------
 ;ch                        Allocated with name '_puts__ch_65536_14'
 ;------------------------------------------------------------
-;	string_func.c:53: void puts_(__xdata char *ch) {
+;	string_func.c:88: void puts_(__xdata char *ch) {
 ;	-----------------------------------------
 ;	 function puts_
 ;	-----------------------------------------
@@ -690,13 +690,13 @@ _puts_:
 	movx	a,@dptr
 	mov	r7,a
 00103$:
-;	string_func.c:54: for (; *ch; ch++) {
+;	string_func.c:89: for (; *ch; ch++) {
 	mov	dpl,r6
 	mov	dph,r7
 	movx	a,@dptr
 	mov	r5,a
 	jz	00109$
-;	string_func.c:55: putchar(*ch);
+;	string_func.c:90: putchar(*ch);
 	mov	r4,#0x00
 	mov	dpl,r5
 	mov	dph,r4
@@ -705,7 +705,7 @@ _puts_:
 	lcall	_putchar
 	pop	ar6
 	pop	ar7
-;	string_func.c:54: for (; *ch; ch++) {
+;	string_func.c:89: for (; *ch; ch++) {
 	inc	r6
 	cjne	r6,#0x00,00117$
 	inc	r7
@@ -724,7 +724,7 @@ _puts_:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	string_func.c:57: }
+;	string_func.c:92: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

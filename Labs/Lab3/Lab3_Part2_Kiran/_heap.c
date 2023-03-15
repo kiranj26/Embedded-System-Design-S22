@@ -23,6 +23,8 @@
  * @date    March 3, 2023
  * @version 1.0
 */
+#ifndef _HEAP_C_
+#define _HEAP_C_
 
 #ifndef HEAP_SIZE
 #define HEAP_SIZE 6000
@@ -33,3 +35,5 @@ __xdata char __sdcc_heap[HEAP_SIZE];
 
 // Define a constant to store the size of the heap
 const unsigned int __sdcc_heap_size = HEAP_SIZE;
+
+#endif // _HEAP_C_

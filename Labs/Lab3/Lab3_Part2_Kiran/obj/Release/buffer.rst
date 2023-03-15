@@ -474,7 +474,7 @@
                                     474 ; external ram data
                                     475 ;--------------------------------------------------------
                                     476 	.area XSEG    (XDATA)
-      001B70                        477 _Buffer_Size_Error_Correction_input_65536_47:
+      001B70                        477 _Buffer_Size_Error_Correction_input_65537_48:
       001B70                        478 	.ds 5
                                     479 ;--------------------------------------------------------
                                     480 ; absolute external ram data
@@ -513,10 +513,10 @@
                                     513 ;------------------------------------------------------------
                                     514 ;Allocation info for local variables in function 'Buffer_Size_Error_Correction'
                                     515 ;------------------------------------------------------------
-                                    516 ;input                     Allocated with name '_Buffer_Size_Error_Correction_input_65536_47'
-                                    517 ;num                       Allocated with name '_Buffer_Size_Error_Correction_num_65536_47'
+                                    516 ;input                     Allocated with name '_Buffer_Size_Error_Correction_input_65537_48'
+                                    517 ;num                       Allocated with name '_Buffer_Size_Error_Correction_num_65537_48'
                                     518 ;------------------------------------------------------------
-                                    519 ;	buffer.c:28: __xdata int Buffer_Size_Error_Correction(void)
+                                    519 ;	buffer.c:37: __xdata int Buffer_Size_Error_Correction(void)
                                     520 ;	-----------------------------------------
                                     521 ;	 function Buffer_Size_Error_Correction
                                     522 ;	-----------------------------------------
@@ -529,199 +529,289 @@
                            000002   529 	ar2 = 0x02
                            000001   530 	ar1 = 0x01
                            000000   531 	ar0 = 0x00
-                                    532 ;	buffer.c:30: __xdata char input[5] = {'0', '0', '0', '0', '\0'};
-      002062 90 1B 70         [24]  533 	mov	dptr,#_Buffer_Size_Error_Correction_input_65536_47
-      002065 74 30            [12]  534 	mov	a,#0x30
-      002067 F0               [24]  535 	movx	@dptr,a
-      002068 90 1B 71         [24]  536 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0001)
-      00206B F0               [24]  537 	movx	@dptr,a
-      00206C 90 1B 72         [24]  538 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0002)
-      00206F F0               [24]  539 	movx	@dptr,a
-      002070 90 1B 73         [24]  540 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0003)
-      002073 F0               [24]  541 	movx	@dptr,a
-      002074 90 1B 74         [24]  542 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0004)
-      002077 E4               [12]  543 	clr	a
-      002078 F0               [24]  544 	movx	@dptr,a
-                                    545 ;	buffer.c:33: while (1) {
-      002079                        546 00116$:
-                                    547 ;	buffer.c:34: printf("\033[33m");
-      002079 74 A1            [12]  548 	mov	a,#___str_0
-      00207B C0 E0            [24]  549 	push	acc
-      00207D 74 43            [12]  550 	mov	a,#(___str_0 >> 8)
-      00207F C0 E0            [24]  551 	push	acc
-      002081 74 80            [12]  552 	mov	a,#0x80
-      002083 C0 E0            [24]  553 	push	acc
-      002085 12 39 57         [24]  554 	lcall	_printf
-      002088 15 81            [12]  555 	dec	sp
-      00208A 15 81            [12]  556 	dec	sp
-      00208C 15 81            [12]  557 	dec	sp
-                                    558 ;	buffer.c:35: printf_tiny("\n\rEnter input:");
-      00208E 74 A7            [12]  559 	mov	a,#___str_1
-      002090 C0 E0            [24]  560 	push	acc
-      002092 74 43            [12]  561 	mov	a,#(___str_1 >> 8)
-      002094 C0 E0            [24]  562 	push	acc
-      002096 12 35 27         [24]  563 	lcall	_printf_tiny
-      002099 15 81            [12]  564 	dec	sp
-      00209B 15 81            [12]  565 	dec	sp
-                                    566 ;	buffer.c:36: gets_(input);
-      00209D 90 1B 70         [24]  567 	mov	dptr,#_Buffer_Size_Error_Correction_input_65536_47
-      0020A0 12 31 E6         [24]  568 	lcall	_gets_
-                                    569 ;	buffer.c:38: if (input[0] < '0' || input[0] > '9' ||
-      0020A3 90 1B 70         [24]  570 	mov	dptr,#_Buffer_Size_Error_Correction_input_65536_47
-      0020A6 E0               [24]  571 	movx	a,@dptr
-      0020A7 FF               [12]  572 	mov	r7,a
-      0020A8 BF 30 00         [24]  573 	cjne	r7,#0x30,00160$
-      0020AB                        574 00160$:
-      0020AB 40 32            [24]  575 	jc	00101$
-      0020AD EF               [12]  576 	mov	a,r7
-      0020AE 24 C6            [12]  577 	add	a,#0xff - 0x39
-      0020B0 40 2D            [24]  578 	jc	00101$
-                                    579 ;	buffer.c:39: input[1] < '0' || input[1] > '9' ||
-      0020B2 90 1B 71         [24]  580 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0001)
-      0020B5 E0               [24]  581 	movx	a,@dptr
-      0020B6 FF               [12]  582 	mov	r7,a
-      0020B7 BF 30 00         [24]  583 	cjne	r7,#0x30,00163$
-      0020BA                        584 00163$:
-      0020BA 40 23            [24]  585 	jc	00101$
-      0020BC EF               [12]  586 	mov	a,r7
-      0020BD 24 C6            [12]  587 	add	a,#0xff - 0x39
-      0020BF 40 1E            [24]  588 	jc	00101$
-                                    589 ;	buffer.c:40: input[2] < '0' || input[2] > '9' ||
-      0020C1 90 1B 72         [24]  590 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0002)
-      0020C4 E0               [24]  591 	movx	a,@dptr
-      0020C5 FF               [12]  592 	mov	r7,a
-      0020C6 BF 30 00         [24]  593 	cjne	r7,#0x30,00166$
-      0020C9                        594 00166$:
-      0020C9 40 14            [24]  595 	jc	00101$
-      0020CB EF               [12]  596 	mov	a,r7
-      0020CC 24 C6            [12]  597 	add	a,#0xff - 0x39
-      0020CE 40 0F            [24]  598 	jc	00101$
-                                    599 ;	buffer.c:41: input[3] < '0' || input[3] > '9') {
-      0020D0 90 1B 73         [24]  600 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0003)
-      0020D3 E0               [24]  601 	movx	a,@dptr
-      0020D4 FF               [12]  602 	mov	r7,a
-      0020D5 BF 30 00         [24]  603 	cjne	r7,#0x30,00169$
-      0020D8                        604 00169$:
-      0020D8 40 05            [24]  605 	jc	00101$
-      0020DA EF               [12]  606 	mov	a,r7
-      0020DB 24 C6            [12]  607 	add	a,#0xff - 0x39
-      0020DD 50 2D            [24]  608 	jnc	00102$
-      0020DF                        609 00101$:
-                                    610 ;	buffer.c:42: printf("\033[0;31m\nInvalid input. Please enter four digits between 0 and 9.\n\r");
-      0020DF 74 B6            [12]  611 	mov	a,#___str_2
-      0020E1 C0 E0            [24]  612 	push	acc
-      0020E3 74 43            [12]  613 	mov	a,#(___str_2 >> 8)
-      0020E5 C0 E0            [24]  614 	push	acc
-      0020E7 74 80            [12]  615 	mov	a,#0x80
-      0020E9 C0 E0            [24]  616 	push	acc
-      0020EB 12 39 57         [24]  617 	lcall	_printf
-      0020EE 15 81            [12]  618 	dec	sp
-      0020F0 15 81            [12]  619 	dec	sp
-      0020F2 15 81            [12]  620 	dec	sp
-                                    621 ;	buffer.c:43: printf("\033[0;31mValid Input Examples : 0064,9876,0001,0096, etc\n");
-      0020F4 74 F9            [12]  622 	mov	a,#___str_3
-      0020F6 C0 E0            [24]  623 	push	acc
-      0020F8 74 43            [12]  624 	mov	a,#(___str_3 >> 8)
-      0020FA C0 E0            [24]  625 	push	acc
-      0020FC 74 80            [12]  626 	mov	a,#0x80
-      0020FE C0 E0            [24]  627 	push	acc
-      002100 12 39 57         [24]  628 	lcall	_printf
-      002103 15 81            [12]  629 	dec	sp
-      002105 15 81            [12]  630 	dec	sp
-      002107 15 81            [12]  631 	dec	sp
-                                    632 ;	buffer.c:46: continue;
-      002109 02 20 79         [24]  633 	ljmp	00116$
-      00210C                        634 00102$:
-                                    635 ;	buffer.c:49: num = atoi(input);
-      00210C 90 1B 70         [24]  636 	mov	dptr,#_Buffer_Size_Error_Correction_input_65536_47
-      00210F 75 F0 00         [24]  637 	mov	b,#0x00
-      002112 12 33 E8         [24]  638 	lcall	_atoi
-      002115 AE 82            [24]  639 	mov	r6,dpl
-      002117 AF 83            [24]  640 	mov	r7,dph
-                                    641 ;	buffer.c:50: if (num < 64 || num > 5600) {
-      002119 C3               [12]  642 	clr	c
-      00211A EE               [12]  643 	mov	a,r6
-      00211B 94 40            [12]  644 	subb	a,#0x40
-      00211D EF               [12]  645 	mov	a,r7
-      00211E 64 80            [12]  646 	xrl	a,#0x80
-      002120 94 80            [12]  647 	subb	a,#0x80
-      002122 40 0E            [24]  648 	jc	00110$
-      002124 74 E0            [12]  649 	mov	a,#0xe0
-      002126 9E               [12]  650 	subb	a,r6
-      002127 74 95            [12]  651 	mov	a,#(0x15 ^ 0x80)
-      002129 8F F0            [24]  652 	mov	b,r7
-      00212B 63 F0 80         [24]  653 	xrl	b,#0x80
-      00212E 95 F0            [12]  654 	subb	a,b
-      002130 50 12            [24]  655 	jnc	00111$
-      002132                        656 00110$:
-                                    657 ;	buffer.c:51: printf_tiny("\033[0;31m\nInvalid input.Input data should be between 64 and 5600.\n");
-      002132 74 31            [12]  658 	mov	a,#___str_4
-      002134 C0 E0            [24]  659 	push	acc
-      002136 74 44            [12]  660 	mov	a,#(___str_4 >> 8)
-      002138 C0 E0            [24]  661 	push	acc
-      00213A 12 35 27         [24]  662 	lcall	_printf_tiny
-      00213D 15 81            [12]  663 	dec	sp
-      00213F 15 81            [12]  664 	dec	sp
-                                    665 ;	buffer.c:53: continue;
-      002141 02 20 79         [24]  666 	ljmp	00116$
-      002144                        667 00111$:
-                                    668 ;	buffer.c:55: if (num % 32 != 0) {
-      002144 90 1C 82         [24]  669 	mov	dptr,#__modsint_PARM_2
-      002147 74 20            [12]  670 	mov	a,#0x20
-      002149 F0               [24]  671 	movx	@dptr,a
-      00214A E4               [12]  672 	clr	a
-      00214B A3               [24]  673 	inc	dptr
-      00214C F0               [24]  674 	movx	@dptr,a
-      00214D 8E 82            [24]  675 	mov	dpl,r6
-      00214F 8F 83            [24]  676 	mov	dph,r7
-      002151 C0 07            [24]  677 	push	ar7
-      002153 C0 06            [24]  678 	push	ar6
-      002155 12 37 F5         [24]  679 	lcall	__modsint
-      002158 E5 82            [12]  680 	mov	a,dpl
-      00215A 85 83 F0         [24]  681 	mov	b,dph
-      00215D D0 06            [24]  682 	pop	ar6
-      00215F D0 07            [24]  683 	pop	ar7
-      002161 45 F0            [12]  684 	orl	a,b
-      002163 60 12            [24]  685 	jz	00117$
-                                    686 ;	buffer.c:56: printf_tiny("\033[0;31m\nInvalid input.Input not divisible by 32.\n");
-      002165 74 72            [12]  687 	mov	a,#___str_5
-      002167 C0 E0            [24]  688 	push	acc
-      002169 74 44            [12]  689 	mov	a,#(___str_5 >> 8)
-      00216B C0 E0            [24]  690 	push	acc
-      00216D 12 35 27         [24]  691 	lcall	_printf_tiny
-      002170 15 81            [12]  692 	dec	sp
-      002172 15 81            [12]  693 	dec	sp
-                                    694 ;	buffer.c:58: continue;
-      002174 02 20 79         [24]  695 	ljmp	00116$
-                                    696 ;	buffer.c:60: break;
-      002177                        697 00117$:
-                                    698 ;	buffer.c:62: return num;
-      002177 8E 82            [24]  699 	mov	dpl,r6
-      002179 8F 83            [24]  700 	mov	dph,r7
-                                    701 ;	buffer.c:63: }
-      00217B 22               [24]  702 	ret
-                                    703 	.area CSEG    (CODE)
-                                    704 	.area CONST   (CODE)
-                                    705 	.area CONST   (CODE)
-      0043A1                        706 ___str_0:
-      0043A1 1B                     707 	.db 0x1b
-      0043A2 5B 33 33 6D            708 	.ascii "[33m"
-      0043A6 00                     709 	.db 0x00
-                                    710 	.area CSEG    (CODE)
-                                    711 	.area CONST   (CODE)
-      0043A7                        712 ___str_1:
-      0043A7 0A                     713 	.db 0x0a
-      0043A8 0D                     714 	.db 0x0d
-      0043A9 45 6E 74 65 72 20 69   715 	.ascii "Enter input:"
-             6E 70 75 74 3A
-      0043B5 00                     716 	.db 0x00
-                                    717 	.area CSEG    (CODE)
-                                    718 	.area CONST   (CODE)
-      0043B6                        719 ___str_2:
-      0043B6 1B                     720 	.db 0x1b
-      0043B7 5B 30 3B 33 31 6D      721 	.ascii "[0;31m"
-      0043BD 0A                     722 	.db 0x0a
-      0043BE 49 6E 76 61 6C 69 64   723 	.ascii "Invalid input. Please enter four digits between 0 and 9."
+                                    532 ;	buffer.c:39: printf_tiny("\033[1;33m|***********************************************|\n\r");
+      002062 74 95            [12]  533 	mov	a,#___str_0
+      002064 C0 E0            [24]  534 	push	acc
+      002066 74 44            [12]  535 	mov	a,#(___str_0 >> 8)
+      002068 C0 E0            [24]  536 	push	acc
+      00206A 12 36 1B         [24]  537 	lcall	_printf_tiny
+      00206D 15 81            [12]  538 	dec	sp
+      00206F 15 81            [12]  539 	dec	sp
+                                    540 ;	buffer.c:40: printf_tiny("|  Buffer 0 and Buffer 1 Allocation Processing  |\n\r");
+      002071 74 D0            [12]  541 	mov	a,#___str_1
+      002073 C0 E0            [24]  542 	push	acc
+      002075 74 44            [12]  543 	mov	a,#(___str_1 >> 8)
+      002077 C0 E0            [24]  544 	push	acc
+      002079 12 36 1B         [24]  545 	lcall	_printf_tiny
+      00207C 15 81            [12]  546 	dec	sp
+      00207E 15 81            [12]  547 	dec	sp
+                                    548 ;	buffer.c:41: printf_tiny("\033[1;33m|***********************************************|\n\r");
+      002080 74 95            [12]  549 	mov	a,#___str_0
+      002082 C0 E0            [24]  550 	push	acc
+      002084 74 44            [12]  551 	mov	a,#(___str_0 >> 8)
+      002086 C0 E0            [24]  552 	push	acc
+      002088 12 36 1B         [24]  553 	lcall	_printf_tiny
+      00208B 15 81            [12]  554 	dec	sp
+      00208D 15 81            [12]  555 	dec	sp
+                                    556 ;	buffer.c:43: __xdata char input[5] = {'0', '0', '0', '0', '\0'}; // Initialize input array
+      00208F 90 1B 70         [24]  557 	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
+      002092 74 30            [12]  558 	mov	a,#0x30
+      002094 F0               [24]  559 	movx	@dptr,a
+      002095 90 1B 71         [24]  560 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0001)
+      002098 F0               [24]  561 	movx	@dptr,a
+      002099 90 1B 72         [24]  562 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0002)
+      00209C F0               [24]  563 	movx	@dptr,a
+      00209D 90 1B 73         [24]  564 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0003)
+      0020A0 F0               [24]  565 	movx	@dptr,a
+      0020A1 90 1B 74         [24]  566 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0004)
+      0020A4 E4               [12]  567 	clr	a
+      0020A5 F0               [24]  568 	movx	@dptr,a
+                                    569 ;	buffer.c:46: while (1) {
+      0020A6                        570 00116$:
+                                    571 ;	buffer.c:47: printf_tiny("\033[1;36m\n\r|***********************************************|\n\r");
+      0020A6 74 04            [12]  572 	mov	a,#___str_2
+      0020A8 C0 E0            [24]  573 	push	acc
+      0020AA 74 45            [12]  574 	mov	a,#(___str_2 >> 8)
+      0020AC C0 E0            [24]  575 	push	acc
+      0020AE 12 36 1B         [24]  576 	lcall	_printf_tiny
+      0020B1 15 81            [12]  577 	dec	sp
+      0020B3 15 81            [12]  578 	dec	sp
+                                    579 ;	buffer.c:48: printf_tiny("\033[1;36m|       Enter the size for buffer0 & buffer1    |\n\r");
+      0020B5 74 41            [12]  580 	mov	a,#___str_3
+      0020B7 C0 E0            [24]  581 	push	acc
+      0020B9 74 45            [12]  582 	mov	a,#(___str_3 >> 8)
+      0020BB C0 E0            [24]  583 	push	acc
+      0020BD 12 36 1B         [24]  584 	lcall	_printf_tiny
+      0020C0 15 81            [12]  585 	dec	sp
+      0020C2 15 81            [12]  586 	dec	sp
+                                    587 ;	buffer.c:49: printf_tiny("\033[1;36m|***********************************************|\n\r");
+      0020C4 74 7C            [12]  588 	mov	a,#___str_4
+      0020C6 C0 E0            [24]  589 	push	acc
+      0020C8 74 45            [12]  590 	mov	a,#(___str_4 >> 8)
+      0020CA C0 E0            [24]  591 	push	acc
+      0020CC 12 36 1B         [24]  592 	lcall	_printf_tiny
+      0020CF 15 81            [12]  593 	dec	sp
+      0020D1 15 81            [12]  594 	dec	sp
+                                    595 ;	buffer.c:52: gets_(input);                                   // Read user input as a string
+      0020D3 90 1B 70         [24]  596 	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
+      0020D6 12 32 DA         [24]  597 	lcall	_gets_
+                                    598 ;	buffer.c:54: if (input[0] < '0' || input[0] > '9' ||         // Check if the input is not a number
+      0020D9 90 1B 70         [24]  599 	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
+      0020DC E0               [24]  600 	movx	a,@dptr
+      0020DD FF               [12]  601 	mov	r7,a
+      0020DE BF 30 00         [24]  602 	cjne	r7,#0x30,00160$
+      0020E1                        603 00160$:
+      0020E1 40 32            [24]  604 	jc	00101$
+      0020E3 EF               [12]  605 	mov	a,r7
+      0020E4 24 C6            [12]  606 	add	a,#0xff - 0x39
+      0020E6 40 2D            [24]  607 	jc	00101$
+                                    608 ;	buffer.c:55: input[1] < '0' || input[1] > '9' ||
+      0020E8 90 1B 71         [24]  609 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0001)
+      0020EB E0               [24]  610 	movx	a,@dptr
+      0020EC FF               [12]  611 	mov	r7,a
+      0020ED BF 30 00         [24]  612 	cjne	r7,#0x30,00163$
+      0020F0                        613 00163$:
+      0020F0 40 23            [24]  614 	jc	00101$
+      0020F2 EF               [12]  615 	mov	a,r7
+      0020F3 24 C6            [12]  616 	add	a,#0xff - 0x39
+      0020F5 40 1E            [24]  617 	jc	00101$
+                                    618 ;	buffer.c:56: input[2] < '0' || input[2] > '9' ||
+      0020F7 90 1B 72         [24]  619 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0002)
+      0020FA E0               [24]  620 	movx	a,@dptr
+      0020FB FF               [12]  621 	mov	r7,a
+      0020FC BF 30 00         [24]  622 	cjne	r7,#0x30,00166$
+      0020FF                        623 00166$:
+      0020FF 40 14            [24]  624 	jc	00101$
+      002101 EF               [12]  625 	mov	a,r7
+      002102 24 C6            [12]  626 	add	a,#0xff - 0x39
+      002104 40 0F            [24]  627 	jc	00101$
+                                    628 ;	buffer.c:57: input[3] < '0' || input[3] > '9') {
+      002106 90 1B 73         [24]  629 	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0003)
+      002109 E0               [24]  630 	movx	a,@dptr
+      00210A FF               [12]  631 	mov	r7,a
+      00210B BF 30 00         [24]  632 	cjne	r7,#0x30,00169$
+      00210E                        633 00169$:
+      00210E 40 05            [24]  634 	jc	00101$
+      002110 EF               [12]  635 	mov	a,r7
+      002111 24 C6            [12]  636 	add	a,#0xff - 0x39
+      002113 50 2D            [24]  637 	jnc	00102$
+      002115                        638 00101$:
+                                    639 ;	buffer.c:58: printf("\033[0;31m\nInvalid input. Please enter four digits between 0 and 9.\n\r"); // Display error message
+      002115 74 B7            [12]  640 	mov	a,#___str_5
+      002117 C0 E0            [24]  641 	push	acc
+      002119 74 45            [12]  642 	mov	a,#(___str_5 >> 8)
+      00211B C0 E0            [24]  643 	push	acc
+      00211D 74 80            [12]  644 	mov	a,#0x80
+      00211F C0 E0            [24]  645 	push	acc
+      002121 12 3A 4B         [24]  646 	lcall	_printf
+      002124 15 81            [12]  647 	dec	sp
+      002126 15 81            [12]  648 	dec	sp
+      002128 15 81            [12]  649 	dec	sp
+                                    650 ;	buffer.c:59: printf("\033[0;31mValid Input Examples : 0064,9876,0001,0096, etc\n");
+      00212A 74 FA            [12]  651 	mov	a,#___str_6
+      00212C C0 E0            [24]  652 	push	acc
+      00212E 74 45            [12]  653 	mov	a,#(___str_6 >> 8)
+      002130 C0 E0            [24]  654 	push	acc
+      002132 74 80            [12]  655 	mov	a,#0x80
+      002134 C0 E0            [24]  656 	push	acc
+      002136 12 3A 4B         [24]  657 	lcall	_printf
+      002139 15 81            [12]  658 	dec	sp
+      00213B 15 81            [12]  659 	dec	sp
+      00213D 15 81            [12]  660 	dec	sp
+                                    661 ;	buffer.c:61: continue;                                   // Start over the loop
+      00213F 02 20 A6         [24]  662 	ljmp	00116$
+      002142                        663 00102$:
+                                    664 ;	buffer.c:64: num = atoi(input);                              // Convert input to integer
+      002142 90 1B 70         [24]  665 	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
+      002145 75 F0 00         [24]  666 	mov	b,#0x00
+      002148 12 34 DC         [24]  667 	lcall	_atoi
+      00214B AE 82            [24]  668 	mov	r6,dpl
+      00214D AF 83            [24]  669 	mov	r7,dph
+                                    670 ;	buffer.c:65: if (num < 64 || num > 5600) {                   // Check if the input is outside the valid range
+      00214F C3               [12]  671 	clr	c
+      002150 EE               [12]  672 	mov	a,r6
+      002151 94 40            [12]  673 	subb	a,#0x40
+      002153 EF               [12]  674 	mov	a,r7
+      002154 64 80            [12]  675 	xrl	a,#0x80
+      002156 94 80            [12]  676 	subb	a,#0x80
+      002158 40 0E            [24]  677 	jc	00110$
+      00215A 74 E0            [12]  678 	mov	a,#0xe0
+      00215C 9E               [12]  679 	subb	a,r6
+      00215D 74 95            [12]  680 	mov	a,#(0x15 ^ 0x80)
+      00215F 8F F0            [24]  681 	mov	b,r7
+      002161 63 F0 80         [24]  682 	xrl	b,#0x80
+      002164 95 F0            [12]  683 	subb	a,b
+      002166 50 12            [24]  684 	jnc	00111$
+      002168                        685 00110$:
+                                    686 ;	buffer.c:66: printf_tiny("\033[0;31m\nInvalid input.Input data should be between 64 and 5600.\n"); // Display error message
+      002168 74 32            [12]  687 	mov	a,#___str_7
+      00216A C0 E0            [24]  688 	push	acc
+      00216C 74 46            [12]  689 	mov	a,#(___str_7 >> 8)
+      00216E C0 E0            [24]  690 	push	acc
+      002170 12 36 1B         [24]  691 	lcall	_printf_tiny
+      002173 15 81            [12]  692 	dec	sp
+      002175 15 81            [12]  693 	dec	sp
+                                    694 ;	buffer.c:68: continue;                                   // Start over the loop
+      002177 02 20 A6         [24]  695 	ljmp	00116$
+      00217A                        696 00111$:
+                                    697 ;	buffer.c:70: if (num % 32 != 0) {                            // Check if the input is not divisible by 32
+      00217A 90 1C 84         [24]  698 	mov	dptr,#__modsint_PARM_2
+      00217D 74 20            [12]  699 	mov	a,#0x20
+      00217F F0               [24]  700 	movx	@dptr,a
+      002180 E4               [12]  701 	clr	a
+      002181 A3               [24]  702 	inc	dptr
+      002182 F0               [24]  703 	movx	@dptr,a
+      002183 8E 82            [24]  704 	mov	dpl,r6
+      002185 8F 83            [24]  705 	mov	dph,r7
+      002187 C0 07            [24]  706 	push	ar7
+      002189 C0 06            [24]  707 	push	ar6
+      00218B 12 38 E9         [24]  708 	lcall	__modsint
+      00218E E5 82            [12]  709 	mov	a,dpl
+      002190 85 83 F0         [24]  710 	mov	b,dph
+      002193 D0 06            [24]  711 	pop	ar6
+      002195 D0 07            [24]  712 	pop	ar7
+      002197 45 F0            [12]  713 	orl	a,b
+      002199 60 12            [24]  714 	jz	00117$
+                                    715 ;	buffer.c:71: printf_tiny("\033[0;31m\nInvalid input.Input not divisible by 32.\n"); // Display error message
+      00219B 74 73            [12]  716 	mov	a,#___str_8
+      00219D C0 E0            [24]  717 	push	acc
+      00219F 74 46            [12]  718 	mov	a,#(___str_8 >> 8)
+      0021A1 C0 E0            [24]  719 	push	acc
+      0021A3 12 36 1B         [24]  720 	lcall	_printf_tiny
+      0021A6 15 81            [12]  721 	dec	sp
+      0021A8 15 81            [12]  722 	dec	sp
+                                    723 ;	buffer.c:73: continue;                                   // Start over the loop
+      0021AA 02 20 A6         [24]  724 	ljmp	00116$
+                                    725 ;	buffer.c:75: break;                                          // Exit the loop when the input is valid
+      0021AD                        726 00117$:
+                                    727 ;	buffer.c:77: return num;                                         // Return the valid buffer size entered by the user
+      0021AD 8E 82            [24]  728 	mov	dpl,r6
+      0021AF 8F 83            [24]  729 	mov	dph,r7
+                                    730 ;	buffer.c:78: }
+      0021B1 22               [24]  731 	ret
+                                    732 	.area CSEG    (CODE)
+                                    733 	.area CONST   (CODE)
+                                    734 	.area CONST   (CODE)
+      004495                        735 ___str_0:
+      004495 1B                     736 	.db 0x1b
+      004496 5B 31 3B 33 33 6D 7C   737 	.ascii "[1;33m|***********************************************|"
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 7C
+      0044CD 0A                     738 	.db 0x0a
+      0044CE 0D                     739 	.db 0x0d
+      0044CF 00                     740 	.db 0x00
+                                    741 	.area CSEG    (CODE)
+                                    742 	.area CONST   (CODE)
+      0044D0                        743 ___str_1:
+      0044D0 7C 20 20 42 75 66 66   744 	.ascii "|  Buffer 0 and Buffer 1 Allocation Processing  |"
+             65 72 20 30 20 61 6E
+             64 20 42 75 66 66 65
+             72 20 31 20 41 6C 6C
+             6F 63 61 74 69 6F 6E
+             20 50 72 6F 63 65 73
+             73 69 6E 67 20 20 7C
+      004501 0A                     745 	.db 0x0a
+      004502 0D                     746 	.db 0x0d
+      004503 00                     747 	.db 0x00
+                                    748 	.area CSEG    (CODE)
+                                    749 	.area CONST   (CODE)
+      004504                        750 ___str_2:
+      004504 1B                     751 	.db 0x1b
+      004505 5B 31 3B 33 36 6D      752 	.ascii "[1;36m"
+      00450B 0A                     753 	.db 0x0a
+      00450C 0D                     754 	.db 0x0d
+      00450D 7C 2A 2A 2A 2A 2A 2A   755 	.ascii "|***********************************************|"
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 7C
+      00453E 0A                     756 	.db 0x0a
+      00453F 0D                     757 	.db 0x0d
+      004540 00                     758 	.db 0x00
+                                    759 	.area CSEG    (CODE)
+                                    760 	.area CONST   (CODE)
+      004541                        761 ___str_3:
+      004541 1B                     762 	.db 0x1b
+      004542 5B 31 3B 33 36 6D 7C   763 	.ascii "[1;36m|       Enter the size for buffer0 & buffer1    |"
+             20 20 20 20 20 20 20
+             45 6E 74 65 72 20 74
+             68 65 20 73 69 7A 65
+             20 66 6F 72 20 62 75
+             66 66 65 72 30 20 26
+             20 62 75 66 66 65 72
+             31 20 20 20 20 7C
+      004579 0A                     764 	.db 0x0a
+      00457A 0D                     765 	.db 0x0d
+      00457B 00                     766 	.db 0x00
+                                    767 	.area CSEG    (CODE)
+                                    768 	.area CONST   (CODE)
+      00457C                        769 ___str_4:
+      00457C 1B                     770 	.db 0x1b
+      00457D 5B 31 3B 33 36 6D 7C   771 	.ascii "[1;36m|***********************************************|"
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 2A 2A
+             2A 2A 2A 2A 2A 7C
+      0045B4 0A                     772 	.db 0x0a
+      0045B5 0D                     773 	.db 0x0d
+      0045B6 00                     774 	.db 0x00
+                                    775 	.area CSEG    (CODE)
+                                    776 	.area CONST   (CODE)
+      0045B7                        777 ___str_5:
+      0045B7 1B                     778 	.db 0x1b
+      0045B8 5B 30 3B 33 31 6D      779 	.ascii "[0;31m"
+      0045BE 0A                     780 	.db 0x0a
+      0045BF 49 6E 76 61 6C 69 64   781 	.ascii "Invalid input. Please enter four digits between 0 and 9."
              20 69 6E 70 75 74 2E
              20 50 6C 65 61 73 65
              20 65 6E 74 65 72 20
@@ -729,14 +819,14 @@
              67 69 74 73 20 62 65
              74 77 65 65 6E 20 30
              20 61 6E 64 20 39 2E
-      0043F6 0A                     724 	.db 0x0a
-      0043F7 0D                     725 	.db 0x0d
-      0043F8 00                     726 	.db 0x00
-                                    727 	.area CSEG    (CODE)
-                                    728 	.area CONST   (CODE)
-      0043F9                        729 ___str_3:
-      0043F9 1B                     730 	.db 0x1b
-      0043FA 5B 30 3B 33 31 6D 56   731 	.ascii "[0;31mValid Input Examples : 0064,9876,0001,0096, etc"
+      0045F7 0A                     782 	.db 0x0a
+      0045F8 0D                     783 	.db 0x0d
+      0045F9 00                     784 	.db 0x00
+                                    785 	.area CSEG    (CODE)
+                                    786 	.area CONST   (CODE)
+      0045FA                        787 ___str_6:
+      0045FA 1B                     788 	.db 0x1b
+      0045FB 5B 30 3B 33 31 6D 56   789 	.ascii "[0;31mValid Input Examples : 0064,9876,0001,0096, etc"
              61 6C 69 64 20 49 6E
              70 75 74 20 45 78 61
              6D 70 6C 65 73 20 3A
@@ -744,15 +834,15 @@
              38 37 36 2C 30 30 30
              31 2C 30 30 39 36 2C
              20 65 74 63
-      00442F 0A                     732 	.db 0x0a
-      004430 00                     733 	.db 0x00
-                                    734 	.area CSEG    (CODE)
-                                    735 	.area CONST   (CODE)
-      004431                        736 ___str_4:
-      004431 1B                     737 	.db 0x1b
-      004432 5B 30 3B 33 31 6D      738 	.ascii "[0;31m"
-      004438 0A                     739 	.db 0x0a
-      004439 49 6E 76 61 6C 69 64   740 	.ascii "Invalid input.Input data should be between 64 and 5600."
+      004630 0A                     790 	.db 0x0a
+      004631 00                     791 	.db 0x00
+                                    792 	.area CSEG    (CODE)
+                                    793 	.area CONST   (CODE)
+      004632                        794 ___str_7:
+      004632 1B                     795 	.db 0x1b
+      004633 5B 30 3B 33 31 6D      796 	.ascii "[0;31m"
+      004639 0A                     797 	.db 0x0a
+      00463A 49 6E 76 61 6C 69 64   798 	.ascii "Invalid input.Input data should be between 64 and 5600."
              20 69 6E 70 75 74 2E
              49 6E 70 75 74 20 64
              61 74 61 20 73 68 6F
@@ -760,22 +850,22 @@
              62 65 74 77 65 65 6E
              20 36 34 20 61 6E 64
              20 35 36 30 30 2E
-      004470 0A                     741 	.db 0x0a
-      004471 00                     742 	.db 0x00
-                                    743 	.area CSEG    (CODE)
-                                    744 	.area CONST   (CODE)
-      004472                        745 ___str_5:
-      004472 1B                     746 	.db 0x1b
-      004473 5B 30 3B 33 31 6D      747 	.ascii "[0;31m"
-      004479 0A                     748 	.db 0x0a
-      00447A 49 6E 76 61 6C 69 64   749 	.ascii "Invalid input.Input not divisible by 32."
+      004671 0A                     799 	.db 0x0a
+      004672 00                     800 	.db 0x00
+                                    801 	.area CSEG    (CODE)
+                                    802 	.area CONST   (CODE)
+      004673                        803 ___str_8:
+      004673 1B                     804 	.db 0x1b
+      004674 5B 30 3B 33 31 6D      805 	.ascii "[0;31m"
+      00467A 0A                     806 	.db 0x0a
+      00467B 49 6E 76 61 6C 69 64   807 	.ascii "Invalid input.Input not divisible by 32."
              20 69 6E 70 75 74 2E
              49 6E 70 75 74 20 6E
              6F 74 20 64 69 76 69
              73 69 62 6C 65 20 62
              79 20 33 32 2E
-      0044A2 0A                     750 	.db 0x0a
-      0044A3 00                     751 	.db 0x00
-                                    752 	.area CSEG    (CODE)
-                                    753 	.area XINIT   (CODE)
-                                    754 	.area CABS    (ABS,CODE)
+      0046A3 0A                     808 	.db 0x0a
+      0046A4 00                     809 	.db 0x00
+                                    810 	.area CSEG    (CODE)
+                                    811 	.area XINIT   (CODE)
+                                    812 	.area CABS    (ABS,CODE)

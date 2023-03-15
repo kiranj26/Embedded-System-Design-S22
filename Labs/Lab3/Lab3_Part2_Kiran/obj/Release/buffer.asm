@@ -474,7 +474,7 @@ _CY	=	0x00d7
 ; external ram data
 ;--------------------------------------------------------
 	.area XSEG    (XDATA)
-_Buffer_Size_Error_Correction_input_65536_47:
+_Buffer_Size_Error_Correction_input_65537_48:
 	.ds 5
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -513,10 +513,10 @@ _Buffer_Size_Error_Correction_input_65536_47:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Buffer_Size_Error_Correction'
 ;------------------------------------------------------------
-;input                     Allocated with name '_Buffer_Size_Error_Correction_input_65536_47'
-;num                       Allocated with name '_Buffer_Size_Error_Correction_num_65536_47'
+;input                     Allocated with name '_Buffer_Size_Error_Correction_input_65537_48'
+;num                       Allocated with name '_Buffer_Size_Error_Correction_num_65537_48'
 ;------------------------------------------------------------
-;	buffer.c:28: __xdata int Buffer_Size_Error_Correction(void)
+;	buffer.c:37: __xdata int Buffer_Size_Error_Correction(void)
 ;	-----------------------------------------
 ;	 function Buffer_Size_Error_Correction
 ;	-----------------------------------------
@@ -529,33 +529,15 @@ _Buffer_Size_Error_Correction:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	buffer.c:30: __xdata char input[5] = {'0', '0', '0', '0', '\0'};
-	mov	dptr,#_Buffer_Size_Error_Correction_input_65536_47
-	mov	a,#0x30
-	movx	@dptr,a
-	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0001)
-	movx	@dptr,a
-	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0002)
-	movx	@dptr,a
-	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0003)
-	movx	@dptr,a
-	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0004)
-	clr	a
-	movx	@dptr,a
-;	buffer.c:33: while (1) {
-00116$:
-;	buffer.c:34: printf("\033[33m");
+;	buffer.c:39: printf_tiny("\033[1;33m|***********************************************|\n\r");
 	mov	a,#___str_0
 	push	acc
 	mov	a,#(___str_0 >> 8)
 	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
+	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-	dec	sp
-;	buffer.c:35: printf_tiny("\n\rEnter input:");
+;	buffer.c:40: printf_tiny("|  Buffer 0 and Buffer 1 Allocation Processing  |\n\r");
 	mov	a,#___str_1
 	push	acc
 	mov	a,#(___str_1 >> 8)
@@ -563,11 +545,58 @@ _Buffer_Size_Error_Correction:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	buffer.c:36: gets_(input);
-	mov	dptr,#_Buffer_Size_Error_Correction_input_65536_47
+;	buffer.c:41: printf_tiny("\033[1;33m|***********************************************|\n\r");
+	mov	a,#___str_0
+	push	acc
+	mov	a,#(___str_0 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	dec	sp
+	dec	sp
+;	buffer.c:43: __xdata char input[5] = {'0', '0', '0', '0', '\0'}; // Initialize input array
+	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
+	mov	a,#0x30
+	movx	@dptr,a
+	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0001)
+	movx	@dptr,a
+	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0002)
+	movx	@dptr,a
+	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0003)
+	movx	@dptr,a
+	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0004)
+	clr	a
+	movx	@dptr,a
+;	buffer.c:46: while (1) {
+00116$:
+;	buffer.c:47: printf_tiny("\033[1;36m\n\r|***********************************************|\n\r");
+	mov	a,#___str_2
+	push	acc
+	mov	a,#(___str_2 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	dec	sp
+	dec	sp
+;	buffer.c:48: printf_tiny("\033[1;36m|       Enter the size for buffer0 & buffer1    |\n\r");
+	mov	a,#___str_3
+	push	acc
+	mov	a,#(___str_3 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	dec	sp
+	dec	sp
+;	buffer.c:49: printf_tiny("\033[1;36m|***********************************************|\n\r");
+	mov	a,#___str_4
+	push	acc
+	mov	a,#(___str_4 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	dec	sp
+	dec	sp
+;	buffer.c:52: gets_(input);                                   // Read user input as a string
+	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
 	lcall	_gets_
-;	buffer.c:38: if (input[0] < '0' || input[0] > '9' ||
-	mov	dptr,#_Buffer_Size_Error_Correction_input_65536_47
+;	buffer.c:54: if (input[0] < '0' || input[0] > '9' ||         // Check if the input is not a number
+	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x30,00160$
@@ -576,8 +605,8 @@ _Buffer_Size_Error_Correction:
 	mov	a,r7
 	add	a,#0xff - 0x39
 	jc	00101$
-;	buffer.c:39: input[1] < '0' || input[1] > '9' ||
-	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0001)
+;	buffer.c:55: input[1] < '0' || input[1] > '9' ||
+	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0001)
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x30,00163$
@@ -586,8 +615,8 @@ _Buffer_Size_Error_Correction:
 	mov	a,r7
 	add	a,#0xff - 0x39
 	jc	00101$
-;	buffer.c:40: input[2] < '0' || input[2] > '9' ||
-	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0002)
+;	buffer.c:56: input[2] < '0' || input[2] > '9' ||
+	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0002)
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x30,00166$
@@ -596,8 +625,8 @@ _Buffer_Size_Error_Correction:
 	mov	a,r7
 	add	a,#0xff - 0x39
 	jc	00101$
-;	buffer.c:41: input[3] < '0' || input[3] > '9') {
-	mov	dptr,#(_Buffer_Size_Error_Correction_input_65536_47 + 0x0003)
+;	buffer.c:57: input[3] < '0' || input[3] > '9') {
+	mov	dptr,#(_Buffer_Size_Error_Correction_input_65537_48 + 0x0003)
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x30,00169$
@@ -607,21 +636,10 @@ _Buffer_Size_Error_Correction:
 	add	a,#0xff - 0x39
 	jnc	00102$
 00101$:
-;	buffer.c:42: printf("\033[0;31m\nInvalid input. Please enter four digits between 0 and 9.\n\r");
-	mov	a,#___str_2
+;	buffer.c:58: printf("\033[0;31m\nInvalid input. Please enter four digits between 0 and 9.\n\r"); // Display error message
+	mov	a,#___str_5
 	push	acc
-	mov	a,#(___str_2 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
-	dec	sp
-	dec	sp
-	dec	sp
-;	buffer.c:43: printf("\033[0;31mValid Input Examples : 0064,9876,0001,0096, etc\n");
-	mov	a,#___str_3
-	push	acc
-	mov	a,#(___str_3 >> 8)
+	mov	a,#(___str_5 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -629,16 +647,27 @@ _Buffer_Size_Error_Correction:
 	dec	sp
 	dec	sp
 	dec	sp
-;	buffer.c:46: continue;
+;	buffer.c:59: printf("\033[0;31mValid Input Examples : 0064,9876,0001,0096, etc\n");
+	mov	a,#___str_6
+	push	acc
+	mov	a,#(___str_6 >> 8)
+	push	acc
+	mov	a,#0x80
+	push	acc
+	lcall	_printf
+	dec	sp
+	dec	sp
+	dec	sp
+;	buffer.c:61: continue;                                   // Start over the loop
 	ljmp	00116$
 00102$:
-;	buffer.c:49: num = atoi(input);
-	mov	dptr,#_Buffer_Size_Error_Correction_input_65536_47
+;	buffer.c:64: num = atoi(input);                              // Convert input to integer
+	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
 	mov	b,#0x00
 	lcall	_atoi
 	mov	r6,dpl
 	mov	r7,dph
-;	buffer.c:50: if (num < 64 || num > 5600) {
+;	buffer.c:65: if (num < 64 || num > 5600) {                   // Check if the input is outside the valid range
 	clr	c
 	mov	a,r6
 	subb	a,#0x40
@@ -654,18 +683,18 @@ _Buffer_Size_Error_Correction:
 	subb	a,b
 	jnc	00111$
 00110$:
-;	buffer.c:51: printf_tiny("\033[0;31m\nInvalid input.Input data should be between 64 and 5600.\n");
-	mov	a,#___str_4
+;	buffer.c:66: printf_tiny("\033[0;31m\nInvalid input.Input data should be between 64 and 5600.\n"); // Display error message
+	mov	a,#___str_7
 	push	acc
-	mov	a,#(___str_4 >> 8)
+	mov	a,#(___str_7 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	buffer.c:53: continue;
+;	buffer.c:68: continue;                                   // Start over the loop
 	ljmp	00116$
 00111$:
-;	buffer.c:55: if (num % 32 != 0) {
+;	buffer.c:70: if (num % 32 != 0) {                            // Check if the input is not divisible by 32
 	mov	dptr,#__modsint_PARM_2
 	mov	a,#0x20
 	movx	@dptr,a
@@ -683,40 +712,69 @@ _Buffer_Size_Error_Correction:
 	pop	ar7
 	orl	a,b
 	jz	00117$
-;	buffer.c:56: printf_tiny("\033[0;31m\nInvalid input.Input not divisible by 32.\n");
-	mov	a,#___str_5
+;	buffer.c:71: printf_tiny("\033[0;31m\nInvalid input.Input not divisible by 32.\n"); // Display error message
+	mov	a,#___str_8
 	push	acc
-	mov	a,#(___str_5 >> 8)
+	mov	a,#(___str_8 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	buffer.c:58: continue;
+;	buffer.c:73: continue;                                   // Start over the loop
 	ljmp	00116$
-;	buffer.c:60: break;
+;	buffer.c:75: break;                                          // Exit the loop when the input is valid
 00117$:
-;	buffer.c:62: return num;
+;	buffer.c:77: return num;                                         // Return the valid buffer size entered by the user
 	mov	dpl,r6
 	mov	dph,r7
-;	buffer.c:63: }
+;	buffer.c:78: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 	.area CONST   (CODE)
 ___str_0:
 	.db 0x1b
-	.ascii "[33m"
+	.ascii "[1;33m|***********************************************|"
+	.db 0x0a
+	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_1:
+	.ascii "|  Buffer 0 and Buffer 1 Allocation Processing  |"
 	.db 0x0a
 	.db 0x0d
-	.ascii "Enter input:"
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_2:
+	.db 0x1b
+	.ascii "[1;36m"
+	.db 0x0a
+	.db 0x0d
+	.ascii "|***********************************************|"
+	.db 0x0a
+	.db 0x0d
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_3:
+	.db 0x1b
+	.ascii "[1;36m|       Enter the size for buffer0 & buffer1    |"
+	.db 0x0a
+	.db 0x0d
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_4:
+	.db 0x1b
+	.ascii "[1;36m|***********************************************|"
+	.db 0x0a
+	.db 0x0d
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_5:
 	.db 0x1b
 	.ascii "[0;31m"
 	.db 0x0a
@@ -726,14 +784,14 @@ ___str_2:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_3:
+___str_6:
 	.db 0x1b
 	.ascii "[0;31mValid Input Examples : 0064,9876,0001,0096, etc"
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_4:
+___str_7:
 	.db 0x1b
 	.ascii "[0;31m"
 	.db 0x0a
@@ -742,7 +800,7 @@ ___str_4:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_5:
+___str_8:
 	.db 0x1b
 	.ascii "[0;31m"
 	.db 0x0a

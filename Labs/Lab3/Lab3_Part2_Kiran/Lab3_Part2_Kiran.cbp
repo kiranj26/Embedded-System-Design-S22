@@ -56,10 +56,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="malloc.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="malloc.h" />
 		<Unit filename="string_func.c">
 			<Option compilerVar="CC" />
 		</Unit>

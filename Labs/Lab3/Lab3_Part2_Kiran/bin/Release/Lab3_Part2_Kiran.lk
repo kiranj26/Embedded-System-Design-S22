@@ -19,7 +19,6 @@ obj\Release\_heap.rel
 obj\Release\buffer.rel
 obj\Release\character.rel
 obj\Release\main.rel
-obj\Release\malloc.rel
 obj\Release\string_func.rel
 
 -e

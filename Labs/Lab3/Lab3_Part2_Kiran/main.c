@@ -8,6 +8,7 @@
  * liable for any misuse of this material.
  *****************************************************************************/
 
+
 /**
  * @file    main.c
  * @brief   Main file for application entry point
@@ -16,6 +17,11 @@
  * @version 1.0
 */
 
+#ifndef _MAIN_C_
+#define _MAIN_C_
+
+
+// Include necessary header files
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -24,15 +30,19 @@
 #include <at89c51ed2.h>
 #include <mcs51reg.h>
 
+// Include custom header files
 #include "buffer.h"
 #include "character.h"
 #include "malloc.h"
 #include "string_func.h"
 #include "character.h"
 
-#define ALL_BUFFER_CLEARED 1
-#define ALL_BUFFER_NOT_CLEARED 0;
-// Global data
+// Define constants
+#define ALL_BUFFER_NOT_CLEARED  0
+#define ALL_BUFFER_CLEARED      1
+#define ONLY_BUFFER0_CLEARED    2
+
+// Define global data variables
 __xdata int buffer_size = 0;
 
 __xdata char* buffer0       = NULL;
@@ -70,10 +80,10 @@ _sdcc_external_startup()
  * @brief   Application entry point.
  */
 
-
 void main(void)
 {
 
+    // Display UI options
     printf_tiny("\033[1;35m|***********************************************|\n\r");
     printf_tiny("|************ \033[1;36mUSER INTERFACE \033[1;35m*******************|\n\r");
     printf_tiny("|  Choose a character from the below options    |\n\r");
@@ -86,11 +96,7 @@ void main(void)
     printf_tiny("\033[1;35m|***********************************************|\n\r");
     printf_tiny("|***********************************************|\n\r\n\r");
 
-    printf_tiny("\033[1;33m|***********************************************|\n\r");
-    printf_tiny("|  Choose a size for buffer 0 and buffer 1      |\n\r");
-    printf_tiny("\033[1;33m|***********************************************|\n\r");
-
-
+    // Local variable declarations
     __xdata int i;
     __xdata int buffer_array_index;
     __xdata int all_buff_cleared;
@@ -98,6 +104,7 @@ void main(void)
 
     __xdata int free_buffer_count;
     __xdata int filled_buffer_count;
+
 HERE:
     /* Local Data */
      i = 0;
@@ -108,81 +115,99 @@ HERE:
 
     /* Processing the bytes from user */
     __xdata int buffer0_allocated = 0;
-    printf_tiny("\033[1;33m|***********************************************|\n\r");
-    printf_tiny("|  Buffer 0 and Buffer 1 Allocation Processing  |\n\r");
-    printf_tiny("\033[1;33m|***********************************************|\n\r");
+
     do {
+        // Call a function to get the buffer size with error correction
         buffer_size = Buffer_Size_Error_Correction();
+
+        // Try to allocate memory for buffer0
         if ((buffer0 = (__xdata char *)malloc(buffer_size)) == 0)
         {
-            printf_tiny("\033[1;33mInvalid Malloc: Malloc on buffer0 failed!!\n\r");
+            // If allocation fails, print error message and free any allocated memory
+            printf_tiny("\033[1;33mInvalid Malloc\t\t: Malloc on buffer0 failed!!\n\r");
+            printf_tiny("\033[1;31mSuggested Action\t: Provide smaller buffer size!!\n\r");
+
             free(buffer0);
         }
         else
         {
+            // If allocation is successful, print success message and set buffer0_allocated flag
             printf_tiny("\033[1;0mMalloc Successful : Buffer0 allocated\n\r");
             buffer0_allocated = 1;
 
+            // Try to allocate memory for buffer1
             if ((buffer1 = (__xdata char *)malloc(buffer_size)) == 0)
             {
+                // If allocation fails, print error message, free buffer0 memory and reset buffer0_allocated flag
                 printf_tiny("\033[1;31mInvalid Malloc: Malloc on buffer1 failed!!\n\r");
+                printf_tiny("\033[1;31mSuggested Action\t: Provide smaller buffer size!!\n\r");
+
                 free(buffer0);
                 buffer0_allocated = 0;
             }
             else
             {
+                // If allocation is successful, print success message
                 printf_tiny("\033[1;0mMalloc Successful : Buffer1 allocated\n\r");
             }
         }
+    // Repeat the loop if either buffer0 is not allocated or buffer1 is not allocated
     } while (!buffer0_allocated || (buffer1 == 0));
 
+    // Print success message after both buffers have been successfully allocated
     printf_tiny("\033[1;33m|***********************************************|\n\r");
     printf_tiny("|  Buffer0 and Buffer 1 Allocation Sucsessful   |\n\r");
     printf_tiny("\033[1;33m|***********************************************|\n\r");
 
-    // fill pattern 'X' in buffer0
+    // Fill buffer0 with pattern 'X'
     char * buffer0_ptr = buffer0;
     for(int i=0;i< buffer_size;i++)
     {
         buffer0_ptr[i] = 'ÿ';
     }
 
+
+    // Store buffer0 and buffer1 pointers in new_buffer_arr and set their sizes in buffer_size_arr
     new_buffer_arr[0] = buffer0;
     new_buffer_arr[1] = buffer1;
     buffer_size_arr[0] = buffer_size ;
     buffer_size_arr[1] = buffer_size ;
 
+    // Reset free_buffer_count and filled_buffer_count
     free_buffer_count = 0;
     filled_buffer_count = 2;
 
-    /* While loop for characters parsing */
+    // Enter an infinite loop for character parsing
     while(1)
     {
-        printf_tiny("\033[1;33m|***********************************************|\n\r");
-        printf_tiny("|             Fetching Character                |\n\r");
-        printf_tiny("\033[1;33m|***********************************************|\n\r\033[1;0m");
-        /* Fetching Characters */
-        char ch = getchar();
-        putchar(ch);
-        putchar(' ');
-        printf("\033[1;0m\r\n");
+        // Print header for character fetching
+        printf_tiny("\033[1;36m|***********************************************|\n\r");
+        printf_tiny("\033[1;36m|                Enter Character                |\n\r");
+        printf_tiny("\033[1;36m|***********************************************|\n\r\033[1;0m");
 
-        // storage characters
+        /* Fetching Characters */
+        char ch = getchar();                    // Read a character from input
+        putchar(ch);                            // Echo the character back to output
+        putchar(' ');                           // Add a space to separate characters for readability
+        printf("\033[1;0m\r\n");                // Reset color to default and print a newline
+
+        // Storage characters if they are lowercase letters
         if (ch >= 'a' && ch <= 'z') {
-            if (i < buffer_size) {
-                buffer0[i++] = ch;
-            }else{
-                // just echo if the buffer is full
+            if (i < buffer_size) {              // If there is still space in buffer0
+                buffer0[i++] = ch;              // Store the character in buffer0
+            } else {
+                // If buffer0 is full, just echo the character back to output
                 putchar(ch);
             }
-            storage_character_count++;
-            total_characters_count++;
+            storage_character_count++;          // Increment the count of storage characters
+            total_characters_count++;           // Increment the count of total characters
         } else if (ch == '+' || ch == '-' || ch == '?' ||
                    ch == '=' || ch == '@') {
-            total_characters_count++;
-            command_characters_detected = 1;
+            // Command characters detected
+            total_characters_count++;           // Increment the count of total characters
+            command_characters_detected = 1;    // Set flag to indicate command character detected
         } else {
-            // Neither storage nor command charcters
+            // Neither storage nor command characters, skip to next character
             continue;
         }
 
@@ -190,11 +215,20 @@ HERE:
         all_buff_cleared = command_processing(command_characters_detected, ch,
                                               &new_buffer_index, &free_buffer_count, &filled_buffer_count,
                                               &storage_character_count, &total_characters_count, buffer_size);
-        if (all_buff_cleared == 1)
+        if (all_buff_cleared == ALL_BUFFER_CLEARED)
         {
+            // If all buffers are cleared, print a message and jump to label HERE
             printf("\033[1;0mAll buffer cleared\r\nFed in the size for buffer 0 from start!!\r\n");
             goto HERE;
         }
+        if (all_buff_cleared == ONLY_BUFFER0_CLEARED)
+        {
+            // If buffer0 is cleared after question mark start filling buffer 0 from index 0
+            i=0;
+        }
     }
+
     /* */
 }
+
+#endif //_MAIN_C_

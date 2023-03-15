@@ -473,12 +473,12 @@
                                     473 ; external ram data
                                     474 ;--------------------------------------------------------
                                     475 	.area XSEG    (XDATA)
-      001C62                        476 _putchar_c_65536_7:
-      001C62                        477 	.ds 2
-      001C64                        478 _gets__ch_65536_9:
-      001C64                        479 	.ds 2
-      001C66                        480 _puts__ch_65536_14:
-      001C66                        481 	.ds 2
+      001C64                        476 _putchar_c_65536_7:
+      001C64                        477 	.ds 2
+      001C66                        478 _gets__ch_65536_9:
+      001C66                        479 	.ds 2
+      001C68                        480 _puts__ch_65536_14:
+      001C68                        481 	.ds 2
                                     482 ;--------------------------------------------------------
                                     483 ; absolute external ram data
                                     484 ;--------------------------------------------------------
@@ -516,11 +516,11 @@
                                     516 ;------------------------------------------------------------
                                     517 ;Allocation info for local variables in function 'getchar'
                                     518 ;------------------------------------------------------------
-                                    519 ;	string_func.c:25: int getchar (void)
+                                    519 ;	string_func.c:34: int getchar (void)
                                     520 ;	-----------------------------------------
                                     521 ;	 function getchar
                                     522 ;	-----------------------------------------
-      0031B9                        523 _getchar:
+      0032AD                        523 _getchar:
                            000007   524 	ar7 = 0x07
                            000006   525 	ar6 = 0x06
                            000005   526 	ar5 = 0x05
@@ -529,56 +529,56 @@
                            000002   529 	ar2 = 0x02
                            000001   530 	ar1 = 0x01
                            000000   531 	ar0 = 0x00
-                                    532 ;	string_func.c:27: while (!RI); //Wait till the Character is received
-      0031B9                        533 00101$:
-                                    534 ;	string_func.c:28: RI = 0;			// Clear the RI flag
+                                    532 ;	string_func.c:36: while (!RI); //Wait till the Character is received
+      0032AD                        533 00101$:
+                                    534 ;	string_func.c:37: RI = 0;			// Clear the RI flag
                                     535 ;	assignBit
-      0031B9 10 98 02         [24]  536 	jbc	_RI,00114$
-      0031BC 80 FB            [24]  537 	sjmp	00101$
-      0031BE                        538 00114$:
-                                    539 ;	string_func.c:29: return SBUF;  	// Return the Character
-      0031BE AE 99            [24]  540 	mov	r6,_SBUF
-      0031C0 7F 00            [12]  541 	mov	r7,#0x00
-      0031C2 8E 82            [24]  542 	mov	dpl,r6
-      0031C4 8F 83            [24]  543 	mov	dph,r7
-                                    544 ;	string_func.c:30: }
-      0031C6 22               [24]  545 	ret
+      0032AD 10 98 02         [24]  536 	jbc	_RI,00114$
+      0032B0 80 FB            [24]  537 	sjmp	00101$
+      0032B2                        538 00114$:
+                                    539 ;	string_func.c:38: return SBUF;  	// Return the Character
+      0032B2 AE 99            [24]  540 	mov	r6,_SBUF
+      0032B4 7F 00            [12]  541 	mov	r7,#0x00
+      0032B6 8E 82            [24]  542 	mov	dpl,r6
+      0032B8 8F 83            [24]  543 	mov	dph,r7
+                                    544 ;	string_func.c:39: }
+      0032BA 22               [24]  545 	ret
                                     546 ;------------------------------------------------------------
                                     547 ;Allocation info for local variables in function 'putchar'
                                     548 ;------------------------------------------------------------
                                     549 ;c                         Allocated with name '_putchar_c_65536_7'
                                     550 ;------------------------------------------------------------
-                                    551 ;	string_func.c:33: int putchar (int c)
+                                    551 ;	string_func.c:51: int putchar (int c)
                                     552 ;	-----------------------------------------
                                     553 ;	 function putchar
                                     554 ;	-----------------------------------------
-      0031C7                        555 _putchar:
-      0031C7 AF 83            [24]  556 	mov	r7,dph
-      0031C9 E5 82            [12]  557 	mov	a,dpl
-      0031CB 90 1C 62         [24]  558 	mov	dptr,#_putchar_c_65536_7
-      0031CE F0               [24]  559 	movx	@dptr,a
-      0031CF EF               [12]  560 	mov	a,r7
-      0031D0 A3               [24]  561 	inc	dptr
-      0031D1 F0               [24]  562 	movx	@dptr,a
-                                    563 ;	string_func.c:35: while(!TI); //Wait till the Transmitter is ready
-      0031D2                        564 00101$:
-      0031D2 30 99 FD         [24]  565 	jnb	_TI,00101$
-                                    566 ;	string_func.c:36: SBUF = c; //write character to SBUF
-      0031D5 90 1C 62         [24]  567 	mov	dptr,#_putchar_c_65536_7
-      0031D8 E0               [24]  568 	movx	a,@dptr
-      0031D9 FE               [12]  569 	mov	r6,a
-      0031DA A3               [24]  570 	inc	dptr
-      0031DB E0               [24]  571 	movx	a,@dptr
-      0031DC FF               [12]  572 	mov	r7,a
-      0031DD 8E 99            [24]  573 	mov	_SBUF,r6
-                                    574 ;	string_func.c:37: TI = 0; //Clear the TI flag
+      0032BB                        555 _putchar:
+      0032BB AF 83            [24]  556 	mov	r7,dph
+      0032BD E5 82            [12]  557 	mov	a,dpl
+      0032BF 90 1C 64         [24]  558 	mov	dptr,#_putchar_c_65536_7
+      0032C2 F0               [24]  559 	movx	@dptr,a
+      0032C3 EF               [12]  560 	mov	a,r7
+      0032C4 A3               [24]  561 	inc	dptr
+      0032C5 F0               [24]  562 	movx	@dptr,a
+                                    563 ;	string_func.c:53: while(!TI); //Wait till the Transmitter is ready
+      0032C6                        564 00101$:
+      0032C6 30 99 FD         [24]  565 	jnb	_TI,00101$
+                                    566 ;	string_func.c:54: SBUF = c; //write character to SBUF
+      0032C9 90 1C 64         [24]  567 	mov	dptr,#_putchar_c_65536_7
+      0032CC E0               [24]  568 	movx	a,@dptr
+      0032CD FE               [12]  569 	mov	r6,a
+      0032CE A3               [24]  570 	inc	dptr
+      0032CF E0               [24]  571 	movx	a,@dptr
+      0032D0 FF               [12]  572 	mov	r7,a
+      0032D1 8E 99            [24]  573 	mov	_SBUF,r6
+                                    574 ;	string_func.c:55: TI = 0; //Clear the TI flag
                                     575 ;	assignBit
-      0031DF C2 99            [12]  576 	clr	_TI
-                                    577 ;	string_func.c:38: return c;
-      0031E1 8E 82            [24]  578 	mov	dpl,r6
-      0031E3 8F 83            [24]  579 	mov	dph,r7
-                                    580 ;	string_func.c:39: }
-      0031E5 22               [24]  581 	ret
+      0032D3 C2 99            [12]  576 	clr	_TI
+                                    577 ;	string_func.c:56: return c;
+      0032D5 8E 82            [24]  578 	mov	dpl,r6
+      0032D7 8F 83            [24]  579 	mov	dph,r7
+                                    580 ;	string_func.c:57: }
+      0032D9 22               [24]  581 	ret
                                     582 ;------------------------------------------------------------
                                     583 ;Allocation info for local variables in function 'gets_'
                                     584 ;------------------------------------------------------------
@@ -586,146 +586,146 @@
                                     586 ;i                         Allocated with name '_gets__i_131072_11'
                                     587 ;c                         Allocated with name '_gets__c_196608_12'
                                     588 ;------------------------------------------------------------
-                                    589 ;	string_func.c:41: void gets_(__xdata char *ch) {
+                                    589 ;	string_func.c:68: void gets_(__xdata char *ch) {
                                     590 ;	-----------------------------------------
                                     591 ;	 function gets_
                                     592 ;	-----------------------------------------
-      0031E6                        593 _gets_:
-      0031E6 AF 83            [24]  594 	mov	r7,dph
-      0031E8 E5 82            [12]  595 	mov	a,dpl
-      0031EA 90 1C 64         [24]  596 	mov	dptr,#_gets__ch_65536_9
-      0031ED F0               [24]  597 	movx	@dptr,a
-      0031EE EF               [12]  598 	mov	a,r7
-      0031EF A3               [24]  599 	inc	dptr
-      0031F0 F0               [24]  600 	movx	@dptr,a
-                                    601 ;	string_func.c:42: for (int i = 0; ; i++) {
-      0031F1 90 1C 64         [24]  602 	mov	dptr,#_gets__ch_65536_9
-      0031F4 E0               [24]  603 	movx	a,@dptr
-      0031F5 FE               [12]  604 	mov	r6,a
-      0031F6 A3               [24]  605 	inc	dptr
-      0031F7 E0               [24]  606 	movx	a,@dptr
-      0031F8 FF               [12]  607 	mov	r7,a
-      0031F9 7C 00            [12]  608 	mov	r4,#0x00
-      0031FB 7D 00            [12]  609 	mov	r5,#0x00
-      0031FD                        610 00105$:
-                                    611 ;	string_func.c:43: char c = getchar();
-      0031FD C0 07            [24]  612 	push	ar7
-      0031FF C0 06            [24]  613 	push	ar6
-      003201 C0 05            [24]  614 	push	ar5
-      003203 C0 04            [24]  615 	push	ar4
-      003205 12 31 B9         [24]  616 	lcall	_getchar
-      003208 AA 82            [24]  617 	mov	r2,dpl
-                                    618 ;	string_func.c:44: putchar(c);
-      00320A 8A 01            [24]  619 	mov	ar1,r2
-      00320C 7B 00            [12]  620 	mov	r3,#0x00
-      00320E 89 82            [24]  621 	mov	dpl,r1
-      003210 8B 83            [24]  622 	mov	dph,r3
-      003212 C0 02            [24]  623 	push	ar2
-      003214 12 31 C7         [24]  624 	lcall	_putchar
-      003217 D0 02            [24]  625 	pop	ar2
-      003219 D0 04            [24]  626 	pop	ar4
-      00321B D0 05            [24]  627 	pop	ar5
-      00321D D0 06            [24]  628 	pop	ar6
-      00321F D0 07            [24]  629 	pop	ar7
-                                    630 ;	string_func.c:45: if (c == '\r' || c == '\n') {
-      003221 BA 0D 02         [24]  631 	cjne	r2,#0x0d,00118$
-      003224 80 03            [24]  632 	sjmp	00101$
-      003226                        633 00118$:
-      003226 BA 0A 13         [24]  634 	cjne	r2,#0x0a,00102$
-      003229                        635 00101$:
-                                    636 ;	string_func.c:46: *(ch + i) = '\0';
-      003229 90 1C 64         [24]  637 	mov	dptr,#_gets__ch_65536_9
-      00322C E0               [24]  638 	movx	a,@dptr
-      00322D F9               [12]  639 	mov	r1,a
-      00322E A3               [24]  640 	inc	dptr
-      00322F E0               [24]  641 	movx	a,@dptr
-      003230 FB               [12]  642 	mov	r3,a
-      003231 EC               [12]  643 	mov	a,r4
-      003232 29               [12]  644 	add	a,r1
-      003233 F5 82            [12]  645 	mov	dpl,a
-      003235 ED               [12]  646 	mov	a,r5
-      003236 3B               [12]  647 	addc	a,r3
-      003237 F5 83            [12]  648 	mov	dph,a
-      003239 E4               [12]  649 	clr	a
-      00323A F0               [24]  650 	movx	@dptr,a
-                                    651 ;	string_func.c:47: break;
-      00323B 22               [24]  652 	ret
-      00323C                        653 00102$:
-                                    654 ;	string_func.c:49: *(ch + i) = c;
-      00323C EC               [12]  655 	mov	a,r4
-      00323D 2E               [12]  656 	add	a,r6
-      00323E F5 82            [12]  657 	mov	dpl,a
-      003240 ED               [12]  658 	mov	a,r5
-      003241 3F               [12]  659 	addc	a,r7
-      003242 F5 83            [12]  660 	mov	dph,a
-      003244 EA               [12]  661 	mov	a,r2
-      003245 F0               [24]  662 	movx	@dptr,a
-                                    663 ;	string_func.c:42: for (int i = 0; ; i++) {
-      003246 0C               [12]  664 	inc	r4
-      003247 BC 00 B3         [24]  665 	cjne	r4,#0x00,00105$
-      00324A 0D               [12]  666 	inc	r5
-                                    667 ;	string_func.c:51: }
-      00324B 80 B0            [24]  668 	sjmp	00105$
+      0032DA                        593 _gets_:
+      0032DA AF 83            [24]  594 	mov	r7,dph
+      0032DC E5 82            [12]  595 	mov	a,dpl
+      0032DE 90 1C 66         [24]  596 	mov	dptr,#_gets__ch_65536_9
+      0032E1 F0               [24]  597 	movx	@dptr,a
+      0032E2 EF               [12]  598 	mov	a,r7
+      0032E3 A3               [24]  599 	inc	dptr
+      0032E4 F0               [24]  600 	movx	@dptr,a
+                                    601 ;	string_func.c:69: for (int i = 0; ; i++) {
+      0032E5 90 1C 66         [24]  602 	mov	dptr,#_gets__ch_65536_9
+      0032E8 E0               [24]  603 	movx	a,@dptr
+      0032E9 FE               [12]  604 	mov	r6,a
+      0032EA A3               [24]  605 	inc	dptr
+      0032EB E0               [24]  606 	movx	a,@dptr
+      0032EC FF               [12]  607 	mov	r7,a
+      0032ED 7C 00            [12]  608 	mov	r4,#0x00
+      0032EF 7D 00            [12]  609 	mov	r5,#0x00
+      0032F1                        610 00105$:
+                                    611 ;	string_func.c:70: char c = getchar();
+      0032F1 C0 07            [24]  612 	push	ar7
+      0032F3 C0 06            [24]  613 	push	ar6
+      0032F5 C0 05            [24]  614 	push	ar5
+      0032F7 C0 04            [24]  615 	push	ar4
+      0032F9 12 32 AD         [24]  616 	lcall	_getchar
+      0032FC AA 82            [24]  617 	mov	r2,dpl
+                                    618 ;	string_func.c:71: putchar(c);
+      0032FE 8A 01            [24]  619 	mov	ar1,r2
+      003300 7B 00            [12]  620 	mov	r3,#0x00
+      003302 89 82            [24]  621 	mov	dpl,r1
+      003304 8B 83            [24]  622 	mov	dph,r3
+      003306 C0 02            [24]  623 	push	ar2
+      003308 12 32 BB         [24]  624 	lcall	_putchar
+      00330B D0 02            [24]  625 	pop	ar2
+      00330D D0 04            [24]  626 	pop	ar4
+      00330F D0 05            [24]  627 	pop	ar5
+      003311 D0 06            [24]  628 	pop	ar6
+      003313 D0 07            [24]  629 	pop	ar7
+                                    630 ;	string_func.c:72: if (c == '\r' || c == '\n') {
+      003315 BA 0D 02         [24]  631 	cjne	r2,#0x0d,00118$
+      003318 80 03            [24]  632 	sjmp	00101$
+      00331A                        633 00118$:
+      00331A BA 0A 13         [24]  634 	cjne	r2,#0x0a,00102$
+      00331D                        635 00101$:
+                                    636 ;	string_func.c:73: *(ch + i) = '\0';
+      00331D 90 1C 66         [24]  637 	mov	dptr,#_gets__ch_65536_9
+      003320 E0               [24]  638 	movx	a,@dptr
+      003321 F9               [12]  639 	mov	r1,a
+      003322 A3               [24]  640 	inc	dptr
+      003323 E0               [24]  641 	movx	a,@dptr
+      003324 FB               [12]  642 	mov	r3,a
+      003325 EC               [12]  643 	mov	a,r4
+      003326 29               [12]  644 	add	a,r1
+      003327 F5 82            [12]  645 	mov	dpl,a
+      003329 ED               [12]  646 	mov	a,r5
+      00332A 3B               [12]  647 	addc	a,r3
+      00332B F5 83            [12]  648 	mov	dph,a
+      00332D E4               [12]  649 	clr	a
+      00332E F0               [24]  650 	movx	@dptr,a
+                                    651 ;	string_func.c:74: break;
+      00332F 22               [24]  652 	ret
+      003330                        653 00102$:
+                                    654 ;	string_func.c:76: *(ch + i) = c;
+      003330 EC               [12]  655 	mov	a,r4
+      003331 2E               [12]  656 	add	a,r6
+      003332 F5 82            [12]  657 	mov	dpl,a
+      003334 ED               [12]  658 	mov	a,r5
+      003335 3F               [12]  659 	addc	a,r7
+      003336 F5 83            [12]  660 	mov	dph,a
+      003338 EA               [12]  661 	mov	a,r2
+      003339 F0               [24]  662 	movx	@dptr,a
+                                    663 ;	string_func.c:69: for (int i = 0; ; i++) {
+      00333A 0C               [12]  664 	inc	r4
+      00333B BC 00 B3         [24]  665 	cjne	r4,#0x00,00105$
+      00333E 0D               [12]  666 	inc	r5
+                                    667 ;	string_func.c:78: }
+      00333F 80 B0            [24]  668 	sjmp	00105$
                                     669 ;------------------------------------------------------------
                                     670 ;Allocation info for local variables in function 'puts_'
                                     671 ;------------------------------------------------------------
                                     672 ;ch                        Allocated with name '_puts__ch_65536_14'
                                     673 ;------------------------------------------------------------
-                                    674 ;	string_func.c:53: void puts_(__xdata char *ch) {
+                                    674 ;	string_func.c:88: void puts_(__xdata char *ch) {
                                     675 ;	-----------------------------------------
                                     676 ;	 function puts_
                                     677 ;	-----------------------------------------
-      00324D                        678 _puts_:
-      00324D AF 83            [24]  679 	mov	r7,dph
-      00324F E5 82            [12]  680 	mov	a,dpl
-      003251 90 1C 66         [24]  681 	mov	dptr,#_puts__ch_65536_14
-      003254 F0               [24]  682 	movx	@dptr,a
-      003255 EF               [12]  683 	mov	a,r7
-      003256 A3               [24]  684 	inc	dptr
-      003257 F0               [24]  685 	movx	@dptr,a
-      003258 90 1C 66         [24]  686 	mov	dptr,#_puts__ch_65536_14
-      00325B E0               [24]  687 	movx	a,@dptr
-      00325C FE               [12]  688 	mov	r6,a
-      00325D A3               [24]  689 	inc	dptr
-      00325E E0               [24]  690 	movx	a,@dptr
-      00325F FF               [12]  691 	mov	r7,a
-      003260                        692 00103$:
-                                    693 ;	string_func.c:54: for (; *ch; ch++) {
-      003260 8E 82            [24]  694 	mov	dpl,r6
-      003262 8F 83            [24]  695 	mov	dph,r7
-      003264 E0               [24]  696 	movx	a,@dptr
-      003265 FD               [12]  697 	mov	r5,a
-      003266 60 20            [24]  698 	jz	00109$
-                                    699 ;	string_func.c:55: putchar(*ch);
-      003268 7C 00            [12]  700 	mov	r4,#0x00
-      00326A 8D 82            [24]  701 	mov	dpl,r5
-      00326C 8C 83            [24]  702 	mov	dph,r4
-      00326E C0 07            [24]  703 	push	ar7
-      003270 C0 06            [24]  704 	push	ar6
-      003272 12 31 C7         [24]  705 	lcall	_putchar
-      003275 D0 06            [24]  706 	pop	ar6
-      003277 D0 07            [24]  707 	pop	ar7
-                                    708 ;	string_func.c:54: for (; *ch; ch++) {
-      003279 0E               [12]  709 	inc	r6
-      00327A BE 00 01         [24]  710 	cjne	r6,#0x00,00117$
-      00327D 0F               [12]  711 	inc	r7
-      00327E                        712 00117$:
-      00327E 90 1C 66         [24]  713 	mov	dptr,#_puts__ch_65536_14
-      003281 EE               [12]  714 	mov	a,r6
-      003282 F0               [24]  715 	movx	@dptr,a
-      003283 EF               [12]  716 	mov	a,r7
-      003284 A3               [24]  717 	inc	dptr
-      003285 F0               [24]  718 	movx	@dptr,a
-      003286 80 D8            [24]  719 	sjmp	00103$
-      003288                        720 00109$:
-      003288 90 1C 66         [24]  721 	mov	dptr,#_puts__ch_65536_14
-      00328B EE               [12]  722 	mov	a,r6
-      00328C F0               [24]  723 	movx	@dptr,a
-      00328D EF               [12]  724 	mov	a,r7
-      00328E A3               [24]  725 	inc	dptr
-      00328F F0               [24]  726 	movx	@dptr,a
-                                    727 ;	string_func.c:57: }
-      003290 22               [24]  728 	ret
+      003341                        678 _puts_:
+      003341 AF 83            [24]  679 	mov	r7,dph
+      003343 E5 82            [12]  680 	mov	a,dpl
+      003345 90 1C 68         [24]  681 	mov	dptr,#_puts__ch_65536_14
+      003348 F0               [24]  682 	movx	@dptr,a
+      003349 EF               [12]  683 	mov	a,r7
+      00334A A3               [24]  684 	inc	dptr
+      00334B F0               [24]  685 	movx	@dptr,a
+      00334C 90 1C 68         [24]  686 	mov	dptr,#_puts__ch_65536_14
+      00334F E0               [24]  687 	movx	a,@dptr
+      003350 FE               [12]  688 	mov	r6,a
+      003351 A3               [24]  689 	inc	dptr
+      003352 E0               [24]  690 	movx	a,@dptr
+      003353 FF               [12]  691 	mov	r7,a
+      003354                        692 00103$:
+                                    693 ;	string_func.c:89: for (; *ch; ch++) {
+      003354 8E 82            [24]  694 	mov	dpl,r6
+      003356 8F 83            [24]  695 	mov	dph,r7
+      003358 E0               [24]  696 	movx	a,@dptr
+      003359 FD               [12]  697 	mov	r5,a
+      00335A 60 20            [24]  698 	jz	00109$
+                                    699 ;	string_func.c:90: putchar(*ch);
+      00335C 7C 00            [12]  700 	mov	r4,#0x00
+      00335E 8D 82            [24]  701 	mov	dpl,r5
+      003360 8C 83            [24]  702 	mov	dph,r4
+      003362 C0 07            [24]  703 	push	ar7
+      003364 C0 06            [24]  704 	push	ar6
+      003366 12 32 BB         [24]  705 	lcall	_putchar
+      003369 D0 06            [24]  706 	pop	ar6
+      00336B D0 07            [24]  707 	pop	ar7
+                                    708 ;	string_func.c:89: for (; *ch; ch++) {
+      00336D 0E               [12]  709 	inc	r6
+      00336E BE 00 01         [24]  710 	cjne	r6,#0x00,00117$
+      003371 0F               [12]  711 	inc	r7
+      003372                        712 00117$:
+      003372 90 1C 68         [24]  713 	mov	dptr,#_puts__ch_65536_14
+      003375 EE               [12]  714 	mov	a,r6
+      003376 F0               [24]  715 	movx	@dptr,a
+      003377 EF               [12]  716 	mov	a,r7
+      003378 A3               [24]  717 	inc	dptr
+      003379 F0               [24]  718 	movx	@dptr,a
+      00337A 80 D8            [24]  719 	sjmp	00103$
+      00337C                        720 00109$:
+      00337C 90 1C 68         [24]  721 	mov	dptr,#_puts__ch_65536_14
+      00337F EE               [12]  722 	mov	a,r6
+      003380 F0               [24]  723 	movx	@dptr,a
+      003381 EF               [12]  724 	mov	a,r7
+      003382 A3               [24]  725 	inc	dptr
+      003383 F0               [24]  726 	movx	@dptr,a
+                                    727 ;	string_func.c:92: }
+      003384 22               [24]  728 	ret
                                     729 	.area CSEG    (CODE)
                                     730 	.area CONST   (CODE)
                                     731 	.area XINIT   (CODE)

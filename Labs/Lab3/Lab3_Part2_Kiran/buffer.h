@@ -7,7 +7,8 @@
  * embedded software. Kiran Jojare and the University of Colorado are not
  * liable for any misuse of this material.
  *****************************************************************************/
-
+#ifndef _MAIN_C_
+#define _MAIN_C_
 /**
  * @file    buffer.h
  * @brief   This file contains the declaration of the function Buffer_Size_Error_Correction.
@@ -29,3 +30,4 @@
  * @return  The corrected buffer size.
  */
 __xdata int Buffer_Size_Error_Correction(void);
+#endif //_MAIN_C_

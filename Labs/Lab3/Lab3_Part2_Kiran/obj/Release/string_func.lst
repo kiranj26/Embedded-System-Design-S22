@@ -516,7 +516,7 @@
                                     516 ;------------------------------------------------------------
                                     517 ;Allocation info for local variables in function 'getchar'
                                     518 ;------------------------------------------------------------
-                                    519 ;	string_func.c:25: int getchar (void)
+                                    519 ;	string_func.c:34: int getchar (void)
                                     520 ;	-----------------------------------------
                                     521 ;	 function getchar
                                     522 ;	-----------------------------------------
@@ -529,26 +529,26 @@
                            000002   529 	ar2 = 0x02
                            000001   530 	ar1 = 0x01
                            000000   531 	ar0 = 0x00
-                                    532 ;	string_func.c:27: while (!RI); //Wait till the Character is received
+                                    532 ;	string_func.c:36: while (!RI); //Wait till the Character is received
       000000                        533 00101$:
-                                    534 ;	string_func.c:28: RI = 0;			// Clear the RI flag
+                                    534 ;	string_func.c:37: RI = 0;			// Clear the RI flag
                                     535 ;	assignBit
       000000 10 98 02         [24]  536 	jbc	_RI,00114$
       000003 80 FB            [24]  537 	sjmp	00101$
       000005                        538 00114$:
-                                    539 ;	string_func.c:29: return SBUF;  	// Return the Character
+                                    539 ;	string_func.c:38: return SBUF;  	// Return the Character
       000005 AE 99            [24]  540 	mov	r6,_SBUF
       000007 7F 00            [12]  541 	mov	r7,#0x00
       000009 8E 82            [24]  542 	mov	dpl,r6
       00000B 8F 83            [24]  543 	mov	dph,r7
-                                    544 ;	string_func.c:30: }
+                                    544 ;	string_func.c:39: }
       00000D 22               [24]  545 	ret
                                     546 ;------------------------------------------------------------
                                     547 ;Allocation info for local variables in function 'putchar'
                                     548 ;------------------------------------------------------------
                                     549 ;c                         Allocated with name '_putchar_c_65536_7'
                                     550 ;------------------------------------------------------------
-                                    551 ;	string_func.c:33: int putchar (int c)
+                                    551 ;	string_func.c:51: int putchar (int c)
                                     552 ;	-----------------------------------------
                                     553 ;	 function putchar
                                     554 ;	-----------------------------------------
@@ -560,10 +560,10 @@
       000016 EF               [12]  560 	mov	a,r7
       000017 A3               [24]  561 	inc	dptr
       000018 F0               [24]  562 	movx	@dptr,a
-                                    563 ;	string_func.c:35: while(!TI); //Wait till the Transmitter is ready
+                                    563 ;	string_func.c:53: while(!TI); //Wait till the Transmitter is ready
       000019                        564 00101$:
       000019 30 99 FD         [24]  565 	jnb	_TI,00101$
-                                    566 ;	string_func.c:36: SBUF = c; //write character to SBUF
+                                    566 ;	string_func.c:54: SBUF = c; //write character to SBUF
       00001C 90r00r00         [24]  567 	mov	dptr,#_putchar_c_65536_7
       00001F E0               [24]  568 	movx	a,@dptr
       000020 FE               [12]  569 	mov	r6,a
@@ -571,13 +571,13 @@
       000022 E0               [24]  571 	movx	a,@dptr
       000023 FF               [12]  572 	mov	r7,a
       000024 8E 99            [24]  573 	mov	_SBUF,r6
-                                    574 ;	string_func.c:37: TI = 0; //Clear the TI flag
+                                    574 ;	string_func.c:55: TI = 0; //Clear the TI flag
                                     575 ;	assignBit
       000026 C2 99            [12]  576 	clr	_TI
-                                    577 ;	string_func.c:38: return c;
+                                    577 ;	string_func.c:56: return c;
       000028 8E 82            [24]  578 	mov	dpl,r6
       00002A 8F 83            [24]  579 	mov	dph,r7
-                                    580 ;	string_func.c:39: }
+                                    580 ;	string_func.c:57: }
       00002C 22               [24]  581 	ret
                                     582 ;------------------------------------------------------------
                                     583 ;Allocation info for local variables in function 'gets_'
@@ -586,7 +586,7 @@
                                     586 ;i                         Allocated with name '_gets__i_131072_11'
                                     587 ;c                         Allocated with name '_gets__c_196608_12'
                                     588 ;------------------------------------------------------------
-                                    589 ;	string_func.c:41: void gets_(__xdata char *ch) {
+                                    589 ;	string_func.c:68: void gets_(__xdata char *ch) {
                                     590 ;	-----------------------------------------
                                     591 ;	 function gets_
                                     592 ;	-----------------------------------------
@@ -598,7 +598,7 @@
       000035 EF               [12]  598 	mov	a,r7
       000036 A3               [24]  599 	inc	dptr
       000037 F0               [24]  600 	movx	@dptr,a
-                                    601 ;	string_func.c:42: for (int i = 0; ; i++) {
+                                    601 ;	string_func.c:69: for (int i = 0; ; i++) {
       000038 90r00r02         [24]  602 	mov	dptr,#_gets__ch_65536_9
       00003B E0               [24]  603 	movx	a,@dptr
       00003C FE               [12]  604 	mov	r6,a
@@ -608,14 +608,14 @@
       000040 7C 00            [12]  608 	mov	r4,#0x00
       000042 7D 00            [12]  609 	mov	r5,#0x00
       000044                        610 00105$:
-                                    611 ;	string_func.c:43: char c = getchar();
+                                    611 ;	string_func.c:70: char c = getchar();
       000044 C0 07            [24]  612 	push	ar7
       000046 C0 06            [24]  613 	push	ar6
       000048 C0 05            [24]  614 	push	ar5
       00004A C0 04            [24]  615 	push	ar4
       00004C 12r00r00         [24]  616 	lcall	_getchar
       00004F AA 82            [24]  617 	mov	r2,dpl
-                                    618 ;	string_func.c:44: putchar(c);
+                                    618 ;	string_func.c:71: putchar(c);
       000051 8A 01            [24]  619 	mov	ar1,r2
       000053 7B 00            [12]  620 	mov	r3,#0x00
       000055 89 82            [24]  621 	mov	dpl,r1
@@ -627,13 +627,13 @@
       000062 D0 05            [24]  627 	pop	ar5
       000064 D0 06            [24]  628 	pop	ar6
       000066 D0 07            [24]  629 	pop	ar7
-                                    630 ;	string_func.c:45: if (c == '\r' || c == '\n') {
+                                    630 ;	string_func.c:72: if (c == '\r' || c == '\n') {
       000068 BA 0D 02         [24]  631 	cjne	r2,#0x0d,00118$
       00006B 80 03            [24]  632 	sjmp	00101$
       00006D                        633 00118$:
       00006D BA 0A 13         [24]  634 	cjne	r2,#0x0a,00102$
       000070                        635 00101$:
-                                    636 ;	string_func.c:46: *(ch + i) = '\0';
+                                    636 ;	string_func.c:73: *(ch + i) = '\0';
       000070 90r00r02         [24]  637 	mov	dptr,#_gets__ch_65536_9
       000073 E0               [24]  638 	movx	a,@dptr
       000074 F9               [12]  639 	mov	r1,a
@@ -648,10 +648,10 @@
       00007E F5 83            [12]  648 	mov	dph,a
       000080 E4               [12]  649 	clr	a
       000081 F0               [24]  650 	movx	@dptr,a
-                                    651 ;	string_func.c:47: break;
+                                    651 ;	string_func.c:74: break;
       000082 22               [24]  652 	ret
       000083                        653 00102$:
-                                    654 ;	string_func.c:49: *(ch + i) = c;
+                                    654 ;	string_func.c:76: *(ch + i) = c;
       000083 EC               [12]  655 	mov	a,r4
       000084 2E               [12]  656 	add	a,r6
       000085 F5 82            [12]  657 	mov	dpl,a
@@ -660,18 +660,18 @@
       000089 F5 83            [12]  660 	mov	dph,a
       00008B EA               [12]  661 	mov	a,r2
       00008C F0               [24]  662 	movx	@dptr,a
-                                    663 ;	string_func.c:42: for (int i = 0; ; i++) {
+                                    663 ;	string_func.c:69: for (int i = 0; ; i++) {
       00008D 0C               [12]  664 	inc	r4
       00008E BC 00 B3         [24]  665 	cjne	r4,#0x00,00105$
       000091 0D               [12]  666 	inc	r5
-                                    667 ;	string_func.c:51: }
+                                    667 ;	string_func.c:78: }
       000092 80 B0            [24]  668 	sjmp	00105$
                                     669 ;------------------------------------------------------------
                                     670 ;Allocation info for local variables in function 'puts_'
                                     671 ;------------------------------------------------------------
                                     672 ;ch                        Allocated with name '_puts__ch_65536_14'
                                     673 ;------------------------------------------------------------
-                                    674 ;	string_func.c:53: void puts_(__xdata char *ch) {
+                                    674 ;	string_func.c:88: void puts_(__xdata char *ch) {
                                     675 ;	-----------------------------------------
                                     676 ;	 function puts_
                                     677 ;	-----------------------------------------
@@ -690,13 +690,13 @@
       0000A5 E0               [24]  690 	movx	a,@dptr
       0000A6 FF               [12]  691 	mov	r7,a
       0000A7                        692 00103$:
-                                    693 ;	string_func.c:54: for (; *ch; ch++) {
+                                    693 ;	string_func.c:89: for (; *ch; ch++) {
       0000A7 8E 82            [24]  694 	mov	dpl,r6
       0000A9 8F 83            [24]  695 	mov	dph,r7
       0000AB E0               [24]  696 	movx	a,@dptr
       0000AC FD               [12]  697 	mov	r5,a
       0000AD 60 20            [24]  698 	jz	00109$
-                                    699 ;	string_func.c:55: putchar(*ch);
+                                    699 ;	string_func.c:90: putchar(*ch);
       0000AF 7C 00            [12]  700 	mov	r4,#0x00
       0000B1 8D 82            [24]  701 	mov	dpl,r5
       0000B3 8C 83            [24]  702 	mov	dph,r4
@@ -705,7 +705,7 @@
       0000B9 12r00r0E         [24]  705 	lcall	_putchar
       0000BC D0 06            [24]  706 	pop	ar6
       0000BE D0 07            [24]  707 	pop	ar7
-                                    708 ;	string_func.c:54: for (; *ch; ch++) {
+                                    708 ;	string_func.c:89: for (; *ch; ch++) {
       0000C0 0E               [12]  709 	inc	r6
       0000C1 BE 00 01         [24]  710 	cjne	r6,#0x00,00117$
       0000C4 0F               [12]  711 	inc	r7
@@ -724,7 +724,7 @@
       0000D4 EF               [12]  724 	mov	a,r7
       0000D5 A3               [24]  725 	inc	dptr
       0000D6 F0               [24]  726 	movx	@dptr,a
-                                    727 ;	string_func.c:57: }
+                                    727 ;	string_func.c:92: }
       0000D7 22               [24]  728 	ret
                                     729 	.area CSEG    (CODE)
                                     730 	.area CONST   (CODE)

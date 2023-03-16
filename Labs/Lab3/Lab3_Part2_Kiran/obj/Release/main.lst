@@ -497,19 +497,19 @@
                                     497 	.area XSEG    (XDATA)
       000000                        498 _new_buffer_arr::
       000000                        499 	.ds 200
-      0000C8                        500 _main_i_65537_53:
+      0000C8                        500 _main_i_65537_54:
       0000C8                        501 	.ds 2
-      0000CA                        502 _main_new_buffer_index_65537_53:
+      0000CA                        502 _main_new_buffer_index_65537_54:
       0000CA                        503 	.ds 2
-      0000CC                        504 _main_free_buffer_count_65537_53:
+      0000CC                        504 _main_free_buffer_count_65537_54:
       0000CC                        505 	.ds 2
-      0000CE                        506 _main_filled_buffer_count_65537_53:
+      0000CE                        506 _main_filled_buffer_count_65537_54:
       0000CE                        507 	.ds 2
-      0000D0                        508 _main_storage_character_count_65538_54:
+      0000D0                        508 _main_storage_character_count_65538_55:
       0000D0                        509 	.ds 2
-      0000D2                        510 _main_total_characters_count_65538_54:
+      0000D2                        510 _main_total_characters_count_65538_55:
       0000D2                        511 	.ds 2
-      0000D4                        512 _main_buffer0_allocated_65538_54:
+      0000D4                        512 _main_buffer0_allocated_65538_55:
       0000D4                        513 	.ds 2
                                     514 ;--------------------------------------------------------
                                     515 ; absolute external ram data
@@ -605,18 +605,18 @@
                                     605 ;------------------------------------------------------------
                                     606 ;Allocation info for local variables in function 'main'
                                     607 ;------------------------------------------------------------
-                                    608 ;i                         Allocated with name '_main_i_65537_53'
-                                    609 ;buffer_array_index        Allocated with name '_main_buffer_array_index_65537_53'
-                                    610 ;all_buff_cleared          Allocated with name '_main_all_buff_cleared_65537_53'
-                                    611 ;new_buffer_index          Allocated with name '_main_new_buffer_index_65537_53'
-                                    612 ;free_buffer_count         Allocated with name '_main_free_buffer_count_65537_53'
-                                    613 ;filled_buffer_count       Allocated with name '_main_filled_buffer_count_65537_53'
-                                    614 ;storage_character_count   Allocated with name '_main_storage_character_count_65538_54'
-                                    615 ;total_characters_count    Allocated with name '_main_total_characters_count_65538_54'
-                                    616 ;buffer0_allocated         Allocated with name '_main_buffer0_allocated_65538_54'
-                                    617 ;buffer0_ptr               Allocated with name '_main_buffer0_ptr_65539_60'
-                                    618 ;i                         Allocated with name '_main_i_131075_61'
-                                    619 ;ch                        Allocated with name '_main_ch_131076_64'
+                                    608 ;i                         Allocated with name '_main_i_65537_54'
+                                    609 ;buffer_array_index        Allocated with name '_main_buffer_array_index_65537_54'
+                                    610 ;all_buff_cleared          Allocated with name '_main_all_buff_cleared_65537_54'
+                                    611 ;new_buffer_index          Allocated with name '_main_new_buffer_index_65537_54'
+                                    612 ;free_buffer_count         Allocated with name '_main_free_buffer_count_65537_54'
+                                    613 ;filled_buffer_count       Allocated with name '_main_filled_buffer_count_65537_54'
+                                    614 ;storage_character_count   Allocated with name '_main_storage_character_count_65538_55'
+                                    615 ;total_characters_count    Allocated with name '_main_total_characters_count_65538_55'
+                                    616 ;buffer0_allocated         Allocated with name '_main_buffer0_allocated_65538_55'
+                                    617 ;buffer0_ptr               Allocated with name '_main_buffer0_ptr_65539_61'
+                                    618 ;i                         Allocated with name '_main_i_131075_62'
+                                    619 ;ch                        Allocated with name '_main_ch_131076_65'
                                     620 ;------------------------------------------------------------
                                     621 ;	main.c:83: void main(void)
                                     622 ;	-----------------------------------------
@@ -712,7 +712,7 @@
       0000A8 15 81            [12]  712 	dec	sp
       0000AA 15 81            [12]  713 	dec	sp
                                     714 ;	main.c:103: __xdata int new_buffer_index = 2;
-      0000AC 90r00rCA         [24]  715 	mov	dptr,#_main_new_buffer_index_65537_53
+      0000AC 90r00rCA         [24]  715 	mov	dptr,#_main_new_buffer_index_65537_54
       0000AF 74 02            [12]  716 	mov	a,#0x02
       0000B1 F0               [24]  717 	movx	@dptr,a
       0000B2 E4               [12]  718 	clr	a
@@ -721,23 +721,23 @@
                                     721 ;	main.c:108: HERE:
       0000B5                        722 00101$:
                                     723 ;	main.c:110: i = 0;
-      0000B5 90r00rC8         [24]  724 	mov	dptr,#_main_i_65537_53
+      0000B5 90r00rC8         [24]  724 	mov	dptr,#_main_i_65537_54
       0000B8 E4               [12]  725 	clr	a
       0000B9 F0               [24]  726 	movx	@dptr,a
       0000BA A3               [24]  727 	inc	dptr
       0000BB F0               [24]  728 	movx	@dptr,a
                                     729 ;	main.c:113: __xdata int storage_character_count = 0;
-      0000BC 90r00rD0         [24]  730 	mov	dptr,#_main_storage_character_count_65538_54
+      0000BC 90r00rD0         [24]  730 	mov	dptr,#_main_storage_character_count_65538_55
       0000BF F0               [24]  731 	movx	@dptr,a
       0000C0 A3               [24]  732 	inc	dptr
       0000C1 F0               [24]  733 	movx	@dptr,a
                                     734 ;	main.c:114: __xdata int total_characters_count = 0;
-      0000C2 90r00rD2         [24]  735 	mov	dptr,#_main_total_characters_count_65538_54
+      0000C2 90r00rD2         [24]  735 	mov	dptr,#_main_total_characters_count_65538_55
       0000C5 F0               [24]  736 	movx	@dptr,a
       0000C6 A3               [24]  737 	inc	dptr
       0000C7 F0               [24]  738 	movx	@dptr,a
                                     739 ;	main.c:117: __xdata int buffer0_allocated = 0;
-      0000C8 90r00rD4         [24]  740 	mov	dptr,#_main_buffer0_allocated_65538_54
+      0000C8 90r00rD4         [24]  740 	mov	dptr,#_main_buffer0_allocated_65538_55
       0000CB F0               [24]  741 	movx	@dptr,a
       0000CC A3               [24]  742 	inc	dptr
       0000CD F0               [24]  743 	movx	@dptr,a
@@ -807,7 +807,7 @@
       000133 15 81            [12]  807 	dec	sp
       000135 15 81            [12]  808 	dec	sp
                                     809 ;	main.c:136: buffer0_allocated = 1;
-      000137 90r00rD4         [24]  810 	mov	dptr,#_main_buffer0_allocated_65538_54
+      000137 90r00rD4         [24]  810 	mov	dptr,#_main_buffer0_allocated_65538_55
       00013A 74 01            [12]  811 	mov	a,#0x01
       00013C F0               [24]  812 	movx	@dptr,a
       00013D E4               [12]  813 	clr	a
@@ -863,7 +863,7 @@
       00018B 8D F0            [24]  863 	mov	b,r5
       00018D 12r00r00         [24]  864 	lcall	_free
                                     865 ;	main.c:146: buffer0_allocated = 0;
-      000190 90r00rD4         [24]  866 	mov	dptr,#_main_buffer0_allocated_65538_54
+      000190 90r00rD4         [24]  866 	mov	dptr,#_main_buffer0_allocated_65538_55
       000193 E4               [12]  867 	clr	a
       000194 F0               [24]  868 	movx	@dptr,a
       000195 A3               [24]  869 	inc	dptr
@@ -880,7 +880,7 @@
       0001A6 15 81            [12]  880 	dec	sp
       0001A8                        881 00110$:
                                     882 ;	main.c:155: } while (!buffer0_allocated || (buffer1 == 0));
-      0001A8 90r00rD4         [24]  883 	mov	dptr,#_main_buffer0_allocated_65538_54
+      0001A8 90r00rD4         [24]  883 	mov	dptr,#_main_buffer0_allocated_65538_55
       0001AB E0               [24]  884 	movx	a,@dptr
       0001AC F5 F0            [12]  885 	mov	b,a
       0001AE A3               [24]  886 	inc	dptr
@@ -1021,13 +1021,13 @@
       000270 A3               [24] 1021 	inc	dptr
       000271 F0               [24] 1022 	movx	@dptr,a
                                    1023 ;	main.c:177: free_buffer_count = 0;
-      000272 90r00rCC         [24] 1024 	mov	dptr,#_main_free_buffer_count_65537_53
+      000272 90r00rCC         [24] 1024 	mov	dptr,#_main_free_buffer_count_65537_54
       000275 E4               [12] 1025 	clr	a
       000276 F0               [24] 1026 	movx	@dptr,a
       000277 A3               [24] 1027 	inc	dptr
       000278 F0               [24] 1028 	movx	@dptr,a
                                    1029 ;	main.c:178: filled_buffer_count = 2;
-      000279 90r00rCE         [24] 1030 	mov	dptr,#_main_filled_buffer_count_65537_53
+      000279 90r00rCE         [24] 1030 	mov	dptr,#_main_filled_buffer_count_65537_54
       00027C 74 02            [12] 1031 	mov	a,#0x02
       00027E F0               [24] 1032 	movx	@dptr,a
       00027F E4               [12] 1033 	clr	a
@@ -1096,7 +1096,7 @@
       0002EC 24 85            [12] 1096 	add	a,#0xff - 0x7a
       0002EE 40 63            [24] 1097 	jc	00124$
                                    1098 ;	main.c:196: if (i < buffer_size) {              // If there is still space in buffer0
-      0002F0 90r00rC8         [24] 1099 	mov	dptr,#_main_i_65537_53
+      0002F0 90r00rC8         [24] 1099 	mov	dptr,#_main_i_65537_54
       0002F3 E0               [24] 1100 	movx	a,@dptr
       0002F4 FB               [12] 1101 	mov	r3,a
       0002F5 A3               [24] 1102 	inc	dptr
@@ -1118,7 +1118,7 @@
       00030B 95 F0            [12] 1118 	subb	a,b
       00030D 50 1F            [24] 1119 	jnc	00114$
                                    1120 ;	main.c:197: buffer0[i++] = ch;              // Store the character in buffer0
-      00030F 90r00rC8         [24] 1121 	mov	dptr,#_main_i_65537_53
+      00030F 90r00rC8         [24] 1121 	mov	dptr,#_main_i_65537_54
       000312 74 01            [12] 1122 	mov	a,#0x01
       000314 2B               [12] 1123 	add	a,r3
       000315 F0               [24] 1124 	movx	@dptr,a
@@ -1150,7 +1150,7 @@
       000337 D0 06            [24] 1150 	pop	ar6
       000339                       1151 00115$:
                                    1152 ;	main.c:202: storage_character_count++;          // Increment the count of storage characters
-      000339 90r00rD0         [24] 1153 	mov	dptr,#_main_storage_character_count_65538_54
+      000339 90r00rD0         [24] 1153 	mov	dptr,#_main_storage_character_count_65538_55
       00033C E0               [24] 1154 	movx	a,@dptr
       00033D 24 01            [12] 1155 	add	a,#0x01
       00033F F0               [24] 1156 	movx	@dptr,a
@@ -1159,7 +1159,7 @@
       000342 34 00            [12] 1159 	addc	a,#0x00
       000344 F0               [24] 1160 	movx	@dptr,a
                                    1161 ;	main.c:203: total_characters_count++;           // Increment the count of total characters
-      000345 90r00rD2         [24] 1162 	mov	dptr,#_main_total_characters_count_65538_54
+      000345 90r00rD2         [24] 1162 	mov	dptr,#_main_total_characters_count_65538_55
       000348 E0               [24] 1163 	movx	a,@dptr
       000349 24 01            [12] 1164 	add	a,#0x01
       00034B F0               [24] 1165 	movx	@dptr,a
@@ -1190,7 +1190,7 @@
       00036F                       1190 00227$:
       00036F                       1191 00116$:
                                    1192 ;	main.c:207: total_characters_count++;           // Increment the count of total characters
-      00036F 90r00rD2         [24] 1193 	mov	dptr,#_main_total_characters_count_65538_54
+      00036F 90r00rD2         [24] 1193 	mov	dptr,#_main_total_characters_count_65538_55
       000372 E0               [24] 1194 	movx	a,@dptr
       000373 24 01            [12] 1195 	add	a,#0x01
       000375 F0               [24] 1196 	movx	@dptr,a
@@ -1226,45 +1226,45 @@
       000397 EE               [12] 1226 	mov	a,r6
       000398 F0               [24] 1227 	movx	@dptr,a
       000399 90r00r00         [24] 1228 	mov	dptr,#_command_processing_PARM_3
-      00039C 74rCA            [12] 1229 	mov	a,#_main_new_buffer_index_65537_53
+      00039C 74rCA            [12] 1229 	mov	a,#_main_new_buffer_index_65537_54
       00039E F0               [24] 1230 	movx	@dptr,a
-      00039F 74s00            [12] 1231 	mov	a,#(_main_new_buffer_index_65537_53 >> 8)
+      00039F 74s00            [12] 1231 	mov	a,#(_main_new_buffer_index_65537_54 >> 8)
       0003A1 A3               [24] 1232 	inc	dptr
       0003A2 F0               [24] 1233 	movx	@dptr,a
       0003A3 E4               [12] 1234 	clr	a
       0003A4 A3               [24] 1235 	inc	dptr
       0003A5 F0               [24] 1236 	movx	@dptr,a
       0003A6 90r00r00         [24] 1237 	mov	dptr,#_command_processing_PARM_4
-      0003A9 74rCC            [12] 1238 	mov	a,#_main_free_buffer_count_65537_53
+      0003A9 74rCC            [12] 1238 	mov	a,#_main_free_buffer_count_65537_54
       0003AB F0               [24] 1239 	movx	@dptr,a
-      0003AC 74s00            [12] 1240 	mov	a,#(_main_free_buffer_count_65537_53 >> 8)
+      0003AC 74s00            [12] 1240 	mov	a,#(_main_free_buffer_count_65537_54 >> 8)
       0003AE A3               [24] 1241 	inc	dptr
       0003AF F0               [24] 1242 	movx	@dptr,a
       0003B0 E4               [12] 1243 	clr	a
       0003B1 A3               [24] 1244 	inc	dptr
       0003B2 F0               [24] 1245 	movx	@dptr,a
       0003B3 90r00r00         [24] 1246 	mov	dptr,#_command_processing_PARM_5
-      0003B6 74rCE            [12] 1247 	mov	a,#_main_filled_buffer_count_65537_53
+      0003B6 74rCE            [12] 1247 	mov	a,#_main_filled_buffer_count_65537_54
       0003B8 F0               [24] 1248 	movx	@dptr,a
-      0003B9 74s00            [12] 1249 	mov	a,#(_main_filled_buffer_count_65537_53 >> 8)
+      0003B9 74s00            [12] 1249 	mov	a,#(_main_filled_buffer_count_65537_54 >> 8)
       0003BB A3               [24] 1250 	inc	dptr
       0003BC F0               [24] 1251 	movx	@dptr,a
       0003BD E4               [12] 1252 	clr	a
       0003BE A3               [24] 1253 	inc	dptr
       0003BF F0               [24] 1254 	movx	@dptr,a
       0003C0 90r00r00         [24] 1255 	mov	dptr,#_command_processing_PARM_6
-      0003C3 74rD0            [12] 1256 	mov	a,#_main_storage_character_count_65538_54
+      0003C3 74rD0            [12] 1256 	mov	a,#_main_storage_character_count_65538_55
       0003C5 F0               [24] 1257 	movx	@dptr,a
-      0003C6 74s00            [12] 1258 	mov	a,#(_main_storage_character_count_65538_54 >> 8)
+      0003C6 74s00            [12] 1258 	mov	a,#(_main_storage_character_count_65538_55 >> 8)
       0003C8 A3               [24] 1259 	inc	dptr
       0003C9 F0               [24] 1260 	movx	@dptr,a
       0003CA E4               [12] 1261 	clr	a
       0003CB A3               [24] 1262 	inc	dptr
       0003CC F0               [24] 1263 	movx	@dptr,a
       0003CD 90r00r00         [24] 1264 	mov	dptr,#_command_processing_PARM_7
-      0003D0 74rD2            [12] 1265 	mov	a,#_main_total_characters_count_65538_54
+      0003D0 74rD2            [12] 1265 	mov	a,#_main_total_characters_count_65538_55
       0003D2 F0               [24] 1266 	movx	@dptr,a
-      0003D3 74s00            [12] 1267 	mov	a,#(_main_total_characters_count_65538_54 >> 8)
+      0003D3 74s00            [12] 1267 	mov	a,#(_main_total_characters_count_65538_55 >> 8)
       0003D5 A3               [24] 1268 	inc	dptr
       0003D6 F0               [24] 1269 	movx	@dptr,a
       0003D7 E4               [12] 1270 	clr	a
@@ -1306,7 +1306,7 @@
       000413 02r02r82         [24] 1306 	ljmp	00132$
       000416                       1307 00231$:
                                    1308 ;	main.c:227: i=0;
-      000416 90r00rC8         [24] 1309 	mov	dptr,#_main_i_65537_53
+      000416 90r00rC8         [24] 1309 	mov	dptr,#_main_i_65537_54
       000419 E4               [12] 1310 	clr	a
       00041A F0               [24] 1311 	movx	@dptr,a
       00041B A3               [24] 1312 	inc	dptr

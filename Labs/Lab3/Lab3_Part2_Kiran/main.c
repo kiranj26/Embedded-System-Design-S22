@@ -20,7 +20,6 @@
 #ifndef _MAIN_C_
 #define _MAIN_C_
 
-
 // Include necessary header files
 #include <stdbool.h>
 #include <stdint.h>
@@ -36,6 +35,7 @@
 #include "malloc.h"
 #include "string_func.h"
 #include "character.h"
+
 
 // Define constants
 #define ALL_BUFFER_NOT_CLEARED  0

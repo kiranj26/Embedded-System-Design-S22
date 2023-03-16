@@ -9,7 +9,7 @@
  *****************************************************************************/
 
 /**
- * @file    string_func.c
+ * @file    string_func.h
  * @brief   This file contains the implementation of string functions like
  *          getchar, putchar, gets_ and puts_.
  * @details These functions are used to read and write characters and strings

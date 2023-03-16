@@ -237,6 +237,7 @@
 	.globl _command_processing_PARM_3
 	.globl _command_processing_PARM_2
 	.globl _length
+	.globl _dataout
 	.globl _empty_buffer0
 	.globl _buffer0_hexdump
 	.globl _command_processing
@@ -481,8 +482,6 @@ _command_processing_sloc1_1_0:
 _command_processing_sloc2_1_0:
 	.ds 3
 _command_processing_sloc3_1_0:
-	.ds 2
-_command_processing_sloc4_1_0:
 	.ds 3
 ;--------------------------------------------------------
 ; overlayable items in internal ram
@@ -510,9 +509,11 @@ _command_processing_sloc4_1_0:
 	.area XSEG    (XDATA)
 _length::
 	.ds 2
-_buffer0_hexdump_length_65536_53:
+_dataout_x_65536_50:
+	.ds 1
+_buffer0_hexdump_length_65536_56:
 	.ds 2
-_buffer0_hexdump_print_address_65536_54:
+_buffer0_hexdump_print_address_65536_57:
 	.ds 1
 _command_processing_PARM_2:
 	.ds 1
@@ -528,7 +529,7 @@ _command_processing_PARM_7:
 	.ds 3
 _command_processing_PARM_8:
 	.ds 2
-_command_processing_cmd_detected_65536_62:
+_command_processing_cmd_detected_65536_65:
 	.ds 2
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -573,16 +574,16 @@ _buffer0and1_size::
 ;--------------------------------------------------------
 	.area CSEG    (CODE)
 ;------------------------------------------------------------
-;Allocation info for local variables in function 'empty_buffer0'
+;Allocation info for local variables in function 'dataout'
 ;------------------------------------------------------------
-;buffer0_ptr               Allocated with name '_empty_buffer0_buffer0_ptr_65536_50'
-;i                         Allocated with name '_empty_buffer0_i_131072_51'
+;x                         Allocated with name '_dataout_x_65536_50'
+;data                      Allocated with name '_dataout_data_65536_51'
 ;------------------------------------------------------------
-;	character.c:56: void empty_buffer0(void)
+;	character.c:69: void dataout(uint8_t x) {
 ;	-----------------------------------------
-;	 function empty_buffer0
+;	 function dataout
 ;	-----------------------------------------
-_empty_buffer0:
+_dataout:
 	ar7 = 0x07
 	ar6 = 0x06
 	ar5 = 0x05
@@ -591,7 +592,29 @@ _empty_buffer0:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	character.c:58: char * buffer0_ptr = buffer0;
+	mov	a,dpl
+	mov	dptr,#_dataout_x_65536_50
+	movx	@dptr,a
+;	character.c:71: *data = x;
+	movx	a,@dptr
+	mov	r7,a
+	mov	dptr,#0xffff
+	mov	b,#0x00
+	mov	a,r7
+;	character.c:72: }
+	ljmp	__gptrput
+;------------------------------------------------------------
+;Allocation info for local variables in function 'empty_buffer0'
+;------------------------------------------------------------
+;buffer0_ptr               Allocated with name '_empty_buffer0_buffer0_ptr_65536_53'
+;i                         Allocated with name '_empty_buffer0_i_131072_54'
+;------------------------------------------------------------
+;	character.c:79: void empty_buffer0(void)
+;	-----------------------------------------
+;	 function empty_buffer0
+;	-----------------------------------------
+_empty_buffer0:
+;	character.c:81: char * buffer0_ptr = buffer0;
 	mov	dptr,#_buffer0
 	movx	a,@dptr
 	mov	r6,a
@@ -599,7 +622,7 @@ _empty_buffer0:
 	movx	a,@dptr
 	mov	r5,a
 	mov	r7,#0x00
-;	character.c:59: for (int i = 0; i < buffer_size_arr[0]; i++)
+;	character.c:82: for (int i = 0; i < buffer_size_arr[0]; i++)
 	mov	r3,#0x00
 	mov	r4,#0x00
 00103$:
@@ -618,7 +641,7 @@ _empty_buffer0:
 	xrl	b,#0x80
 	subb	a,b
 	jnc	00105$
-;	character.c:61: buffer0_ptr[i] = '0';
+;	character.c:84: buffer0_ptr[i] = '0';
 	mov	a,r3
 	add	a,r6
 	mov	r0,a
@@ -631,13 +654,13 @@ _empty_buffer0:
 	mov	b,r2
 	mov	a,#0x30
 	lcall	__gptrput
-;	character.c:59: for (int i = 0; i < buffer_size_arr[0]; i++)
+;	character.c:82: for (int i = 0; i < buffer_size_arr[0]; i++)
 	inc	r3
 	cjne	r3,#0x00,00103$
 	inc	r4
 	sjmp	00103$
 00105$:
-;	character.c:63: }
+;	character.c:86: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'buffer0_hexdump'
@@ -645,28 +668,28 @@ _empty_buffer0:
 ;sloc0                     Allocated with name '_buffer0_hexdump_sloc0_1_0'
 ;sloc1                     Allocated with name '_buffer0_hexdump_sloc1_1_0'
 ;sloc2                     Allocated with name '_buffer0_hexdump_sloc2_1_0'
-;length                    Allocated with name '_buffer0_hexdump_length_65536_53'
-;itr                       Allocated with name '_buffer0_hexdump_itr_65536_54'
-;print_address             Allocated with name '_buffer0_hexdump_print_address_65536_54'
-;buffer0_ptr               Allocated with name '_buffer0_hexdump_buffer0_ptr_65536_54'
+;length                    Allocated with name '_buffer0_hexdump_length_65536_56'
+;itr                       Allocated with name '_buffer0_hexdump_itr_65536_57'
+;print_address             Allocated with name '_buffer0_hexdump_print_address_65536_57'
+;buffer0_ptr               Allocated with name '_buffer0_hexdump_buffer0_ptr_65536_57'
 ;------------------------------------------------------------
-;	character.c:72: void buffer0_hexdump(int length) {
+;	character.c:95: void buffer0_hexdump(int length) {
 ;	-----------------------------------------
 ;	 function buffer0_hexdump
 ;	-----------------------------------------
 _buffer0_hexdump:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_buffer0_hexdump_length_65536_53
+	mov	dptr,#_buffer0_hexdump_length_65536_56
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	character.c:74: bool print_address = true;
-	mov	dptr,#_buffer0_hexdump_print_address_65536_54
+;	character.c:97: bool print_address = true;
+	mov	dptr,#_buffer0_hexdump_print_address_65536_57
 	mov	a,#0x01
 	movx	@dptr,a
-;	character.c:76: char * buffer0_ptr = new_buffer_arr[0];
+;	character.c:99: char * buffer0_ptr = new_buffer_arr[0];
 	mov	dptr,#_new_buffer_arr
 	movx	a,@dptr
 	mov	r6,a
@@ -674,7 +697,7 @@ _buffer0_hexdump:
 	movx	a,@dptr
 	mov	r5,a
 	mov	r7,#0x00
-;	character.c:79: printf("\033[1;34m\n\r");
+;	character.c:102: printf("\033[1;34m\n\r");
 	push	ar7
 	push	ar6
 	push	ar5
@@ -691,8 +714,8 @@ _buffer0_hexdump:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:81: while (itr < buffer0and1_size)
-	mov	dptr,#_buffer0_hexdump_length_65536_53
+;	character.c:104: while (itr < buffer0and1_size)
+	mov	dptr,#_buffer0_hexdump_length_65536_56
 	movx	a,@dptr
 	mov	r3,a
 	inc	dptr
@@ -733,13 +756,11 @@ _buffer0_hexdump:
 	jc	00150$
 	ret
 00150$:
-;	character.c:84: if (print_address)
-	mov	dptr,#_buffer0_hexdump_print_address_65536_54
+;	character.c:107: if (print_address)
+	mov	dptr,#_buffer0_hexdump_print_address_65536_57
 	movx	a,@dptr
-	jnz	00151$
-	ljmp	00102$
-00151$:
-;	character.c:86: printf("%p :", buffer0_ptr + itr);
+	jz	00102$
+;	character.c:109: printf("\033[1;34m%p :", buffer0_ptr + itr);
 	push	ar1
 	mov	a,_buffer0_hexdump_sloc0_1_0
 	add	a,r6
@@ -773,48 +794,15 @@ _buffer0_hexdump:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:87: printf("\033[1;34m%p :", buffer0_ptr + itr);
-	mov	a,_buffer0_hexdump_sloc0_1_0
-	add	a,r6
-	mov	r0,a
-	mov	a,(_buffer0_hexdump_sloc0_1_0 + 1)
-	addc	a,r5
-	mov	r1,a
-	mov	ar2,r7
-	push	ar7
-	push	ar6
-	push	ar5
-	push	ar4
-	push	ar3
-	push	ar1
-	push	ar0
-	push	ar1
-	push	ar2
-	mov	a,#___str_2
-	push	acc
-	mov	a,#(___str_2 >> 8)
-	push	acc
-	mov	a,#0x80
-	push	acc
-	lcall	_printf
-	mov	a,sp
-	add	a,#0xfa
-	mov	sp,a
-	pop	ar1
-	pop	ar3
-	pop	ar4
-	pop	ar5
-	pop	ar6
-	pop	ar7
-;	character.c:88: print_address = false;
-	mov	dptr,#_buffer0_hexdump_print_address_65536_54
+;	character.c:110: print_address = false;
+	mov	dptr,#_buffer0_hexdump_print_address_65536_57
 	clr	a
 	movx	@dptr,a
-;	character.c:112: itr++;
+;	character.c:134: itr++;
 	pop	ar1
-;	character.c:88: print_address = false;
+;	character.c:110: print_address = false;
 00102$:
-;	character.c:91: if (buffer0_ptr[itr] == '0')
+;	character.c:113: if (buffer0_ptr[itr] == '0')
 	push	ar1
 	mov	a,_buffer0_hexdump_sloc0_1_0
 	add	a,r6
@@ -836,16 +824,16 @@ _buffer0_hexdump:
 	sjmp	00108$
 00153$:
 	pop	ar1
-;	character.c:93: printf_tiny("\033[1;34m XX");
+;	character.c:115: printf_tiny("\033[1;34m XX");
 	push	ar7
 	push	ar6
 	push	ar5
 	push	ar4
 	push	ar3
 	push	ar1
-	mov	a,#___str_3
+	mov	a,#___str_2
 	push	acc
-	mov	a,#(___str_3 >> 8)
+	mov	a,#(___str_2 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
@@ -858,11 +846,52 @@ _buffer0_hexdump:
 	pop	ar7
 	ljmp	00109$
 00108$:
-;	character.c:97: if (length == 16) {
+;	character.c:119: if (length == 16) {
 	mov	a,_buffer0_hexdump_sloc1_1_0
 	jz	00104$
-;	character.c:98: printf_tiny("\033[1;34m %x", buffer0_ptr[itr]);
+;	character.c:120: printf_tiny("\033[1;34m %x", buffer0_ptr[itr]);
 	mov	r0,_buffer0_hexdump_sloc2_1_0
+	mov	r2,#0x00
+	push	ar7
+	push	ar6
+	push	ar5
+	push	ar4
+	push	ar3
+	push	ar1
+	push	ar0
+	push	ar2
+	mov	a,#___str_3
+	push	acc
+	mov	a,#(___str_3 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
+	pop	ar1
+	pop	ar3
+	pop	ar4
+	pop	ar5
+	pop	ar6
+	pop	ar7
+00104$:
+;	character.c:122: if (length == 32)
+	mov	a,r1
+	jz	00109$
+;	character.c:124: printf_tiny("\033[1;34m %d", buffer0_ptr[itr]);
+	push	ar1
+	mov	a,_buffer0_hexdump_sloc0_1_0
+	add	a,r6
+	mov	r0,a
+	mov	a,(_buffer0_hexdump_sloc0_1_0 + 1)
+	addc	a,r5
+	mov	r1,a
+	mov	ar2,r7
+	mov	dpl,r0
+	mov	dph,r1
+	mov	b,r2
+	lcall	__gptrget
+	mov	r0,a
 	mov	r2,#0x00
 	push	ar7
 	push	ar6
@@ -886,52 +915,11 @@ _buffer0_hexdump:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-00104$:
-;	character.c:100: if (length == 32)
-	mov	a,r1
-	jz	00109$
-;	character.c:102: printf_tiny("\033[1;34m %d", buffer0_ptr[itr]);
-	push	ar1
-	mov	a,_buffer0_hexdump_sloc0_1_0
-	add	a,r6
-	mov	r0,a
-	mov	a,(_buffer0_hexdump_sloc0_1_0 + 1)
-	addc	a,r5
-	mov	r1,a
-	mov	ar2,r7
-	mov	dpl,r0
-	mov	dph,r1
-	mov	b,r2
-	lcall	__gptrget
-	mov	r0,a
-	mov	r2,#0x00
-	push	ar7
-	push	ar6
-	push	ar5
-	push	ar4
-	push	ar3
-	push	ar1
-	push	ar0
-	push	ar2
-	mov	a,#___str_5
-	push	acc
-	mov	a,#(___str_5 >> 8)
-	push	acc
-	lcall	_printf_tiny
-	mov	a,sp
-	add	a,#0xfc
-	mov	sp,a
+;	character.c:134: itr++;
 	pop	ar1
-	pop	ar3
-	pop	ar4
-	pop	ar5
-	pop	ar6
-	pop	ar7
-;	character.c:112: itr++;
-	pop	ar1
-;	character.c:102: printf_tiny("\033[1;34m %d", buffer0_ptr[itr]);
+;	character.c:124: printf_tiny("\033[1;34m %d", buffer0_ptr[itr]);
 00109$:
-;	character.c:106: if ((itr + 1) % length == 0)
+;	character.c:128: if ((itr + 1) % length == 0)
 	mov	a,#0x01
 	add	a,_buffer0_hexdump_sloc0_1_0
 	mov	r0,a
@@ -963,7 +951,7 @@ _buffer0_hexdump:
 	pop	ar7
 	orl	a,b
 	jnz	00111$
-;	character.c:108: printf_tiny("\033[1;34m\n\r");
+;	character.c:130: printf_tiny("\033[1;34m\n\r");
 	push	ar7
 	push	ar6
 	push	ar5
@@ -983,18 +971,18 @@ _buffer0_hexdump:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:109: print_address = true;
-	mov	dptr,#_buffer0_hexdump_print_address_65536_54
+;	character.c:131: print_address = true;
+	mov	dptr,#_buffer0_hexdump_print_address_65536_57
 	mov	a,#0x01
 	movx	@dptr,a
 00111$:
-;	character.c:112: itr++;
+;	character.c:134: itr++;
 	inc	_buffer0_hexdump_sloc0_1_0
 	clr	a
 	cjne	a,_buffer0_hexdump_sloc0_1_0,00157$
 	inc	(_buffer0_hexdump_sloc0_1_0 + 1)
 00157$:
-;	character.c:114: }
+;	character.c:136: }
 	ljmp	00112$
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'command_processing'
@@ -1003,7 +991,6 @@ _buffer0_hexdump:
 ;sloc1                     Allocated with name '_command_processing_sloc1_1_0'
 ;sloc2                     Allocated with name '_command_processing_sloc2_1_0'
 ;sloc3                     Allocated with name '_command_processing_sloc3_1_0'
-;sloc4                     Allocated with name '_command_processing_sloc4_1_0'
 ;ch                        Allocated with name '_command_processing_PARM_2'
 ;new_buffer_index          Allocated with name '_command_processing_PARM_3'
 ;free_buffer_count         Allocated with name '_command_processing_PARM_4'
@@ -1011,28 +998,28 @@ _buffer0_hexdump:
 ;storage_character_count   Allocated with name '_command_processing_PARM_6'
 ;total_characters_count    Allocated with name '_command_processing_PARM_7'
 ;buffer0_size              Allocated with name '_command_processing_PARM_8'
-;cmd_detected              Allocated with name '_command_processing_cmd_detected_65536_62'
-;buffer_size               Allocated with name '_command_processing_buffer_size_196609_66'
-;buffer_ptr                Allocated with name '_command_processing_buffer_ptr_196610_68'
-;ch                        Allocated with name '_command_processing_ch_196611_70'
-;temp                      Allocated with name '_command_processing_temp_262148_73'
-;i                         Allocated with name '_command_processing_i_262147_79'
-;buffer_to_free            Allocated with name '_command_processing_buffer_to_free_327683_80'
-;i                         Allocated with name '_command_processing_i_262147_83'
+;cmd_detected              Allocated with name '_command_processing_cmd_detected_65536_65'
+;buffer_size               Allocated with name '_command_processing_buffer_size_196609_69'
+;buffer_ptr                Allocated with name '_command_processing_buffer_ptr_196610_71'
+;ch                        Allocated with name '_command_processing_ch_196611_73'
+;temp                      Allocated with name '_command_processing_temp_262148_76'
+;i                         Allocated with name '_command_processing_i_262147_82'
+;buffer_to_free            Allocated with name '_command_processing_buffer_to_free_327683_83'
+;i                         Allocated with name '_command_processing_i_262147_86'
 ;------------------------------------------------------------
-;	character.c:117: int command_processing(int cmd_detected, char ch, int * new_buffer_index,
+;	character.c:139: int command_processing(int cmd_detected, char ch, int * new_buffer_index,
 ;	-----------------------------------------
 ;	 function command_processing
 ;	-----------------------------------------
 _command_processing:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_command_processing_cmd_detected_65536_62
+	mov	dptr,#_command_processing_cmd_detected_65536_65
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	character.c:120: buffer0and1_size = buffer0_size;
+;	character.c:142: buffer0and1_size = buffer0_size;
 	mov	dptr,#_command_processing_PARM_8
 	movx	a,@dptr
 	mov	r6,a
@@ -1045,39 +1032,47 @@ _command_processing:
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
-;	character.c:121: if(cmd_detected)            // if command detected
-	mov	dptr,#_command_processing_cmd_detected_65536_62
+;	character.c:143: if(cmd_detected)            // if command detected
+	mov	dptr,#_command_processing_cmd_detected_65536_65
 	movx	a,@dptr
 	mov	b,a
 	inc	dptr
 	movx	a,@dptr
 	orl	a,b
-	jnz	00236$
-	ljmp	00142$
-00236$:
-;	character.c:123: switch(ch)              // switch based on the input character
+	jnz	00235$
+	ljmp	00141$
+00235$:
+;	character.c:145: switch(ch)              // switch based on the input character
 	mov	dptr,#_command_processing_PARM_2
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x2b,00237$
+	cjne	r7,#0x2b,00236$
 	sjmp	00101$
-00237$:
-	cjne	r7,#0x2d,00238$
+00236$:
+	cjne	r7,#0x2d,00237$
 	ljmp	00107$
-00238$:
-	cjne	r7,#0x3d,00239$
+00237$:
+	cjne	r7,#0x3d,00238$
 	ljmp	00130$
-00239$:
-	cjne	r7,#0x3f,00240$
+00238$:
+	cjne	r7,#0x3f,00239$
 	ljmp	00131$
-00240$:
-	cjne	r7,#0x40,00241$
+00239$:
+	cjne	r7,#0x40,00240$
 	ljmp	00125$
-00241$:
-	ljmp	00142$
-;	character.c:125: case '+':               // if input character is '+'
+00240$:
+	ljmp	00138$
+;	character.c:147: case '+':               // if input character is '+'
 00101$:
-;	character.c:127: printf_tiny("\033[1;33m|***********************************************|\n\r");
+;	character.c:149: printf_tiny("\033[1;33m|***********************************************|\n\r");
+	mov	a,#___str_5
+	push	acc
+	mov	a,#(___str_5 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	dec	sp
+	dec	sp
+;	character.c:150: printf_tiny("\033[1;33m|************ Processing [+] *******************|\n\r");
 	mov	a,#___str_6
 	push	acc
 	mov	a,#(___str_6 >> 8)
@@ -1085,23 +1080,15 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:128: printf_tiny("\033[1;33m|************ Processing [+] *******************|\n\r");
-	mov	a,#___str_7
+;	character.c:151: printf_tiny("\033[1;33m|***********************************************|\n\r");
+	mov	a,#___str_5
 	push	acc
-	mov	a,#(___str_7 >> 8)
-	push	acc
-	lcall	_printf_tiny
-	dec	sp
-	dec	sp
-;	character.c:129: printf_tiny("\033[1;33m|***********************************************|\n\r");
-	mov	a,#___str_6
-	push	acc
-	mov	a,#(___str_6 >> 8)
+	mov	a,#(___str_5 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:131: (*new_buffer_index)++;                      // increment buffer index
+;	character.c:153: (*new_buffer_index)++;                      // increment buffer index
 	mov	dptr,#_command_processing_PARM_3
 	movx	a,@dptr
 	mov	r5,a
@@ -1120,9 +1107,9 @@ _command_processing:
 	lcall	__gptrget
 	mov	r4,a
 	inc	r3
-	cjne	r3,#0x00,00242$
+	cjne	r3,#0x00,00241$
 	inc	r4
-00242$:
+00241$:
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -1131,10 +1118,18 @@ _command_processing:
 	inc	dptr
 	mov	a,r4
 	lcall	__gptrput
-;	character.c:132: printf_tiny("\033[1;36m|***********************************************|\n\r");
+;	character.c:154: printf_tiny("\033[1;36m|***********************************************|\n\r");
 	push	ar7
 	push	ar6
 	push	ar5
+	mov	a,#___str_7
+	push	acc
+	mov	a,#(___str_7 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	dec	sp
+	dec	sp
+;	character.c:155: printf_tiny("\033[1;36m|********* Enter size for new bufer ************|\n\r");
 	mov	a,#___str_8
 	push	acc
 	mov	a,#(___str_8 >> 8)
@@ -1142,26 +1137,18 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:133: printf_tiny("\033[1;36m|********* Enter size for new bufer ************|\n\r");
-	mov	a,#___str_9
+;	character.c:156: printf_tiny("\033[1;36m|***********************************************|\n\r");
+	mov	a,#___str_7
 	push	acc
-	mov	a,#(___str_9 >> 8)
-	push	acc
-	lcall	_printf_tiny
-	dec	sp
-	dec	sp
-;	character.c:134: printf_tiny("\033[1;36m|***********************************************|\n\r");
-	mov	a,#___str_8
-	push	acc
-	mov	a,#(___str_8 >> 8)
+	mov	a,#(___str_7 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:135: gets_(size);                                // get buffer size
+;	character.c:157: gets_(size);                                // get buffer size
 	mov	dptr,#_size
 	lcall	_gets_
-;	character.c:136: int buffer_size = atoi(size);               // convert buffer size to integer
+;	character.c:158: int buffer_size = atoi(size);               // convert buffer size to integer
 	mov	dptr,#_size
 	mov	b,#0x00
 	lcall	_atoi
@@ -1170,7 +1157,7 @@ _command_processing:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:137: if (buffer_size < 30 || buffer_size > 300) { // check if buffer size is within range
+;	character.c:159: if (buffer_size < 30 || buffer_size > 300) { // check if buffer size is within range
 	clr	c
 	mov	a,r3
 	subb	a,#0x1e
@@ -1186,18 +1173,18 @@ _command_processing:
 	subb	a,b
 	jnc	00103$
 00102$:
-;	character.c:138: printf_tiny("\033[1;31mInvalid Input : The buffer size should be in the range [30, 300]\n\r\n\r");
-	mov	a,#___str_10
+;	character.c:160: printf_tiny("\033[1;31mInvalid Input : The buffer size should be in the range [30, 300]\n\r\n\r");
+	mov	a,#___str_9
 	push	acc
-	mov	a,#(___str_10 >> 8)
+	mov	a,#(___str_9 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:139: break;                                  // break out of switch
-	ljmp	00142$
+;	character.c:161: break;                                  // break out of switch
+	ljmp	00141$
 00103$:
-;	character.c:141: __xdata char* buffer_ptr = (__xdata char*)malloc(buffer_size);  // allocate memory for buffer
+;	character.c:163: __xdata char* buffer_ptr = (__xdata char*)malloc(buffer_size);  // allocate memory for buffer
 	mov	dpl,r3
 	mov	dph,r4
 	push	ar7
@@ -1215,22 +1202,22 @@ _command_processing:
 	pop	ar7
 	mov	_command_processing_sloc0_1_0,r1
 	mov	(_command_processing_sloc0_1_0 + 1),r2
-;	character.c:143: if (buffer_ptr == NULL) {                                       // check if buffer allocation failed
+;	character.c:165: if (buffer_ptr == NULL) {                                       // check if buffer allocation failed
 	mov	a,_command_processing_sloc0_1_0
 	orl	a,(_command_processing_sloc0_1_0 + 1)
 	jnz	00106$
-;	character.c:144: printf_tiny("\033[1;31mInvalid input : Failed to allocate buffer\n\r\n\r");
-	mov	a,#___str_11
+;	character.c:166: printf_tiny("\033[1;31mInvalid input : Failed to allocate buffer\n\r\n\r");
+	mov	a,#___str_10
 	push	acc
-	mov	a,#(___str_11 >> 8)
+	mov	a,#(___str_10 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:145: break;                                                      // break out of switch
-	ljmp	00142$
+;	character.c:167: break;                                                      // break out of switch
+	ljmp	00141$
 00106$:
-;	character.c:148: buffer_size_arr[(*new_buffer_index)-1] = buffer_size;           // store buffer size in array
+;	character.c:170: buffer_size_arr[(*new_buffer_index)-1] = buffer_size;           // store buffer size in array
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -1240,9 +1227,9 @@ _command_processing:
 	lcall	__gptrget
 	mov	r2,a
 	dec	r0
-	cjne	r0,#0xff,00246$
+	cjne	r0,#0xff,00245$
 	dec	r2
-00246$:
+00245$:
 	mov	a,r0
 	add	a,r0
 	mov	r0,a
@@ -1260,7 +1247,7 @@ _command_processing:
 	mov	a,r4
 	inc	dptr
 	movx	@dptr,a
-;	character.c:149: ++(*filled_buffer_count);                                       // increment filled buffer count
+;	character.c:171: ++(*filled_buffer_count);                                       // increment filled buffer count
 	mov	dptr,#_command_processing_PARM_5
 	movx	a,@dptr
 	mov	r2,a
@@ -1279,9 +1266,9 @@ _command_processing:
 	lcall	__gptrget
 	mov	r1,a
 	inc	r0
-	cjne	r0,#0x00,00247$
+	cjne	r0,#0x00,00246$
 	inc	r1
-00247$:
+00246$:
 	mov	dpl,r2
 	mov	dph,r3
 	mov	b,r4
@@ -1290,7 +1277,37 @@ _command_processing:
 	inc	dptr
 	mov	a,r1
 	lcall	__gptrput
-;	character.c:151: new_buffer_arr[(*new_buffer_index)-1] = buffer_ptr;             // store buffer pointer in array
+;	character.c:173: new_buffer_arr[(*new_buffer_index)-1] = buffer_ptr;             // store buffer pointer in array
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
+	lcall	__gptrget
+	mov	r0,a
+	inc	dptr
+	lcall	__gptrget
+	mov	r1,a
+	dec	r0
+	cjne	r0,#0xff,00247$
+	dec	r1
+00247$:
+	mov	a,r0
+	add	a,r0
+	mov	r0,a
+	mov	a,r1
+	rlc	a
+	mov	r1,a
+	mov	a,r0
+	add	a,#_new_buffer_arr
+	mov	dpl,a
+	mov	a,r1
+	addc	a,#(_new_buffer_arr >> 8)
+	mov	dph,a
+	mov	a,_command_processing_sloc0_1_0
+	movx	@dptr,a
+	mov	a,(_command_processing_sloc0_1_0 + 1)
+	inc	dptr
+	movx	@dptr,a
+;	character.c:174: buff_not_cleared[(*new_buffer_index) -1] = 0;                      // set flag to indicate new buffer is created
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -1310,43 +1327,16 @@ _command_processing:
 	rlc	a
 	mov	r1,a
 	mov	a,r0
-	add	a,#_new_buffer_arr
-	mov	dpl,a
-	mov	a,r1
-	addc	a,#(_new_buffer_arr >> 8)
-	mov	dph,a
-	mov	a,_command_processing_sloc0_1_0
-	movx	@dptr,a
-	mov	a,(_command_processing_sloc0_1_0 + 1)
-	inc	dptr
-	movx	@dptr,a
-;	character.c:152: buff_not_cleared[(*new_buffer_index)] = 1;                      // set flag to indicate new buffer is created
-	mov	dpl,r5
-	mov	dph,r6
-	mov	b,r7
-	lcall	__gptrget
-	mov	r0,a
-	inc	dptr
-	lcall	__gptrget
-	mov	r1,a
-	mov	a,r0
-	add	a,r0
-	mov	r0,a
-	mov	a,r1
-	rlc	a
-	mov	r1,a
-	mov	a,r0
 	add	a,#_buff_not_cleared
 	mov	dpl,a
 	mov	a,r1
 	addc	a,#(_buff_not_cleared >> 8)
 	mov	dph,a
-	mov	a,#0x01
-	movx	@dptr,a
 	clr	a
+	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	character.c:155: printf_tiny("\033[1;0mNew buffer allocated successfully : Buffer[%d]\n\r", ((*new_buffer_index)-1)); // print successful buffer allocation message
+;	character.c:176: printf_tiny("\033[1;0mNew buffer allocated successfully : Buffer[%d]\n\r", ((*new_buffer_index)-1)); // print successful buffer allocation message
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -1367,9 +1357,9 @@ _command_processing:
 	push	ar2
 	push	ar0
 	push	ar1
-	mov	a,#___str_12
+	mov	a,#___str_11
 	push	acc
-	mov	a,#(___str_12 >> 8)
+	mov	a,#(___str_11 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	mov	a,sp
@@ -1381,7 +1371,7 @@ _command_processing:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:156: printf_tiny("\033[1;0mTotal Number of Buffers including buffer0 & buffer1 = [%d]\n\r",(*new_buffer_index)); // print total number of buffers
+;	character.c:177: printf_tiny("\033[1;0mTotal Number of Buffers including buffer0 & buffer1 = [%d]\n\r",(*new_buffer_index)); // print total number of buffers
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -1395,9 +1385,9 @@ _command_processing:
 	push	ar2
 	push	ar5
 	push	ar6
-	mov	a,#___str_13
+	mov	a,#___str_12
 	push	acc
-	mov	a,#(___str_13 >> 8)
+	mov	a,#(___str_12 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	mov	a,sp
@@ -1406,7 +1396,7 @@ _command_processing:
 	pop	ar2
 	pop	ar3
 	pop	ar4
-;	character.c:157: printf_tiny("\033[1;0mTotal Filled Buffers = [%d] \r\nTotal Empty Buffers = [%d] \n\r\n\r",(*filled_buffer_count),(*free_buffer_count)); // print filled and empty buffer count
+;	character.c:178: printf_tiny("\033[1;0mTotal Filled Buffers = [%d] \r\nTotal Empty Buffers = [%d] \n\r\n\r",(*filled_buffer_count),(*free_buffer_count)); // print filled and empty buffer count
 	mov	dptr,#_command_processing_PARM_4
 	movx	a,@dptr
 	mov	r5,a
@@ -1436,27 +1426,60 @@ _command_processing:
 	push	ar6
 	push	ar2
 	push	ar3
-	mov	a,#___str_14
+	mov	a,#___str_13
 	push	acc
-	mov	a,#(___str_14 >> 8)
+	mov	a,#(___str_13 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	mov	a,sp
 	add	a,#0xfa
 	mov	sp,a
-;	character.c:158: break;                                                          // break out of switch
-	ljmp	00142$
-;	character.c:161: case '-':   // if input character is '-'
+;	character.c:179: DEBUGPORT(0x10);
+	mov	dpl,#0x10
+	lcall	_dataout
+;	character.c:180: break;                                                          // break out of switch
+	ljmp	00141$
+;	character.c:183: case '-':   // if input character is '-'
 00107$:
-;	character.c:163: printf_tiny("\033[1;33m|***********************************************|\n\r");
-	mov	a,#___str_6
+;	character.c:185: printf_tiny("\033[1;33m|***********************************************|\n\r");
+	mov	a,#___str_5
 	push	acc
-	mov	a,#(___str_6 >> 8)
+	mov	a,#(___str_5 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:164: printf_tiny("\033[1;33m|************ Processing [-] *******************|\n\r");
+;	character.c:186: printf_tiny("\033[1;33m|************ Processing [-] *******************|\n\r");
+	mov	a,#___str_14
+	push	acc
+	mov	a,#(___str_14 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	dec	sp
+	dec	sp
+;	character.c:187: printf_tiny("\033[1;33m|***********************************************|\n\r");
+	mov	a,#___str_5
+	push	acc
+	mov	a,#(___str_5 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	dec	sp
+	dec	sp
+;	character.c:190: buffer_to_delete = 0;
+	mov	dptr,#_buffer_to_delete
+	clr	a
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+;	character.c:193: printf_tiny("\033[1;36m|***********************************************|\n\r");
+	mov	a,#___str_7
+	push	acc
+	mov	a,#(___str_7 >> 8)
+	push	acc
+	lcall	_printf_tiny
+	dec	sp
+	dec	sp
+;	character.c:194: printf_tiny("\033[1;36m|********* Enter buffer to be deleted **********|\n\r");
 	mov	a,#___str_15
 	push	acc
 	mov	a,#(___str_15 >> 8)
@@ -1464,37 +1487,7 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:165: printf_tiny("\033[1;33m|***********************************************|\n\r");
-	mov	a,#___str_6
-	push	acc
-	mov	a,#(___str_6 >> 8)
-	push	acc
-	lcall	_printf_tiny
-	dec	sp
-	dec	sp
-;	character.c:168: buffer_to_delete = 0;
-	mov	dptr,#_buffer_to_delete
-	clr	a
-	movx	@dptr,a
-	inc	dptr
-	movx	@dptr,a
-;	character.c:171: printf_tiny("\033[1;36m|***********************************************|\n\r");
-	mov	a,#___str_8
-	push	acc
-	mov	a,#(___str_8 >> 8)
-	push	acc
-	lcall	_printf_tiny
-	dec	sp
-	dec	sp
-;	character.c:172: printf_tiny("\033[1;36m|********* Enter buffer to be deleted **********|\n\r");
-	mov	a,#___str_16
-	push	acc
-	mov	a,#(___str_16 >> 8)
-	push	acc
-	lcall	_printf_tiny
-	dec	sp
-	dec	sp
-;	character.c:173: printf_tiny("\033[1;36m|********* Current No of buffers:[%d] ***********|\n\r", *new_buffer_index);
+;	character.c:195: printf_tiny("\033[1;36m|********* Current No of buffers:[%d] ***********|\n\r", *new_buffer_index);
 	mov	dptr,#_command_processing_PARM_3
 	movx	a,@dptr
 	mov	r5,a
@@ -1517,26 +1510,26 @@ _command_processing:
 	push	ar5
 	push	ar3
 	push	ar4
-	mov	a,#___str_17
+	mov	a,#___str_16
 	push	acc
-	mov	a,#(___str_17 >> 8)
+	mov	a,#(___str_16 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	character.c:174: printf_tiny("\033[1;36m|********* Note : Index Starts with 0 **********|\n\r");
-	mov	a,#___str_18
+;	character.c:196: printf_tiny("\033[1;36m|********* Note : Index Starts with 0 **********|\n\r");
+	mov	a,#___str_17
 	push	acc
-	mov	a,#(___str_18 >> 8)
+	mov	a,#(___str_17 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:175: printf_tiny("\033[1;36m|***********************************************|\n\r");
-	mov	a,#___str_8
+;	character.c:197: printf_tiny("\033[1;36m|***********************************************|\n\r");
+	mov	a,#___str_7
 	push	acc
-	mov	a,#(___str_8 >> 8)
+	mov	a,#(___str_7 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
@@ -1544,15 +1537,15 @@ _command_processing:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:179: do{
+;	character.c:201: do{
 00111$:
-;	character.c:180: ch = getchar();
+;	character.c:202: ch = getchar();
 	push	ar7
 	push	ar6
 	push	ar5
 	lcall	_getchar
 	mov	r3,dpl
-;	character.c:181: putchar(ch);
+;	character.c:203: putchar(ch);
 	mov	ar2,r3
 	mov	r4,#0x00
 	mov	dpl,r2
@@ -1567,7 +1560,7 @@ _command_processing:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:184: if (ch < '0' || ch > '9') {
+;	character.c:206: if (ch < '0' || ch > '9') {
 	cjne	r3,#0x30,00250$
 00250$:
 	jc	00108$
@@ -1575,13 +1568,13 @@ _command_processing:
 	add	a,#0xff - 0x39
 	jnc	00109$
 00108$:
-;	character.c:185: printf_tiny("\033[1;31mInvalid input : invalid digits entered \n\r\n\r");
+;	character.c:207: printf_tiny("\033[1;31mInvalid input : invalid digits entered \n\r\n\r");
 	push	ar7
 	push	ar6
 	push	ar5
-	mov	a,#___str_19
+	mov	a,#___str_18
 	push	acc
-	mov	a,#(___str_19 >> 8)
+	mov	a,#(___str_18 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
@@ -1589,17 +1582,17 @@ _command_processing:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:186: break;
+;	character.c:208: break;
 	sjmp	00113$
 00109$:
-;	character.c:190: int temp = ch - '0';
+;	character.c:212: int temp = ch - '0';
 	mov	a,r2
 	add	a,#0xd0
 	mov	r2,a
 	mov	a,r4
 	addc	a,#0xff
 	mov	r4,a
-;	character.c:191: buffer_to_delete = buffer_to_delete * 10 + temp;
+;	character.c:213: buffer_to_delete = buffer_to_delete * 10 + temp;
 	mov	dptr,#_buffer_to_delete
 	movx	a,@dptr
 	mov	r1,a
@@ -1630,21 +1623,21 @@ _command_processing:
 	addc	a,b
 	inc	dptr
 	movx	@dptr,a
-;	character.c:193: ch = getchar();
+;	character.c:215: ch = getchar();
 	lcall	_getchar
 	mov	r3,dpl
 	mov	r4,dph
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:195: }while(ch != '\r');
+;	character.c:217: }while(ch != '\r');
 	cjne	r3,#0x0d,00253$
 	sjmp	00254$
 00253$:
 	ljmp	00111$
 00254$:
 00113$:
-;	character.c:198: if (buffer_to_delete == 0)
+;	character.c:220: if (buffer_to_delete == 0)
 	mov	dptr,#_buffer_to_delete
 	movx	a,@dptr
 	mov	r3,a
@@ -1653,18 +1646,18 @@ _command_processing:
 	mov	r4,a
 	orl	a,r3
 	jnz	00123$
-;	character.c:200: printf_tiny("\033[1;31mInvalid input : buffer number can't be 0\n\r\n");
-	mov	a,#___str_20
+;	character.c:222: printf_tiny("\033[1;31mInvalid input : buffer number can't be 0\n\r\n");
+	mov	a,#___str_19
 	push	acc
-	mov	a,#(___str_20 >> 8)
+	mov	a,#(___str_19 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:201: break;
-	ljmp	00142$
+;	character.c:223: break;
+	ljmp	00141$
 00123$:
-;	character.c:203: else if(buff_not_cleared[buffer_to_delete] == 0){
+;	character.c:225: else if(buff_not_cleared[buffer_to_delete] == 1){
 	mov	a,r3
 	add	a,r3
 	mov	r1,a
@@ -1681,23 +1674,24 @@ _command_processing:
 	mov	r1,a
 	inc	dptr
 	movx	a,@dptr
-	orl	a,r1
-	jnz	00120$
-;	character.c:204: printf_tiny("\033[1;31mInvalid input : buffer[%d] was already cleared earlier\n\r",buffer_to_delete);
+	mov	r2,a
+	cjne	r1,#0x01,00120$
+	cjne	r2,#0x00,00120$
+;	character.c:226: printf_tiny("\033[1;31mInvalid input : buffer[%d] was already cleared earlier\n\r",buffer_to_delete);
 	push	ar3
 	push	ar4
-	mov	a,#___str_21
+	mov	a,#___str_20
 	push	acc
-	mov	a,#(___str_21 >> 8)
+	mov	a,#(___str_20 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	character.c:205: break;
-	ljmp	00142$
+;	character.c:227: break;
+	ljmp	00141$
 00120$:
-;	character.c:207: else if ((buffer_to_delete) >= *new_buffer_index) {
+;	character.c:229: else if ((buffer_to_delete) >= *new_buffer_index) {
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -1715,18 +1709,18 @@ _command_processing:
 	xrl	b,#0x80
 	subb	a,b
 	jc	00117$
-;	character.c:208: printf_tiny("\033[1;31mInvalid input : buffer number doesn't exist\n\r");
-	mov	a,#___str_22
+;	character.c:230: printf_tiny("\033[1;31mInvalid input : buffer number doesn't exist\n\r");
+	mov	a,#___str_21
 	push	acc
-	mov	a,#(___str_22 >> 8)
+	mov	a,#(___str_21 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:209: break;
-	ljmp	00142$
+;	character.c:231: break;
+	ljmp	00141$
 00117$:
-;	character.c:213: printf_tiny("\033[1;0mBuffer [%d] requested to be deleted\n\r", buffer_to_delete);
+;	character.c:236: printf_tiny("\033[1;0mBuffer [%d] requested to be deleted\n\r", buffer_to_delete);
 	push	ar5
 	push	ar6
 	push	ar7
@@ -1735,18 +1729,18 @@ _command_processing:
 	push	ar5
 	push	ar3
 	push	ar4
-	mov	a,#___str_23
+	mov	a,#___str_22
 	push	acc
-	mov	a,#(___str_23 >> 8)
+	mov	a,#(___str_22 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	mov	a,sp
 	add	a,#0xfc
 	mov	sp,a
-;	character.c:214: printf("Performing buffer freeing operation\r\n");
-	mov	a,#___str_24
+;	character.c:237: printf("Performing buffer freeing operation\r\n");
+	mov	a,#___str_23
 	push	acc
-	mov	a,#(___str_24 >> 8)
+	mov	a,#(___str_23 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -1754,7 +1748,7 @@ _command_processing:
 	dec	sp
 	dec	sp
 	dec	sp
-;	character.c:215: free(new_buffer_arr[buffer_to_delete]);
+;	character.c:238: free(new_buffer_arr[buffer_to_delete]);
 	mov	dptr,#_buffer_to_delete
 	movx	a,@dptr
 	mov	r3,a
@@ -1786,7 +1780,30 @@ _command_processing:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:216: buff_not_cleared[buffer_to_delete] =0;
+;	character.c:239: new_buffer_arr[buffer_to_delete] = 0;
+	mov	dptr,#_buffer_to_delete
+	movx	a,@dptr
+	mov	r3,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r4,a
+	mov	a,r3
+	add	a,r3
+	mov	r3,a
+	mov	a,r4
+	rlc	a
+	mov	r4,a
+	mov	a,r3
+	add	a,#_new_buffer_arr
+	mov	dpl,a
+	mov	a,r4
+	addc	a,#(_new_buffer_arr >> 8)
+	mov	dph,a
+	clr	a
+	movx	@dptr,a
+	inc	dptr
+	movx	@dptr,a
+;	character.c:240: buff_not_cleared[buffer_to_delete] = 1;
 	mov	dptr,#_buffer_to_delete
 	movx	a,@dptr
 	mov	r3,a
@@ -1805,11 +1822,12 @@ _command_processing:
 	mov	a,r4
 	addc	a,#(_buff_not_cleared >> 8)
 	mov	dph,a
-	clr	a
+	mov	a,#0x01
 	movx	@dptr,a
+	clr	a
 	inc	dptr
 	movx	@dptr,a
-;	character.c:217: ++(*free_buffer_count);
+;	character.c:241: ++(*free_buffer_count);
 	mov	dptr,#_command_processing_PARM_4
 	movx	a,@dptr
 	mov	r2,a
@@ -1828,9 +1846,9 @@ _command_processing:
 	lcall	__gptrget
 	mov	r1,a
 	inc	r0
-	cjne	r0,#0x00,00258$
+	cjne	r0,#0x00,00259$
 	inc	r1
-00258$:
+00259$:
 	mov	dpl,r2
 	mov	dph,r3
 	mov	b,r4
@@ -1839,7 +1857,7 @@ _command_processing:
 	inc	dptr
 	mov	a,r1
 	lcall	__gptrput
-;	character.c:219: if(new_buffer_arr[buffer_to_delete] == NULL)
+;	character.c:243: if(new_buffer_arr[buffer_to_delete] == 0)
 	mov	dptr,#_buffer_to_delete
 	movx	a,@dptr
 	mov	r0,a
@@ -1867,7 +1885,7 @@ _command_processing:
 	pop	ar6
 	pop	ar5
 	jnz	00115$
-;	character.c:221: printf("***Buffer [%d] is freed****\n\r",buffer_to_delete);
+;	character.c:245: printf("***Buffer [%d] is freed****\n\r",buffer_to_delete);
 	push	ar7
 	push	ar6
 	push	ar5
@@ -1876,9 +1894,9 @@ _command_processing:
 	push	ar2
 	push	ar0
 	push	ar1
-	mov	a,#___str_25
+	mov	a,#___str_24
 	push	acc
-	mov	a,#(___str_25 >> 8)
+	mov	a,#(___str_24 >> 8)
 	push	acc
 	mov	a,#0x80
 	push	acc
@@ -1893,7 +1911,7 @@ _command_processing:
 	pop	ar6
 	pop	ar7
 00115$:
-;	character.c:223: printf_tiny("\033[1;0mBuffer[%d] de-allocated successfully  \n\r", buffer_to_delete);
+;	character.c:248: printf_tiny("\033[1;0mBuffer[%d] de-allocated successfully  \n\r", buffer_to_delete);
 	push	ar7
 	push	ar6
 	push	ar5
@@ -1906,9 +1924,9 @@ _command_processing:
 	inc	dptr
 	movx	a,@dptr
 	push	acc
-	mov	a,#___str_26
+	mov	a,#___str_25
 	push	acc
-	mov	a,#(___str_26 >> 8)
+	mov	a,#(___str_25 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	mov	a,sp
@@ -1920,7 +1938,7 @@ _command_processing:
 	pop	ar5
 	pop	ar6
 	pop	ar7
-;	character.c:224: printf_tiny("\033[1;0mTotal Number of Buffers after deallocation = [%d]\n\r\n\r",*new_buffer_index);
+;	character.c:249: printf_tiny("\033[1;0mTotal Number of Buffers after deallocation = [%d]\n\r\n\r",*new_buffer_index);
 	mov	dpl,r5
 	mov	dph,r6
 	mov	b,r7
@@ -1934,9 +1952,9 @@ _command_processing:
 	push	ar2
 	push	ar5
 	push	ar6
-	mov	a,#___str_27
+	mov	a,#___str_26
 	push	acc
-	mov	a,#(___str_27 >> 8)
+	mov	a,#(___str_26 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	mov	a,sp
@@ -1945,7 +1963,7 @@ _command_processing:
 	pop	ar2
 	pop	ar3
 	pop	ar4
-;	character.c:225: printf_tiny("\033[1;0mTotal Filled Buffers = [%d] \r\nTotal Empty Buffers = [%d] \n\r\n\r",(*filled_buffer_count),(*free_buffer_count));
+;	character.c:250: printf_tiny("\033[1;0mTotal Filled Buffers = [%d] \r\nTotal Empty Buffers  = [%d] \n\r\n\r",(*filled_buffer_count),(*free_buffer_count));
 	mov	dpl,r2
 	mov	dph,r3
 	mov	b,r4
@@ -1975,27 +1993,30 @@ _command_processing:
 	push	ar3
 	push	ar5
 	push	ar6
-	mov	a,#___str_14
+	mov	a,#___str_27
 	push	acc
-	mov	a,#(___str_14 >> 8)
+	mov	a,#(___str_27 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	mov	a,sp
 	add	a,#0xfa
 	mov	sp,a
-;	character.c:227: break;
-	ljmp	00142$
-;	character.c:230: case '@': // if input character is '@'
+;	character.c:252: DEBUGPORT(0x20);
+	mov	dpl,#0x20
+	lcall	_dataout
+;	character.c:253: break;
+	ljmp	00141$
+;	character.c:256: case '@': // if input character is '@'
 00125$:
-;	character.c:232: printf_tiny("\033[1;33m|***********************************************|\n\r");
-	mov	a,#___str_6
+;	character.c:258: printf_tiny("\033[1;33m|***********************************************|\n\r");
+	mov	a,#___str_5
 	push	acc
-	mov	a,#(___str_6 >> 8)
+	mov	a,#(___str_5 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:233: printf_tiny("\033[1;33m|************ Processing [@] *******************|\n\r");
+;	character.c:259: printf_tiny("\033[1;33m|************ Processing [@] *******************|\n\r");
 	mov	a,#___str_28
 	push	acc
 	mov	a,#(___str_28 >> 8)
@@ -2003,15 +2024,15 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:234: printf_tiny("\033[1;33m|***********************************************|\n\r");
-	mov	a,#___str_6
+;	character.c:260: printf_tiny("\033[1;33m|***********************************************|\n\r");
+	mov	a,#___str_5
 	push	acc
-	mov	a,#(___str_6 >> 8)
+	mov	a,#(___str_5 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:237: for(int i = 0; i < *new_buffer_index; i++) {
+;	character.c:263: for(int i = 0; i < *new_buffer_index; i++) {
 	mov	dptr,#_command_processing_PARM_3
 	movx	a,@dptr
 	mov	_command_processing_sloc1_1_0,a
@@ -2023,7 +2044,7 @@ _command_processing:
 	mov	(_command_processing_sloc1_1_0 + 2),a
 	mov	r3,#0x00
 	mov	r4,#0x00
-00144$:
+00143$:
 	mov	dpl,_command_processing_sloc1_1_0
 	mov	dph,(_command_processing_sloc1_1_0 + 1)
 	mov	b,(_command_processing_sloc1_1_0 + 2)
@@ -2040,10 +2061,10 @@ _command_processing:
 	mov	b,r2
 	xrl	b,#0x80
 	subb	a,b
-	jc	00260$
+	jc	00261$
 	ljmp	00129$
-00260$:
-;	character.c:238: char* buffer_to_free = new_buffer_arr[i];
+00261$:
+;	character.c:264: char* buffer_to_free = new_buffer_arr[i];
 	mov	a,r3
 	add	a,r3
 	mov	r1,a
@@ -2066,11 +2087,11 @@ _command_processing:
 	mov	_command_processing_sloc2_1_0,r0
 	mov	(_command_processing_sloc2_1_0 + 1),r7
 	mov	(_command_processing_sloc2_1_0 + 2),#0x00
-;	character.c:239: if(buffer_to_free != NULL) {
+;	character.c:265: if(buffer_to_free != NULL) {
 	mov	a,r0
 	orl	a,r7
 	jz	00127$
-;	character.c:240: free(buffer_to_free);
+;	character.c:266: free(buffer_to_free);
 	mov	r5,_command_processing_sloc2_1_0
 	mov	r6,(_command_processing_sloc2_1_0 + 1)
 	mov	r7,(_command_processing_sloc2_1_0 + 2)
@@ -2086,14 +2107,14 @@ _command_processing:
 	pop	ar2
 	pop	ar3
 	pop	ar4
-;	character.c:241: new_buffer_arr[i] = NULL;
+;	character.c:267: new_buffer_arr[i] = NULL;
 	mov	dpl,r1
 	mov	dph,r2
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-;	character.c:242: printf_tiny("\033[1;0mBuffer[%d] freed\n\r",i);
+;	character.c:268: printf_tiny("\033[1;0mBuffer[%d] freed\n\r",i);
 	push	ar4
 	push	ar3
 	push	ar3
@@ -2108,9 +2129,9 @@ _command_processing:
 	mov	sp,a
 	pop	ar3
 	pop	ar4
-	sjmp	00145$
+	sjmp	00144$
 00127$:
-;	character.c:244: printf_tiny("\033[1;0mBuffer[%d] was already NULL\n\r",i);
+;	character.c:270: printf_tiny("\033[1;0mBuffer[%d] was already NULL\n\r",i);
 	push	ar4
 	push	ar3
 	push	ar3
@@ -2125,15 +2146,15 @@ _command_processing:
 	mov	sp,a
 	pop	ar3
 	pop	ar4
-00145$:
-;	character.c:237: for(int i = 0; i < *new_buffer_index; i++) {
+00144$:
+;	character.c:263: for(int i = 0; i < *new_buffer_index; i++) {
 	inc	r3
-	cjne	r3,#0x00,00262$
+	cjne	r3,#0x00,00263$
 	inc	r4
-00262$:
-	ljmp	00144$
+00263$:
+	ljmp	00143$
 00129$:
-;	character.c:249: *new_buffer_index = 0;
+;	character.c:275: *new_buffer_index = 0;
 	mov	dpl,_command_processing_sloc1_1_0
 	mov	dph,(_command_processing_sloc1_1_0 + 1)
 	mov	b,(_command_processing_sloc1_1_0 + 2)
@@ -2141,7 +2162,7 @@ _command_processing:
 	lcall	__gptrput
 	inc	dptr
 	lcall	__gptrput
-;	character.c:250: (*filled_buffer_count) = 0;
+;	character.c:276: (*filled_buffer_count) = 0;
 	mov	dptr,#_command_processing_PARM_5
 	movx	a,@dptr
 	mov	r5,a
@@ -2158,7 +2179,7 @@ _command_processing:
 	lcall	__gptrput
 	inc	dptr
 	lcall	__gptrput
-;	character.c:251: (*free_buffer_count) = 0;
+;	character.c:277: (*free_buffer_count) = 0;
 	mov	dptr,#_command_processing_PARM_4
 	movx	a,@dptr
 	mov	r5,a
@@ -2175,12 +2196,12 @@ _command_processing:
 	lcall	__gptrput
 	inc	dptr
 	lcall	__gptrput
-;	character.c:252: return ALL_BUFFER_CLEARED;
+;	character.c:278: return ALL_BUFFER_CLEARED;
 	mov	dptr,#0x0001
 	ret
-;	character.c:254: case '=': // if input character is '='
+;	character.c:281: case '=': // if input character is '='
 00130$:
-;	character.c:256: printf_tiny("\033[1;33m\r\n|************ Processing [=] *******************|\n\r");
+;	character.c:283: printf_tiny("\033[1;33m\r\n|************ Processing [=] *******************|\n\r");
 	mov	a,#___str_31
 	push	acc
 	mov	a,#(___str_31 >> 8)
@@ -2188,22 +2209,25 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:259: buffer0_hexdump(LENGTH_16);
+;	character.c:286: buffer0_hexdump(LENGTH_16);
 	mov	dptr,#0x0010
 	lcall	_buffer0_hexdump
-;	character.c:260: break;
-	ljmp	00142$
-;	character.c:262: case '?':  // if input character is '?'
+;	character.c:287: DEBUGPORT(0x40);
+	mov	dpl,#0x40
+	lcall	_dataout
+;	character.c:288: break;
+	ljmp	00141$
+;	character.c:290: case '?':  // if input character is '?'
 00131$:
-;	character.c:264: printf_tiny("\033[1;33m|***********************************************|\n\r");
-	mov	a,#___str_6
+;	character.c:292: printf_tiny("\033[1;33m|***********************************************|\n\r");
+	mov	a,#___str_5
 	push	acc
-	mov	a,#(___str_6 >> 8)
+	mov	a,#(___str_5 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:265: printf_tiny("\033[1;33m|************ Processing [?] *******************|\n\r");
+;	character.c:293: printf_tiny("\033[1;33m|************ Processing [?] *******************|\n\r");
 	mov	a,#___str_32
 	push	acc
 	mov	a,#(___str_32 >> 8)
@@ -2211,15 +2235,15 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:266: printf_tiny("\033[1;33m|***********************************************|\n\r");
-	mov	a,#___str_6
+;	character.c:294: printf_tiny("\033[1;33m|***********************************************|\n\r");
+	mov	a,#___str_5
 	push	acc
-	mov	a,#(___str_6 >> 8)
+	mov	a,#(___str_5 >> 8)
 	push	acc
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:269: printf_tiny(" \033[1;34m\r\n|***********************************************|\n\r");
+;	character.c:297: printf_tiny(" \033[1;34m\r\n|***********************************************|\n\r");
 	mov	a,#___str_33
 	push	acc
 	mov	a,#(___str_33 >> 8)
@@ -2227,7 +2251,7 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:270: printf_tiny(" \033[1;34m|*************** HEAP REPORT *******************|\n\r");
+;	character.c:298: printf_tiny(" \033[1;34m|*************** HEAP REPORT *******************|\n\r");
 	mov	a,#___str_34
 	push	acc
 	mov	a,#(___str_34 >> 8)
@@ -2235,7 +2259,7 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:271: printf_tiny(" \033[1;34m|***********************************************|\n\r");
+;	character.c:299: printf_tiny(" \033[1;34m|***********************************************|\n\r");
 	mov	a,#___str_35
 	push	acc
 	mov	a,#(___str_35 >> 8)
@@ -2243,25 +2267,25 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:272: for(int i=0; i<*new_buffer_index; i++)              // iterate over the new buffer array using a loop variable i
+;	character.c:300: for(int i=0; i<*new_buffer_index; i++)              // iterate over the new buffer array using a loop variable i
 	mov	dptr,#_command_processing_PARM_6
 	movx	a,@dptr
-	mov	_command_processing_sloc4_1_0,a
+	mov	r5,a
 	inc	dptr
 	movx	a,@dptr
-	mov	(_command_processing_sloc4_1_0 + 1),a
+	mov	r6,a
 	inc	dptr
 	movx	a,@dptr
-	mov	(_command_processing_sloc4_1_0 + 2),a
+	mov	r7,a
 	mov	dptr,#_command_processing_PARM_7
 	movx	a,@dptr
-	mov	r2,a
+	mov	_command_processing_sloc3_1_0,a
 	inc	dptr
 	movx	a,@dptr
-	mov	r3,a
+	mov	(_command_processing_sloc3_1_0 + 1),a
 	inc	dptr
 	movx	a,@dptr
-	mov	r4,a
+	mov	(_command_processing_sloc3_1_0 + 2),a
 	mov	dptr,#_command_processing_PARM_3
 	movx	a,@dptr
 	mov	_command_processing_sloc2_1_0,a
@@ -2273,10 +2297,7 @@ _command_processing:
 	mov	(_command_processing_sloc2_1_0 + 2),a
 	mov	r0,#0x00
 	mov	r1,#0x00
-00147$:
-	push	ar2
-	push	ar3
-	push	ar4
+00146$:
 	mov	dpl,_command_processing_sloc2_1_0
 	mov	dph,(_command_processing_sloc2_1_0 + 1)
 	mov	b,(_command_processing_sloc2_1_0 + 2)
@@ -2293,13 +2314,10 @@ _command_processing:
 	mov	b,r4
 	xrl	b,#0x80
 	subb	a,b
-	pop	ar4
-	pop	ar3
-	pop	ar2
-	jc	00263$
-	ljmp	00138$
-00263$:
-;	character.c:274: if( (new_buffer_arr[i] == NULL) || (new_buffer_arr[i] == 0) )                   // check if the current buffer is already cleared
+	jc	00264$
+	ljmp	00137$
+00264$:
+;	character.c:302: if(new_buffer_arr[i] == 0)                      // check if the current buffer is already cleared
 	mov	a,r0
 	add	a,r0
 	mov	_command_processing_sloc1_1_0,a
@@ -2315,45 +2333,42 @@ _command_processing:
 	mov	dpl,_command_processing_sloc0_1_0
 	mov	dph,(_command_processing_sloc0_1_0 + 1)
 	movx	a,@dptr
-	mov	_command_processing_sloc3_1_0,a
+	mov	r3,a
 	inc	dptr
 	movx	a,@dptr
-	mov	(_command_processing_sloc3_1_0 + 1),a
-	mov	a,_command_processing_sloc3_1_0
-	orl	a,(_command_processing_sloc3_1_0 + 1)
-	jz	00132$
-	mov	a,_command_processing_sloc3_1_0
-	orl	a,(_command_processing_sloc3_1_0 + 1)
+	orl	a,r3
 	jnz	00133$
-00132$:
-;	character.c:276: printf_tiny("\033[1;31m\n\rBuffer [%d] already cleared!!\n\r"); // print a message indicating the buffer is already cleared
-	push	ar4
-	push	ar3
-	push	ar2
+;	character.c:304: printf_tiny("\033[1;31m\n\rBuffer [%d] already cleared!!\n\r",i); // print a message indicating the buffer is already cleared
+	push	ar7
+	push	ar6
+	push	ar5
 	push	ar1
 	push	ar0
+	push	ar0
+	push	ar1
 	mov	a,#___str_36
 	push	acc
 	mov	a,#(___str_36 >> 8)
 	push	acc
 	lcall	_printf_tiny
-	dec	sp
-	dec	sp
+	mov	a,sp
+	add	a,#0xfc
+	mov	sp,a
 	pop	ar0
 	pop	ar1
-	pop	ar2
-	pop	ar3
-	pop	ar4
-;	character.c:277: continue;                                    // continue the loop as there is no need to iterate further
-	ljmp	00137$
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	character.c:305: continue;                                    // continue the loop as there is no need to iterate further
+	ljmp	00136$
 00133$:
-;	character.c:280: printf("\033[1;36m\n\r**Buffer [%d]**\n\r",i);  // print the buffer index in bold cyan color
-	push	ar2
-	push	ar3
-	push	ar4
-	push	ar4
-	push	ar3
-	push	ar2
+;	character.c:308: printf("\033[1;36m\n\r**Buffer [%d]**\n\r",i);  // print the buffer index in bold cyan color
+	push	ar5
+	push	ar6
+	push	ar7
+	push	ar7
+	push	ar6
+	push	ar5
 	push	ar1
 	push	ar0
 	push	ar0
@@ -2370,10 +2385,7 @@ _command_processing:
 	mov	sp,a
 	pop	ar0
 	pop	ar1
-	pop	ar2
-	pop	ar3
-	pop	ar4
-;	character.c:281: printf("\033[1;0m\n\rBuffer [%d] : Start Address = [%p] \n\r",i,new_buffer_arr[i]); // print the start address of the buffer with index i
+;	character.c:309: printf("\033[1;0m\n\rBuffer [%d] : Start Address = [%p] \n\r",i,new_buffer_arr[i]); // print the start address of the buffer with index i
 	mov	dpl,_command_processing_sloc0_1_0
 	mov	dph,(_command_processing_sloc0_1_0 + 1)
 	movx	a,@dptr
@@ -2382,9 +2394,6 @@ _command_processing:
 	movx	a,@dptr
 	mov	r4,a
 	mov	r2,#0x00
-	push	ar4
-	push	ar3
-	push	ar2
 	push	ar1
 	push	ar0
 	push	ar3
@@ -2404,44 +2413,45 @@ _command_processing:
 	mov	sp,a
 	pop	ar0
 	pop	ar1
-	pop	ar2
-	pop	ar3
-	pop	ar4
-;	character.c:282: printf("\033[1;0m\n\rBuffer [%d] : End Address   = [%p] \n\r",i,new_buffer_arr[i] + buffer_size_arr[i]); // print the end address of the buffer with index i
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	character.c:310: printf("\033[1;0m\n\rBuffer [%d] : End Address   = [%p] \n\r",i,new_buffer_arr[i] + buffer_size_arr[i]); // print the end address of the buffer with index i
 	mov	dpl,_command_processing_sloc0_1_0
 	mov	dph,(_command_processing_sloc0_1_0 + 1)
 	movx	a,@dptr
-	mov	_command_processing_sloc3_1_0,a
+	mov	r3,a
 	inc	dptr
 	movx	a,@dptr
-	mov	(_command_processing_sloc3_1_0 + 1),a
+	mov	r4,a
 	mov	a,_command_processing_sloc1_1_0
 	add	a,#_buffer_size_arr
 	mov	r2,a
 	mov	a,(_command_processing_sloc1_1_0 + 1)
 	addc	a,#(_buffer_size_arr >> 8)
-	mov	r4,a
+	mov	r7,a
 	mov	dpl,r2
-	mov	dph,r4
+	mov	dph,r7
 	movx	a,@dptr
-	mov	r3,a
+	mov	r5,a
 	inc	dptr
 	movx	a,@dptr
-	mov	r7,a
-	mov	a,r3
-	add	a,_command_processing_sloc3_1_0
+	mov	r6,a
+	mov	a,r5
+	add	a,r3
 	mov	r3,a
-	mov	a,r7
-	addc	a,(_command_processing_sloc3_1_0 + 1)
-	mov	r7,a
+	mov	a,r6
+	addc	a,r4
+	mov	r4,a
 	mov	r6,#0x00
-	push	ar4
-	push	ar3
+	push	ar7
+	push	ar6
+	push	ar5
 	push	ar2
 	push	ar1
 	push	ar0
 	push	ar3
-	push	ar7
+	push	ar4
 	push	ar6
 	push	ar0
 	push	ar1
@@ -2458,23 +2468,24 @@ _command_processing:
 	pop	ar0
 	pop	ar1
 	pop	ar2
-	pop	ar3
-	pop	ar4
-;	character.c:283: printf("\033[1;0m\n\rBuffer [%d] : Total Size    = [%d] \n\r",i,buffer_size_arr[i]); // print the total size of the buffer with index i
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	character.c:311: printf("\033[1;0m\n\rBuffer [%d] : Total Size    = [%d] \n\r",i,buffer_size_arr[i]); // print the total size of the buffer with index i
 	mov	dpl,r2
-	mov	dph,r4
+	mov	dph,r7
 	movx	a,@dptr
 	mov	r2,a
 	inc	dptr
 	movx	a,@dptr
-	mov	r4,a
-	push	ar4
-	push	ar3
-	push	ar2
+	mov	r7,a
+	push	ar7
+	push	ar6
+	push	ar5
 	push	ar1
 	push	ar0
 	push	ar2
-	push	ar4
+	push	ar7
 	push	ar0
 	push	ar1
 	mov	a,#___str_40
@@ -2489,32 +2500,32 @@ _command_processing:
 	mov	sp,a
 	pop	ar0
 	pop	ar1
-	pop	ar2
-	pop	ar3
-	pop	ar4
-;	character.c:284: if(i == 0)                                      // if it is the first buffer
-	pop	ar4
-	pop	ar3
-	pop	ar2
+	pop	ar5
+	pop	ar6
+	pop	ar7
+;	character.c:312: if(i == 0)                                      // if it is the first buffer
+	pop	ar7
+	pop	ar6
+	pop	ar5
 	mov	a,r0
 	orl	a,r1
-	jnz	00137$
-;	character.c:286: printf_tiny("\033[1;0m\n\rBuffer[%d] : Number of storage characters since last ?= [%d]\n\r",i,*storage_character_count); // print the number of storage characters since last ?= for the first buffer
-	mov	dpl,_command_processing_sloc4_1_0
-	mov	dph,(_command_processing_sloc4_1_0 + 1)
-	mov	b,(_command_processing_sloc4_1_0 + 2)
+	jnz	00136$
+;	character.c:314: printf_tiny("\033[1;0m\n\rBuffer[%d] : Number of storage characters since last ?= [%d]\n\r",i,*storage_character_count); // print the number of storage characters since last ?= for the first buffer
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
 	lcall	__gptrget
-	mov	r6,a
+	mov	r3,a
 	inc	dptr
 	lcall	__gptrget
-	mov	r7,a
-	push	ar4
-	push	ar3
-	push	ar2
+	mov	r4,a
+	push	ar7
+	push	ar6
+	push	ar5
 	push	ar1
 	push	ar0
-	push	ar6
-	push	ar7
+	push	ar3
+	push	ar4
 	push	ar0
 	push	ar1
 	mov	a,#___str_41
@@ -2527,25 +2538,19 @@ _command_processing:
 	mov	sp,a
 	pop	ar0
 	pop	ar1
-	pop	ar2
-	pop	ar3
-	pop	ar4
-;	character.c:287: printf_tiny("\033[1;0m\n\rBuffer[%d] : Number of storage characters since last ?= [%d]\n\r",i,*total_characters_count); // print the number of storage characters since last ?= for the first buffer
-	mov	dpl,r2
-	mov	dph,r3
-	mov	b,r4
+;	character.c:315: printf_tiny("\033[1;0m\n\rBuffer[%d] : Number of storage characters since last ?= [%d]\n\r",i,*total_characters_count); // print the number of storage characters since last ?= for the first buffer
+	mov	dpl,_command_processing_sloc3_1_0
+	mov	dph,(_command_processing_sloc3_1_0 + 1)
+	mov	b,(_command_processing_sloc3_1_0 + 2)
 	lcall	__gptrget
-	mov	r6,a
+	mov	r3,a
 	inc	dptr
 	lcall	__gptrget
-	mov	r7,a
-	push	ar4
-	push	ar3
-	push	ar2
+	mov	r4,a
 	push	ar1
 	push	ar0
-	push	ar6
-	push	ar7
+	push	ar3
+	push	ar4
 	push	ar0
 	push	ar1
 	mov	a,#___str_41
@@ -2558,38 +2563,38 @@ _command_processing:
 	mov	sp,a
 	pop	ar0
 	pop	ar1
-	pop	ar2
-	pop	ar3
-	pop	ar4
-00137$:
-;	character.c:272: for(int i=0; i<*new_buffer_index; i++)              // iterate over the new buffer array using a loop variable i
+	pop	ar5
+	pop	ar6
+	pop	ar7
+00136$:
+;	character.c:300: for(int i=0; i<*new_buffer_index; i++)              // iterate over the new buffer array using a loop variable i
 	inc	r0
 	cjne	r0,#0x00,00267$
 	inc	r1
 00267$:
-	ljmp	00147$
-00138$:
-;	character.c:291: *storage_character_count = 0;
-	mov	dpl,_command_processing_sloc4_1_0
-	mov	dph,(_command_processing_sloc4_1_0 + 1)
-	mov	b,(_command_processing_sloc4_1_0 + 2)
+	ljmp	00146$
+00137$:
+;	character.c:320: *storage_character_count = 0;
+	mov	dpl,r5
+	mov	dph,r6
+	mov	b,r7
 	clr	a
 	lcall	__gptrput
 	inc	dptr
 	lcall	__gptrput
-;	character.c:292: *total_characters_count = 0;
-	mov	dpl,r2
-	mov	dph,r3
-	mov	b,r4
+;	character.c:321: *total_characters_count = 0;
+	mov	dpl,_command_processing_sloc3_1_0
+	mov	dph,(_command_processing_sloc3_1_0 + 1)
+	mov	b,(_command_processing_sloc3_1_0 + 2)
 	lcall	__gptrput
 	inc	dptr
 	lcall	__gptrput
-;	character.c:295: buffer0_hexdump(LENGTH_32);
+;	character.c:324: buffer0_hexdump(LENGTH_32);
 	mov	dptr,#0x0020
 	lcall	_buffer0_hexdump
-;	character.c:298: empty_buffer0();
+;	character.c:327: empty_buffer0();
 	lcall	_empty_buffer0
-;	character.c:300: printf_tiny(" \033[1;34m|************ REPORT ENDED  *******************|\n\r\n\r\n\r");
+;	character.c:329: printf_tiny("\r\n\033[1;34m|************ REPORT ENDED  ********************|\n\r\n\r\n\r");
 	mov	a,#___str_42
 	push	acc
 	mov	a,#(___str_42 >> 8)
@@ -2597,14 +2602,22 @@ _command_processing:
 	lcall	_printf_tiny
 	dec	sp
 	dec	sp
-;	character.c:302: return BUFFER0_CLEARED;
+;	character.c:331: DEBUGPORT(0x50);
+	mov	dpl,#0x50
+	lcall	_dataout
+;	character.c:332: return BUFFER0_CLEARED;
 	mov	dptr,#0x0002
-;	character.c:307: }
+;	character.c:336: default:
 	ret
-00142$:
-;	character.c:309: return ALL_BUFFER_NOT_CLEARED;
+00138$:
+;	character.c:337: DEBUGPORT(0x60);
+	mov	dpl,#0x60
+	lcall	_dataout
+;	character.c:339: }
+00141$:
+;	character.c:341: return ALL_BUFFER_NOT_CLEARED;
 	mov	dptr,#0x0000
-;	character.c:310: }
+;	character.c:342: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
@@ -2618,35 +2631,30 @@ ___str_0:
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_1:
-	.ascii "%p :"
-	.db 0x00
-	.area CSEG    (CODE)
-	.area CONST   (CODE)
-___str_2:
 	.db 0x1b
 	.ascii "[1;34m%p :"
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_3:
+___str_2:
 	.db 0x1b
 	.ascii "[1;34m XX"
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_4:
+___str_3:
 	.db 0x1b
 	.ascii "[1;34m %x"
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_5:
+___str_4:
 	.db 0x1b
 	.ascii "[1;34m %d"
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_6:
+___str_5:
 	.db 0x1b
 	.ascii "[1;33m|***********************************************|"
 	.db 0x0a
@@ -2654,7 +2662,7 @@ ___str_6:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_7:
+___str_6:
 	.db 0x1b
 	.ascii "[1;33m|************ Processing [+] *******************|"
 	.db 0x0a
@@ -2662,7 +2670,7 @@ ___str_7:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_8:
+___str_7:
 	.db 0x1b
 	.ascii "[1;36m|***********************************************|"
 	.db 0x0a
@@ -2670,7 +2678,7 @@ ___str_8:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_9:
+___str_8:
 	.db 0x1b
 	.ascii "[1;36m|********* Enter size for new bufer ************|"
 	.db 0x0a
@@ -2678,7 +2686,7 @@ ___str_9:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_10:
+___str_9:
 	.db 0x1b
 	.ascii "[1;31mInvalid Input : The buffer size should be in the range"
 	.ascii " [30, 300]"
@@ -2689,7 +2697,7 @@ ___str_10:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_11:
+___str_10:
 	.db 0x1b
 	.ascii "[1;31mInvalid input : Failed to allocate buffer"
 	.db 0x0a
@@ -2699,7 +2707,7 @@ ___str_11:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_12:
+___str_11:
 	.db 0x1b
 	.ascii "[1;0mNew buffer allocated successfully : Buffer[%d]"
 	.db 0x0a
@@ -2707,7 +2715,7 @@ ___str_12:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_13:
+___str_12:
 	.db 0x1b
 	.ascii "[1;0mTotal Number of Buffers including buffer0 & buffer1 = ["
 	.ascii "%d]"
@@ -2716,7 +2724,7 @@ ___str_13:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_14:
+___str_13:
 	.db 0x1b
 	.ascii "[1;0mTotal Filled Buffers = [%d] "
 	.db 0x0d
@@ -2729,7 +2737,7 @@ ___str_14:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_15:
+___str_14:
 	.db 0x1b
 	.ascii "[1;33m|************ Processing [-] *******************|"
 	.db 0x0a
@@ -2737,7 +2745,7 @@ ___str_15:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_16:
+___str_15:
 	.db 0x1b
 	.ascii "[1;36m|********* Enter buffer to be deleted **********|"
 	.db 0x0a
@@ -2745,7 +2753,7 @@ ___str_16:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_17:
+___str_16:
 	.db 0x1b
 	.ascii "[1;36m|********* Current No of buffers:[%d] ***********|"
 	.db 0x0a
@@ -2753,7 +2761,7 @@ ___str_17:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_18:
+___str_17:
 	.db 0x1b
 	.ascii "[1;36m|********* Note : Index Starts with 0 **********|"
 	.db 0x0a
@@ -2761,7 +2769,7 @@ ___str_18:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_19:
+___str_18:
 	.db 0x1b
 	.ascii "[1;31mInvalid input : invalid digits entered "
 	.db 0x0a
@@ -2771,7 +2779,7 @@ ___str_19:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_20:
+___str_19:
 	.db 0x1b
 	.ascii "[1;31mInvalid input : buffer number can't be 0"
 	.db 0x0a
@@ -2780,7 +2788,7 @@ ___str_20:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_21:
+___str_20:
 	.db 0x1b
 	.ascii "[1;31mInvalid input : buffer[%d] was already cleared earlier"
 	.db 0x0a
@@ -2788,7 +2796,7 @@ ___str_21:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_22:
+___str_21:
 	.db 0x1b
 	.ascii "[1;31mInvalid input : buffer number doesn't exist"
 	.db 0x0a
@@ -2796,7 +2804,7 @@ ___str_22:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_23:
+___str_22:
 	.db 0x1b
 	.ascii "[1;0mBuffer [%d] requested to be deleted"
 	.db 0x0a
@@ -2804,21 +2812,21 @@ ___str_23:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_24:
+___str_23:
 	.ascii "Performing buffer freeing operation"
 	.db 0x0d
 	.db 0x0a
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_25:
+___str_24:
 	.ascii "***Buffer [%d] is freed****"
 	.db 0x0a
 	.db 0x0d
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_26:
+___str_25:
 	.db 0x1b
 	.ascii "[1;0mBuffer[%d] de-allocated successfully  "
 	.db 0x0a
@@ -2826,9 +2834,22 @@ ___str_26:
 	.db 0x00
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
-___str_27:
+___str_26:
 	.db 0x1b
 	.ascii "[1;0mTotal Number of Buffers after deallocation = [%d]"
+	.db 0x0a
+	.db 0x0d
+	.db 0x0a
+	.db 0x0d
+	.db 0x00
+	.area CSEG    (CODE)
+	.area CONST   (CODE)
+___str_27:
+	.db 0x1b
+	.ascii "[1;0mTotal Filled Buffers = [%d] "
+	.db 0x0d
+	.db 0x0a
+	.ascii "Total Empty Buffers  = [%d] "
 	.db 0x0a
 	.db 0x0d
 	.db 0x0a
@@ -2976,9 +2997,10 @@ ___str_41:
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 ___str_42:
-	.ascii " "
+	.db 0x0d
+	.db 0x0a
 	.db 0x1b
-	.ascii "[1;34m|************ REPORT ENDED  *******************|"
+	.ascii "[1;34m|************ REPORT ENDED  ********************|"
 	.db 0x0a
 	.db 0x0d
 	.db 0x0a

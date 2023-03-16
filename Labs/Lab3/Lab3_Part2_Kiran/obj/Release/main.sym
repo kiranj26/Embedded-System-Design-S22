@@ -489,13 +489,13 @@ Symbol Table
     _free                                                          ****** GX
     _getchar                                                       ****** GX
  17 _main                                                          000007 GR
-  B _main_buffer0_allocated_65538_54                               0000D4 R
-  B _main_filled_buffer_count_65537_53                             0000CE R
-  B _main_free_buffer_count_65537_53                               0000CC R
-  B _main_i_65537_53                                               0000C8 R
-  B _main_new_buffer_index_65537_53                                0000CA R
-  B _main_storage_character_count_65538_54                         0000D0 R
-  B _main_total_characters_count_65538_54                          0000D2 R
+  B _main_buffer0_allocated_65538_55                               0000D4 R
+  B _main_filled_buffer_count_65537_54                             0000CE R
+  B _main_free_buffer_count_65537_54                               0000CC R
+  B _main_i_65537_54                                               0000C8 R
+  B _main_new_buffer_index_65537_54                                0000CA R
+  B _main_storage_character_count_65538_55                         0000D0 R
+  B _main_total_characters_count_65538_55                          0000D2 R
     _malloc                                                        ****** GX
   B _new_buffer_arr                                                000000 GR
     _printf                                                        ****** GX

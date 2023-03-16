@@ -530,27 +530,27 @@
                            000001   530 	ar1 = 0x01
                            000000   531 	ar0 = 0x00
                                     532 ;	buffer.c:39: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      002062 74 95            [12]  533 	mov	a,#___str_0
+      002062 74 80            [12]  533 	mov	a,#___str_0
       002064 C0 E0            [24]  534 	push	acc
       002066 74 44            [12]  535 	mov	a,#(___str_0 >> 8)
       002068 C0 E0            [24]  536 	push	acc
-      00206A 12 36 1B         [24]  537 	lcall	_printf_tiny
+      00206A 12 36 06         [24]  537 	lcall	_printf_tiny
       00206D 15 81            [12]  538 	dec	sp
       00206F 15 81            [12]  539 	dec	sp
                                     540 ;	buffer.c:40: printf_tiny("|  Buffer 0 and Buffer 1 Allocation Processing  |\n\r");
-      002071 74 D0            [12]  541 	mov	a,#___str_1
+      002071 74 BB            [12]  541 	mov	a,#___str_1
       002073 C0 E0            [24]  542 	push	acc
       002075 74 44            [12]  543 	mov	a,#(___str_1 >> 8)
       002077 C0 E0            [24]  544 	push	acc
-      002079 12 36 1B         [24]  545 	lcall	_printf_tiny
+      002079 12 36 06         [24]  545 	lcall	_printf_tiny
       00207C 15 81            [12]  546 	dec	sp
       00207E 15 81            [12]  547 	dec	sp
                                     548 ;	buffer.c:41: printf_tiny("\033[1;33m|***********************************************|\n\r");
-      002080 74 95            [12]  549 	mov	a,#___str_0
+      002080 74 80            [12]  549 	mov	a,#___str_0
       002082 C0 E0            [24]  550 	push	acc
       002084 74 44            [12]  551 	mov	a,#(___str_0 >> 8)
       002086 C0 E0            [24]  552 	push	acc
-      002088 12 36 1B         [24]  553 	lcall	_printf_tiny
+      002088 12 36 06         [24]  553 	lcall	_printf_tiny
       00208B 15 81            [12]  554 	dec	sp
       00208D 15 81            [12]  555 	dec	sp
                                     556 ;	buffer.c:43: __xdata char input[5] = {'0', '0', '0', '0', '\0'}; // Initialize input array
@@ -569,32 +569,32 @@
                                     569 ;	buffer.c:46: while (1) {
       0020A6                        570 00116$:
                                     571 ;	buffer.c:47: printf_tiny("\033[1;36m\n\r|***********************************************|\n\r");
-      0020A6 74 04            [12]  572 	mov	a,#___str_2
+      0020A6 74 EF            [12]  572 	mov	a,#___str_2
       0020A8 C0 E0            [24]  573 	push	acc
-      0020AA 74 45            [12]  574 	mov	a,#(___str_2 >> 8)
+      0020AA 74 44            [12]  574 	mov	a,#(___str_2 >> 8)
       0020AC C0 E0            [24]  575 	push	acc
-      0020AE 12 36 1B         [24]  576 	lcall	_printf_tiny
+      0020AE 12 36 06         [24]  576 	lcall	_printf_tiny
       0020B1 15 81            [12]  577 	dec	sp
       0020B3 15 81            [12]  578 	dec	sp
                                     579 ;	buffer.c:48: printf_tiny("\033[1;36m|       Enter the size for buffer0 & buffer1    |\n\r");
-      0020B5 74 41            [12]  580 	mov	a,#___str_3
+      0020B5 74 2C            [12]  580 	mov	a,#___str_3
       0020B7 C0 E0            [24]  581 	push	acc
       0020B9 74 45            [12]  582 	mov	a,#(___str_3 >> 8)
       0020BB C0 E0            [24]  583 	push	acc
-      0020BD 12 36 1B         [24]  584 	lcall	_printf_tiny
+      0020BD 12 36 06         [24]  584 	lcall	_printf_tiny
       0020C0 15 81            [12]  585 	dec	sp
       0020C2 15 81            [12]  586 	dec	sp
                                     587 ;	buffer.c:49: printf_tiny("\033[1;36m|***********************************************|\n\r");
-      0020C4 74 7C            [12]  588 	mov	a,#___str_4
+      0020C4 74 67            [12]  588 	mov	a,#___str_4
       0020C6 C0 E0            [24]  589 	push	acc
       0020C8 74 45            [12]  590 	mov	a,#(___str_4 >> 8)
       0020CA C0 E0            [24]  591 	push	acc
-      0020CC 12 36 1B         [24]  592 	lcall	_printf_tiny
+      0020CC 12 36 06         [24]  592 	lcall	_printf_tiny
       0020CF 15 81            [12]  593 	dec	sp
       0020D1 15 81            [12]  594 	dec	sp
                                     595 ;	buffer.c:52: gets_(input);                                   // Read user input as a string
       0020D3 90 1B 70         [24]  596 	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
-      0020D6 12 32 DA         [24]  597 	lcall	_gets_
+      0020D6 12 32 C5         [24]  597 	lcall	_gets_
                                     598 ;	buffer.c:54: if (input[0] < '0' || input[0] > '9' ||         // Check if the input is not a number
       0020D9 90 1B 70         [24]  599 	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
       0020DC E0               [24]  600 	movx	a,@dptr
@@ -637,24 +637,24 @@
       002113 50 2D            [24]  637 	jnc	00102$
       002115                        638 00101$:
                                     639 ;	buffer.c:58: printf("\033[0;31m\nInvalid input. Please enter four digits between 0 and 9.\n\r"); // Display error message
-      002115 74 B7            [12]  640 	mov	a,#___str_5
+      002115 74 A2            [12]  640 	mov	a,#___str_5
       002117 C0 E0            [24]  641 	push	acc
       002119 74 45            [12]  642 	mov	a,#(___str_5 >> 8)
       00211B C0 E0            [24]  643 	push	acc
       00211D 74 80            [12]  644 	mov	a,#0x80
       00211F C0 E0            [24]  645 	push	acc
-      002121 12 3A 4B         [24]  646 	lcall	_printf
+      002121 12 3A 36         [24]  646 	lcall	_printf
       002124 15 81            [12]  647 	dec	sp
       002126 15 81            [12]  648 	dec	sp
       002128 15 81            [12]  649 	dec	sp
                                     650 ;	buffer.c:59: printf("\033[0;31mValid Input Examples : 0064,9876,0001,0096, etc\n");
-      00212A 74 FA            [12]  651 	mov	a,#___str_6
+      00212A 74 E5            [12]  651 	mov	a,#___str_6
       00212C C0 E0            [24]  652 	push	acc
       00212E 74 45            [12]  653 	mov	a,#(___str_6 >> 8)
       002130 C0 E0            [24]  654 	push	acc
       002132 74 80            [12]  655 	mov	a,#0x80
       002134 C0 E0            [24]  656 	push	acc
-      002136 12 3A 4B         [24]  657 	lcall	_printf
+      002136 12 3A 36         [24]  657 	lcall	_printf
       002139 15 81            [12]  658 	dec	sp
       00213B 15 81            [12]  659 	dec	sp
       00213D 15 81            [12]  660 	dec	sp
@@ -664,7 +664,7 @@
                                     664 ;	buffer.c:64: num = atoi(input);                              // Convert input to integer
       002142 90 1B 70         [24]  665 	mov	dptr,#_Buffer_Size_Error_Correction_input_65537_48
       002145 75 F0 00         [24]  666 	mov	b,#0x00
-      002148 12 34 DC         [24]  667 	lcall	_atoi
+      002148 12 34 C7         [24]  667 	lcall	_atoi
       00214B AE 82            [24]  668 	mov	r6,dpl
       00214D AF 83            [24]  669 	mov	r7,dph
                                     670 ;	buffer.c:65: if (num < 64 || num > 5600) {                   // Check if the input is outside the valid range
@@ -684,18 +684,18 @@
       002166 50 12            [24]  684 	jnc	00111$
       002168                        685 00110$:
                                     686 ;	buffer.c:66: printf_tiny("\033[0;31m\nInvalid input.Input data should be between 64 and 5600.\n"); // Display error message
-      002168 74 32            [12]  687 	mov	a,#___str_7
+      002168 74 1D            [12]  687 	mov	a,#___str_7
       00216A C0 E0            [24]  688 	push	acc
       00216C 74 46            [12]  689 	mov	a,#(___str_7 >> 8)
       00216E C0 E0            [24]  690 	push	acc
-      002170 12 36 1B         [24]  691 	lcall	_printf_tiny
+      002170 12 36 06         [24]  691 	lcall	_printf_tiny
       002173 15 81            [12]  692 	dec	sp
       002175 15 81            [12]  693 	dec	sp
                                     694 ;	buffer.c:68: continue;                                   // Start over the loop
       002177 02 20 A6         [24]  695 	ljmp	00116$
       00217A                        696 00111$:
                                     697 ;	buffer.c:70: if (num % 32 != 0) {                            // Check if the input is not divisible by 32
-      00217A 90 1C 84         [24]  698 	mov	dptr,#__modsint_PARM_2
+      00217A 90 1C 85         [24]  698 	mov	dptr,#__modsint_PARM_2
       00217D 74 20            [12]  699 	mov	a,#0x20
       00217F F0               [24]  700 	movx	@dptr,a
       002180 E4               [12]  701 	clr	a
@@ -705,7 +705,7 @@
       002185 8F 83            [24]  705 	mov	dph,r7
       002187 C0 07            [24]  706 	push	ar7
       002189 C0 06            [24]  707 	push	ar6
-      00218B 12 38 E9         [24]  708 	lcall	__modsint
+      00218B 12 38 D4         [24]  708 	lcall	__modsint
       00218E E5 82            [12]  709 	mov	a,dpl
       002190 85 83 F0         [24]  710 	mov	b,dph
       002193 D0 06            [24]  711 	pop	ar6
@@ -713,11 +713,11 @@
       002197 45 F0            [12]  713 	orl	a,b
       002199 60 12            [24]  714 	jz	00117$
                                     715 ;	buffer.c:71: printf_tiny("\033[0;31m\nInvalid input.Input not divisible by 32.\n"); // Display error message
-      00219B 74 73            [12]  716 	mov	a,#___str_8
+      00219B 74 5E            [12]  716 	mov	a,#___str_8
       00219D C0 E0            [24]  717 	push	acc
       00219F 74 46            [12]  718 	mov	a,#(___str_8 >> 8)
       0021A1 C0 E0            [24]  719 	push	acc
-      0021A3 12 36 1B         [24]  720 	lcall	_printf_tiny
+      0021A3 12 36 06         [24]  720 	lcall	_printf_tiny
       0021A6 15 81            [12]  721 	dec	sp
       0021A8 15 81            [12]  722 	dec	sp
                                     723 ;	buffer.c:73: continue;                                   // Start over the loop
@@ -732,9 +732,9 @@
                                     732 	.area CSEG    (CODE)
                                     733 	.area CONST   (CODE)
                                     734 	.area CONST   (CODE)
-      004495                        735 ___str_0:
-      004495 1B                     736 	.db 0x1b
-      004496 5B 31 3B 33 33 6D 7C   737 	.ascii "[1;33m|***********************************************|"
+      004480                        735 ___str_0:
+      004480 1B                     736 	.db 0x1b
+      004481 5B 31 3B 33 33 6D 7C   737 	.ascii "[1;33m|***********************************************|"
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
@@ -742,44 +742,44 @@
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 7C
-      0044CD 0A                     738 	.db 0x0a
-      0044CE 0D                     739 	.db 0x0d
-      0044CF 00                     740 	.db 0x00
+      0044B8 0A                     738 	.db 0x0a
+      0044B9 0D                     739 	.db 0x0d
+      0044BA 00                     740 	.db 0x00
                                     741 	.area CSEG    (CODE)
                                     742 	.area CONST   (CODE)
-      0044D0                        743 ___str_1:
-      0044D0 7C 20 20 42 75 66 66   744 	.ascii "|  Buffer 0 and Buffer 1 Allocation Processing  |"
+      0044BB                        743 ___str_1:
+      0044BB 7C 20 20 42 75 66 66   744 	.ascii "|  Buffer 0 and Buffer 1 Allocation Processing  |"
              65 72 20 30 20 61 6E
              64 20 42 75 66 66 65
              72 20 31 20 41 6C 6C
              6F 63 61 74 69 6F 6E
              20 50 72 6F 63 65 73
              73 69 6E 67 20 20 7C
-      004501 0A                     745 	.db 0x0a
-      004502 0D                     746 	.db 0x0d
-      004503 00                     747 	.db 0x00
+      0044EC 0A                     745 	.db 0x0a
+      0044ED 0D                     746 	.db 0x0d
+      0044EE 00                     747 	.db 0x00
                                     748 	.area CSEG    (CODE)
                                     749 	.area CONST   (CODE)
-      004504                        750 ___str_2:
-      004504 1B                     751 	.db 0x1b
-      004505 5B 31 3B 33 36 6D      752 	.ascii "[1;36m"
-      00450B 0A                     753 	.db 0x0a
-      00450C 0D                     754 	.db 0x0d
-      00450D 7C 2A 2A 2A 2A 2A 2A   755 	.ascii "|***********************************************|"
+      0044EF                        750 ___str_2:
+      0044EF 1B                     751 	.db 0x1b
+      0044F0 5B 31 3B 33 36 6D      752 	.ascii "[1;36m"
+      0044F6 0A                     753 	.db 0x0a
+      0044F7 0D                     754 	.db 0x0d
+      0044F8 7C 2A 2A 2A 2A 2A 2A   755 	.ascii "|***********************************************|"
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 7C
-      00453E 0A                     756 	.db 0x0a
-      00453F 0D                     757 	.db 0x0d
-      004540 00                     758 	.db 0x00
+      004529 0A                     756 	.db 0x0a
+      00452A 0D                     757 	.db 0x0d
+      00452B 00                     758 	.db 0x00
                                     759 	.area CSEG    (CODE)
                                     760 	.area CONST   (CODE)
-      004541                        761 ___str_3:
-      004541 1B                     762 	.db 0x1b
-      004542 5B 31 3B 33 36 6D 7C   763 	.ascii "[1;36m|       Enter the size for buffer0 & buffer1    |"
+      00452C                        761 ___str_3:
+      00452C 1B                     762 	.db 0x1b
+      00452D 5B 31 3B 33 36 6D 7C   763 	.ascii "[1;36m|       Enter the size for buffer0 & buffer1    |"
              20 20 20 20 20 20 20
              45 6E 74 65 72 20 74
              68 65 20 73 69 7A 65
@@ -787,14 +787,14 @@
              66 66 65 72 30 20 26
              20 62 75 66 66 65 72
              31 20 20 20 20 7C
-      004579 0A                     764 	.db 0x0a
-      00457A 0D                     765 	.db 0x0d
-      00457B 00                     766 	.db 0x00
+      004564 0A                     764 	.db 0x0a
+      004565 0D                     765 	.db 0x0d
+      004566 00                     766 	.db 0x00
                                     767 	.area CSEG    (CODE)
                                     768 	.area CONST   (CODE)
-      00457C                        769 ___str_4:
-      00457C 1B                     770 	.db 0x1b
-      00457D 5B 31 3B 33 36 6D 7C   771 	.ascii "[1;36m|***********************************************|"
+      004567                        769 ___str_4:
+      004567 1B                     770 	.db 0x1b
+      004568 5B 31 3B 33 36 6D 7C   771 	.ascii "[1;36m|***********************************************|"
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
@@ -802,16 +802,16 @@
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 2A 2A
              2A 2A 2A 2A 2A 7C
-      0045B4 0A                     772 	.db 0x0a
-      0045B5 0D                     773 	.db 0x0d
-      0045B6 00                     774 	.db 0x00
+      00459F 0A                     772 	.db 0x0a
+      0045A0 0D                     773 	.db 0x0d
+      0045A1 00                     774 	.db 0x00
                                     775 	.area CSEG    (CODE)
                                     776 	.area CONST   (CODE)
-      0045B7                        777 ___str_5:
-      0045B7 1B                     778 	.db 0x1b
-      0045B8 5B 30 3B 33 31 6D      779 	.ascii "[0;31m"
-      0045BE 0A                     780 	.db 0x0a
-      0045BF 49 6E 76 61 6C 69 64   781 	.ascii "Invalid input. Please enter four digits between 0 and 9."
+      0045A2                        777 ___str_5:
+      0045A2 1B                     778 	.db 0x1b
+      0045A3 5B 30 3B 33 31 6D      779 	.ascii "[0;31m"
+      0045A9 0A                     780 	.db 0x0a
+      0045AA 49 6E 76 61 6C 69 64   781 	.ascii "Invalid input. Please enter four digits between 0 and 9."
              20 69 6E 70 75 74 2E
              20 50 6C 65 61 73 65
              20 65 6E 74 65 72 20
@@ -819,14 +819,14 @@
              67 69 74 73 20 62 65
              74 77 65 65 6E 20 30
              20 61 6E 64 20 39 2E
-      0045F7 0A                     782 	.db 0x0a
-      0045F8 0D                     783 	.db 0x0d
-      0045F9 00                     784 	.db 0x00
+      0045E2 0A                     782 	.db 0x0a
+      0045E3 0D                     783 	.db 0x0d
+      0045E4 00                     784 	.db 0x00
                                     785 	.area CSEG    (CODE)
                                     786 	.area CONST   (CODE)
-      0045FA                        787 ___str_6:
-      0045FA 1B                     788 	.db 0x1b
-      0045FB 5B 30 3B 33 31 6D 56   789 	.ascii "[0;31mValid Input Examples : 0064,9876,0001,0096, etc"
+      0045E5                        787 ___str_6:
+      0045E5 1B                     788 	.db 0x1b
+      0045E6 5B 30 3B 33 31 6D 56   789 	.ascii "[0;31mValid Input Examples : 0064,9876,0001,0096, etc"
              61 6C 69 64 20 49 6E
              70 75 74 20 45 78 61
              6D 70 6C 65 73 20 3A
@@ -834,15 +834,15 @@
              38 37 36 2C 30 30 30
              31 2C 30 30 39 36 2C
              20 65 74 63
-      004630 0A                     790 	.db 0x0a
-      004631 00                     791 	.db 0x00
+      00461B 0A                     790 	.db 0x0a
+      00461C 00                     791 	.db 0x00
                                     792 	.area CSEG    (CODE)
                                     793 	.area CONST   (CODE)
-      004632                        794 ___str_7:
-      004632 1B                     795 	.db 0x1b
-      004633 5B 30 3B 33 31 6D      796 	.ascii "[0;31m"
-      004639 0A                     797 	.db 0x0a
-      00463A 49 6E 76 61 6C 69 64   798 	.ascii "Invalid input.Input data should be between 64 and 5600."
+      00461D                        794 ___str_7:
+      00461D 1B                     795 	.db 0x1b
+      00461E 5B 30 3B 33 31 6D      796 	.ascii "[0;31m"
+      004624 0A                     797 	.db 0x0a
+      004625 49 6E 76 61 6C 69 64   798 	.ascii "Invalid input.Input data should be between 64 and 5600."
              20 69 6E 70 75 74 2E
              49 6E 70 75 74 20 64
              61 74 61 20 73 68 6F
@@ -850,22 +850,22 @@
              62 65 74 77 65 65 6E
              20 36 34 20 61 6E 64
              20 35 36 30 30 2E
-      004671 0A                     799 	.db 0x0a
-      004672 00                     800 	.db 0x00
+      00465C 0A                     799 	.db 0x0a
+      00465D 00                     800 	.db 0x00
                                     801 	.area CSEG    (CODE)
                                     802 	.area CONST   (CODE)
-      004673                        803 ___str_8:
-      004673 1B                     804 	.db 0x1b
-      004674 5B 30 3B 33 31 6D      805 	.ascii "[0;31m"
-      00467A 0A                     806 	.db 0x0a
-      00467B 49 6E 76 61 6C 69 64   807 	.ascii "Invalid input.Input not divisible by 32."
+      00465E                        803 ___str_8:
+      00465E 1B                     804 	.db 0x1b
+      00465F 5B 30 3B 33 31 6D      805 	.ascii "[0;31m"
+      004665 0A                     806 	.db 0x0a
+      004666 49 6E 76 61 6C 69 64   807 	.ascii "Invalid input.Input not divisible by 32."
              20 69 6E 70 75 74 2E
              49 6E 70 75 74 20 6E
              6F 74 20 64 69 76 69
              73 69 62 6C 65 20 62
              79 20 33 32 2E
-      0046A3 0A                     808 	.db 0x0a
-      0046A4 00                     809 	.db 0x00
+      00468E 0A                     808 	.db 0x0a
+      00468F 00                     809 	.db 0x00
                                     810 	.area CSEG    (CODE)
                                     811 	.area XINIT   (CODE)
                                     812 	.area CABS    (ABS,CODE)

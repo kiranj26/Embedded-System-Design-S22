@@ -497,19 +497,19 @@ __start__stack:
 	.area XSEG    (XDATA)
 _new_buffer_arr::
 	.ds 200
-_main_i_65537_53:
+_main_i_65537_54:
 	.ds 2
-_main_new_buffer_index_65537_53:
+_main_new_buffer_index_65537_54:
 	.ds 2
-_main_free_buffer_count_65537_53:
+_main_free_buffer_count_65537_54:
 	.ds 2
-_main_filled_buffer_count_65537_53:
+_main_filled_buffer_count_65537_54:
 	.ds 2
-_main_storage_character_count_65538_54:
+_main_storage_character_count_65538_55:
 	.ds 2
-_main_total_characters_count_65538_54:
+_main_total_characters_count_65538_55:
 	.ds 2
-_main_buffer0_allocated_65538_54:
+_main_buffer0_allocated_65538_55:
 	.ds 2
 ;--------------------------------------------------------
 ; absolute external ram data
@@ -605,18 +605,18 @@ __sdcc_external_startup:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;i                         Allocated with name '_main_i_65537_53'
-;buffer_array_index        Allocated with name '_main_buffer_array_index_65537_53'
-;all_buff_cleared          Allocated with name '_main_all_buff_cleared_65537_53'
-;new_buffer_index          Allocated with name '_main_new_buffer_index_65537_53'
-;free_buffer_count         Allocated with name '_main_free_buffer_count_65537_53'
-;filled_buffer_count       Allocated with name '_main_filled_buffer_count_65537_53'
-;storage_character_count   Allocated with name '_main_storage_character_count_65538_54'
-;total_characters_count    Allocated with name '_main_total_characters_count_65538_54'
-;buffer0_allocated         Allocated with name '_main_buffer0_allocated_65538_54'
-;buffer0_ptr               Allocated with name '_main_buffer0_ptr_65539_60'
-;i                         Allocated with name '_main_i_131075_61'
-;ch                        Allocated with name '_main_ch_131076_64'
+;i                         Allocated with name '_main_i_65537_54'
+;buffer_array_index        Allocated with name '_main_buffer_array_index_65537_54'
+;all_buff_cleared          Allocated with name '_main_all_buff_cleared_65537_54'
+;new_buffer_index          Allocated with name '_main_new_buffer_index_65537_54'
+;free_buffer_count         Allocated with name '_main_free_buffer_count_65537_54'
+;filled_buffer_count       Allocated with name '_main_filled_buffer_count_65537_54'
+;storage_character_count   Allocated with name '_main_storage_character_count_65538_55'
+;total_characters_count    Allocated with name '_main_total_characters_count_65538_55'
+;buffer0_allocated         Allocated with name '_main_buffer0_allocated_65538_55'
+;buffer0_ptr               Allocated with name '_main_buffer0_ptr_65539_61'
+;i                         Allocated with name '_main_i_131075_62'
+;ch                        Allocated with name '_main_ch_131076_65'
 ;------------------------------------------------------------
 ;	main.c:83: void main(void)
 ;	-----------------------------------------
@@ -712,7 +712,7 @@ _main:
 	dec	sp
 	dec	sp
 ;	main.c:103: __xdata int new_buffer_index = 2;
-	mov	dptr,#_main_new_buffer_index_65537_53
+	mov	dptr,#_main_new_buffer_index_65537_54
 	mov	a,#0x02
 	movx	@dptr,a
 	clr	a
@@ -721,23 +721,23 @@ _main:
 ;	main.c:108: HERE:
 00101$:
 ;	main.c:110: i = 0;
-	mov	dptr,#_main_i_65537_53
+	mov	dptr,#_main_i_65537_54
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 ;	main.c:113: __xdata int storage_character_count = 0;
-	mov	dptr,#_main_storage_character_count_65538_54
+	mov	dptr,#_main_storage_character_count_65538_55
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 ;	main.c:114: __xdata int total_characters_count = 0;
-	mov	dptr,#_main_total_characters_count_65538_54
+	mov	dptr,#_main_total_characters_count_65538_55
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 ;	main.c:117: __xdata int buffer0_allocated = 0;
-	mov	dptr,#_main_buffer0_allocated_65538_54
+	mov	dptr,#_main_buffer0_allocated_65538_55
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
@@ -807,7 +807,7 @@ _main:
 	dec	sp
 	dec	sp
 ;	main.c:136: buffer0_allocated = 1;
-	mov	dptr,#_main_buffer0_allocated_65538_54
+	mov	dptr,#_main_buffer0_allocated_65538_55
 	mov	a,#0x01
 	movx	@dptr,a
 	clr	a
@@ -863,7 +863,7 @@ _main:
 	mov	b,r5
 	lcall	_free
 ;	main.c:146: buffer0_allocated = 0;
-	mov	dptr,#_main_buffer0_allocated_65538_54
+	mov	dptr,#_main_buffer0_allocated_65538_55
 	clr	a
 	movx	@dptr,a
 	inc	dptr
@@ -880,7 +880,7 @@ _main:
 	dec	sp
 00110$:
 ;	main.c:155: } while (!buffer0_allocated || (buffer1 == 0));
-	mov	dptr,#_main_buffer0_allocated_65538_54
+	mov	dptr,#_main_buffer0_allocated_65538_55
 	movx	a,@dptr
 	mov	b,a
 	inc	dptr
@@ -1021,13 +1021,13 @@ _main:
 	inc	dptr
 	movx	@dptr,a
 ;	main.c:177: free_buffer_count = 0;
-	mov	dptr,#_main_free_buffer_count_65537_53
+	mov	dptr,#_main_free_buffer_count_65537_54
 	clr	a
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
 ;	main.c:178: filled_buffer_count = 2;
-	mov	dptr,#_main_filled_buffer_count_65537_53
+	mov	dptr,#_main_filled_buffer_count_65537_54
 	mov	a,#0x02
 	movx	@dptr,a
 	clr	a
@@ -1096,7 +1096,7 @@ _main:
 	add	a,#0xff - 0x7a
 	jc	00124$
 ;	main.c:196: if (i < buffer_size) {              // If there is still space in buffer0
-	mov	dptr,#_main_i_65537_53
+	mov	dptr,#_main_i_65537_54
 	movx	a,@dptr
 	mov	r3,a
 	inc	dptr
@@ -1118,7 +1118,7 @@ _main:
 	subb	a,b
 	jnc	00114$
 ;	main.c:197: buffer0[i++] = ch;              // Store the character in buffer0
-	mov	dptr,#_main_i_65537_53
+	mov	dptr,#_main_i_65537_54
 	mov	a,#0x01
 	add	a,r3
 	movx	@dptr,a
@@ -1150,7 +1150,7 @@ _main:
 	pop	ar6
 00115$:
 ;	main.c:202: storage_character_count++;          // Increment the count of storage characters
-	mov	dptr,#_main_storage_character_count_65538_54
+	mov	dptr,#_main_storage_character_count_65538_55
 	movx	a,@dptr
 	add	a,#0x01
 	movx	@dptr,a
@@ -1159,7 +1159,7 @@ _main:
 	addc	a,#0x00
 	movx	@dptr,a
 ;	main.c:203: total_characters_count++;           // Increment the count of total characters
-	mov	dptr,#_main_total_characters_count_65538_54
+	mov	dptr,#_main_total_characters_count_65538_55
 	movx	a,@dptr
 	add	a,#0x01
 	movx	@dptr,a
@@ -1190,7 +1190,7 @@ _main:
 00227$:
 00116$:
 ;	main.c:207: total_characters_count++;           // Increment the count of total characters
-	mov	dptr,#_main_total_characters_count_65538_54
+	mov	dptr,#_main_total_characters_count_65538_55
 	movx	a,@dptr
 	add	a,#0x01
 	movx	@dptr,a
@@ -1226,45 +1226,45 @@ _main:
 	mov	a,r6
 	movx	@dptr,a
 	mov	dptr,#_command_processing_PARM_3
-	mov	a,#_main_new_buffer_index_65537_53
+	mov	a,#_main_new_buffer_index_65537_54
 	movx	@dptr,a
-	mov	a,#(_main_new_buffer_index_65537_53 >> 8)
+	mov	a,#(_main_new_buffer_index_65537_54 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
 	inc	dptr
 	movx	@dptr,a
 	mov	dptr,#_command_processing_PARM_4
-	mov	a,#_main_free_buffer_count_65537_53
+	mov	a,#_main_free_buffer_count_65537_54
 	movx	@dptr,a
-	mov	a,#(_main_free_buffer_count_65537_53 >> 8)
+	mov	a,#(_main_free_buffer_count_65537_54 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
 	inc	dptr
 	movx	@dptr,a
 	mov	dptr,#_command_processing_PARM_5
-	mov	a,#_main_filled_buffer_count_65537_53
+	mov	a,#_main_filled_buffer_count_65537_54
 	movx	@dptr,a
-	mov	a,#(_main_filled_buffer_count_65537_53 >> 8)
+	mov	a,#(_main_filled_buffer_count_65537_54 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
 	inc	dptr
 	movx	@dptr,a
 	mov	dptr,#_command_processing_PARM_6
-	mov	a,#_main_storage_character_count_65538_54
+	mov	a,#_main_storage_character_count_65538_55
 	movx	@dptr,a
-	mov	a,#(_main_storage_character_count_65538_54 >> 8)
+	mov	a,#(_main_storage_character_count_65538_55 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
 	inc	dptr
 	movx	@dptr,a
 	mov	dptr,#_command_processing_PARM_7
-	mov	a,#_main_total_characters_count_65538_54
+	mov	a,#_main_total_characters_count_65538_55
 	movx	@dptr,a
-	mov	a,#(_main_total_characters_count_65538_54 >> 8)
+	mov	a,#(_main_total_characters_count_65538_55 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -1306,7 +1306,7 @@ _main:
 	ljmp	00132$
 00231$:
 ;	main.c:227: i=0;
-	mov	dptr,#_main_i_65537_53
+	mov	dptr,#_main_i_65537_54
 	clr	a
 	movx	@dptr,a
 	inc	dptr

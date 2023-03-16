@@ -116,24 +116,26 @@
 	<stdbool.h>
 	"string_func.h"
 
-1678731501 c:\users\kijo7257\documents\lab3\lab3_part2_kiran\lab3_part2_kiran\string_func.h
+1678924765 c:\users\kijo7257\documents\lab3\lab3_part2_kiran\lab3_part2_kiran\string_func.h
 	<mcs51/8051.h>
 	<at89c51ed2.h>
 	<mcs51reg.h>
 
-1678909711 source:c:\users\kijo7257\documents\lab3\lab3_part2_kiran\lab3_part2_kiran\character.c
+1678934786 source:c:\users\kijo7257\documents\lab3\lab3_part2_kiran\lab3_part2_kiran\character.c
 	<mcs51/8051.h>
 	<at89c51ed2.h>
 	<mcs51reg.h>
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
+	<stdbool.h>
+	<stdint.h>
 	"string_func.h"
 	"character.h"
 
-1678897838 c:\users\kijo7257\documents\lab3\lab3_part2_kiran\lab3_part2_kiran\character.h
+1678935025 c:\users\kijo7257\documents\lab3\lab3_part2_kiran\lab3_part2_kiran\character.h
 
-1678912672 source:c:\users\kijo7257\documents\lab3\lab3_part2_kiran\lab3_part2_kiran\main.c
+1678934365 source:c:\users\kijo7257\documents\lab3\lab3_part2_kiran\lab3_part2_kiran\main.c
 	<stdbool.h>
 	<stdint.h>
 	<stdlib.h>

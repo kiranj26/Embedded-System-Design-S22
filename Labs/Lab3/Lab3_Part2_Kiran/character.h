@@ -22,6 +22,13 @@
 #ifndef CHARACTER_H_
 #define CHARACTER_H_
 
+
+/**
+ * @brief   Debug function.
+ * @details This function inputs value of X at address 0xFFFF.
+ */
+void dataout(uint8_t x);
+
 /**
  * @brief   Empties the buffer 0.
  * @details This function empties the buffer 0 by setting all its elements to zero.

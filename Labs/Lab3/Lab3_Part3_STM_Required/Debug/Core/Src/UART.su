@@ -1,0 +1,6 @@
+../Drivers/CMSIS/Include/core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+../Drivers/CMSIS/Include/core_cm4.h:1777:22:__NVIC_ClearPendingIRQ	16	static
+../Core/Src/UART.c:35:6:Uart_init	8	static
+../Core/Src/UART.c:79:6:my_putchar	16	static
+../Core/Src/UART.c:89:6:my_putstring	24	static
+../Core/Src/UART.c:103:6:my_getchar	16	static

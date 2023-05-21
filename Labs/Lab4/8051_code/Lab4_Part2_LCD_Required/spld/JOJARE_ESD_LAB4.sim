@@ -1,0 +1,36 @@
+%SIGNAL
+PIN   5 =  A12 
+PIN   4 =  A13 
+PIN   3 =  A14 
+PIN   2 =  A15 
+PIN  16 =  CE 
+PIN  19 =  CSPERIPH 
+PIN  15 =  LCD_ENABLE 
+PIN   7 =  PSEN 
+PIN   6 =  RD 
+PIN  18 =  READ 
+PIN  17 =  TO_74LS374 
+PIN   8 =  WR 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+CE =>
+    A15
+
+CSPERIPH =>
+    A12 & A13 & A14 & A15
+
+LCD_ENABLE =>
+    A12 & A13 & A14 & A15 & !RD
+  # A12 & A13 & A14 & A15 & !WR
+
+READ =>
+    PSEN & RD
+
+TO_74LS374 =>
+    !A15 & !WR
+
+%END

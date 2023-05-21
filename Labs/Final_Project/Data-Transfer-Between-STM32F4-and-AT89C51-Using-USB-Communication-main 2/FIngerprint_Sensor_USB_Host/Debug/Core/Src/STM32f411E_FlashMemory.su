@@ -1,0 +1,3 @@
+../Core/Src/STM32f411E_FlashMemory.c:12:10:read_flash_memory	16	static
+../Core/Src/STM32f411E_FlashMemory.c:20:6:write_flash_memory	24	static
+../Core/Src/STM32f411E_FlashMemory.c:27:6:check_initial_status_flash	16	static

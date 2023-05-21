@@ -1,0 +1,22 @@
+-muwx
+-i bin\Release\Lab4_Part2.ihx
+-M
+-X 0x7fff
+-C 0x8000
+-b HOME = 0x0000
+-b XSEG = 0x0400
+-b PSEG = 0x0400
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k C:\Program Files\SDCC\lib
+-k C:\Program Files\SDCC\bin\..\lib\large
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+obj\Release\lcd.rel
+obj\Release\main.rel
+obj\Release\uart.rel
+
+-e

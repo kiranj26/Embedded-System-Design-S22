@@ -1,0 +1,138 @@
+# depslib dependency file v1.0
+1680987493 source:c:\users\kijo7257\documents\lab4\lab4_part1\i2c.c
+	<stdio.h>
+	"i2c.h"
+
+1680989823 source:c:\users\kijo7257\documents\lab4\lab4_part1\main.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<string.h>
+	<mcs51/8051.h>
+	"i2c.h"
+	"uart.h"
+	"command_prosessing.h"
+
+1680987744 c:\users\kijo7257\documents\lab4\lab4_part1\i2c.h
+	<stdint.h>
+	"uart.h"
+	"at89c51ed2.h"
+	<mcs51reg.h>
+
+1680944115 c:\users\kijo7257\documents\lab4\lab4_part1\uart.h
+
+1680925162 source:c:\users\kijo7257\documents\lab4\lab4_part1\string_func.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	"string_func.h"
+
+1680925162 c:\users\kijo7257\documents\lab4\lab4_part1\string_func.h
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+
+1680989714 source:c:\users\kijo7257\documents\lab4\lab4_part1\uart.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<mcs51/8051.h>
+
+1680988464 c:\users\kijo7257\documents\lab4\lab4_part1\command_prosessing.h
+
+1680989362 source:c:\users\kijo7257\documents\lab4\lab4_part1\command_processing.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<string.h>
+	<mcs51/8051.h>
+	"command_prosessing.h"
+	"string_func.h"
+	"uart.h"
+	"i2c.h"
+
+1681282731 source:c:\users\kijo7257\documents\lab4_part1\lab4_part1\command_processing.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<string.h>
+	<mcs51/8051.h>
+	"command_prosessing.h"
+	"string_func.h"
+	"uart.h"
+	"i2c.h"
+
+1681283699 c:\users\kijo7257\documents\lab4_part1\lab4_part1\command_prosessing.h
+
+1681283430 c:\users\kijo7257\documents\lab4_part1\lab4_part1\string_func.h
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+
+1681283877 c:\users\kijo7257\documents\lab4_part1\lab4_part1\uart.h
+
+1681283794 c:\users\kijo7257\documents\lab4_part1\lab4_part1\i2c.h
+	<stdint.h>
+	"uart.h"
+	"at89c51ed2.h"
+	<mcs51reg.h>
+
+1681286062 source:c:\users\kijo7257\documents\lab4_part1\lab4_part1\i2c.c
+	<stdio.h>
+	"i2c.h"
+
+1681283088 source:c:\users\kijo7257\documents\lab4_part1\lab4_part1\main.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<string.h>
+	<mcs51/8051.h>
+	"i2c.h"
+	"uart.h"
+	"command_prosessing.h"
+
+1681257899 source:c:\users\kijo7257\documents\lab4_part1\lab4_part1\string_func.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	"string_func.h"
+
+1681286261 source:c:\users\kijo7257\documents\lab4_part1\lab4_part1\uart.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<mcs51/8051.h>
+	<string.h>
+

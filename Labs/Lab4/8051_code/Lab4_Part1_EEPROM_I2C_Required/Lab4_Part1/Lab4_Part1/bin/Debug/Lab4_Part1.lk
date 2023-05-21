@@ -1,0 +1,25 @@
+-muwx
+-i bin\Debug\Lab4_Part1.ihx
+-M
+-X 0x7fff
+-C 0x8000
+-y
+-b HOME = 0x2000
+-b XSEG = 0x0400
+-b PSEG = 0x0400
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k C:\Program Files\SDCC\lib
+-k C:\Program Files\SDCC\bin\..\lib\large
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+obj\Debug\command_processing.rel
+obj\Debug\i2c.rel
+obj\Debug\main.rel
+obj\Debug\string_func.rel
+obj\Debug\uart.rel
+
+-e

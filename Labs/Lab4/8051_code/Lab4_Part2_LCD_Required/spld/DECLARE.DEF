@@ -1,0 +1,47 @@
+# This file contains the list of allowed DECLARE statements.
+# Comments start with # and end at end of line.
+# See end of file for explanations.
+
+INTEL:
+3VOLT 1, 5VOLT 1, OPEN_DRAIN 1, DELAYED 1, RAM 3 18;
+
+XILINX:
+IPAD 2, OPAD 2, BPAD 2, IBUF 2, OBUF 2, BUFGS 2, BUFGP 2, INFF 2, INLAT 2,
+GCLK 2, ACLK 2, OBUFT 2, OUTFF 2, OUTFFT 2, DFF 2, INV 2, ROM4 2, ROM5 2,
+RAM4 2, RAM5 2, FAST 2, NODELAY 2, INIT_TO_R 2, INIT_TO_S 2;
+
+XEPLD:
+FASTCLOCK 5, FOEPIN 5, FASTINPUT 5, CEPIN 5 , AUTOPARTITION 5, INIT_TO_R 5, 
+INIT_TO_S 5, MRINPUT 5;
+
+# White space and newlines are ignored.
+# The file is divided into sections.  Each section begins with a
+# Manuf name followed immediately by colon as in:
+# INTEL:
+# A series of entries follows where each entry is separated from the 
+# next by a comma. 
+# An entry begins with an identifier followed by either 1 or 2
+# numbers. The first number is the type.  The second number is
+# used with a type 3 entry as explained below.
+# type 1 - Causes a property statement to be created in the PLA
+#          file.  The property statement will have the number of
+#          items as the first item.  This is used for fitters that
+#          use this technique so they know how many items are in the 
+#          list.  A type 1 entry is a MultipleEntity type meaning that
+#          The declare statement can contain any number items.
+#          example:
+#          #$ PROPERTY MANUF ID 3 INPUTA INPUTB OUTPUTA
+
+# type 2 - Used for XILINX FPGA support.
+
+# type 3 - This is used for special DECLARE statements where the number
+#          of items in the declare statement is fixed.  In this case, 
+#          the second parameter is used to specify how many items to
+#          expect.
+
+# type 4 - Reserved. do not use.
+
+# type 5 - This is similar to type 1 with one exception.  The count
+#          of the number of items is omitted.
+#          #$ PROPERTY MANUF ID INPUTA INPUTB OUTPUTA
+

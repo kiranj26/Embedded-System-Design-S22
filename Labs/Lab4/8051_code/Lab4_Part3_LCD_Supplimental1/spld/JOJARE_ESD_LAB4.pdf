@@ -1,0 +1,157 @@
+{COMPONENT C:\WINCUPL\WINCUPL\JOJARE_ESD_LAB4.SYM
+
+ {ENVIRONMENT
+  {PDIFvrev 3.00}
+  {Program "CUPL(WM) Version 5.0a"}
+  {DBtype "Schematic"}
+  {DBvrev 1.01}
+  {DBtime "Thu Apr 13 20:31:49 2023 "}
+  {DBunit "MIL"}
+  {DBgrid 10}
+  {Lyrstr "WIRES" 1 "BUS" 1 "GATE" 2 "IEEE" 2 "PINFUN" 3 "PINNUM" 1 
+          "PINNAM" 6 "PINCON" 4 "REFDES" 2 "ATTR" 6 "SDOT" 1 
+          "DEVICE" 5 "OUTLIN" 5 "ATTR2" 6 "NOTES" 6 "NETNAM" 4 
+          "CMPNAM" 5 "BORDER" 5}
+ }
+
+ {USER
+  {VIEW
+   {Mode SYMB}
+   {Nlst OPEN}
+   {Vw 0 0 2}
+   {Lv 12 2 2 2 0 0 2 2 2 2 0 0 2 1 2 0 0 0 0}
+   {Gs 10 10}
+  }
+ }
+
+ {DISPLAY
+  [Ly "PINNUM"]
+  [Ls "SOLID"][Wd 0]
+  [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+ }
+
+ {SYMBOL
+  {PIN_DEF
+   [Ly "PINCON"]
+   {P A15 {Pt "INPUT"}{Lq 0}{Ploc 100 140}}
+   {P A14 {Pt "INPUT"}{Lq 0}{Ploc 100 120}}
+   {P A13 {Pt "INPUT"}{Lq 0}{Ploc 100 100}}
+   {P A12 {Pt "INPUT"}{Lq 0}{Ploc 100 80}}
+   {P RD {Pt "INPUT"}{Lq 0}{Ploc 100 60}}
+   {P PSEN {Pt "INPUT"}{Lq 0}{Ploc 100 40}}
+   {P WR {Pt "INPUT"}{Lq 0}{Ploc 100 20}}
+   {P LCD_ENAB {Pt "I/O"}{Lq 0}{Ploc 330 20}}
+   {P CE {Pt "I/O"}{Lq 0}{Ploc 330 40}}
+   {P TO_74L374 {Pt "I/O"}{Lq 0}{Ploc 330 60}}
+   {P READ {Pt "I/O"}{Lq 0}{Ploc 330 80}}
+   {P CSPERIPH {Pt "I/O"}{Lq 0}{Ploc 330 100}}
+  }
+
+  {PKG
+   [Ly "REFDES"]
+   [Ts 25][Tj "CB"][Tr 0][Tm "N"]
+   {Rdl 215 170}
+
+   [Ly "PINNUM"]
+   [Ts 15][Tj "RC"]
+   {Pnl 120 150}
+   {Pnl 120 130}
+   {Pnl 120 110}
+   {Pnl 120 90}
+   {Pnl 120 70}
+   {Pnl 120 50}
+   {Pnl 120 30}
+   [Ts 15][Tj "LC"]
+   {Pnl 310 30}
+   {Pnl 310 50}
+   {Pnl 310 70}
+   {Pnl 310 90}
+   {Pnl 310 110}
+
+   {Sd A 2 3 4 5 6 7 8 15 16 17 18 19}
+  }
+
+  {PIC
+   [Ly "GATE"]
+   [Ts 15][Tj "LC"][Tr 0][Tm "N"]
+   {R 130 160 300 0}
+   {L 130 140 100 140}
+   {L 130 120 100 120}
+   {L 130 100 100 100}
+   {L 130 80 100 80}
+   {L 130 60 100 60}
+   {L 130 40 100 40}
+   {L 130 20 100 20}
+   {L 300 20 330 20}
+   {L 300 40 330 40}
+   {L 300 60 330 60}
+   {L 300 80 330 80}
+   {L 300 100 330 100}
+   [Ly "PINNAM"]
+   [Tj "LC"]
+   {T "A15" 140 140}
+   {T "A14" 140 120}
+   {T "A13" 140 100}
+   {T "A12" 140 80}
+   {T "RD" 140 60}
+   {T "PSEN" 140 40}
+   {T "WR" 140 20}
+   [Tj "RC"]
+   {T "LCD_ENAB" 290 20}
+   {T "CE" 290 40}
+   {T "TO_74L374" 290 60}
+   {T "READ" 290 80}
+   {T "CSPERIPH" 290 100}
+   [Ly "DEVICE"]
+   [Tj "CT"]
+   {T "G16V8AS" 215 -10}
+  }
+
+  {ATR
+   {IN
+    {Org 100 20}
+    {Ty 255}
+   }
+   {EX
+    [Ly "ATTR2"]
+    [Ts 12][Tj "CT"][Tr 0][Tm "N"]
+    {At PLD C:\WINCUPL\WINCUPL\JOJARE_ESD_LAB4 215 160}
+   }
+  }
+ }
+
+ {DETAIL
+  {ANNOTATE
+  }
+
+  {NET_DEF
+   {N A15
+   }
+   {N A14
+   }
+   {N A13
+   }
+   {N A12
+   }
+   {N RD
+   }
+   {N PSEN
+   }
+   {N WR
+   }
+   {N LCD_ENAB
+   }
+   {N CE
+   }
+   {N TO_74L374
+   }
+   {N READ
+   }
+   {N CSPERIPH
+   }
+  }
+
+  {SUBCOMP
+  }
+ }
+}

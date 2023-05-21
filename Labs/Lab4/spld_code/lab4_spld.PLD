@@ -1,0 +1,38 @@
+Name     jojare_esd_lab4 ;
+PartNo   00 ;
+Date     4/13/2023 ;
+Revision 01 ;
+Designer Kiran Jojare ;
+Company  University of colorado boulder ;
+Assembly None ;
+Location Boulder ;
+Device   g16v8a ;
+
+/* *************** INPUT PINS *********************/
+ PIN 2 = A15 ; 	/* INPUT PIN 2: connected to A15 */
+ PIN 3 = A14 ; 	/* INPUT PIN 3: connected to A14 */
+ PIN 4 = A13 ; 	/* INPUT PIN 4: connected to A13 */
+PIN 5 = A12 ; 	/* INPUT PIN 5: connected to A12 */
+PIN 6 = RD ; 		/* INPUT PIN 6: connected to RD */
+PIN 7 = PSEN ; 	/* INPUT PIN 7: connected to PSEN */
+PIN 8 = WR ; 		/* INPUT PIN 8: connected to WR */
+
+/* ************* OUTPUT PINS ********************/
+
+PIN 16 = CE ; 		/* OUTPUT PIN 16: connected to CE */
+PIN 17 = TO_74LS374 ; 	/* OUTPUT PIN 17: connected to WE of TO_74LS374 */
+PIN 18 = READ ; 		/* OUTPUT PIN 18: connected to READ */
+PIN 19 = CSPERIPH ; 		/* OUTPUT PIN 19: connected to CSPERIPH */
+PIN 15 = LCD_ENABLE;
+
+/* ******* Logic Operations *********************/
+
+TO_74LS374 = (!A15 & !WR); 		/* WRITE_ENABLE is high when A15 and WR are low */
+READ = RD & PSEN; 			/* READ is high when RD and PSEN are both high */
+CSPERIPH = !(A15 & A14 & A13 & A12); 	/* CSPERIPH is high when A15, A14, A13, and A12 are all low */
+CE = A15; 				/* CE is high when A15 is high */
+LCD_ENABLE = (!(RD & WR)& (A15 & A14 & A13 & A12)) ;
+
+
+
+

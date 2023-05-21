@@ -1,0 +1,80 @@
+# depslib dependency file v1.0
+1681539828 source:c:\users\kijo7257\documents\lab4_part2\string_func.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	"string_func.h"
+
+1681283430 c:\users\kijo7257\documents\lab4_part2\string_func.h
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+
+1681614681 source:c:\users\kijo7257\documents\lab4_part2\uart.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<mcs51/8051.h>
+	<string.h>
+
+1681629057 source:c:\users\kijo7257\documents\lab4_part2\main.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<string.h>
+	<mcs51/8051.h>
+	<mcs51reg.h>
+	<at89c51ed2.h>
+	"uart.h"
+	"lcd.h"
+	<mcs51/8051.h>
+
+1681600842 c:\users\kijo7257\documents\lab4_part2\uart.h
+
+1681628846 source:c:\users\kijo7257\documents\lab4_part2\lcd.c
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"at89c51ed2.h"
+	"uart.h"
+
+1681597501 c:\users\kijo7257\documents\lab4_part2\lcd.h
+
+1682054228 source:c:\users\kijo7257\downloads\lab4_part2\lab4_part2\lcd.c
+	<stdint.h>
+	<ctype.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"at89c51ed2.h"
+	"uart.h"
+
+1682034610 c:\users\kijo7257\downloads\lab4_part2\lab4_part2\uart.h
+
+1682037072 source:c:\users\kijo7257\downloads\lab4_part2\lab4_part2\uart.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<mcs51/8051.h>
+	<string.h>
+	"lcd.h"
+
+1682054193 c:\users\kijo7257\downloads\lab4_part2\lab4_part2\lcd.h
+

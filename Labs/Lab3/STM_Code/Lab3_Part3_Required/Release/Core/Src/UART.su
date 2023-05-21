@@ -1,0 +1,4 @@
+../Core/Src/UART.c:35:6:Uart_init	0	static
+../Core/Src/UART.c:79:6:my_putchar	0	static
+../Core/Src/UART.c:89:6:my_putstring	0	static
+../Core/Src/UART.c:103:6:my_getchar	0	static

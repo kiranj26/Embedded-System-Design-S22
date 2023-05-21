@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1679652767 source:c:\users\kijo7257\documents\lab3\lab3_challenge3\main.c
+	<mcs51reg.h>
+	<at89c51ed2.h>
+	<stdio.h>
+
+1679185520 c:\users\kijo7257\documents\lab3\lab3_challenge3\string_func.h
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+
+1679185516 source:c:\users\kijo7257\documents\lab3\lab3_challenge3\string_func.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	"string_func.h"
+

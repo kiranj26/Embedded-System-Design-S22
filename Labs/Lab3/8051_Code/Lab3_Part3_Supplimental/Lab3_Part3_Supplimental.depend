@@ -1,0 +1,96 @@
+# depslib dependency file v1.0
+1679185516 source:c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\string_func.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	"string_func.h"
+
+1679185520 c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\string_func.h
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+
+1679615771 source:c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\main.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<string.h>
+	"high_speed_out.h"
+	"string_func.h"
+	"pwm.h"
+	"clock.h"
+	"wakeup.h"
+
+1679222626 c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\pwm.h
+
+1679222456 source:c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\pwm.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	"string_func.h"
+	"pwm.h"
+
+1678898913 source:c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\_heap.c
+
+1679222898 source:c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\high_speed_out.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<string.h>
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	"high_speed_out.h"
+
+1679533524 c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\high_speed_out.h
+
+1679223498 c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\clock.h
+
+1679613605 source:c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\clock.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<string.h>
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	"clock.h"
+
+1679221370 c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\wakeup.h
+
+1679221552 source:c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\wakeup.c
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	"wakeup.h"
+
+1679177271 source:c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\_heap.asm
+
+1679203767 source:c:\users\kijo7257\documents\lab3\lab3_part3_supplimental\copy.c
+	<stdbool.h>
+	<stdint.h>
+	<stdlib.h>
+	<stdio.h>
+	<mcs51/8051.h>
+	<at89c51ed2.h>
+	<mcs51reg.h>
+	<string.h>
+	"high_speed_out.h"
+	"string_func.h"
+	"pwm.h"
+	"clock.h"
+

@@ -1,0 +1,43 @@
+AS31 NOTES:
+
+- The string ".inc" anywhere on a line will try to include a file,
+  even if ".inc" appears in a comment
+
+- Some reserved keywords cannot be used as labels
+  or symbols.  These include all of the directives and opcodes.
+  Specific ones to note are:
+	byte
+	end
+	flag
+	skip
+	word
+  The complete list is below.
+
+- The file needs to end in a newline.  If the last line does not end
+  with a newline, the last line will give a syntax error.
+
+AS31 reserved words (opcodes and directives, from optable[] in source):
+	a	ab	acall	add	addc	ajmp	anl
+	byte	c	cjne	clr	cpl	da	db
+	dec	div	djnz	dptr	dw	end	equ
+	flag	inc	jb	jbc	jc	jmp	jnb
+	jnc	jnz	jz	lcall	ljmp	mov	movc
+	movx	mul	nop	org	orl	pc	pop
+	push	r0	r1	r2	r3	r4	r5
+	r6	r7	ret	reti	rl	rlc	rr
+	rrc	setb	sjmp	skip	subb	swap	word
+	xch	xchd	xrl
+
+AS31 reserved symbols (from sinit[] in source):
+	ac	acc	b	cy	dph	dpl	ea
+	es	et0	et1	et2	ex0	ex1	exen2
+	exf2	f0	ie	ie0	ie1	int0	int1
+	ip	it0	it1	ov	p	p0	p1
+	p2	p3	pcon	ps	psw	pt0	pt1
+	pt2	px0	px1	rb8	rcap2h	rcap2l	rclk
+	ren	rd	ri	rl2	rs0	rs1	rxd
+	sbuf	scon	sm0	sm1	sm2	sp	t0
+	t1	t2	t2con	t2ex	tb8	tclk	tcon
+	t2ex	tb8	tclk	tcon	tf0	tf1	tf2
+	th0	th1	th2	ti	tl0	tl1	tl2
+	tmod	tr0	tr1	tr2	txd	wr

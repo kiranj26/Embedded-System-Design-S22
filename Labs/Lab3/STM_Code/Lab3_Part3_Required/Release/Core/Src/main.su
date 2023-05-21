@@ -1,0 +1,5 @@
+../Core/Src/main.c:57:6:duty_cycle_processing	8	static
+../Core/Src/main.c:87:6:Error_Handler	0	static,ignoring_inline_asm
+../Core/Src/main.c:98:6:EXTI0_IRQHandler	16	static
+../Core/Src/main.c:147:6:USART2_IRQHandler	0	static
+../Core/Src/main.c:160:5:main	8	static

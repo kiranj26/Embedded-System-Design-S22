@@ -1,0 +1,241 @@
+
+/*****************************************************************************
+ * Copyright (C) 2023 by Kiran Jojare
+ *
+ * Redistribution, modification or use of this software in source or binary
+ * forms is permitted as long as the files maintain this copyright. Users
+ * are permitted to modify this and use it to learn about the field of
+ * embedded software. Kiran Jojare and the University of Colorado are not
+ * liable for any misuse of this material.
+ *****************************************************************************/
+
+/**
+ * @file    character.c
+ * @brief
+ * @author  Kiran Jojare
+ * @date    March 3, 2023
+ * @version 1.0
+*/
+
+#include <mcs51/8051.h>
+#include <at89c51ed2.h>       //also includes 8052.h and 8051.h
+#include <mcs51reg.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#include "string_func.h"
+#include "character.h"
+
+#define ALL_BUFFER_CLEARED 1
+#define ALL_BUFFER_NOT_CLEARED 2;
+__xdata char size[4] = { '0', '0', '0', '\0' };
+__xdata int buffer_to_delete =0;
+
+
+__xdata int buff_not_cleared[100] = {1,1,0};
+
+extern __xdata char* buffer0;
+/*extern __xdata int storage_character_detected  = 0;
+extern __xdata int total_characters_detected   = 0;
+extern __xdata int command_characters_detected = 0;
+*/
+extern __xdata int buffer_size_arr[300];
+extern __xdata char* new_buffer_arr[100];
+
+
+int buffer0and1_size = 0;
+
+
+void address_dump(int address){
+    if(address > 4095)
+    {
+        printf_tiny("%x:",address);
+    }
+    else if (address > 255)
+    {
+        printf_tiny("0%x:",address);
+    }
+    else if (address > 15)
+    {
+        printf_tiny("00%x",address);
+    }
+    else if (address <=15 && address>=0)
+    {
+        printf_tiny("000%x");
+    }
+}
+
+void buffer0_hexdump() {
+    int itr = 0;
+    bool print_address = true;
+    printf("\n\r");
+    while(itr < buffer0and1_size)
+    {
+        // print address
+        if(print_address)
+        {
+            printf("%p :",buffer0[itr]);
+            // print_address = false;
+
+            // int temp = 0, temp1=0;
+
+            // temp = (int) (buffer0+itr);
+            // printf("%p: ",buffer0+itr)
+            // address_dump(temp);
+            print_address =false;
+        }
+
+        if(buffer0[itr] == '0')
+        {
+            printf_tiny(" XX");
+        }
+        else
+        {
+            printf_tiny(" %c", buffer0[itr]);
+        }
+
+        if((itr+1) % 16 == 0)
+        {
+            printf_tiny("\n\r");
+            print_address = true;
+        }
+
+      itr++;
+    }
+}
+
+
+
+int command_processing(int cmd_detected, char ch,int * new_buffer_index, int free_buffer_count, int filled_buffer_count, int buffer0_size)
+{
+    buffer0and1_size = buffer0_size;
+    if(cmd_detected)
+    {
+        switch(ch)
+        {
+        case '+':
+            (*new_buffer_index)++;
+            printf("New buffer index after + = %d\n\r",*new_buffer_index);
+            printf_tiny("\n\rEnter size:");
+            gets_(size);
+            int buffer_size = atoi(size);
+            printf("Size after atoi = %d\r\n",buffer_size);
+            if (buffer_size < 30 || buffer_size > 300) {
+                printf_tiny("The buffer size should be in the range [30, 300]\n\r\n\r");
+                break;
+            }
+            __xdata char* buffer_ptr = (__xdata char*)malloc(buffer_size);
+
+            if (buffer_ptr == NULL) {
+                printf_tiny("Invalid input : Failed to allocate buffer\n\r\n\r");
+                break;
+            }
+
+            buffer_size_arr[(*new_buffer_index)-1] = buffer_size;
+            ++filled_buffer_count;
+
+            new_buffer_arr[(*new_buffer_index)-1] = buffer_ptr;
+            buff_not_cleared[(*new_buffer_index)] = 1; // indicating buff bo new_buffer_index is created
+            printf("Buffer Ptr  = %p\r\n",buffer_ptr);
+            printf("Buffer Ptr in array  = %p\r\n",new_buffer_arr[(*new_buffer_index)-1]);
+
+            printf("New buffer index = %d\n\r",(*new_buffer_index));
+            printf_tiny("New buffer allocated successfully : Buffer[%d]\n\r", ((*new_buffer_index)-1));
+            printf_tiny("Total Number of Buffers including buffer0 & buffer1 = [%d]\n\r",(*new_buffer_index));
+            printf_tiny("Total Filled Buffers = [%d] \t Total Empty Buffers = [%d] \n\r\n\r",filled_buffer_count,free_buffer_count);
+            for(int i=0;i<(*new_buffer_index);i++){
+                printf("Address of Buffer[%d] = %p \r\n",i,new_buffer_arr[i]);
+            }
+            for(int i=0;i<(*new_buffer_index);i++){
+                printf_tiny("Size of buffer[%d] = %d\r\n",i,buffer_size_arr[i]);
+            }
+            break;
+
+
+        case '-':
+            buffer_to_delete = 0;
+            printf_tiny("\n\rEnter buffer number to be deleted:\n\r");
+            printf_tiny("\Current number of buffers are [%d] (index starting from 0):\n\r\n\r",new_buffer_index);
+            __xdata char ch;
+
+            do{
+                ch = getchar();
+                putchar(ch);
+
+                if (ch < '0' || ch > '9') {
+                    printf_tiny("Invalid input : invalid digits entered \n\r\n\r");
+                    break;
+                }
+
+                int temp = ch - '0';
+                buffer_to_delete = buffer_to_delete * 10 + temp;
+
+                ch = getchar();
+
+            }while(ch != '\r');
+
+            if (buffer_to_delete == 0)
+            {
+                printf_tiny("Invalid input : buffer number can't be 0\n\r\n");break;
+
+            } else if(buff_not_cleared[buffer_to_delete] == 0){
+                printf_tiny("Invalid input : buffer[%d] was already cleared earlier\n\r",buffer_to_delete);break;
+
+            } else if ((buffer_to_delete) >= *new_buffer_index) {
+                printf_tiny("Invalid input : buffer number doesn't exist\n\r");break;
+
+            } else {
+                printf_tiny("Buffer [%d] requested to be deleted\n\r",buffer_to_delete);
+                free(new_buffer_arr[buffer_to_delete]);
+                buff_not_cleared[buffer_to_delete] =0;
+                ++free_buffer_count;
+                printf_tiny("Buffer[%d] de-allocated successfully  \n\r", buffer_to_delete);
+                printf_tiny("Total Number of Buffers after deallocation = [%d]\n\r\n\r",new_buffer_index);
+                printf_tiny("Total Filled Buffers = [%d] \t Total Empty Buffers = [%d] \n\r\n\r",filled_buffer_count,free_buffer_count);
+            }
+            break;
+
+        case '@':
+            for(int i = 0; i < *new_buffer_index; i++) {
+                char* buffer_to_free = new_buffer_arr[i];
+                if(buffer_to_free != NULL) {
+                    free(buffer_to_free);
+                    new_buffer_arr[i] = NULL;
+                    printf_tiny("Buffer[%d] freed\n\r",i);
+                }else{
+                    printf_tiny("Buffer[%d] was already NULL\n\r",i);
+                }
+            }
+            new_buffer_index = 0;
+            return ALL_BUFFER_CLEARED;
+            break;
+        case '=':
+            buffer0_hexdump();
+            break;
+
+        case '?':
+            printf_tiny("\r\n|***********************************************|\n\r");
+            printf_tiny("|*************** HEAP REPORT *******************|\n\r");
+            printf_tiny("|***********************************************|\n\r");
+            //printf_tiny("Total characters eritten since last ? = [%d]\n\r",total_characters_detected);
+            for(int i=0;i<*new_buffer_index;i++)
+            {
+
+                //printf_tiny("\n\r-----------\n\r);
+                printf("\n\rBuffer [%d]\n\r",i);
+                printf("\n\rBuffer [%d] : Start Address = [%p] \n\r",i,new_buffer_arr[i]);
+                printf("\n\rBuffer [%d] : End Address   = [%p] \n\r",i,new_buffer_arr[i] + buffer_size_arr[i]);
+                printf("\n\rBuffer [%d] : Total Size    = [%d]\n\r",i,buffer_size_arr[i]);
+
+            }
+            printf_tiny("|***********************************************|\n\r");
+            //total_characters_detected = 0;
+            break;
+        default:
+            break;
+        }
+    }
+    return ALL_BUFFER_NOT_CLEARED;
+}
+
